@@ -1,0 +1,12 @@
+<h3>Авторизация</h3>
+<%= form_tag(sessions_path, class: "form-vertical") do %>
+  <div class="form-group">
+    <%= label_tag(:email, "Почта", class: "control-label") %>
+    <%= text_field_tag(:email, nil, class: "form-control", required: true) %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:password, "Пароль", class: "control-label") %>
+    <%= password_field_tag(:password, nil, class: "form-control", required: true) %>
+  </div>
+  <%= submit_tag("Войти", class: "btn btn-default") %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Новый пользователь</h1>
+<%= simple_form_for(@user, novalidate: false,
+  html: { novalidate: false, class: 'form-vertical' }) do |f| %>
+  <%= f.input :name, label: 'Имя',
+    required: false, input_html: {required: true} %>
+  <%= f.input :email, label: 'Почта',
+    required: false, input_html: {required: true} %>
+  <%= f.input :password, label: 'Пароль',
+    required: false, input_html: {required: true} %>
+  <%= f.input :password_confirmation, label: 'Подтверждение пароля',
+    required: false, input_html: {required: true} %>
+  <%= f.button :submit, @button_name %>
+<% end %>
+
