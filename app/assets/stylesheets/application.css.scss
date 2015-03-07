@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-color: rgba(245, 248, 250, 1);
+}
+
+ #hat-studpad{
+ background-color: #2D5F83;
+ height: 48px;
+ border-bottom: 1px solid rgb(226, 226, 226);
+ width: 100%;
+ z-index: 50;
+}
+#hat-studpad-title{
+ padding-top: 8px;
+ font-size: 22px;
+ text-align: center;
+ color: white;
+ font-weight: bold;
+}
+#under-profile-fon{
+ height: 48px;
+ border-top: 1px solid rgb(226, 226, 226);
+ border-bottom :1px solid rgb(226, 226, 226);
+ background-color: white;
+}
+#main-line{
+ background-color: white;
+ border: 1px solid rgb(226, 226, 226);
+ margin-bottom: 20px;
+ min-height: 550px;
+}
+.shaded-area{
+  background-color: #E3E9ED;
+}
+.title-menu{
+  font-size: 28px;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.text-hint{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+#menu-in-menu{
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+.text-on-page{
+  padding: 20px;
+}
+.button1-studpad{
+  background-image: none;
+  background-color: #2D5F83;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+ .studpad-list{
+   background-color: #FFF;
+ }
+ .menu-studpad-list{
+   background-color: rgb(235, 235, 235);
+ }

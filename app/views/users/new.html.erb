@@ -1,3 +1,9 @@
+<div id = 'main-line' class = 'container'>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-xs-4">
+
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-4 text-on-page">
 <h1>Новый пользователь</h1>
 <%= simple_form_for(@user, novalidate: false,
   html: { novalidate: false, class: 'form-vertical' }) do |f| %>
@@ -11,4 +17,11 @@
     required: false, input_html: {required: true} %>
   <%= f.button :submit, @button_name %>
 <% end %>
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-4">
+
+      </div>
+    </div>
+  </div>
+
 

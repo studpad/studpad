@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'questions#index'
+  root 'users#profile'
 
   resources :questions
   resources :users
