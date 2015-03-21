@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150318171808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "grades", force: :cascade do |t|
+  create_table "classrooms", force: :cascade do |t|
     t.string   "name",            null: false
     t.integer  "school_id"
     t.integer  "main_teacher_id"
@@ -24,28 +24,22 @@ ActiveRecord::Schema.define(version: 20150318171808) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "grades", ["main_teacher_id"], name: "index_grades_on_main_teacher_id", using: :btree
-  add_index "grades", ["school_id"], name: "index_grades_on_school_id", using: :btree
+  add_index "classrooms", ["main_teacher_id"], name: "index_classrooms_on_main_teacher_id", using: :btree
+  add_index "classrooms", ["school_id"], name: "index_classrooms_on_school_id", using: :btree
 
-  create_table "grades_teachers", force: :cascade do |t|
+  create_table "classrooms_teachers", force: :cascade do |t|
     t.integer "teacher_id"
-    t.integer "grade_id"
+    t.integer "classroom_id"
   end
 
-  add_index "grades_teachers", ["grade_id"], name: "index_grades_teachers_on_grade_id", using: :btree
-  add_index "grades_teachers", ["teacher_id"], name: "index_grades_teachers_on_teacher_id", using: :btree
+  add_index "classrooms_teachers", ["classroom_id"], name: "index_classrooms_teachers_on_classroom_id", using: :btree
+  add_index "classrooms_teachers", ["teacher_id"], name: "index_classrooms_teachers_on_teacher_id", using: :btree
 
   create_table "news_items", force: :cascade do |t|
-    t.integer  "grade_id"
+    t.integer  "classroom_id"
     t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "questions", force: :cascade do |t|
-    t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "schools", force: :cascade do |t|
@@ -63,11 +57,11 @@ ActiveRecord::Schema.define(version: 20150318171808) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "grade_id"
+    t.integer  "classroom_id"
     t.string   "type"
   end
 
+  add_index "users", ["classroom_id"], name: "index_users_on_classroom_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["grade_id"], name: "index_users_on_grade_id", using: :btree
 
 end

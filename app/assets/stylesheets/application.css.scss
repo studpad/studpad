@@ -83,3 +83,112 @@ body {
  .menu-studpad-list{
    background-color: rgb(235, 235, 235);
  }
+
+body{
+  background-color: rgb(250, 250, 250);
+  color: rgb(90, 103, 112);
+}
+#hat-studpad{
+  background-color: #00739D;
+  height: 48px;
+  border-bottom: 1px solid rgb(226, 226, 226);
+  width: 100%;
+  z-index: 50;
+}
+#hat-studpad-title{
+  padding-top: 8px;
+  font-size: 22px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.container-sp{
+  padding: 20px 5px;
+}
+.title-sp{
+  font-size: 22px;
+  color: rgb(90, 103, 112);
+}
+#right-part-page{
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-left: solid 1px #d7d7d7;
+  background: #fff;
+  -webkit-backface-visibility: hidden;
+  z-index: 10;
+  position: absolute;
+  right: 0px;
+  top: 48px;
+  bottom: 0px;
+}
+.subtitle-sp{
+  color: rgb(95, 95, 95);
+  font-size: 14px;
+}
+.whattext-sp{
+  color: rgb(168, 168, 168);
+}
+a{
+  color: rgb(90, 103, 112);
+  text-decoration: none;
+}
+#each-students{
+  margin-top: 20px;
+  border-top: 1px solid #d7d7d7;
+}
+.the-student{
+  margin-top: 10px;
+}
+#main-part{
+  height: 250px;
+  border-bottom: 1px solid #d7d7d7;
+}
+#left-part-page{
+  width: 100%;
+  padding: 0px;
+}
+#main-container{
+  width: 100%;
+}
+#list-subjects{
+  border-right: 1px solid #d7d7d7;
+  font-size: 15px;
+  padding: 10px 30px;
+
+  background-color: white;
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+}
+.the-subject{
+  background-color: white;
+  margin-top: 10px;
+}
+#central-part{
+  padding: 10px 50px;
+}
+#text-HW{
+  resize: none;
+  width: 100%;
+}
+#main-wall{
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 4px;
+  border: 1px solid #d7d7d7;
+}
+#each-news{
+  border-radius: 4px;
+ -webkit-border-radius: 4px;
+ -moz-border-radius: 4px;
+ -o-border-radius: 4px;
+ padding: 10px;
+ background-color: white;
+ margin-top: 6px;
+}
+.the-news{
+  border-bottom: 1px solid rgb(226, 226, 226);
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
