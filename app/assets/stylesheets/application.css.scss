@@ -17,69 +17,129 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-  background-color: rgba(245, 248, 250, 1);
-}
-
- #hat-studpad{
- background-color: #2D5F83;
- height: 48px;
- border-bottom: 1px solid rgb(226, 226, 226);
- width: 100%;
- z-index: 50;
-}
-#hat-studpad-title{
- padding-top: 8px;
- font-size: 22px;
- text-align: center;
- color: white;
- font-weight: bold;
-}
-#under-profile-fon{
- height: 48px;
- border-top: 1px solid rgb(226, 226, 226);
- border-bottom :1px solid rgb(226, 226, 226);
- background-color: white;
-}
-#main-line{
- background-color: white;
- border: 1px solid rgb(226, 226, 226);
- margin-bottom: 20px;
- min-height: 550px;
-}
-.shaded-area{
-  background-color: #E3E9ED;
-}
-.title-menu{
-  font-size: 28px;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 5px;
-}
-.text-hint{
-  font-size: 15px;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 5px;
-}
-#menu-in-menu{
-  color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-}
-.text-on-page{
-  padding: 20px;
-}
-.button1-studpad{
-  background-image: none;
-  background-color: #2D5F83;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
- .studpad-list{
-   background-color: #FFF;
- }
- .menu-studpad-list{
-   background-color: rgb(235, 235, 235);
- }
+body{
+      background-color: rgb(251, 251, 251);
+      color: rgb(90, 103, 112);
+    }
+    #hat-studpad{
+      background-color: #00739D;
+      height: 48px;
+      border-bottom: 1px solid rgb(226, 226, 226);
+      width: 100%;
+      z-index: 50;
+      position: fixed;
+      top: 0px;
+    }
+    #hat-studpad-title{
+      padding-top: 8px;
+      font-size: 22px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+    .container-sp{
+      padding: 20px 5px;
+    }
+    .title-sp{
+      font-size: 22px;
+      color: rgb(90, 103, 112);
+    }
+    #right-part-page{
+      
+      overflow-x: hidden;
+      overflow-y: auto;
+      border-left: solid 1px #d7d7d7;
+      background: #fff;
+      -webkit-backface-visibility: hidden;
+      z-index: 10;
+      height: 100%;
+      padding-top: 48px;
+      position: fixed;
+      right: 0px;
+      scrollbar: none;
+    }
+    .subtitle-sp{
+      color: rgb(95, 95, 95);
+      font-size: 14px;
+    }
+    .whattext-sp{
+      color: rgb(168, 168, 168);
+    }
+    a{
+      color: rgb(90, 103, 112);
+      text-decoration: none;
+    }
+    #each-students{
+      margin-top: 20px;
+      border-top: 1px solid #d7d7d7;
+    }
+    .the-student{
+      margin-top: 10px;
+    }
+    #main-part{
+      height: 250px;
+      border-bottom: 1px solid #d7d7d7;
+    }
+    #left-part-page{
+      width: 100%;
+      padding: 0px;
+    }
+    #main-container{
+      width: 100%;
+    }
+    #list-subjects{
+      border-right: 1px solid #d7d7d7;
+      font-size: 15px;
+      padding: 10px 30px;
+      z-index: 10;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-backface-visibility: hidden;
+      background-color: white;
+      
+      padding-top: 48px;
+    }
+    .the-subject{
+      background-color: white;
+      margin-top: 10px;
+    }
+    #central-part{
+      padding: 10px 20px;
+      padding-top: 48px;
+    }
+    #text-HW{
+      resize: none;
+      width: 100%;
+    }
+    #main-wall{
+      background-color: white;
+      margin-top: 20px;
+      border-radius: 4px;
+      border: 1px solid #d7d7d7;
+    }
+    #each-news{
+      border-radius: 4px;
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     -o-border-radius: 4px;
+     padding: 10px;
+     background-color: white;
+     margin-top: 6px;
+    }
+    .the-news{
+      border-bottom: 1px solid rgb(226, 226, 226);
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    #title-news{
+      text-align: center;
+      padding-top: 15px;
+    }
+    .main-text-news{
+      color: black;
+      font-size: 14px;
+      margin-top: 7px;
+    }
+    .img-avatar{
+      border-radius: 200px;
+    }
