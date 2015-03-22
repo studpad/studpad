@@ -38,7 +38,7 @@ body{
       font-weight: bold;
     }
     .container-sp{
-      padding: 20px 5px;
+      padding: 10px 5px;
     }
     .title-sp{
       font-size: 22px;
@@ -140,8 +140,8 @@ body{
     }
     .the-news{
       border-bottom: 1px solid rgb(226, 226, 226);
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
     #title-news{
       text-align: center;
@@ -156,5 +156,15 @@ body{
       border-radius: 200px;
     }
     #show-teachers-students{
+      margin-top: 10px;
+    }
+    #class-photos{
+      height: 140px;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 4px;
+      border: 1px solid #d7d7d7;
+    }
+    #class-name-school{
       margin-top: 10px;
     }

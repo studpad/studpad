@@ -1,6 +1,6 @@
 <div class ='container' id = 'main-container'>
     <div class = 'row'>
-            <div class = 'col-lg-2 col-md-2 col-xs-2' id = 'list-subjects' scrolling="no">
+            <div class = 'col-lg-2 col-md-2 col-xs-2' id = 'list-subjects'>
               <div id = 'each-subjects'>
                 <div class = 'the-subject'>
                   Новости
@@ -61,14 +61,43 @@
 
             <div class = 'col-lg-7 col-md-7 col-xs-7' id = 'central-part'>
               <div class = 'row'>
-                <div class = 'col-lg-5 col-md-5 col-xs-5'>
-                   <div class = 'title-sp'  style = 'font-size: 40px;'>
-                      <%= @classroom.name %>
-                   </div>
+                <div class = 'col-lg-12 col-md-12 col-xs-12'>
+                  <div class = 'title-sp' id = 'class-name-school'>
+                    <%= @classroom.school.name %>
+                  </div>
                 </div>
-                <div class = 'col-lg-7 col-md-7 col-xs-7' style = 'padding-top: 10px;'>
-                   <%= text_area_tag(:textHW, "Hi, nice site", class: 'form-control') %>
-                   <div style = 'margin-top: 5px; text-align: right;'><button type="button" class="btn btn-default btn-lg" disabled="disabled">Отправить</button></div>
+              </div>
+              <div class = 'row'>
+                <div class = 'col-lg-12 col-md-12 col-xs-12'>
+                  <div id = 'class-photos'>
+                    <div class = 'container-fluid'>
+                      <div class = 'row'>
+                        <div class = 'col-lg-12 col-md-12 col-xs-12'>
+                          Фотографии
+                        </div>
+                      </div>
+                      <div class = 'row'>
+                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg"); background-size: cover; height: 120px;'>
+                        
+                        </div>
+                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg"); background-size: cover; height: 120px;'>
+                        
+                        </div>
+                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px;'>
+                        
+                        </div>
+                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg"); background-size: cover; height: 120px;'>
+                        
+                        </div>
+                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg"); background-size: cover; height: 120px;'>
+                        
+                        </div>
+                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px;'>
+                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class = 'row'>
@@ -84,7 +113,7 @@
                             <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/>
                           </div>
                           <div class = 'col-xs-11'>
-                            <div id = 'news-username' style = 'font-size: 16px;'>
+                            <div id = 'news-username' style = 'font-size: 15px;'>
                               Стрельников Борис
                             </div>
                             <div class = 'main-text-news'>
@@ -93,6 +122,95 @@
 По идее шмель не должен летать, потому что размер, вем и форма его тела по отношению к размаху крыльев - с точки зрения аэродинамики - делают его полет невозможным. Но шмель не знает об этой научной теории и поэтому каждый день расправляет крылышки и летит за пыльцой.
 
 А если бы он знал... Он бы смог летать? Или может быть у шмелей своя теория по этому поводу?
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class = 'the-news'>
+                        <div class = 'row'>
+                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                            <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+                          </div>
+                          <div class = 'col-xs-11'>
+                            <div id = 'news-username' style = 'font-size: 15px;'>
+                              Никитин Макс
+                            </div>
+                            <div class = 'main-text-news'>
+                              У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
+
+Я не хочу принимать эти убеждения и соответствовать им до конца жизни. 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class = 'the-news'>
+                        <div class = 'row'>
+                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                            <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/>
+                          </div>
+                          <div class = 'col-xs-11'>
+                            <div id = 'news-username' style = 'font-size: 15px;'>
+                              Стрельников Борис
+                            </div>
+                            <div class = 'main-text-news'>
+                              "Неограниченная" установка разума предоставляет нам огромные возможности. Я убедился в этом сегодня еще раз, когда читал книгу Джона Максвелла.
+
+По идее шмель не должен летать, потому что размер, вем и форма его тела по отношению к размаху крыльев - с точки зрения аэродинамики - делают его полет невозможным. Но шмель не знает об этой научной теории и поэтому каждый день расправляет крылышки и летит за пыльцой.
+
+А если бы он знал... Он бы смог летать? Или может быть у шмелей своя теория по этому поводу?
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class = 'the-news'>
+                        <div class = 'row'>
+                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                            <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+                          </div>
+                          <div class = 'col-xs-11'>
+                            <div id = 'news-username' style = 'font-size: 15px;'>
+                              Никитин Макс
+                            </div>
+                            <div class = 'main-text-news'>
+                              У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
+
+Я не хочу принимать эти убеждения и соответствовать им до конца жизни. 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class = 'the-news'>
+                        <div class = 'row'>
+                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                            <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/>
+                          </div>
+                          <div class = 'col-xs-11'>
+                            <div id = 'news-username' style = 'font-size: 15px;'>
+                              Стрельников Борис
+                            </div>
+                            <div class = 'main-text-news'>
+                              "Неограниченная" установка разума предоставляет нам огромные возможности. Я убедился в этом сегодня еще раз, когда читал книгу Джона Максвелла.
+
+По идее шмель не должен летать, потому что размер, вем и форма его тела по отношению к размаху крыльев - с точки зрения аэродинамики - делают его полет невозможным. Но шмель не знает об этой научной теории и поэтому каждый день расправляет крылышки и летит за пыльцой.
+
+А если бы он знал... Он бы смог летать? Или может быть у шмелей своя теория по этому поводу?
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class = 'the-news'>
+                        <div class = 'row'>
+                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                            <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+                          </div>
+                          <div class = 'col-xs-11'>
+                            <div id = 'news-username' style = 'font-size: 15px;'>
+                              Никитин Макс
+                            </div>
+                            <div class = 'main-text-news'>
+                              У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
+
+Я не хочу принимать эти убеждения и соответствовать им до конца жизни. 
                             </div>
                           </div>
                         </div>
@@ -106,7 +224,7 @@
             <div  class="col-lg-3 col-md-3  col-xs-3" id = 'right-part-page'>
               <div class = 'container-sp'>
                 <div class = 'title-sp'>
-                    <%= @classroom.school.name %>
+                    <%= @classroom.name %>
                 </div>
                 <div class = 'whattext-sp'>
                   Классный руководитель: <a href = 'https://vk.com/nikitin__max'><%= @classroom.main_teacher.name %></a>
