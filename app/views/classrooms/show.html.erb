@@ -67,7 +67,7 @@
                    </div>
                 </div>
                 <div class = 'col-lg-7 col-md-7 col-xs-7' style = 'padding-top: 10px;'>
-                   <textarea id = 'text-HW' class = 'form-control' rows = '4'></textarea>
+                   <%= text_area_tag(:textHW, "Hi, nice site", class: 'form-control') %>
                    <div style = 'margin-top: 5px; text-align: right;'><button type="button" class="btn btn-default btn-lg" disabled="disabled">Отправить</button></div>
                 </div>
               </div>
@@ -81,14 +81,18 @@
                       <div class = 'the-news'>
                         <div class = 'row'>
                           <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
-                            <img src = 'елвборя.jpg' width = '44' height = '44' style = 'border-radius: 200px;'/>
+                            <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/>
                           </div>
                           <div class = 'col-xs-11'>
                             <div id = 'news-username' style = 'font-size: 16px;'>
                               Стрельников Борис
                             </div>
                             <div class = 'main-text-news'>
-                              Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)Фак тебе в рот, фак тебе в рот! Опыт, Макс, опыт! Бабу хочу. Rest in piece)
+                              "Неограниченная" установка разума предоставляет нам огромные возможности. Я убедился в этом сегодня еще раз, когда читал книгу Джона Максвелла.
+
+По идее шмель не должен летать, потому что размер, вем и форма его тела по отношению к размаху крыльев - с точки зрения аэродинамики - делают его полет невозможным. Но шмель не знает об этой научной теории и поэтому каждый день расправляет крылышки и летит за пыльцой.
+
+А если бы он знал... Он бы смог летать? Или может быть у шмелей своя теория по этому поводу?
                             </div>
                           </div>
                         </div>
@@ -105,17 +109,25 @@
                     <%= @classroom.school.name %>
                 </div>
                 <div class = 'whattext-sp'>
-                  Классный руководитель: <a href = 'https://vk.com/nikitin__max'>Никитина Елена Сергеевна</a>
+                  Классный руководитель: <a href = 'https://vk.com/nikitin__max'><%= @classroom.main_teacher.name %></a>
+                </div>
+                <div id = 'show-teachers-students'>
+                  <span id = 'all-students' class = 'type-profiles'>Ученики</span> • <span id = 'all-teachers' class = 'type-profiles'>Преподаватели</span>
                 </div>
                 <div id = 'each-students'>
-                  <div class = 'the-student'>
-                    <a href = 'https://vk.com/nikitin__max'><img src = 'jg_Fotor1.jpg' width = '44' height = '44' class = 'img-avatar'/> Никитин Максим</a>
+                  <div class = 'the-person'>
+                    <a href = 'https://vk.com/nikitin__max'><img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/> Никитин Максим</a>
                   </div>
-                  <div class = 'the-student'>
-                    <img src = 'елвборя.jpg' width = '44' height = '44' class = 'img-avatar'/> Стрельников Борис
+                  <div class = 'the-person'>
+                    <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/> Стрельников Борис
                   </div>
-                  <div class = 'the-student'>
-                    <img src = 'two.jpg' width = '44' height = '44' class = 'img-avatar'/> Какая-то тёлочка
+                  <div class = 'the-person'>
+                    <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/> Какая-то тёлочка
+                  </div>
+                </div>
+                <div id = 'each-teachers'>
+                  <div class = 'the-person'>
+                    <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/> Какая-то тёлочка
                   </div>
                 </div>
               </div>

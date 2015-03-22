@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+
+$(document).ready(function(){
+   $(".type-profiles").click(function(){
+   	
+   	the_id = $(this).attr('id');
+   	
+   	if (the_id == 'all-students'){
+   		$('#each-students').css('display', 'block');
+   		$('#each-teachers').css('display', 'none');
+   	}
+   	else{
+   		$('#each-students').css('display', 'none');
+   		$('#each-teachers').css('display', 'block');
+   	}
+   	
+
+   });
+});

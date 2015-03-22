@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :show, :update, :destroy]
 
   def new
-    @user = User.new
+    @user = Teacher.new
     @button_name = 'Создать'
   end
 
   def create
-    @user = User.new user_params
+    @user = Teacher.new user_params
     if @user.save
       auto_login @user
       flash[:success] = 'Успешная регистрация'
@@ -52,6 +52,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:teacher).permit(:name, :email, :password, :password_confirmation)
     end
 end

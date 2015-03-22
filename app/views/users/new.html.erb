@@ -5,7 +5,7 @@
       </div>
       <div class="col-lg-4 col-md-4 col-xs-4 text-on-page">
 <h1>Новый пользователь</h1>
-<%= simple_form_for(@user, novalidate: false,
+<%= simple_form_for(@user, url: users_path, novalidate: false,
   html: { novalidate: false, class: 'form-vertical' }) do |f| %>
   <%= f.input :name, label: 'Имя',
     required: false, input_html: {required: true} %>
