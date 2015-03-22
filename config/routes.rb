@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'users#profile'
 
-  resources :classrooms, only: :index
+  resources :classrooms
   resources :users
   resources :sessions
 

@@ -1,0 +1,22 @@
+<div id = 'main-line' class = 'container'>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-xs-4">
+
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-4 text-on-page">
+      <h1>Новая классная комната</h1>
+<%= simple_form_for(@classroom, novalidate: false,
+  html: { novalidate: false, class: 'form-vertical' }) do |f| %>
+  <%= f.input :name, label: 'Название',
+    required: false, input_html: {required: true} %>
+  <%= f.input :school_id, label: 'Школа', collection: @all_schools,
+    required: false, input_html: {required: true} %>
+  <%= f.input :main_teacher_id, label: 'Классный руководитель', collection: @all_teachers %>
+  <%= f.button :submit, 'Создать' %>
+<% end %>
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-4">
+
+      </div>
+    </div>
+  </div>
