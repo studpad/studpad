@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
 
+  get 'development' => 'sessions#development' #на время разработки
+
   get 'login'  => 'sessions#new'
   get 'logout' => 'sessions#destroy'
 
