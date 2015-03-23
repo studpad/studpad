@@ -20,6 +20,7 @@
 body{
       background-color: rgb(251, 251, 251);
       color: rgb(90, 103, 112);
+      cursor: default;
     }
     #hat-studpad{
       background-color: #00739D;
@@ -41,8 +42,9 @@ body{
     .container-sp{
       padding: 10px 5px;
     }
+
     .title-sp{
-      font-size: 22px;
+      font-size: 19px;
       color: rgb(90, 103, 112);
     }
     #right-part-page{
@@ -101,34 +103,51 @@ body{
     }
     #list-subjects{
       border-right: 1px solid #d7d7d7;
-      font-size: 15px;
-      padding: 10px 30px;
+      font-size: 14px;
+      padding: 10px 0px;
       z-index: 10;
       overflow-x: hidden;
       overflow-y: auto;
       -webkit-backface-visibility: hidden;
       background-color: white;
-
       padding-top: 48px;
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      bottom: 0px;
     }
     .the-subject{
       background-color: white;
-      margin-top: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 30px;
+      padding-right: 30px; 
+      cursor: pointer;
+    }
+    .the-subject:hover{
+      background-color: #EAEFF0;
     }
     #central-part{
       padding: 10px 20px;
       padding-top: 48px;
+      position: relative;
+      top: 0px;
     }
     #textHW{
       resize: none;
       width: 100%;
-      height: 70px;
+      height: 30px;
+      box-shadow: none;
+      border: 1px solid #ccc;
+    }
+    #textHW:hover{
+      border: 1px solid #00739D;
     }
     #main-wall{
       background-color: white;
-      margin-top: 20px;
+      margin-top: 15px;
       border-radius: 4px;
-      border: 1px solid #d7d7d7;
+      border: 1px solid #EAEFF0;
     }
     #each-news{
       border-radius: 4px;
@@ -160,18 +179,30 @@ body{
       margin-top: 10px;
     }
     #class-photos{
-      height: 200px;
-      margin-top: 20px;
-      background-color: white;
-      border-radius: 4px;
-      border: 1px solid #d7d7d7;
+      height: 166px;
     }
     #class-name-school{
       margin-top: 10px;
       padding-left: 5px;
     }
     #each-photos{
-      padding: 20px;
-      padding-top: 10px;
+      padding: 15px;
+      padding-top: 0px;
+      padding-bottom: 0px;
       border-radius: 4px;
+    }
+    #menu-under-news{
+      height: 50px;
+      background-color: #fbfbfb;
+    }
+    #post-news{
+      display: none;
+      background-color: #00739D;
+    }
+    #left-main-menu{
+      border-bottom: 1px solid #d7d7d7;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-left: 30px;
+      padding-right: 30px;
     }

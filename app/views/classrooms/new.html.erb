@@ -11,7 +11,6 @@
     required: false, input_html: {required: true} %>
   <%= f.input :school_id, label: 'Школа', collection: @all_schools,
     required: false, input_html: {required: true} %>
-  <%= f.input :main_teacher_id, label: 'Классный руководитель', collection: @all_teachers %>
   <%= f.button :submit, 'Создать' %>
 <% end %>
       </div>

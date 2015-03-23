@@ -1,0 +1,20 @@
+<div id = 'main-line' class = 'container'>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-xs-4">
+
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-4 text-on-page">
+      <h1>Добавить ученика</h1>
+<%= form_tag(add_classroom_path, class: "form-vertical") do %>
+  <div class="form-group">
+    <%= label_tag(:student, "Ученик", class: "control-label") %>
+    <%= collection_select(:classroom, :student_id, @students, :id, :name, {}, {class: "form-control"}) %>
+  </div>
+  <%= submit_tag("Добавить", class: "btn btn-default") %>
+<% end %>
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-4">
+
+      </div>
+    </div>
+  </div>

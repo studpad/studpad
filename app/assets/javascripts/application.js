@@ -28,7 +28,32 @@ $(document).ready(function(){
    		$('#each-students').css('display', 'none');
    		$('#each-teachers').css('display', 'block');
    	}
+   });
+});
+
+$(document).ready(function(){
+   $("#textHW").focus(function(){
    	
+   	$(this).css('height', '80px');
+   	$('#post-news').css('display', 'block');
 
    });
+});
+
+$(document).ready(function(){
+   $("#textHW").blur(function(){
+   	
+   	val = $(this).val();
+   	val = $.trim(val);
+
+   	if(!val){
+   		$('#post-news').css('display', 'none');
+   		$(this).css('height', '30px');
+   	}
+   });
+});
+
+$(document).ready(function(){
+	 left_val = $('#list-subjects').width();
+   $('#central-part').css('left', left_val);
 });

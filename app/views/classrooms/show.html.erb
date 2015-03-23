@@ -2,6 +2,9 @@
     <div class = 'row'>
             <div class = 'col-lg-2 col-md-2 col-xs-2' id = 'list-subjects'>
               <div id = 'each-subjects'>
+                <div class = 'title-sp' id = 'left-main-menu'>
+                  Меню
+                </div>
                 <div class = 'the-subject'>
                   Новости
                 </div>
@@ -11,7 +14,6 @@
                 <div class = 'the-subject'>
                   Фотоальбом
                 </div>
-                
               </div>
             </div>
 
@@ -25,49 +27,54 @@
               </div>
               <div class = 'row'>
                 <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                  <div id = 'class-photos'>
-                    <div class = 'container-fluid'>
-                      <div class = 'row'>
-                        <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                          <div class = 'title-sp' id = 'title-news'>
-                            Фотографии
+                  <div id = 'main-wall'>
+                    <div class = 'row'>
+                      <div class = 'col-lg-12 col-md-12 col-xs-12'>
+                        <div id = 'class-photos'>
+                          <div class = 'row'>
+                            <div class = 'col-lg-12 col-md-12 col-xs-12'>
+                              <div style = 'background-color: #EAEFF0; padding-bottom: 10px'>
+                                <div class = 'title-sp' id = 'title-news'>
+                                 Фотографии
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class = 'row' id = 'each-photos'>
+                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+                        
+                            </div>
+                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+                        
+                            </div>
+                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+                        
+                            </div>
+                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c7011/v7011473/255e/6SvvKJTbXb0.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+                        
+                            </div>
+                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c624121/v624121976/23be6/_QJvC6nWf7E.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+                        
+                            </div>
+                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div class = 'row' id = 'each-photos'>
-                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg"); background-size: cover; height: 120px; cursor: pointer; border-left: 1px solid white;'>
-                        
-                        </div>
-                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg"); background-size: cover; height: 120px; cursor: pointer; border-left: 1px solid white;'>
-                        
-                        </div>
-                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border-left: 1px solid white;'>
-                        
-                        </div>
-                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c7011/v7011473/255e/6SvvKJTbXb0.jpg"); background-size: cover; height: 120px; cursor: pointer; border-left: 1px solid white;'>
-                        
-                        </div>
-                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c624121/v624121976/23be6/_QJvC6nWf7E.jpg"); background-size: cover; height: 120px; cursor: pointer; border-left: 1px solid white;'>
-                        
-                        </div>
-                        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border-left: 1px solid white;'>
-                        
+                    </div>
+                    <div id = 'menu-under-news' style = 'background-color: #fbfbfb;'>
+
+                    </div>
+                    <div style = 'background-color: #EAEFF0; padding-bottom: 10px'>
+                      <div class = 'title-sp' id = 'title-news'>
+                        Новости
+                      </div>
+                      <div style = 'padding-left: 10px; padding-right: 10px; margin-top: 15px;'>
+                        <%= text_area_tag(:textHW, "", class: 'form-control') %>
+                        <div style = 'margin-top: 3px; text-align: left;'>
+                          <button type="button" id = 'post-news' class="btn btn-primary btn-sm">Опубликовать</button>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class = 'row'>
-                <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                  <div id = 'main-wall'>
-                    <div style = 'background-color: #F4F4F4; padding-bottom: 10px'>
-                    <div class = 'title-sp' id = 'title-news'>
-                      Новости
-                    </div>
-                    <div style = 'padding-left: 10px; padding-right: 10px; margin-top: 15px;'>
-                      <%= text_area_tag(:textHW, "", class: 'form-control') %>
-                    </div>
                     </div>
                     <div id = 'each-news'>
                       <div class = 'the-news'>
@@ -101,7 +108,7 @@
                             <div class = 'main-text-news'>
                               У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
 
-Я не хочу принимать эти убеждения и соответствовать им до конца жизни. 
+Я не хочу принимать эти убеждения и соответствовать им до конца жизни.
                             </div>
                           </div>
                         </div>
@@ -137,7 +144,7 @@
                             <div class = 'main-text-news'>
                               У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
 
-Я не хочу принимать эти убеждения и соответствовать им до конца жизни. 
+Я не хочу принимать эти убеждения и соответствовать им до конца жизни.
                             </div>
                           </div>
                         </div>
@@ -173,7 +180,7 @@
                             <div class = 'main-text-news'>
                               У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
 
-Я не хочу принимать эти убеждения и соответствовать им до конца жизни. 
+Я не хочу принимать эти убеждения и соответствовать им до конца жизни.
                             </div>
                           </div>
                         </div>
@@ -191,6 +198,7 @@
                 </div>
                 <div class = 'whattext-sp'>
                   Классный руководитель: <a href = 'https://vk.com/nikitin__max'><%= @classroom.main_teacher.name %></a>
+                  <%= link_to 'Добавить ученика', add_classroom_path %>
                 </div>
                 <div id = 'show-teachers-students'>
                   <span id = 'all-students' class = 'type-profiles'>Ученики</span> • <span id = 'all-teachers' class = 'type-profiles'>Преподаватели</span>
