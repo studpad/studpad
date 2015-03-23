@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   root 'users#profile'
 
-  resources :classrooms
+  resources :classrooms do
+    member do
+      get 'add'
+      post 'add' => 'classrooms#adding'
+    end
+  end
   resources :users
   resources :sessions
 
