@@ -215,9 +215,14 @@
                   <% end %>
                 </div>
                 <div id = 'each-teachers'>
+                  <% @classroom.teachers.each do |s| %>
                   <div class = 'the-person'>
-                    <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/> Какая-то тёлочка
+                    <%= link_to user_path(s) do %>
+                    <img src = 'http://cs623926.vk.me/v623926048/203d1/oKxZowyyX28.jpg' width = '44' height = '44' class = 'img-avatar'/>
+                    <%= s.name %>
+                    <% end %>
                   </div>
+                  <% end %>
                 </div>
               </div>
             </div>
