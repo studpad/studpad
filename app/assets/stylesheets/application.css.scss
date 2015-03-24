@@ -121,7 +121,7 @@ body{
       padding-top: 5px;
       padding-bottom: 5px;
       padding-left: 30px;
-      padding-right: 30px; 
+      padding-right: 30px;
       cursor: pointer;
     }
     .the-subject:hover{
@@ -139,6 +139,7 @@ body{
       height: 30px;
       box-shadow: none;
       border: 1px solid #ccc;
+      overflow: hidden;
     }
     #textHW:hover{
       border: 1px solid #d7d7d7;
@@ -221,4 +222,24 @@ body{
     .glyphicon:hover{
       color: #5a6770;
       cursor: pointer;
+    }
+    .wrap-avatar-news{
+      text-align: center;
+      width: 50px;
+    }
+    .news-username{
+      font-size: 15px;
+    }
+    .title-background{
+      background-color: #EAEFF0;
+      padding-bottom: 10px;
+    }
+    #wrap-send-button{
+      margin-top: 3px;
+      text-align: left;
+    }
+    #form-send-news{
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-top: 15px;
     }

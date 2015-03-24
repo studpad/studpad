@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   before_validation :remove_whitespaces
-
+  has_many :news_items
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 5, message: 'Не менее 5 символов' },
