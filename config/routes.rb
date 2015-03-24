@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :classrooms do
     member do
-      get 'add'
-      post 'add' => 'classrooms#adding'
+      get 'new_student'
+      post 'new_student' => 'classrooms#create_student'
     end
   end
   resources :users

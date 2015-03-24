@@ -33,14 +33,20 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.find(params[:id])
   end
 
-  def add
-    @students = Student.all
+  def new_student
+    @student = Student.new
   end
 
-  def adding
-    s = Student.find(add_student_id)
-    s.update_attribute :classroom_id, params[:id]
-    redirect_to classroom_path
+  def create_student
+    @student = Student.new new_student_params
+    @student.classroom_id = params[:id]
+
+    if @student.save
+      flash[:success] = 'Ученик успешно создан'
+      redirect_to classroom_path
+    else
+      render 'new_student'
+    end
   end
 
   private
@@ -48,7 +54,7 @@ class ClassroomsController < ApplicationController
       params.require(:classroom).permit(:name, :school_id)
     end
 
-    def add_student_id
-      params[:classroom][:student_id]
+    def new_student_params
+      params.require(:student).permit(:name, :email, :password, :password_confirmation)
     end
 end
