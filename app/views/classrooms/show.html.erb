@@ -33,7 +33,7 @@
                         <div id = 'class-photos'>
                           <div class = 'row'>
                             <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                              <div style = 'background-color: #EAEFF0; padding-bottom: 10px'>
+                              <div class = 'title-background'>
                                 <div class = 'title-sp' id = 'title-news'>
                                  Фотографии
                                 </div>
@@ -62,16 +62,16 @@
                         </div>
                       </div>
                     </div>
-                    <div id = 'menu-under-news' style = 'background-color: #fbfbfb;'>
+                    <div id = 'menu-under-news'>
 
                     </div>
-                    <div style = 'background-color: #EAEFF0; padding-bottom: 10px'>
+                    <div class = 'title-background'>
                       <div class = 'title-sp' id = 'title-news'>
                         Новости
                       </div>
-                      <div style = 'padding-left: 10px; padding-right: 10px; margin-top: 15px;'>
+                      <div id = 'forn-send-news'>
                         <%= text_area_tag(:textHW, "", class: 'form-control') %>
-                        <div style = 'margin-top: 3px; text-align: left;'>
+                        <div id = 'wrap-send-button'>
                           <button type="button" id = 'post-news' class="btn btn-primary btn-sm"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
                         </div>
                       </div>
@@ -79,12 +79,12 @@
                     <div id = 'each-news'>
                       <div class = 'the-news'>
                         <div class = 'row'>
-                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                          <div class = 'col-xs-1' class = 'wrap-avatar-news'>
                             <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/>
                           </div>
                           <div class = 'col-xs-11'>
                             <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></div>
-                            <div id = 'news-username' style = 'font-size: 15px;'>
+                            <div class = 'news-username'>
                               Стрельников Борис
                             </div>
                             <div class = 'main-text-news'>
@@ -99,12 +99,12 @@
                       </div>
                       <div class = 'the-news'>
                         <div class = 'row'>
-                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                          <div class = 'col-xs-1' class = 'wrap-avatar-news'>
                             <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
                           </div>
                           <div class = 'col-xs-11'>
                             <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></div>
-                            <div id = 'news-username' style = 'font-size: 15px;'>
+                            <div class = 'news-username'>
                               Никитин Макс
                             </div>
                             <div class = 'main-text-news'>
@@ -117,12 +117,12 @@
                       </div>
                       <div class = 'the-news'>
                         <div class = 'row'>
-                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                          <div class = 'col-xs-1' class = 'wrap-avatar-news'>
                             <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/>
                           </div>
                           <div class = 'col-xs-11'>
                             <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></div>
-                            <div id = 'news-username' style = 'font-size: 15px;'>
+                            <div class = 'news-username'>
                               Стрельников Борис
                             </div>
                             <div class = 'main-text-news'>
@@ -137,11 +137,11 @@
                       </div>
                       <div class = 'the-news'>
                         <div class = 'row'>
-                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                          <div class = 'col-xs-1' class = 'wrap-avatar-news'>
                             <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
                           </div>
                           <div class = 'col-xs-11'>
-                            <div id = 'news-username' style = 'font-size: 15px;'>
+                            <div class = 'news-username'>
                               Никитин Макс
                             </div>
                             <div class = 'main-text-news'>
@@ -154,11 +154,11 @@
                       </div>
                       <div class = 'the-news'>
                         <div class = 'row'>
-                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                          <div class = 'col-xs-1' class = 'wrap-avatar-news'>
                             <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/>
                           </div>
                           <div class = 'col-xs-11'>
-                            <div id = 'news-username' style = 'font-size: 15px;'>
+                            <div class = 'news-username'>
                               Стрельников Борис
                             </div>
                             <div class = 'main-text-news'>
@@ -173,11 +173,11 @@
                       </div>
                       <div class = 'the-news'>
                         <div class = 'row'>
-                          <div class = 'col-xs-1' style = 'text-align: center; width: 50px;'>
+                          <div class = 'col-xs-1' class = 'wrap-avatar-news'>
                             <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
                           </div>
                           <div class = 'col-xs-11'>
-                            <div id = 'news-username' style = 'font-size: 15px;'>
+                            <div class = 'news-username'>
                               Никитин Макс
                             </div>
                             <div class = 'main-text-news'>
