@@ -42,19 +42,19 @@
                           </div>
                           <div class = 'row' id = 'each-photos'>
                             <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-                        
+
                             </div>
                             <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-                        
+
                             </div>
                             <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-                        
+
                             </div>
                             <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c7011/v7011473/255e/6SvvKJTbXb0.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-                        
+
                             </div>
                             <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c624121/v624121976/23be6/_QJvC6nWf7E.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-                        
+
                             </div>
                             <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
                             </div>
@@ -204,15 +204,15 @@
                   <span id = 'all-students' class = 'type-profiles'>Ученики</span> • <span id = 'all-teachers' class = 'type-profiles'>Преподаватели</span>
                 </div>
                 <div id = 'each-students'>
+                  <!-- УЧЕНИКИ -->
+                  <% @classroom.students.each do |s| %>
                   <div class = 'the-person'>
-                    <a href = 'https://vk.com/nikitin__max'><img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/> Никитин Максим</a>
+                    <%= link_to user_path(s) do %>
+                    <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+                    <%= s.name %>
+                    <% end %>
                   </div>
-                  <div class = 'the-person'>
-                    <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '44' height = '44' class = 'img-avatar'/> Стрельников Борис
-                  </div>
-                  <div class = 'the-person'>
-                    <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/> Какая-то тёлочка
-                  </div>
+                  <% end %>
                 </div>
                 <div id = 'each-teachers'>
                   <div class = 'the-person'>
