@@ -70,10 +70,12 @@
                         Новости
                       </div>
                       <div style = 'padding-left: 10px; padding-right: 10px; margin-top: 15px;'>
+                        <%= form_tag %>
                         <%= text_area_tag(:textHW, "", class: 'form-control') %>
                         <div style = 'margin-top: 3px; text-align: left;'>
                           <button type="button" id = 'post-news' class="btn btn-primary btn-sm"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
                         </div>
+                        <% end %>
                       </div>
                     </div>
                     <div id = 'each-news'>
