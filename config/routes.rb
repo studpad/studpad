@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post 'news' => 'news#create'
     end
   end
+  resources :news, only: [:destroy]
   resources :users
   resources :sessions
 
