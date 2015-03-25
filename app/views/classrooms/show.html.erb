@@ -77,7 +77,7 @@
                       </div>
                     </div>
                     <div id = 'menu-under-news'>
-                      
+
                     </div>
                     <div class = 'title-background'>
                       <div class = 'title-sp' id = 'title-news'>
@@ -94,6 +94,32 @@
                     </div>
                     <div id = 'each-news'>
                     <% @news.each do |n| %>
+                    <div class = 'the-news'>
+                      <div class = 'row'>
+                        <div class = 'col-xs-1' class = 'wrap-avatar-news'>
+                          <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+                        </div>
+                        <div class = 'col-xs-11'>
+                          <% if current_user.id == n.user_id %>
+                          <div class = 'sign-sp close-news'>
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <%= link_to news_path(n), method:'delete' do %>
+                            <span class="glyphicon glyphicon-remove"></span>
+                            <% end %>
+                          </div>
+                          <% end %>
+                          <div class = 'news-username'>
+                            <%= link_to n.user.name, user_path(n.user) %>
+                          </div>
+                          <div class = 'main-text-news'>
+                            <%= n.text %>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <% end %>
+                    </div>
                       <div class = 'the-news'>
                         <div class = 'row'>
                           <div class = 'col-xs-1' class = 'wrap-avatar-news'>
@@ -230,40 +256,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class = 'the-news'>
-                        <div class = 'row'>
-                          <div class = 'col-xs-1' class = 'wrap-avatar-news'>
-                            <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
-                          </div>
-                          <div class = 'col-xs-11'>
-                            <div class = 'news-username'>
-                              Никитин Макс
-                            </div>
-                            <div class = 'main-text-news'>
-                              У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
 
-Я не хочу принимать эти убеждения и соответствовать им до конца жизни.
-
-                            <% if current_user.id == n.user_id %>
-                            <div class = 'sign-sp close-news'>
-                              <span class="glyphicon glyphicon-pencil"></span>
-                              &nbsp;&nbsp;&nbsp;&nbsp;
-                              <%= link_to news_path(n), method:'delete' do %>
-                              <span class="glyphicon glyphicon-remove"></span>
-                              <% end %>
-                            </div>
-                            <% end %>
-                            <div class = 'news-username'>
-                              <%= link_to n.user.name, user_path(n.user) %>
-                            </div>
-                            <div class = 'main-text-news'>
-                              <%= n.text %>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <% end %>
-                    </div>
                   </div>
                 </div>
               </div>
