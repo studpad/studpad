@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'users#profile'
 
   resources :classrooms do
+    resources :photos
     member do
       get 'new_student'
       post 'new_student' => 'classrooms#create_student'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :news, only: [:destroy]
   resources :users
   resources :sessions
+  resources :photos
 
   get 'development' => 'sessions#development' #на время разработки
 
