@@ -6,8 +6,8 @@
   </div>
   <div id = 'form-send-news'>
     <%= form_tag news_classroom_path do %>
-    <%= text_area_tag(:textHW, "", class: 'form-control') %>
-    <div id = 'wrap-send-button'>
+    <%= text_area_tag(:textHW, "Ваша новость...", class: 'form-control') %>
+    <div class = 'wrap-send-button'>
       <button type="submit" id = 'post-news' class="btn btn-primary btn-sm"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
     </div>
     <% end %>
@@ -35,6 +35,12 @@
         </div>
         <div class = 'main-text-news'>
           <%= n.text %>
+        </div>
+        <div class = 'form-send-comment-of-news'>
+          <%= text_area_tag(:textHW_comment, "Ваш комментарий...", class: 'form-control textHW_comment') %>
+          <div class = 'wrap-send-button'>
+            <button type="submit" class="btn btn-primary btn-xs post-comment-of-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
+          </div>
         </div>
         <% if n.comments.presence %>
           <div class = 'each-comment-of-the-news'>

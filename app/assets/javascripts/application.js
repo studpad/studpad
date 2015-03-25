@@ -54,6 +54,28 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+   $(".textHW_comment").focus(function(){
+
+   	$(this).css('height', '50px');
+   	$(this).next().children('.post-comment-of-news').css('display', 'block');
+
+   });
+});
+
+$(document).ready(function(){
+   $(".textHW_comment").blur(function(){
+   	
+   	val = $(this).val();
+   	val = $.trim(val);
+
+   	if(!val){
+   		$(this).next().children('.post-comment-of-news').css('display', 'none');
+   		$(this).css('height', '30px');
+   	}
+   });
+});
+
+$(document).ready(function(){
 	 left_val = $('#list-subjects').width();
    $('#central-part').css('left', left_val);
 });

@@ -51,7 +51,7 @@ body{
 
       overflow-x: hidden;
       overflow-y: auto;
-      
+      border-left: 1px solid #EFEFEF;
       background: #fff;
       -webkit-backface-visibility: hidden;
       z-index: 10;
@@ -102,7 +102,7 @@ body{
       width: 100%;
     }
     #list-subjects{
-      
+      border-right: 1px solid #EFEFEF;
       font-size: 14px;
       padding: 10px 0px;
       z-index: 10;
@@ -133,22 +133,23 @@ body{
       position: relative;
       top: 0px;
     }
-    #textHW{
+    #textHW, #textHW_comment{
       resize: none;
       width: 100%;
       height: 30px;
       box-shadow: none;
-      border: 1px solid #ccc;
+      border: 1px solid #E8E8E8;
       overflow: hidden;
+      color: rgb(166, 166, 166);
     }
-    #textHW:hover{
+    #textHW:hover, #textHW_comment:hover{
       border: 1px solid #d7d7d7;
     }
     #main-wall{
       background-color: white;
       margin-top: 15px;
       border-radius: 4px;
-      border: 1px solid #EAEFF0;
+      border: 1px solid #EFEFEF;
     }
     #each-news{
       border-radius: 4px;
@@ -160,16 +161,16 @@ body{
      margin-top: 6px;
     }
     .the-news{
-      border-bottom: 1px solid rgb(226, 226, 226);
+      border-bottom: 1px solid #EFEFEF;
       padding-top: 20px;
       padding-bottom: 20px;
     }
     .each-comment-of-the-news{
       margin-top: 3px;
-      border-top: 1px solid rgb(226, 226, 226);
+      border-top: 1px solid #EFEFEF;
     }
     .the-comment{
-      border-bottom: 1px solid rgb(226, 226, 226);
+      border-top: 1px solid rgb(226, 226, 226);
       padding-top: 20px;
       padding-bottom: 20px;
       background-color: rgb(250, 250, 250);
@@ -216,6 +217,10 @@ body{
       display: none;
       background-color: #00739D;
     }
+    .post-comment-of-news{
+      display: none;
+      background-color: #00739D;
+    }
     #left-main-menu, #left-main-menu-s{
       border-bottom: 1px solid #EFEFEF;
       padding-top: 8px;
@@ -252,7 +257,7 @@ body{
       background-color: #EAEFF0;
       padding-bottom: 10px;
     }
-    #wrap-send-button{
+    .wrap-send-button{
       margin-top: 3px;
       text-align: left;
     }
@@ -271,3 +276,16 @@ body{
         
       }
     }
+
+    /* для странице пользователя */
+    #user-card{
+      position: absolute;
+      width: 86%;
+      left: 7%;
+      top: 80px;
+      bottom: 60px;
+      background-color: white;
+      border: 1px solid #EFEFEF;
+      border-radius: 4px;
+    }
+
