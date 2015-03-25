@@ -84,13 +84,16 @@
                         Новости
                       </div>
                       <div id = 'form-send-news'>
+                        <%= form_tag news_classroom_path do %>
                         <%= text_area_tag(:textHW, "", class: 'form-control') %>
                         <div id = 'wrap-send-button'>
-                          <button type="button" id = 'post-news' class="btn btn-primary btn-sm"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
+                          <button type="submit" id = 'post-news' class="btn btn-primary btn-sm"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
                         </div>
+                        <% end %>
                       </div>
                     </div>
                     <div id = 'each-news'>
+                    <% @classroom.news_items.each do |n| %>
                       <div class = 'the-news'>
                         <div class = 'row'>
                           <div class = 'col-xs-1' class = 'wrap-avatar-news'>
@@ -240,10 +243,26 @@
                               У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
 
 Я не хочу принимать эти убеждения и соответствовать им до конца жизни.
+
+                            <% if current_user.id == n.user_id %>
+                            <div class = 'sign-sp close-news'>
+                              <span class="glyphicon glyphicon-pencil"></span>
+                              &nbsp;&nbsp;&nbsp;&nbsp;
+                              <%= link_to news_path(n), method:'delete' do %>
+                              <span class="glyphicon glyphicon-remove"></span>
+                              <% end %>
+                            </div>
+                            <% end %>
+                            <div class = 'news-username'>
+                              <%= link_to n.user.name, user_path(n.user) %>
+                            </div>
+                            <div class = 'main-text-news'>
+                              <%= n.text %>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>

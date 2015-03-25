@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150318171808) do
 
   create_table "news_items", force: :cascade do |t|
     t.integer  "classroom_id"
+    t.integer  "user_id"
     t.text     "text"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

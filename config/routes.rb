@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     member do
       get 'new_student'
       post 'new_student' => 'classrooms#create_student'
+      post 'news' => 'news#create'
     end
   end
+  resources :news, only: [:destroy]
   resources :users
   resources :sessions
 
