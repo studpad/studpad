@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 20150318171808) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "news_items", ["classroom_id"], name: "index_news_items_on_classroom_id", using: :btree
+  add_index "news_items", ["user_id"], name: "index_news_items_on_user_id", using: :btree
+
   create_table "schools", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "ogrn_ident"
