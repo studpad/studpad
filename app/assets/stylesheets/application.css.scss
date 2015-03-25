@@ -51,7 +51,7 @@ body{
 
       overflow-x: hidden;
       overflow-y: auto;
-      border-left: solid 1px #d7d7d7;
+      
       background: #fff;
       -webkit-backface-visibility: hidden;
       z-index: 10;
@@ -75,7 +75,7 @@ body{
     #each-students{
       margin-top: 5px;
       padding-top: 10px;
-      border-top: 1px solid #d7d7d7;
+      border-top: 1px solid #EFEFEF;
     }
     #each-teachers{
       margin-top: 5px;
@@ -102,7 +102,7 @@ body{
       width: 100%;
     }
     #list-subjects{
-      border-right: 1px solid #d7d7d7;
+      
       font-size: 14px;
       padding: 10px 0px;
       z-index: 10;
@@ -187,6 +187,7 @@ body{
       color: black;
       font-size: 14px;
       margin-top: 7px;
+      padding: 5px;
     }
     .img-avatar{
       border-radius: 200px;
@@ -216,7 +217,7 @@ body{
       background-color: #00739D;
     }
     #left-main-menu, #left-main-menu-s{
-      border-bottom: 1px solid #d7d7d7;
+      border-bottom: 1px solid #EFEFEF;
       padding-top: 8px;
       padding-bottom: 8px;
       padding-left: 30px;
@@ -242,8 +243,7 @@ body{
       cursor: pointer;
     }
     .wrap-avatar-news{
-      text-align: center;
-      width: 50px;
+      padding-left: 20px;
     }
     .news-username{
       font-size: 15px;
