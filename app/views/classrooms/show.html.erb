@@ -1,213 +1,29 @@
 <div class ='container' id = 'main-container'>
-    <div class = 'row'>
-            <div class = 'col-lg-2 col-md-2 col-xs-2' id = 'list-subjects'>
-              <div id = 'each-subjects'>
-                <div class = 'title-sp' id = 'left-main-menu'>
-                  Меню
-                </div>
-                <div class = 'the-subject'>
-                  Новости
-                </div>
-                <div class = 'the-subject'>
-                  Полезные материалы
-                </div>
-                <div class = 'the-subject'>
-                  Фотоальбом
-                </div>
-              </div>
-              <div id = 'each-subjects'>
-                <div class = 'title-sp' id = 'left-main-menu-s'>
-                  Предметы
-                </div>
-                <div class = 'the-subject'>
-                  Русский язык
-                </div>
-                <div class = 'the-subject'>
-                  Математика
-                </div>
-                <div class = 'the-subject'>
-                  Физика
-                </div>
+  <div class = 'row'>
+    <%= render  "list_subjects"%>
+    <div class = 'col-lg-7 col-md-7 col-xs-7' id = 'central-part'>
+      <div class = 'row'>
+        <div class = 'col-lg-12 col-md-12 col-xs-12'>
+          <div class = 'title-sp' id = 'class-name-school'>
+            <%= @classroom.school.name %>
+          </div>
+        </div>
+      </div>
+      <div class = 'row'>
+        <div class = 'col-lg-12 col-md-12 col-xs-12'>
+          <div id = 'main-wall'>
+            <div class = 'row'>
+              <div class = 'col-lg-12 col-md-12 col-xs-12'>
+                <%= render "class_photos" %>
               </div>
             </div>
 
-            <div class = 'col-lg-7 col-md-7 col-xs-7' id = 'central-part'>
-              <div class = 'row'>
-                <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                  <div class = 'title-sp' id = 'class-name-school'>
-                    <%= @classroom.school.name %>
-                  </div>
-                </div>
-              </div>
-              <div class = 'row'>
-                <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                  <div id = 'main-wall'>
-                    <div class = 'row'>
-                      <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                        <div id = 'class-photos'>
-                          <div class = 'row'>
-                            <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                              <div class = 'title-background'>
-                                <div class = 'title-sp' id = 'title-news'>
-                                 Фотографии
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class = 'row' id = 'each-photos'>
-                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-
-                            </div>
-                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-
-                            </div>
-                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-
-                            </div>
-                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c7011/v7011473/255e/6SvvKJTbXb0.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-
-                            </div>
-                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c624121/v624121976/23be6/_QJvC6nWf7E.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-
-                            </div>
-                            <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div id = 'menu-under-news'>
-
-                    </div>
-                    <div class = 'title-background'>
-                      <div class = 'title-sp' id = 'title-news'>
-                        Новости
-                      </div>
-                      <div id = 'form-send-news'>
-                        <%= form_tag news_classroom_path do %>
-                        <%= text_area_tag(:textHW, "", class: 'form-control') %>
-                        <div id = 'wrap-send-button'>
-                          <button type="submit" id = 'post-news' class="btn btn-primary btn-sm"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
-                        </div>
-                        <% end %>
-                      </div>
-                    </div>
-                    <div id = 'each-news'>
-                    <% @news.each do |n| %>
-                    <div class = 'the-news'>
-                      <div class = 'row'>
-                        <div class = 'col-xs-1 wrap-avatar-news'>
-                          <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
-                        </div>
-                        <div class = 'col-xs-11'>
-                          <div class = 'content-the-news'>
-                            <% if current_user.id == n.user_id %>
-                            <div class = 'sign-sp close-news'>
-                              <span class="glyphicon glyphicon-pencil"></span>
-                              &nbsp;&nbsp;&nbsp;&nbsp;
-                              <%= link_to news_path(n), method:'delete' do %>
-                              <span class="glyphicon glyphicon-remove"></span>
-                              <% end %>
-                            </div>
-                            <% end %>
-                            <div class = 'news-username'>
-                              <%= link_to n.user.name, user_path(n.user) %>
-                            </div>
-                            <div class = 'main-text-news'>
-                              <%= n.text %>
-                            </div>
-                          </div>
-
-                      <div class = 'each-comment-of-the-news'>
-                        <div class = 'the-comment'>
-                          <div class = 'row'>
-                            <div class = 'col-xs-1' class = 'wrap-avatar-news'>
-                              <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '40' height = '40' class = 'img-avatar'/>
-                            </div>
-                            <div class = 'col-xs-11'>
-                              <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></div>
-                              <div class = 'comment-username'>
-                               Стрельников Борис
-                              </div>
-                              <div class = 'main-text-news'>
-                        "Неограниченная" установка разума предоставляет нам огромные возможности. Я убедился в этом сегодня еще раз, когда читал книгу Джона Максвелла.
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class = 'the-comment'>
-                          <div class = 'row'>
-                            <div class = 'col-xs-1' class = 'wrap-avatar-news'>
-                              <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '40' height = '40' class = 'img-avatar'/>
-                            </div>
-                            <div class = 'col-xs-11'>
-                              <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></div>
-                              <div class = 'comment-username'>
-                               Никитин Макс
-                              </div>
-                              <div class = 'main-text-news'>
-                         У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
-
-Я не хочу принимать эти убеждения и соответствовать им до конца жизни.
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-
-
-                        </div>
-                      </div>
-                    </div>
-                    <% end %>
-
-
-
-
-
-
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div  class="col-lg-3 col-md-3  col-xs-3" id = 'right-part-page'>
-              <div class = 'container-sp'>
-                <div class = 'title-sp'>
-                    <%= @classroom.name %>
-                </div>
-                <div class = 'whattext-sp'>
-                  Классный руководитель: <a href = 'https://vk.com/nikitin__max'><%= @classroom.main_teacher.name %></a>
-                  <%= link_to 'Добавить ученика', new_student_classroom_path %>
-                </div>
-                <div id = 'show-teachers-students'>
-                  <span id = 'all-students' class = 'type-profiles'>Ученики</span> • <span id = 'all-teachers' class = 'type-profiles'>Преподаватели</span>
-                </div>
-                <div id = 'each-students'>
-                  <!-- УЧЕНИКИ -->
-                  <% @classroom.students.each do |s| %>
-                  <div class = 'the-person'>
-                    <%= link_to user_path(s) do %>
-                    <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
-                    <%= s.name %>
-                    <% end %>
-                  </div>
-                  <% end %>
-                </div>
-                <div id = 'each-teachers'>
-                  <% @classroom.teachers.each do |s| %>
-                  <div class = 'the-person'>
-                    <%= link_to user_path(s) do %>
-                    <img src = 'http://cs623926.vk.me/v623926048/203d1/oKxZowyyX28.jpg' width = '44' height = '44' class = 'img-avatar'/>
-                    <%= s.name %>
-                    <% end %>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
+            <%= render "news"%>
+        </div>
+      </div>
     </div>
+    </div>
+
+    <%= render "right_part_page" %>
   </div>
+</div>
