@@ -4,4 +4,8 @@ class PhotosController < ApplicationController
     @photos = Photos.all
   end
 
+  def show
+
+  end
+
 end

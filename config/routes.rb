@@ -4,10 +4,14 @@ Rails.application.routes.draw do
 
   resources :classrooms do
     resources :photos
+    resources :news, only: :create do
+      member do
+        post 'comment'
+      end
+    end
     member do
       get 'new_student'
       post 'new_student' => 'classrooms#create_student'
-      post 'news' => 'news#create'
     end
   end
   resources :news, only: [:destroy]
