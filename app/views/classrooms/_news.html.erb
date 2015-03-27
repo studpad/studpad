@@ -38,10 +38,12 @@
             <span class = 'span-main-text-news'><%= n.text %></span>
           </div>
           <div class = 'textarea-update-news'>
-            <%= text_area_tag(:textHW_update ,nil, class: 'form-control textHW-update') %>
+            <%= form_tag news_path(n), method: 'patch' do %>
+            <%= text_area_tag(:text, nil, class: 'form-control textHW-update') %>
             <div class = 'wrap-send-button'>
               <button type="submit" class="btn btn-primary btn-xs change-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
             </div>
+            <% end %>
           </div>
         </div>
         <div class = 'form-send-comment-of-news'>
@@ -67,7 +69,11 @@
                   <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '40' height = '40' class = 'img-avatar'/>
                 </div>
                 <div class = 'col-xs-11'>
-                  <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil pencil-comment"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></div>
+                  <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil pencil-comment"></span>&nbsp;&nbsp;
+                  <%= link_to comment_path(c), method: 'delete' do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+                  <% end %>
+                  </div>
                   <div class = 'comment-username'>
                   <%= c.user.name %>
                   </div>
@@ -75,10 +81,12 @@
                     <span class = 'span-main-text-comment'><%= c.body %></span>
                   </div>
                   <div class = 'textarea-update-news'>
-                    <%= text_area_tag(:textHW_update ,nil, class: 'form-control textHW-update') %>
+                    <%= form_tag comment_path(c), method: 'patch' do %>
+                    <%= text_area_tag(:text, nil, class: 'form-control textHW-update') %>
                     <div class = 'wrap-send-button'>
                       <button type="submit" class="btn btn-primary btn-xs change-comment"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
                     </div>
+                    <% end %>
                   </div>
                   <div class = 'menu-of-form-send-comment-of-news'>
                     <span class = 'date-news'>28.10.1994</span>

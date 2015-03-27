@@ -16,4 +16,10 @@ class NewsController < ApplicationController
     NewsItem.find(params[:id]).comments.create body: params[:textHW_comment], user_id: current_user.id
     redirect_to classroom_path(params[:classroom_id])
   end
+
+  def update
+    n = NewsItem.find(params[:id])
+    n.update_attribute :text, params[:text]
+    redirect_to classroom_path(n.classroom_id)
+  end
 end
