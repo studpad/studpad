@@ -93,7 +93,7 @@ $(document).ready(function(){
    	
    	val = $(this).parent().next().next().children().html();
    	$(this).parent().next().next().css('display', 'none');
-   	$(this).parent().next().next().next().children().val(val);
+   	$(this).parent().next().next().next().children().children().val(val);
 
    	$(this).parent().next().next().next().css('display', 'block');
    	
@@ -105,7 +105,7 @@ $(document).ready(function(){
    	
    	val = $(this).parent().next().next().children().html();
    	$(this).parent().next().next().css('display', 'none');
-   	$(this).parent().next().next().next().children().val(val);
+   	$(this).parent().next().next().next().children().children().val(val);
 
    	$(this).parent().next().next().next().css('display', 'block');
    	
