@@ -6,7 +6,7 @@
   </div>
   <div id = 'form-send-news'>
     <%= form_tag news_classroom_path do %>
-    <%= text_area_tag(:textHW, "Ваша новость...", class: 'form-control') %>
+    <%= text_area_tag(:textHW, "", class: 'form-control', placeholder: "Ваша новость...") %>
     <div class = 'wrap-send-button'>
       <button type="submit" id = 'post-news' class="btn btn-primary btn-sm"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
     </div>
@@ -24,7 +24,7 @@
         <% if current_user.id == n.user_id %>
         <div class = 'sign-sp close-news'>
           <span class="glyphicon glyphicon-pencil"></span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;
           <%= link_to news_path(n), method:'delete' do %>
           <span class="glyphicon glyphicon-remove"></span>
           <% end %>
@@ -37,9 +37,15 @@
           <%= n.text %>
         </div>
         <div class = 'form-send-comment-of-news'>
-          <%= text_area_tag(:textHW_comment, "Ваш комментарий...", class: 'form-control textHW_comment') %>
-          <div class = 'wrap-send-button'>
-            <button type="submit" class="btn btn-primary btn-xs post-comment-of-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
+          <div class = 'menu-of-form-send-comment-of-news'>
+            <span class = 'date-news'>28.10.1994</span>
+            <span class = 'give-comment'>Комментировать</span>
+          </div>
+          <div class = 'textarea-form-send-comment-of-news'>
+            <%= text_area_tag(:textHW_comment, "", class: 'form-control textHW_comment', placeholder: "Ваш комментарий...") %>
+            <div class = 'wrap-send-button'>
+              <button type="submit" class="btn btn-primary btn-xs post-comment-of-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
+            </div>
           </div>
         </div>
         <% if n.comments.presence %>

@@ -34,7 +34,7 @@ $(document).ready(function(){
 $(document).ready(function(){
    $("#textHW").focus(function(){
    	
-   	$(this).css('height', '80px');
+   	$(this).css('height', '80px').css('color', 'black');
    	$('#post-news').css('display', 'block');
 
    });
@@ -56,7 +56,7 @@ $(document).ready(function(){
 $(document).ready(function(){
    $(".textHW_comment").focus(function(){
 
-   	$(this).css('height', '50px');
+   	$(this).css('height', '50px').css('color', 'black');
    	$(this).next().children('.post-comment-of-news').css('display', 'block');
 
    });
@@ -72,6 +72,13 @@ $(document).ready(function(){
    		$(this).next().children('.post-comment-of-news').css('display', 'none');
    		$(this).css('height', '30px');
    	}
+   });
+});
+
+$(document).ready(function(){
+   $(".give-comment").click(function(){
+   	
+   	$(this).parent().next().css('display', 'block');
    });
 });
 
