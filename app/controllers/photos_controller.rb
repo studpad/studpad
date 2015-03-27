@@ -1,7 +1,12 @@
 class PhotosController < ApplicationController
 
 	def index
-    @photos = Photos.all
+    @classroom = Classroom.find(params[:classroom_id])
+    @photos = @classroom.photos
+  end
+
+  def show
+
   end
 
 end
