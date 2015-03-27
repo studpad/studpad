@@ -295,17 +295,6 @@ body{
       }
     }
 
-    /* для странице пользователя */
-    #user-card{
-      position: absolute;
-      width: 86%;
-      left: 7%;
-      top: 80px;
-      bottom: 60px;
-      background-color: white;
-      border: 1px solid #EFEFEF;
-      border-radius: 4px;
-    }
     .form-send-comment-of-news{
       
     }
@@ -336,5 +325,19 @@ body{
     .change-news, .change-comment{
       margin-bottom: 6px;
     }
+
+    /* для странице пользователя */
+    #user-card{
+      position: absolute;
+      width: 86%;
+      left: 7%;
+      top: 80px;
+      bottom: 60px;
+      background-color: white;
+      border: 1px solid #EFEFEF;
+      box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+      padding: 0px;
+    }
+    
 
 
