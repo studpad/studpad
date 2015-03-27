@@ -22,19 +22,27 @@
       </div>
       <div class = 'col-xs-11'>
         <% if current_user.id == n.user_id %>
-        <div class = 'sign-sp close-news'>
-          <span class="glyphicon glyphicon-pencil"></span>
-          &nbsp;&nbsp;
-          <%= link_to news_path(n), method:'delete' do %>
-          <span class="glyphicon glyphicon-remove"></span>
+        <div class = 'content-the-news'>
+          <div class = 'sign-sp close-news'>
+            <span class="glyphicon glyphicon-pencil pencil-news"></span>
+            &nbsp;&nbsp;
+            <%= link_to news_path(n), method:'delete' do %>
+            <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </div>
           <% end %>
-        </div>
-        <% end %>
-        <div class = 'news-username'>
-          <%= link_to n.user.name, user_path(n.user) %>
-        </div>
-        <div class = 'main-text-news'>
-          <%= n.text %>
+          <div class = 'news-username'>
+            <%= link_to n.user.name, user_path(n.user) %>
+          </div>
+          <div class = 'main-text-news'>
+            <span class = 'span-main-text-news'><%= n.text %></span>
+          </div>
+          <div class = 'textarea-update-news'>
+            <%= text_area_tag(:textHW_update ,nil, class: 'form-control textHW-update') %>
+            <div class = 'wrap-send-button'>
+              <button type="submit" class="btn btn-primary btn-xs change-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
+            </div>
+          </div>
         </div>
         <div class = 'form-send-comment-of-news'>
           <div class = 'menu-of-form-send-comment-of-news'>
@@ -59,12 +67,21 @@
                   <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '40' height = '40' class = 'img-avatar'/>
                 </div>
                 <div class = 'col-xs-11'>
-                  <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></div>
+                  <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil pencil-comment"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></div>
                   <div class = 'comment-username'>
                   <%= c.user.name %>
                   </div>
                   <div class = 'main-text-news'>
-                  <%= c.body %>
+                    <span class = 'span-main-text-comment'><%= c.body %></span>
+                  </div>
+                  <div class = 'textarea-update-news'>
+                    <%= text_area_tag(:textHW_update ,nil, class: 'form-control textHW-update') %>
+                    <div class = 'wrap-send-button'>
+                      <button type="submit" class="btn btn-primary btn-xs change-comment"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
+                    </div>
+                  </div>
+                  <div class = 'menu-of-form-send-comment-of-news'>
+                    <span class = 'date-news'>28.10.1994</span>
                   </div>
                 </div>
               </div>

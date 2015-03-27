@@ -16,6 +16,12 @@
 //= require bootstrap-sprockets
 
 $(document).ready(function(){
+   $("textarea").focus(function(){
+   	 $(this).css('box-shadow', 'none').css('border', '1px solid #E8E8E8');
+	 });
+});
+
+$(document).ready(function(){
    $(".type-profiles").click(function(){
    	
    	the_id = $(this).attr('id');
@@ -79,6 +85,30 @@ $(document).ready(function(){
    $(".give-comment").click(function(){
    	
    	$(this).parent().next().css('display', 'block');
+   });
+});
+
+$(document).ready(function(){
+   $(".pencil-news").click(function(){
+   	
+   	val = $(this).parent().next().next().children().html();
+   	$(this).parent().next().next().css('display', 'none');
+   	$(this).parent().next().next().next().children().val(val);
+
+   	$(this).parent().next().next().next().css('display', 'block');
+   	
+   });
+});
+
+$(document).ready(function(){
+   $(".pencil-comment").click(function(){
+   	
+   	val = $(this).parent().next().next().children().html();
+   	$(this).parent().next().next().css('display', 'none');
+   	$(this).parent().next().next().next().children().val(val);
+
+   	$(this).parent().next().next().next().css('display', 'block');
+   	
    });
 });
 
