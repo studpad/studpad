@@ -114,3 +114,5 @@ $(document).ready(function(){
 	 left_val = $('#list-subjects').width();
    $('#central-part').css('left', left_val);
 });
+
+

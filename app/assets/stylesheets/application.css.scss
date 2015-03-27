@@ -329,15 +329,69 @@ body{
     /* для странице пользователя */
     #user-card{
       position: absolute;
-      width: 86%;
-      left: 7%;
+      width: 66%;
+      left: 17%;
       top: 80px;
-      bottom: 60px;
+      padding-bottom: 70px;
       background-color: white;
       border: 1px solid #EFEFEF;
       box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-      padding: 0px;
+      padding-top: 20px;
     }
+
+    #top-part-user{
+      padding-bottom: 20px;
+    }
+    .divider{
+      border-top:1px solid rgba(0,0,0,0.1);
+    }
+    .emphasis{
+      border-top: 4px solid transparent;
+    }
+    .emphasis:hover{
+      border-top: 4px solid #00739D;
+    }
+    .emphasis h2{
+      margin-bottom:0;
+    }
+    span.tags{
+      background: #00739D;
+      border-radius: 2px;
+      color: #f5f5f5;
+      font-weight: bold;
+      padding: 2px 4px;
+    }
+    .dropdown-menu{
+      background-color: #34495e;
+      box-shadow: none;
+       -webkit-box-shadow: none;
+      width: 250px;
+      margin-left: -125px;
+      left: 50%;
+     }
+    .dropdown-menu .divider{
+      background:none;
+     }
+    .dropdown-menu>li>a{
+      color:#f5f5f5;
+     }
+    .dropup .dropdown-menu{
+      margin-bottom:10px;
+     }
+    .dropup .dropdown-menu:before{
+      content: "";
+      border-top: 10px solid #34495e;
+      border-right: 10px solid transparent;
+      border-left: 10px solid transparent;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      margin-left: -10px;
+      z-index: 10;
+     }
+
+
+
     
 
 
