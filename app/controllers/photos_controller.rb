@@ -9,4 +9,17 @@ class PhotosController < ApplicationController
 
   end
 
+  def new
+    @photo = Photo.new
+  end
+
+  def create
+    @photo = Photo.new photo_params
+  end
+
+  private
+    def photo_params
+      params.require(:photo).permit(:name, :link, :classroom_id)
+    end
+
 end

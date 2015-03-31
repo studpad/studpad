@@ -22,4 +22,9 @@ class NewsController < ApplicationController
     n.update_attribute :text, params[:text]
     redirect_to classroom_path(n.classroom_id)
   end
+
+  def polycreate
+
+  end
+
 end

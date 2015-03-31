@@ -7,13 +7,23 @@
 		 			<div class="col-sm-12" id = 'top-part-user'>
 		 				<div class="col-xs-12 col-sm-7">
 		 					<h2><%= @user.name %></h2>
-		 					<p><strong>Школа: </strong> МОУ СОШ №!5 c. Ивановское Ставропольский край </p>
-		 					<p><strong>Классы: </strong> 11Б, 8А, 8В </p>
+		 					<% if @user.student?%>
+		 					<p><strong>Школа: </strong><%= @user.classroom.school.name %></p>
+		 					<p><strong>Класс: </strong>
+		 						<%= link_to @user.classroom.name, classroom_path(@user.classroom) %>
+		 					</p>
+		 					<% else %>
+		 					<p><strong>Ваши классы: </strong>
+		 						<% @user.his_main_classrooms.each do |c| %>
+		 							<%= link_to c.name, classroom_path(c) %>
+		 						<% end %>
+		 					</p>
 		 					<p><strong>Предметная область: </strong>
 		 						<span class="tags">Русский язык</span>
 		 						<span class="tags">Литература</span>
 		 					</p>
-		 					
+		 					<% end %>
+
 		 					<%= render "model_window" %>
 
 		 				</div>
