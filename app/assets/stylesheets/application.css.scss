@@ -42,6 +42,9 @@ body{
     .wrapper {
       display: inline-block;
     }
+    .btn-st{
+      background-color: #00739D;
+    }
     .container-sp{
       padding: 10px 5px;
     }
@@ -145,6 +148,9 @@ body{
       overflow: hidden;
       color: rgb(166, 166, 166);
     }
+     #textHW_from_profile{
+      height: 80px;
+     }
     .textHW-update{
       resize: none;
       width: 100%;
@@ -272,7 +278,7 @@ body{
       font-size: 15px;
     }
     .title-background{
-      background-color: #EAEFF0;
+      
       padding-bottom: 10px;
     }
     .wrap-send-button{
@@ -389,7 +395,35 @@ body{
       margin-left: -10px;
       z-index: 10;
      }
-
+     #sendbut-profile{
+        margin-top: -6px;
+     }
+     #sendbut-profile button{
+      background-color: #00739D;
+     }
+     select{
+      box-shadow: none;
+      border: 1px solid #E8E8E8;
+     }
+     .select2-container--default .select2-selection--multiple{
+      border: 1px solid rgb(232, 232, 232);
+     }
+     .select2-container--default .select2-results__option--highlighted[aria-selected]{
+      background-color: #00739D;
+     }
+     #send-news-from-profile{
+      margin-top: 4px;
+      display: none;
+      background-color: #00739D;
+     }
+     .alert{
+      padding-top: 8px;
+      padding-bottom: 8px;
+     }
+     .modal-footer{
+      border-top: none;
+     }
+     
 
 
     

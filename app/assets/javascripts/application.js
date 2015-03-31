@@ -22,6 +22,16 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+	$(".js-example-basic-multiple").select2();
+	$(".js-example-placeholder-multiple").select2({
+  	placeholder: "Класс"
+	});
+	$("#choice-theme").select2({
+  	placeholder: "Тема"
+	});
+});
+
+$(document).ready(function(){
    $(".type-profiles").click(function(){
    	
    	the_id = $(this).attr('id');
@@ -80,6 +90,7 @@ $(document).ready(function(){
    	}
    });
 });
+
 
 $(document).ready(function(){
    $(".give-comment").click(function(){
