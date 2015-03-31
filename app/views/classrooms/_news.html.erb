@@ -53,7 +53,7 @@
           </div>
           <div class = 'textarea-form-send-comment-of-news'>
             <%= form_tag comment_classroom_news_path(params[:id], n.id) do %>
-            <%= text_area_tag(:textHW_comment, nil, class: 'form-control textHW_comment', placeholder: "Ваш комментарий...") %>
+            <%= text_area_tag(:text, nil, class: 'form-control textHW_comment', placeholder: "Ваш комментарий...") %>
             <div class = 'wrap-send-button'>
               <button type="submit" class="btn btn-primary btn-xs post-comment-of-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
             </div>
@@ -75,7 +75,7 @@
                   <% end %>
                   </div>
                   <div class = 'comment-username'>
-                  <%= c.user.name %>
+                  <%= link_to c.user.name, user_path(c.user) %>
                   </div>
                   <div class = 'main-text-news'>
                     <span class = 'span-main-text-comment'><%= c.body %></span>

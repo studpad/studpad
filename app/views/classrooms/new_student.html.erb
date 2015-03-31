@@ -15,6 +15,10 @@
     required: false, input_html: {required: true} %>
   <%= f.input :password_confirmation, label: 'Подтверждение пароля',
     required: false, input_html: {required: true} %>
+  <div class='form-group'>
+    <label>Кодовое слово</label>
+    <input name='secretphrase' class='form-control'>
+  </div>
   <%= f.button :submit, 'Добавить' %>
 <% end %>
       </div>

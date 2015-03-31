@@ -13,7 +13,7 @@ class NewsController < ApplicationController
   end
 
   def comment
-    NewsItem.find(params[:id]).comments.create body: params[:textHW_comment], user_id: current_user.id
+    NewsItem.find(params[:id]).comments.create body: params[:text], user_id: current_user.id
     redirect_to classroom_path(params[:classroom_id])
   end
 

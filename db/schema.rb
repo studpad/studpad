@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325182918) do
+ActiveRecord::Schema.define(version: 20150331192431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150325182918) do
     t.integer  "main_teacher_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "secretphrase"
   end
 
   add_index "classrooms", ["main_teacher_id"], name: "index_classrooms_on_main_teacher_id", using: :btree
@@ -58,6 +59,14 @@ ActiveRecord::Schema.define(version: 20150325182918) do
   add_index "news_items", ["classroom_id"], name: "index_news_items_on_classroom_id", using: :btree
   add_index "news_items", ["user_id"], name: "index_news_items_on_user_id", using: :btree
 
+  create_table "news_items_themes", force: :cascade do |t|
+    t.integer "news_items_id"
+    t.integer "themes_id"
+  end
+
+  add_index "news_items_themes", ["news_items_id"], name: "index_news_items_themes_on_news_items_id", using: :btree
+  add_index "news_items_themes", ["themes_id"], name: "index_news_items_themes_on_themes_id", using: :btree
+
   create_table "photos", force: :cascade do |t|
     t.string   "name"
     t.string   "link"
@@ -74,6 +83,12 @@ ActiveRecord::Schema.define(version: 20150325182918) do
     t.string   "name",       null: false
     t.string   "ogrn_ident"
     t.string   "kpp_ident"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

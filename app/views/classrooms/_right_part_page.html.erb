@@ -5,7 +5,10 @@
     </div>
     <div class = 'whattext-sp'>
       Классный руководитель: <a href = 'https://vk.com/nikitin__max'><%= @classroom.main_teacher.name %></a>
-      <%= link_to 'Добавить ученика', new_student_classroom_path %>
+      <br>
+      <% unless current_user%>
+        <%= link_to 'Присоединиться к классу', new_student_classroom_path %>
+      <% end %>
     </div>
     <div id = 'show-teachers-students'>
       <span id = 'all-students' class = 'type-profiles'>Ученики</span> • <span id = 'all-teachers' class = 'type-profiles'>Преподаватели</span>

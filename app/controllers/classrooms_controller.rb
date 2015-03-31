@@ -1,4 +1,6 @@
 class ClassroomsController < ApplicationController
+  skip_before_filter :require_login, only:[:show, :new_student, :create_student]
+
   def index
     @classrooms = Classroom.all
   end
@@ -40,11 +42,13 @@ class ClassroomsController < ApplicationController
 
   def create_student
     @student = Student.new new_student_params
-    @student.classroom_id = params[:id]
+    @classroom = Classroom.find(params[:id])
+    @student.classroom = @classroom
 
-    if @student.save
+    if @classroom.secretphrase.to_s == params[:secretphrase] && @student.save
       flash[:success] = 'Ученик успешно создан'
-      redirect_to classroom_path
+      auto_login @student
+      redirect_to user_path(@student)
     else
       render 'new_student'
     end
