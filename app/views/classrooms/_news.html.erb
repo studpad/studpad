@@ -48,7 +48,7 @@
         </div>
         <div class = 'form-send-comment-of-news'>
           <div class = 'menu-of-form-send-comment-of-news'>
-            <span class = 'date-news'>28.10.1994</span>
+            <span class = 'date-news'><%= n.created_at.strftime("%d %b %H:%M") %></span>
             <span class = 'give-comment'>Комментировать</span>
           </div>
           <div class = 'textarea-form-send-comment-of-news'>
@@ -89,7 +89,7 @@
                     <% end %>
                   </div>
                   <div class = 'menu-of-form-send-comment-of-news'>
-                    <span class = 'date-news'>28.10.1994</span>
+                    <span class = 'date-news'><%= c.created_at.strftime("%d %b %H:%M") %></span>
                   </div>
                 </div>
               </div>
