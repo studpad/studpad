@@ -45,6 +45,9 @@ body{
     .btn-st{
       background-color: #00739D;
     }
+    .btn-st:hover{
+      background-color: #0C6C90;
+    }
     .container-sp{
       padding: 10px 5px;
     }
@@ -278,7 +281,7 @@ body{
       font-size: 15px;
     }
     .title-background{
-      
+      background-color: #ECF0F2;
       padding-bottom: 10px;
     }
     .wrap-send-button{
@@ -419,12 +422,32 @@ body{
      .alert{
       padding-top: 8px;
       padding-bottom: 8px;
+      margin-bottom: 10px;
      }
      .modal-footer{
       border-top: none;
      }
-     
+     .thumbnail{
+      padding: 0px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+      cursor: pointer;
+     }
+     .thumbnail:hover{
 
+     }
+     .cover-photos-img{
+      border-bottom: 1px solid #EFEFEF;
+     }
+     .description-album{
+      border-bottom: 1px solid #EFEFEF;
+      padding-bottom: 3px;
+      padding-top: 3px;
+      margin-bottom: 10px;
+     }
+     .date-create-album{
+      color: #a8a8a8;
+      font-size: 12px;
+     }
 
     
 
