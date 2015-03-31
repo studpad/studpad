@@ -39,6 +39,10 @@ body{
       color: white;
       font-weight: bold;
     }
+    #hat-main-studpad{
+      color: white;
+      text-decoration: none;
+    }
     .wrapper {
       display: inline-block;
     }
@@ -55,6 +59,7 @@ body{
     .title-sp{
       font-size: 19px;
       color: rgb(90, 103, 112);
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
     }
     #right-part-page{
 
@@ -225,7 +230,7 @@ body{
     }
     #class-name-school{
       margin-top: 10px;
-      padding-left: 5px;
+      text-align: center;
     }
     #each-photos{
       padding: 15px;
@@ -431,6 +436,7 @@ body{
       padding: 0px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
       cursor: pointer;
+      height: 330px;
      }
      .thumbnail:hover{
 
@@ -448,7 +454,9 @@ body{
       color: #a8a8a8;
       font-size: 12px;
      }
-
+     #all-albums{
+      margin-top: 20px;
+     }
     
 
 
