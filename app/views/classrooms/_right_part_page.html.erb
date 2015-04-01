@@ -18,8 +18,10 @@
       <% @classroom.students.each do |s| %>
       <div class = 'the-person'>
         <%= link_to user_path(s) do %>
-        <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
-        <%= s.name %>
+          <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+        <% end %>
+        <%= link_to user_path(s) do %>
+          <%= s.name %>
         <% end %>
       </div>
       <% end %>
