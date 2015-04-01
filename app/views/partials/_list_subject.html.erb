@@ -1,0 +1,27 @@
+<div class = 'col-lg-2 col-md-2 col-xs-2' id = 'list-subjects'>
+  <div id = 'each-subjects'>
+    <div class = 'title-sp' id = 'left-main-menu'>
+      Меню
+    </div>
+    <div class = 'the-subject'>
+      <%= link_to 'Новости', classroom_path(params[:classroom_id]) %>
+    </div>
+    <div class = 'the-subject'>
+      <%= link_to 'Фотоальбом', classroom_photos_path(params[:id]) %>
+    </div>
+  </div>
+  <div id = 'each-subjects'>
+    <div class = 'title-sp' id = 'left-main-menu-s'>
+      Материалы
+    </div>
+    <div class = 'the-subject'>
+      Русский язык
+    </div>
+    <div class = 'the-subject'>
+      Математика
+    </div>
+    <div class = 'the-subject'>
+      Физика
+    </div>
+  </div>
+</div>
