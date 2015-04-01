@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'users#profile'
 
   resources :classrooms do
-    resources :photos
+    resources :albums
     resources :news, only: :create do
       member do
         post 'comment'
