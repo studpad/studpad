@@ -4,7 +4,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :name
       t.string :link
       t.belongs_to :user, index: true
-      t.belongs_to :classroom, index: true
+      t.belongs_to :album, index: true
 
       t.timestamps null: false
     end
