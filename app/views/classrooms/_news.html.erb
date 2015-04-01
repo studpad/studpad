@@ -41,7 +41,7 @@
             <%= form_tag news_path(n), method: 'patch' do %>
             <%= text_area_tag(:text, nil, class: 'form-control textHW-update') %>
             <div class = 'wrap-send-button'>
-              <button type="submit" class="btn btn-primary btn-xs change-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
+              <button type="submit" class="btn btn-primary btn-xs btn-st change-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
             </div>
             <% end %>
           </div>
@@ -55,7 +55,7 @@
             <%= form_tag comment_classroom_news_path(params[:id], n.id) do %>
             <%= text_area_tag(:text, nil, class: 'form-control textHW_comment', placeholder: "Ваш комментарий...") %>
             <div class = 'wrap-send-button'>
-              <button type="submit" class="btn btn-primary btn-xs post-comment-of-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
+              <button type="submit" class="btn btn-primary btn-xs btn-st post-comment-of-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
             </div>
           </div>
           <% end %>
@@ -84,7 +84,7 @@
                     <%= form_tag comment_path(c), method: 'patch' do %>
                     <%= text_area_tag(:text, nil, class: 'form-control textHW-update') %>
                     <div class = 'wrap-send-button'>
-                      <button type="submit" class="btn btn-primary btn-xs change-comment"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
+                      <button type="submit" class="btn btn-primary btn-xs btn-st change-comment"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
                     </div>
                     <% end %>
                   </div>

@@ -48,6 +48,7 @@ body{
     }
     .btn-st{
       background-color: #00739D;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22);
     }
     .btn-st:hover{
       background-color: #0C6C90;
@@ -125,7 +126,7 @@ body{
       -webkit-backface-visibility: hidden;
       background-color: white;
       padding-top: 48px;
-      position: fixed;
+      position: absolute;
       left: 0px;
       top: 0px;
       bottom: 0px;
@@ -144,7 +145,7 @@ body{
     #central-part{
       padding: 10px 20px;
       padding-top: 48px;
-      position: relative;
+      position: absolute;
       top: 0px;
     }
     #textHW, #textHW_comment{
