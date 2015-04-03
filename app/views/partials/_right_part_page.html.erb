@@ -4,7 +4,8 @@
         <%= @classroom.name %>
     </div>
     <div class = 'whattext-sp'>
-      Классный руководитель: <a href = 'https://vk.com/nikitin__max'><%= @classroom.main_teacher.name %></a>
+      Классный руководитель:
+      <%= link_to @classroom.main_teacher.name, user_path(@classroom.main_teacher) %>
       <br>
       <% unless current_user%>
         <%= link_to 'Присоединиться к классу', new_student_classroom_path %>
