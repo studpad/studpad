@@ -9,6 +9,15 @@ function main(){
    
       $('#central-part').css('left', '16.66666667%');
 
+      width_all_album = $('#all-albums').width();
+      var i = 1;
+
+      while(width_all_album - i*234 > 0){
+         i++;
+      }
+      paddingSize = (width_all_album - (i - 1)*234)/2;
+      $('#all-albums').css('padding-left', paddingSize);
+
 
    
    	$(".js-example-basic-multiple").select2();
