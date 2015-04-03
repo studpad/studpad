@@ -223,7 +223,7 @@ body{
     }
     .img-avatar{
       border-radius: 200px;
-      box-shadow: inset 0px 0px 5px grey;
+      box-shadow: 0px 0px 2px grey;
     }
     #show-teachers-students{
       margin-top: 10px;
@@ -435,17 +435,18 @@ body{
      .modal-footer{
       border-top: none;
      }
+     .wrap-album{
+      height: 330px;
+     }
      .thumbnail{
       padding: 0px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
       cursor: pointer;
-      height: 330px;
      }
-     .thumbnail:hover{
 
-     }
      .cover-photos-img{
       border-bottom: 1px solid #EFEFEF;
+      border-radius: 4px;
      }
      .description-album{
       border-bottom: 1px solid #EFEFEF;
@@ -459,6 +460,16 @@ body{
      }
      #all-albums{
       margin-top: 20px;
+     }
+     .the-wrap-photo{
+      padding-left: 8px;
+      padding-right: 8px;
+
+     }
+     .the-wrap-photo{
+      width: 234px;
+      height: 234px;
+      margin-top: 8px;
      }
 
     
