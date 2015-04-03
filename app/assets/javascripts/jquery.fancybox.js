@@ -148,7 +148,7 @@
 
 			// Properties for each animation type
 			// Opening fancyBox
-			openEffect  : 'none', // 'elastic', 'fade' or 'none'
+			openEffect  : 'elastic', // 'elastic', 'fade' or 'none'
 			openSpeed   : 250,
 			openEasing  : 'swing',
 			openOpacity : true,
