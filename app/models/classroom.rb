@@ -4,5 +4,5 @@ class Classroom < ActiveRecord::Base
   has_and_belongs_to_many :teachers, class_name: "Teacher", join_table: 'classrooms_teachers'
   has_many :students
   has_many :news_items
-  has_many :photos
+  has_many :albums
 end

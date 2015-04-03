@@ -11,10 +11,12 @@
               </div>
 
                     <div class = 'row' id = 'all-albums'>
+                      <% @photos.each do |p| %>
                       <div class="col-sm-4 col-md-3 the-wrap-photo">
                         <div class="thumbnail" style = 'background: url("https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg"); background-size: cover; height: 234px;'>
                         </div>
                       </div>
+                      <% end %>
                       <div class="col-sm-4 col-md-3 the-wrap-photo">
                         <div class="thumbnail" style = 'background: url("https://s-media-cache-ak0.pinimg.com/474x/65/0b/fa/650bfa33db9978577aeecf49a4939e32.jpg"); background-size: cover; height: 234px;'>
                         </div>
@@ -48,9 +50,9 @@
                         </div>
                       </div>
                     </div>
-                  
+
             </div>
-            
+
     </div>
   </div>
 
