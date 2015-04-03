@@ -7,8 +7,8 @@ class CreateThemes < ActiveRecord::Migration
     end
 
     create_table :news_items_themes do |t|
-      t.belongs_to :news_items, index: true
-      t.belongs_to :themes, index: true
+      t.belongs_to :news_item, index: true
+      t.belongs_to :theme, index: true
     end
   end
 end
