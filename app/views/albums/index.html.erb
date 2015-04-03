@@ -15,12 +15,13 @@
     <div class = 'row' id = 'all-albums'>
       <% @albums.each do |a| %>
       <div class="col-sm-6 col-md-4">
+        <%= link_to classroom_album_path(@classroom, a) do %>
         <div class="thumbnail wrap-album" style = 'padding: 0px;'>
 
           <img src="https://pp.vk.me/c618130/v618130048/10acf/IWvy2603Ssg.jpg" class = 'cover-photos-img'>
           <div class="caption">
             <div class = 'description-album'>
-              <p><%= link_to a.name, classroom_album_path(@classroom, a) %></p>
+              <p><%= a.name %></p>
             </div>
             <div>
               <span class = 'date-create-album'>
@@ -29,6 +30,7 @@
             </div>
           </div>
         </div>
+        <% end %>
       </div>
       <% end %>
 
