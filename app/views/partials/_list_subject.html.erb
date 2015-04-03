@@ -8,12 +8,16 @@ end
     <div class = 'title-sp' id = 'left-main-menu'>
       Меню
     </div>
+    <%= link_to classroom_path(classroom_id) do %>
     <div class = 'the-subject'>
-      <%= link_to 'Новости', classroom_path(classroom_id) %>
+      Новости
     </div>
+    <% end %>
+    <%= link_to classroom_albums_path(classroom_id) do %>
     <div class = 'the-subject'>
-      <%= link_to 'Фотоальбом', classroom_albums_path(classroom_id) %>
+      Фотоальбомы
     </div>
+    <% end %>
   </div>
   <div id = 'each-subjects'>
     <div class = 'title-sp' id = 'left-main-menu-s'>
