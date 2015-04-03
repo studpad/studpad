@@ -20,17 +20,17 @@ end
     <% end %>
   </div>
   <div id = 'each-subjects'>
+
     <div class = 'title-sp' id = 'left-main-menu-s'>
       Материалы
     </div>
-    <div class = 'the-subject'>
-      Русский язык
-    </div>
-    <div class = 'the-subject'>
-      Математика
-    </div>
-    <div class = 'the-subject'>
-      Физика
-    </div>
+
+    <% @subjects.each do |s| %>
+      <%= link_to classroom_subject_path(@classroom, s) do %>
+      <div class = 'the-subject'>
+        <%= s.name %>
+      </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

@@ -68,13 +68,13 @@ ActiveRecord::Schema.define(version: 20150401202630) do
   add_index "news_items", ["classroom_id"], name: "index_news_items_on_classroom_id", using: :btree
   add_index "news_items", ["user_id"], name: "index_news_items_on_user_id", using: :btree
 
-  create_table "news_items_themes", force: :cascade do |t|
-    t.integer "news_items_id"
-    t.integer "themes_id"
+  create_table "news_items_subjects", force: :cascade do |t|
+    t.integer "news_item_id"
+    t.integer "subject_id"
   end
 
-  add_index "news_items_themes", ["news_items_id"], name: "index_news_items_themes_on_news_items_id", using: :btree
-  add_index "news_items_themes", ["themes_id"], name: "index_news_items_themes_on_themes_id", using: :btree
+  add_index "news_items_subjects", ["news_item_id"], name: "index_news_items_subjects_on_news_item_id", using: :btree
+  add_index "news_items_subjects", ["subject_id"], name: "index_news_items_subjects_on_subject_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "name"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20150401202630) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "themes", force: :cascade do |t|
+  create_table "subjects", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

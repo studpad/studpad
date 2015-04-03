@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :classrooms do
     resources :albums
+    resources :subjects, onle: :show
     resources :news, only: :create do
       member do
         post 'comment'

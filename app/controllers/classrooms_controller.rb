@@ -1,5 +1,6 @@
 class ClassroomsController < ApplicationController
   skip_before_filter :require_login, only:[:show, :new_student, :create_student]
+  before_action :load_subjects
 
   def index
     @classrooms = Classroom.all
@@ -61,5 +62,9 @@ class ClassroomsController < ApplicationController
 
     def new_student_params
       params.require(:student).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def load_subjects
+      @subjects = Subject.all
     end
 end
