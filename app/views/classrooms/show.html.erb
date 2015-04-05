@@ -21,6 +21,13 @@
             </div>
             <% if current_user && current_user.can_view?(@classroom) %>
             <%= render "classrooms/news"%>
+            <% else %>
+            <br>
+            <div class="alert alert-warning">
+              Пожалуйста станьте учеником или
+              учителем класса
+              Зарегестрируйтесь
+            </div>
             <% end %>
 
           </div>
