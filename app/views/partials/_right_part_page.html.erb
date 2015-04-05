@@ -7,8 +7,10 @@
       Классный руководитель:
       <%= link_to @classroom.main_teacher.name, user_path(@classroom.main_teacher) %>
       <br>
-      <% unless current_user%>
+      <% if !current_user%>
         <%= link_to 'Присоединиться к классу', new_student_classroom_path %>
+      <% elsif current_user.teacher? && !current_user.can_view?(@classroom) %>
+        <%= link_to 'Стать учителем данного класса', "#" %>
       <% end %>
     </div>
     <div id = 'show-teachers-students'>

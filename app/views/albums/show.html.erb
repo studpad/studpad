@@ -1,69 +1,40 @@
 <div class ='container' id = 'main-container'>
-    <div class = 'row'>
-            <%= render  "partials/list_subject"%>
-            <div class = 'col-lg-10 col-md-10 col-xs-10' id = 'central-part'>
-              <div class = 'row'>
-                <div class = 'col-lg-12 col-md-12 col-xs-12'>
-                  <div class = 'title-sp' id = 'class-name-school'>
-                    Фотографии
-                  </div>
-                </div>
-              </div>
+  <div class = 'row'>
+
+    <%= render  "partials/list_subject"%>
+
+    <div class = 'col-lg-10 col-md-10 col-xs-10' id = 'central-part'>
+      <div class = 'row'>
+        <div class = 'col-lg-12 col-md-12 col-xs-12'>
+          <div class = 'title-sp' id = 'class-name-school'>
+            Фотографии
+          </div>
+        </div>
+      </div>
 
                     <div class = 'row' id = 'all-albums'>
                       <div>
-                        <% @photos.each do |p| %>
+                        <%# @photos.each do |p|%>
+                        <% (1..3).each do |p| %>
                         <a class="fancybox-thumb" rel="fancybox-thumb" href="https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg" title="elgol sunset (matty brooks)">
                           <div class="col-sm-4 col-md-3 the-wrap-photo">
                             <div class="thumbnail" style = 'background: url("https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg"); background-size: cover; height: 234px;'>
                             </div>
                           </div>
                         </a>
-                        <% end %>
-                        <a class="fancybox-thumb" rel="fancybox-thumb" href="https://s-media-cache-ak0.pinimg.com/474x/65/0b/fa/650bfa33db9978577aeecf49a4939e32.jpg" title="elgol sunset (matty brooks)">
-                          <div class="col-sm-4 col-md-3 the-wrap-photo">
-                            <div class="thumbnail" style = 'background: url("https://s-media-cache-ak0.pinimg.com/474x/65/0b/fa/650bfa33db9978577aeecf49a4939e32.jpg"); background-size: cover; height: 234px;'>
-                            </div>
-                          </div>
-                        </a>
+
                         <a class="fancybox-thumb" rel="fancybox-thumb" href="https://pp.vk.me/c7011/v7011401/259f/N3QB7AwxmAE.jpg" title="elgol sunset (matty brooks)">
                         <div class="col-sm-4 col-md-3 the-wrap-photo">
                           <div class="thumbnail" style = 'background: url("https://pp.vk.me/c7011/v7011401/259f/N3QB7AwxmAE.jpg"); background-size: cover; height: 234px;'>
                           </div>
                         </div>
                         </a>
-                        <div class="col-sm-4 col-md-3 the-wrap-photo">
-                          <div class="thumbnail" style = 'background: url("https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg"); background-size: cover; height: 234px;'>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 the-wrap-photo">
-                          <div class="thumbnail" style = 'background: url("https://s-media-cache-ak0.pinimg.com/474x/65/0b/fa/650bfa33db9978577aeecf49a4939e32.jpg"); background-size: cover; height: 234px;'>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 the-wrap-photo">
-                          <div class="thumbnail" style = 'background: url("https://pp.vk.me/c7011/v7011401/259f/N3QB7AwxmAE.jpg"); background-size: cover; height: 234px;'>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 the-wrap-photo">
-                          <div class="thumbnail" style = 'background: url("https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg"); background-size: cover; height: 234px;'>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 the-wrap-photo">
-                          <div class="thumbnail" style = 'background: url("https://s-media-cache-ak0.pinimg.com/474x/65/0b/fa/650bfa33db9978577aeecf49a4939e32.jpg"); background-size: cover; height: 234px;'>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 the-wrap-photo">
-                          <div class="thumbnail" style = 'background: url("https://pp.vk.me/c7011/v7011401/259f/N3QB7AwxmAE.jpg"); background-size: cover; height: 234px;'>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 the-wrap-photo">
-                          <div class="thumbnail" style = 'background: url("https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg"); background-size: cover; height: 234px;'>
-                          </div>
-                        </div>
+                        <% end %>
+
                       </div>
                     </div>
-            </div>
-
     </div>
+
   </div>
+</div>
 

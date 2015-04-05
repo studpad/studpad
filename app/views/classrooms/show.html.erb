@@ -19,7 +19,7 @@
                 <% end %>
               </div>
             </div>
-            <% if current_user %>
+            <% if current_user && current_user.can_view?(@classroom) %>
             <%= render "classrooms/news"%>
             <% end %>
 

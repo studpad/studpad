@@ -69,11 +69,15 @@
                   <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '40' height = '40' class = 'img-avatar'/>
                 </div>
                 <div class = 'col-xs-11'>
-                  <div class = 'sign-sp close-news'><span class="glyphicon glyphicon-pencil pencil-comment"></span>&nbsp;&nbsp;
-                  <%= link_to comment_path(c), method: 'delete' do %>
-                  <span class="glyphicon glyphicon-remove"></span>
-                  <% end %>
+                  <% if current_user.id == c.user_id %>
+                  <div class = 'sign-sp close-news'>
+                    <span class="glyphicon glyphicon-pencil pencil-comment">
+                    </span>&nbsp;&nbsp;
+                    <%= link_to comment_path(c), method: 'delete' do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <% end %>
                   </div>
+                  <% end %>
                   <div class = 'comment-username'>
                   <%= link_to c.user.name, user_path(c.user) %>
                   </div>

@@ -19,18 +19,19 @@ end
     </div>
     <% end %>
   </div>
-  <div id = 'each-subjects'>
-
-    <div class = 'title-sp' id = 'left-main-menu-s'>
-      Материалы
-    </div>
-
-    <% @subjects.each do |s| %>
-      <%= link_to classroom_subject_path(@classroom, s) do %>
-      <div class = 'the-subject'>
-        <%= s.name %>
+  <% if @subjects.present? && current_user %>
+    <div id = 'each-subjects'>
+      <div class = 'title-sp' id = 'left-main-menu-s'>
+        Материалы
       </div>
+
+      <% @subjects.each do |s| %>
+        <%= link_to classroom_subject_path(@classroom, s) do %>
+        <div class = 'the-subject'>
+          <%= s.name %>
+        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
