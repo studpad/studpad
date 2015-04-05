@@ -12,27 +12,21 @@
         </div>
       </div>
 
-                    <div class = 'row' id = 'all-albums'>
-                      <div>
-                        <%# @photos.each do |p|%>
-                        <% (1..3).each do |p| %>
-                        <a class="fancybox-thumb" rel="fancybox-thumb" href="https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg" title="elgol sunset (matty brooks)">
-                          <div class="col-sm-4 col-md-3 the-wrap-photo">
-                            <div class="thumbnail" style = 'background: url("https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg"); background-size: cover; height: 234px;'>
-                            </div>
-                          </div>
-                        </a>
+        <div class = 'row' id = 'all-albums'>
+          <div>
+            <% @photos.each do |p|%>
+            <a class="fancybox-thumb" rel="fancybox-thumb"
+            href="<%= p.link %>" title="elgol sunset (matty brooks)">
+              <div class="col-sm-4 col-md-3 the-wrap-photo">
+                <div class="thumbnail" style = 'background: url("<%= p.link %>"); background-size: cover; height: 234px;'>
+                </div>
+              </div>
+            </a>
+            <% end %>
 
-                        <a class="fancybox-thumb" rel="fancybox-thumb" href="https://pp.vk.me/c7011/v7011401/259f/N3QB7AwxmAE.jpg" title="elgol sunset (matty brooks)">
-                        <div class="col-sm-4 col-md-3 the-wrap-photo">
-                          <div class="thumbnail" style = 'background: url("https://pp.vk.me/c7011/v7011401/259f/N3QB7AwxmAE.jpg"); background-size: cover; height: 234px;'>
-                          </div>
-                        </div>
-                        </a>
-                        <% end %>
+          </div>
+        </div>
 
-                      </div>
-                    </div>
     </div>
 
   </div>

@@ -22,6 +22,7 @@
           <div class="caption">
             <div class = 'description-album'>
               <p><%= a.name %></p>
+              <%= link_to 'Добавить фото', newphoto_classroom_album_path(@classroom, a) %>
             </div>
             <div>
               <span class = 'date-create-album'>

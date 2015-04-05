@@ -11,4 +11,22 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @photos = @album.photos
   end
+
+  def newphoto
+    @photo = Photo.new
+    render 'photos/new'
+  end
+
+  def create_newphoto
+    @photo = Photo.new photo_params
+    @photo.album_id = params[:id]
+    @photo.user_id = current_user.id
+    @photo.save
+    redirect_to classroom_album_path(params[:classroom_id], params[:id])
+  end
+
+  private
+    def photo_params
+      params.require(:photo).permit(:name, :link)
+    end
 end

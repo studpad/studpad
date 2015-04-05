@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root 'users#profile'
 
   resources :classrooms do
-    resources :albums
+    resources :albums do
+      member do
+        get 'newphoto'
+        post 'newphoto' => 'albums#create_newphoto'
+      end
+    end
     resources :subjects, onle: :show
     resources :news, only: :create do
       member do
