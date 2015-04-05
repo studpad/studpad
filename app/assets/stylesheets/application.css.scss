@@ -16,6 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "http://webfonts.ru/import/osans.css";
 
 body{
       background-color: rgb(251, 251, 251);
@@ -318,6 +319,8 @@ body{
     .menu-of-form-send-comment-of-news{
       margin-left: 3px;
       font-size: 12px;
+      margin-top: 3px;
+      margin-bottom: 7px;
     }
     .textarea-form-send-comment-of-news{
       display: none;
@@ -331,7 +334,7 @@ body{
     }
     .date-news{
       color: #a6a6a6;
-      font-size: 11px;
+      font-size: 12px;
     }
     .give-comment{
       margin-left: 12px;
@@ -470,6 +473,46 @@ body{
       width: 234px;
       height: 234px;
       margin-top: 8px;
+     }
+
+     .card-sp{
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+      min-height: 360px;
+      margin-top: 12px;
+      background-color: white;
+      cursor: pointer;
+      border-radius: 2px;
+      &:hover{
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.32);
+      }
+     }
+     #subject-useful-material_img{
+      background: url('http://www.anywalls.com/pic/201305/640x480/anywalls.com-66342.jpg');
+      background-size: cover;
+      height: 180px;
+      border-radius: 2px;
+     }
+     #subject-HW_img{
+      background: url('http://poselkovgid.ru/media/pictures/2012.04/650/27094afb3f543d4d26bfe70fb68964f4.jpg');
+      background-size: cover;
+      height: 180px;
+      border-radius: 2px;
+     }
+     .subject-useful-material_menu{
+      font-size: 13px;
+      padding-left: 15px;
+      font-family: "Open Sans";
+      height: 40px;
+      border-bottom: 1px solid #EFEFEF;
+      padding-top: 10px;
+     }
+     .subject-useful-material_last{
+      margin-top: 10px;
+     }
+     .label-subject{
+      font-size: 13px;
+      font-family: "Open Sans";
+      background-color: #00739D;
      }
 
 
@@ -748,6 +791,9 @@ body{
     background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
   }
 }
+
+
+
 
     
 
