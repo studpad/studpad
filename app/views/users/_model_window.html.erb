@@ -1,9 +1,6 @@
-<button class="btn btn-primary btn-st" data-toggle="modal" data-target="#myModal" style = 'margin-top: 10px;'>
-        Отправить новость
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Modal News -->
+<div class="modal fade" id="myModalnews" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -18,7 +15,44 @@
 			 						<%= text_area_tag(:textHW_from_profile, nil, class: 'form-control textHW_from_profile', placeholder: "Введите текст новости. Выберите класс, тему и нажмите кнопку отправить") %>
 			 						<div class="row" style = 'padding-top: 8px;'>
 			 							<div class="col-xs-12 col-sm-6" style = 'padding-right: 3px;'>
-			 								<select class="js-example-basic-multiple js-example-placeholder-multiple" multiple="multiple" style = 'width: 100%;'>
+			 								<select class="js-example-basic-multiple js-example-placeholder-multiple choice-class" multiple="multiple" style = 'width: 100%;'>
+			 									<option disabled>Класс</option>
+  											<option>11 Б</option>
+			 									<option>8 А</option>
+			 									<option>8 В</option>
+											</select>
+			 							</div>
+			 						</div>
+			 						<button type="submit" id = 'send-news-from-profile' class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-send"></span> &nbsp;Опубликовать</button>
+	    					</div>
+	    				</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Отправить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Home Work -->
+<div class="modal fade" id="myModalHW" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Домашнее задание</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger">Для отправки домашнего задания заполните все поля</div>
+
+        <div class = 'title-background' style = 'padding: 8px; border-radius: 4px;'>
+			 					<div style = 'margin-top: 4px;'>
+			 						<%= text_area_tag(:textHW_from_profile, nil, class: 'form-control textHW_from_profile', placeholder: "Напишите домашнее задание. Выберите класс, тему и нажмите кнопку отправить") %>
+			 						<div class="row" style = 'padding-top: 8px;'>
+			 							<div class="col-xs-12 col-sm-6" style = 'padding-right: 3px;'>
+			 								<select class="js-example-basic-multiple js-example-placeholder-multiple choice-class" multiple="multiple" style = 'width: 100%;'>
 			 									<option disabled>Класс</option>
   											<option>11 Б</option>
 			 									<option>8 А</option>
@@ -26,9 +60,54 @@
 											</select>
 			 							</div>
 			 							<div class="col-xs-12 col-sm-6" style = 'padding-left: 3px;'>
-			 								<select class="js-example-placeholder-multiple" id = 'choice-theme' multiple="multiple" style = 'width: 100%;'>
+			 								<select class="js-example-placeholder-multiple choice-theme" multiple="multiple" style = 'width: 100%;'>
 			 									<option disabled>Тема</option>
-			 									<option>Новость</option>
+			 									<option>Русский язык</option>
+			 									<option>Литература</option>
+			 								</select>
+			 							</div>
+			 						</div>
+			 						<button type="submit" id = 'send-news-from-profile' class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-send"></span> &nbsp;Опубликовать</button>
+	    					</div>
+	    				</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Отправить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal Useful material -->
+<div class="modal fade" id="myModalUM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Полезные материалы</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger">Для отправки полезного материала заполните все поля</div>
+
+        <div class = 'title-background' style = 'padding: 8px; border-radius: 4px;'>
+			 					<div style = 'margin-top: 4px;'>
+			 						<%= text_area_tag(:textHW_from_profile, nil, class: 'form-control textHW_from_profile', placeholder: "Введите описание полезного материала. Выберите класс, тему и нажмите кнопку отправить") %>
+			 						<div class="row" style = 'padding-top: 8px;'>
+			 							<div class="col-xs-12 col-sm-6" style = 'padding-right: 3px;'>
+			 								<select class="js-example-basic-multiple js-example-placeholder-multiple choice-class" multiple="multiple" style = 'width: 100%;'>
+			 									<option disabled>Класс</option>
+  											<option>11 Б</option>
+			 									<option>8 А</option>
+			 									<option>8 В</option>
+											</select>
+			 							</div>
+			 							<div class="col-xs-12 col-sm-6" style = 'padding-left: 3px;'>
+			 								<select class="js-example-placeholder-multiple choice-theme" multiple="multiple" style = 'width: 100%;'>
+			 									<option disabled>Тема</option>
 			 									<option>Русский язык</option>
 			 									<option>Литература</option>
 			 								</select>

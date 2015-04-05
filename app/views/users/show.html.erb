@@ -24,6 +24,11 @@
 		 					</p>
 		 					<% end %>
 
+		 					<div id = 'contact-data-user'>
+								<h4><strong>Контакты</strong></h4>
+	 							<p><strong>Почта: </strong><small><%= @user.email %></small></p>
+								<p><strong>Телефон: </strong><small>+79166307331</small></p>
+	 						</div>
 		 					<%= render "model_window" %>
 
 		 				</div>
@@ -35,21 +40,20 @@
 		 			</div>
 		 			<div class="col-xs-12 divider text-center">
 		 				<div class="col-xs-12 col-sm-4 emphasis">
-		 					<h2><strong> 32,4K </strong></h2>
-		 					<p><small>Полезные материалы</small></p>
-		 					<button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span>Просмотреть</button>
+		 					<h4><strong>Домашнее задание</strong></h4>
+		 					<p><small>Сообщите о домашнем задании</small></p>
+		 					<button class="btn btn-success btn-block show-modal-window" data-toggle="modal" data-target="#myModalHW"><span class="fa fa-plus-circle"></span>Написать домашнее задание</button>
 		 				</div>
 						<div class="col-xs-12 col-sm-4 emphasis">
-						 	<h2><strong>723</strong></h2>
-						 	<p><small>Фотографии</small></p>
-						 	<button class="btn btn-info btn-block"><span class="fa fa-user"></span>Просмотреть</button>
+						 	<h4><strong>Полезные материалы</strong></h4>
+						 	<p><small>Поделитесь полезными материалами</small></p>
+						 	<button class="btn btn-info btn-block show-modal-window" data-toggle="modal" data-target="#myModalUM"><span class="fa fa-user"></span>Поделиться материалами</button>
 						</div>
-						<div class="col-xs-12 col-sm-4 emphasis">
-							<h2><strong>Контакты</strong></h2>
-							</br>
- 							<p><strong>Почта: </strong><small><%= @user.email %></small></p>
-							<p><strong>Телефон: </strong><small>+79166307331</small></p>
-	 					</div>
+	 					<div class="col-xs-12 col-sm-4 emphasis">
+						 	<h4><strong>Новости</strong></h4>
+						 	<p><small>Сообщите о новостях детям и их родителям</small></p>
+						 	<button class="btn btn-warning btn-block show-modal-window" data-toggle="modal" data-target="#myModalnews"><span class="fa fa-user"></span>Написать новость</button>
+						</div>
 		 			</div>
 				</div>
 			</div>
