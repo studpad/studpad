@@ -16,7 +16,6 @@
 			 						<%= text_area_tag(:textHW_from_profile, nil, class: 'form-control textHW_from_profile', placeholder: "Введите текст новости. Выберите класс, тему и нажмите кнопку отправить") %>
 			 						<div class="row" style = 'padding-top: 8px;'>
 			 							<div class="col-xs-12 col-sm-6" style = 'padding-right: 3px;'>
-<<<<<<< HEAD
 			 								<select class="js-example-basic-multiple js-example-placeholder-multiple choice-class" multiple="multiple" style = 'width: 100%;'>
 			 									<option disabled>Класс</option>
   											<option>11 Б</option>
@@ -106,10 +105,6 @@
 			 									<option>8 А</option>
 			 									<option>8 В</option>
 											</select>
-=======
-                      <%= select_tag "classrooms", options_for_select(Classroom.all.map {|s| [s.name, s.id]}), multiple: true, class: "form-control multiple-classroom", style: 'width: 100%' %>
-
->>>>>>> 36cd4703d0adc01a37eba181129a94e8e2a8c5b4
 			 							</div>
 			 							<div class="col-xs-12 col-sm-6" style = 'padding-left: 3px;'>
 			 								<select class="js-example-placeholder-multiple choice-theme" multiple="multiple" style = 'width: 100%;'>

@@ -21,11 +21,7 @@ function main(){
 
 
    	$(".js-example-basic-multiple").select2();
-<<<<<<< HEAD
    	$(".choice-class").select2({
-=======
-   	$(".multiple-classroom").select2({
->>>>>>> 36cd4703d0adc01a37eba181129a94e8e2a8c5b4
      	placeholder: "Класс"
    	});
    	$(".choice-theme").select2({

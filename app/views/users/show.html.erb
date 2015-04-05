@@ -23,19 +23,12 @@
 		 						<span class="tags">Литература</span>
 		 					</p>
 		 					<% end %>
-<<<<<<< HEAD
-
 		 					<div id = 'contact-data-user'>
 								<h4><strong>Контакты</strong></h4>
 	 							<p><strong>Почта: </strong><small><%= @user.email %></small></p>
 								<p><strong>Телефон: </strong><small>+79166307331</small></p>
 	 						</div>
 		 					<%= render "model_window" %>
-=======
-		 					<% if current_user.teacher? && current_user.his_main_classrooms.present? %>
-		 						<%= render "model_window" %>
-		 					<% end %>
->>>>>>> 36cd4703d0adc01a37eba181129a94e8e2a8c5b4
 
 		 				</div>
 		 				<div class="col-xs-12 col-sm-5">
@@ -45,6 +38,7 @@
 		 				</div>
 		 			</div>
 		 			<div class="col-xs-12 divider text-center">
+		 				<% if current_user.teacher? && current_user.his_main_classrooms.present? %>
 		 				<div class="col-xs-12 col-sm-4 emphasis">
 		 					<h4><strong>Домашнее задание</strong></h4>
 		 					<p><small>Сообщите о домашнем задании</small></p>
@@ -60,6 +54,7 @@
 						 	<p><small>Сообщите о новостях детям и их родителям</small></p>
 						 	<button class="btn btn-warning btn-block show-modal-window" data-toggle="modal" data-target="#myModalnews"><span class="fa fa-user"></span>Написать новость</button>
 						</div>
+						<% end %>
 		 			</div>
 				</div>
 			</div>

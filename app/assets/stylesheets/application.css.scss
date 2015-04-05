@@ -39,10 +39,19 @@ body{
       padding-left: 30px;
       color: white;
       font-weight: bold;
+      min-width: 120px;
     }
     #hat-main-studpad{
       color: white;
       text-decoration: none;
+    }
+    .item-of-base-menu{
+      padding-top: 12px;
+      font-size: 16px;
+      text-align: left;
+      color: white;
+      min-width: 180px;
+      padding-left: 22px;
     }
     .wrapper {
       display: inline-block;
