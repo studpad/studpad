@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401202630) do
+ActiveRecord::Schema.define(version: 20150405113740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 20150401202630) do
 
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "homeworks", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "classroom_id"
+    t.integer  "teacher_id"
+    t.integer  "subject_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "homeworks", ["classroom_id"], name: "index_homeworks_on_classroom_id", using: :btree
+  add_index "homeworks", ["subject_id"], name: "index_homeworks_on_subject_id", using: :btree
+  add_index "homeworks", ["teacher_id"], name: "index_homeworks_on_teacher_id", using: :btree
 
   create_table "news_items", force: :cascade do |t|
     t.integer  "classroom_id"

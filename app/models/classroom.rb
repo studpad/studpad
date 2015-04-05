@@ -5,4 +5,5 @@ class Classroom < ActiveRecord::Base
   has_many :students
   has_many :news_items
   has_many :albums
+  has_many :homeworks
 end
