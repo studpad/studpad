@@ -23,7 +23,7 @@ class NewsController < ApplicationController
     redirect_to classroom_path(n.classroom_id)
   end
 
-  def polycreate
+  def multicreate
 
   end
 

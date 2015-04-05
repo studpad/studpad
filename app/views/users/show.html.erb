@@ -23,6 +23,7 @@
 		 						<span class="tags">Литература</span>
 		 					</p>
 		 					<% end %>
+<<<<<<< HEAD
 
 		 					<div id = 'contact-data-user'>
 								<h4><strong>Контакты</strong></h4>
@@ -30,6 +31,11 @@
 								<p><strong>Телефон: </strong><small>+79166307331</small></p>
 	 						</div>
 		 					<%= render "model_window" %>
+=======
+		 					<% if current_user.teacher? && current_user.his_main_classrooms.present? %>
+		 						<%= render "model_window" %>
+		 					<% end %>
+>>>>>>> 36cd4703d0adc01a37eba181129a94e8e2a8c5b4
 
 		 				</div>
 		 				<div class="col-xs-12 col-sm-5">
