@@ -6,7 +6,7 @@ function main(){
    	 });
 
 
-   
+
       $('#central-part').css('left', '16.66666667%');
 
       width_all_album = $('#all-albums').width();
@@ -19,9 +19,9 @@ function main(){
       $('#all-albums').css('padding-left', paddingSize);
 
 
-   
+
    	$(".js-example-basic-multiple").select2();
-   	$(".js-example-placeholder-multiple").select2({
+   	$(".multiple-classroom").select2({
      	placeholder: "Класс"
    	});
    	$("#choice-theme").select2({
@@ -29,11 +29,11 @@ function main(){
    	});
 
 
-   
+
       $(".type-profiles").click(function(){
-      	
+
       	the_id = $(this).attr('id');
-      	
+
       	if (the_id == 'all-students'){
       		$('#each-students').css('display', 'block');
       		$('#each-teachers').css('display', 'none');
@@ -43,20 +43,20 @@ function main(){
       		$('#each-teachers').css('display', 'block');
       	}
       });
-  
 
-   
+
+
       $("#textHW").focus(function(){
-      	
+
       	$(this).css('height', '80px').css('color', 'black');
       	$('#post-news').css('display', 'block');
 
       });
-   
+
 
 
       $("#textHW").blur(function(){
-      	
+
       	val = $(this).val();
       	val = $.trim(val);
 
@@ -78,7 +78,7 @@ function main(){
 
 
       $(".textHW_comment").blur(function(){
-      	
+
       	val = $(this).val();
       	val = $.trim(val);
 
@@ -91,29 +91,29 @@ function main(){
 
 
       $(".give-comment").click(function(){
-      	
+
       	$(this).parent().next().css('display', 'block');
       });
 
 
       $(".pencil-news").click(function(){
-      	
+
       	val = $(this).parent().next().next().children().html();
       	$(this).parent().next().next().css('display', 'none');
       	$(this).parent().next().next().next().children().children('textarea').val(val);
       	$(this).parent().next().next().next().css('display', 'block');
-      	
+
       });
 
 
 
       $(".pencil-comment").click(function(){
-      	
+
       	val = $(this).parent().next().next().children().html();
       	$(this).parent().next().next().css('display', 'none');
       	$(this).parent().next().next().next().children().children('textarea').val(val);
       	$(this).parent().next().next().next().css('display', 'block');
-      	
+
       });
 
 
@@ -132,6 +132,6 @@ function main(){
    });
 
 
-} 
+}
 $(document).ready(main)
 $(document).on("page:load", main)

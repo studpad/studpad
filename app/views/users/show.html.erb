@@ -23,8 +23,9 @@
 		 						<span class="tags">Литература</span>
 		 					</p>
 		 					<% end %>
-
-		 					<%= render "model_window" %>
+		 					<% if current_user.teacher? && current_user.his_main_classrooms.present? %>
+		 						<%= render "model_window" %>
+		 					<% end %>
 
 		 				</div>
 		 				<div class="col-xs-12 col-sm-5">

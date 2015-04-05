@@ -20,7 +20,11 @@ Rails.application.routes.draw do
       post 'new_student' => 'classrooms#create_student'
     end
   end
-  resources :news, only: [:destroy, :update]
+  resources :news, only: [:destroy, :update] do
+    collection do
+      post 'multicreate'
+    end
+  end
   resources :comments, only: [:destroy, :update]
   resources :users
   resources :sessions
