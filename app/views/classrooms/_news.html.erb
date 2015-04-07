@@ -18,7 +18,11 @@
   <div class = 'the-news'>
     <div class = 'row'>
       <div class = 'col-xs-1 wrap-avatar-news'>
+        <%# if n.user.avatar %>
+        <%#= image_tag n.user.avatar.url(:comment), class: 'img-avatar' %>
+        <%# else %>
         <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+        <%# end %>
       </div>
       <div class = 'col-xs-11'>
         <div class = 'content-the-news'>

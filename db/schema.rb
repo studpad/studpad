@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 20150407095226) do
   add_index "subjects_teachers", ["teacher_id"], name: "index_subjects_teachers_on_teacher_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",               null: false
+    t.string   "email",            null: false
     t.string   "name"
     t.string   "crypted_password"
     t.string   "salt"
@@ -133,10 +133,7 @@ ActiveRecord::Schema.define(version: 20150407095226) do
     t.datetime "updated_at"
     t.integer  "classroom_id"
     t.string   "type"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["classroom_id"], name: "index_users_on_classroom_id", using: :btree

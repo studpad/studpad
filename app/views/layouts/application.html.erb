@@ -16,12 +16,18 @@
   <div id = 'hat-studpad'>
     <div class = 'container-fluid'>
       <div class = 'row'>
-          <div class = 'col-lg-2 col-md-2 col-xs-2' id = 'hat-studpad-title'><a id = 'hat-main-studpad' href="/">Studpad</a></div>
-          <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-base-menu'>
-            <span class="glyphicon glyphicon-user"></span> Мой профиль
+          <div class = 'col-lg-2 col-md-2 col-xs-2' id = 'hat-studpad-title'>
+            <a id = 'hat-main-studpad' href="/">Studpad</a>
           </div>
           <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-base-menu'>
+            <%= link_to profile_path do %>
+            <span class="glyphicon glyphicon-user"></span> Мой профиль
+            <% end %>
+          </div>
+          <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-base-menu'>
+            <%= link_to profile_path do %>
             <span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span> Мой класс
+            <% end %>
           </div>
          </div>
       </div>

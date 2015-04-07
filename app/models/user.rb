@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: { message: 'Не может быть пустым' }
   validates :email, uniqueness: { message: 'Такой email уже занят'}
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  mount_uploader :avatar, AvatarUploader
 
   def teacher?
     false
