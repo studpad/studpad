@@ -26,7 +26,13 @@ Rails.application.routes.draw do
     end
   end
   resources :comments, only: [:destroy, :update]
-  resources :users
+  resources :users do
+    member do
+      get 'new_ava'
+      post 'new_ava' => 'users#create_ava'
+    end
+  end
+
   resources :sessions
   resources :photos
 

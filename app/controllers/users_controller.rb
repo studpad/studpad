@@ -38,6 +38,16 @@ class UsersController < ApplicationController
   def show
   end
 
+  def new_ava
+    @user = current_user
+  end
+
+  def create_ava
+    @user = current_user
+    @user.update_attribute :avatar, params[:user][:avatar]
+    redirect_to user_path(@user)
+  end
+
   def profile
     @user = current_user
     render 'show'

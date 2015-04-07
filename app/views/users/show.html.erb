@@ -23,6 +23,7 @@
 		 						<span class="tags">Литература</span>
 		 					</p>
 		 					<% end %>
+		 					<%= link_to 'Новая ава', new_ava_user_path(@user), class: 'btn btn-default' %>
 		 					<% if current_user.teacher? && current_user.his_main_classrooms.present? %>
 		 						<%= render "model_window" %>
 		 					<% end %>
@@ -30,7 +31,11 @@
 		 				</div>
 		 				<div class="col-xs-12 col-sm-5">
 		 					<figure>
+		 						<% if @user.avatar %>
+		 						<%= image_tag @user.avatar.url(:medium), class: 'img-thumbnail img-responsive' %>
+		 						<% else %>
 				 				<img src="https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg" id = 'user-avatar' class="img-thumbnail img-responsive">
+				 				<% end %>
 				 			</figure>
 		 				</div>
 		 			</div>

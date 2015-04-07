@@ -1,0 +1,10 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%= form_for :user, :url => new_ava_user_path(@user), :html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %>
+  <%= form.button :submit %>
+<% end %>
