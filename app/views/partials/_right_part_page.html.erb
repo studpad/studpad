@@ -21,7 +21,11 @@
       <% @classroom.students.each do |s| %>
       <div class = 'the-person'>
         <%= link_to user_path(s) do %>
+          <% if s.avatar.url %>
+          <%= image_tag s.avatar.url(:thumb), class: 'img-avatar' %>
+          <% else %>
           <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+          <% end %>
         <% end %>
         <%= link_to user_path(s) do %>
           <%= s.name %>
