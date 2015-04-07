@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 5, message: 'Не менее 5 символов' },
-    presence: { message: 'Не может быть пустым' }
-  validates :password, confirmation:  {message: 'Пароли не совпадают' }
-  validates :password_confirmation, presence: { message: 'Не может быть пустым' }
+    presence: { message: 'Не может быть пустым' }, on: :create
+  validates :password, confirmation:  {message: 'Пароли не совпадают' }, on: :create
+  validates :password_confirmation, presence: { message: 'Не может быть пустым' }, on: :create
   validates :email, uniqueness: { message: 'Такой email уже занят'}
 
   mount_uploader :avatar, AvatarUploader

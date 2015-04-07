@@ -6,5 +6,6 @@
 
 <%= form_for :user, :url => new_ava_user_path(@user), :html => { :multipart => true } do |form| %>
   <%= form.file_field :avatar %>
+  <%= form.hidden_field :avatar_cache %>
   <%= form.button :submit %>
 <% end %>

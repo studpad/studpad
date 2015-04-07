@@ -25,8 +25,10 @@
             <% end %>
           </div>
           <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-base-menu'>
-            <%= link_to profile_path do %>
-            <span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span> Мой класс
+            <% if current_user.student? %>
+              <%= link_to classroom_path(current_user.classroom) do %>
+              <span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span> Мой класс
+              <% end %>
             <% end %>
           </div>
          </div>

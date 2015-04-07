@@ -44,8 +44,12 @@ class UsersController < ApplicationController
 
   def create_ava
     @user = current_user
-    @user.update_attribute :avatar, params[:user][:avatar]
-    redirect_to user_path(@user)
+    if @user.update_attribute :avatar, params[:user][:avatar]
+      redirect_to user_path(@user)
+    else
+      flash[:warning] = 'Недопустимый формат изображения'
+      render 'new_ava'
+    end
   end
 
   def profile

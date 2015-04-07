@@ -12,6 +12,19 @@ class AlbumsController < ApplicationController
     @photos = @album.photos
   end
 
+  def new
+    @album = Album.new #Classroom.find(params[:classroom_id]).create
+  end
+
+  def create
+    @album = Album.create name: params[:album][:name], classroom_id: params[:classroom_id]
+    if @album
+      redirect_to classroom_albums_path
+    else
+      render 'new'
+    end
+  end
+
   def newphoto
     @photo = Photo.new
     render 'photos/new'

@@ -6,4 +6,5 @@ class Classroom < ActiveRecord::Base
   has_many :news_items
   has_many :albums
   has_many :homeworks
+  has_many :photos, :through => :albums
 end
