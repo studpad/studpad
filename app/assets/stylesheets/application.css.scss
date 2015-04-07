@@ -22,6 +22,7 @@ body{
       background-color: rgb(251, 251, 251);
       color: rgb(90, 103, 112);
       cursor: default;
+      font-family: 'PT Sans';
     }
     #hat-studpad{
       background-color: #00739D;
@@ -39,17 +40,26 @@ body{
       padding-left: 30px;
       color: white;
       font-weight: bold;
+      min-width: 120px;
     }
     #hat-main-studpad{
       color: white;
       text-decoration: none;
+    }
+    .item-of-base-menu{
+      padding-top: 12px;
+      font-size: 16px;
+      text-align: left;
+      color: white;
+      min-width: 180px;
+      padding-left: 22px;
     }
     .wrapper {
       display: inline-block;
     }
     .btn-st{
       background-color: #00739D;
-      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22);
+      box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.22);
     }
     .btn-st:hover{
       background-color: #0C6C90;
@@ -219,7 +229,7 @@ body{
     .main-text-news{
       color: black;
       font-size: 14px;
-      margin-top: 7px;
+      margin-top: 5px;
       padding: 3px;
     }
     .img-avatar{
@@ -513,6 +523,9 @@ body{
       font-size: 13px;
       font-family: "Open Sans";
       background-color: #00739D;
+     }
+     #contact-data-user{
+      margin-top: 20px;
      }
 
 

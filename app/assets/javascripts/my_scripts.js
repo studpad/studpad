@@ -21,10 +21,10 @@ function main(){
 
 
    	$(".js-example-basic-multiple").select2();
-   	$(".multiple-classroom").select2({
+   	$(".choice-class").select2({
      	placeholder: "Класс"
    	});
-   	$("#choice-theme").select2({
+   	$(".choice-theme").select2({
      	placeholder: "Тема"
    	});
 
