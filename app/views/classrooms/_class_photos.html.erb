@@ -9,22 +9,16 @@
       </div>
     </div>
     <div class = 'row' id = 'each-photos'>
-      <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+      <% @classroom.last_6_photos.each do |p| %>
+      <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("<%= p.image.url %>"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+      </div>
+      <% end %>
 
-      </div>
-      <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+      <% for i in (@classroom.last_6_photos.size + 1)..6 %>
+        <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("/empty.png"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
+        </div>
+      <% end %>
 
-      </div>
-      <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
 
-      </div>
-      <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c7011/v7011473/255e/6SvvKJTbXb0.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-
-      </div>
-      <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c624121/v624121976/23be6/_QJvC6nWf7E.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-
-      </div>
-      <div class = 'col-lg-2 col-md-2 col-xs-2' style = 'background: url("https://pp.vk.me/c616927/v616927105/1fdfa/_ICExHOk_j8.jpg"); background-size: cover; height: 120px; cursor: pointer; border: 1px solid white;'>
-      </div>
     </div>
 </div>
