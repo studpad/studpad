@@ -118,6 +118,7 @@ function main(){
 
 
    $(".fancybox-thumb").fancybox({
+      parent: 'body',
       prevEffect  : 'none',
       nextEffect  : 'none',
       helpers  : {
@@ -133,5 +134,5 @@ function main(){
 
 
 }
-$(document).ready(main)
-$(document).on("page:load", main)
+
+$(document).on("page:load ready", main)
