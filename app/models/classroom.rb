@@ -7,4 +7,8 @@ class Classroom < ActiveRecord::Base
   has_many :albums
   has_many :homeworks
   has_many :photos, :through => :albums
+
+  def last_6_photos
+    self.photos.limit(6).order(created_at: 'desc')
+  end
 end

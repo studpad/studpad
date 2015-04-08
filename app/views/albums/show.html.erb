@@ -16,9 +16,9 @@
           <div>
             <% @photos.each do |p|%>
             <a class="fancybox-thumb" rel="fancybox-thumb"
-            href="<%= p.link %>" title="elgol sunset (matty brooks)">
+            href="<%= p.image.url %>" title="elgol sunset (matty brooks)">
               <div class="col-sm-4 col-md-3 the-wrap-photo">
-                <div class="thumbnail" style = 'background: url("<%= p.link %>"); background-size: cover; height: 234px;'>
+                <div class="thumbnail" style = 'background: url("<%= p.image.url %>"); background-size: cover; height: 234px;'>
                 </div>
               </div>
             </a>

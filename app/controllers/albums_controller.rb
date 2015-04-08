@@ -40,6 +40,6 @@ class AlbumsController < ApplicationController
 
   private
     def photo_params
-      params.require(:photo).permit(:name, :link)
+      params.require(:photo).permit(:name, :image)
     end
 end

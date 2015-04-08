@@ -25,7 +25,7 @@
             <% end %>
           </div>
           <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-base-menu'>
-            <% if current_user.student? %>
+            <% if current_user && current_user.student? %>
               <%= link_to classroom_path(current_user.classroom) do %>
               <span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span> Мой класс
               <% end %>

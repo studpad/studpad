@@ -11,7 +11,7 @@
   html: { novalidate: false, class: 'form-vertical' }) do |f| %>
   <%= f.input :name, label: 'Название',
     required: false, input_html: {required: true} %>
-  <%= f.input :link, label: 'Ссылка',
+  <%= f.input :image, as: :file, label: 'Фотография',
     required: false, input_html: {required: true} %>
   <%= f.button :submit, "Добавить" %>
 <% end %>
