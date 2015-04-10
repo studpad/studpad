@@ -23,9 +23,10 @@ body{
       color: rgb(90, 103, 112);
       cursor: default;
       font-family: 'PT Sans';
+      background: #FBFBFA;
     }
     #hat-studpad{
-      background-color: #00739D;
+      background: #23677C;
       height: 48px;
       border-bottom: 1px solid rgb(226, 226, 226);
       width: 100%;
@@ -77,14 +78,16 @@ body{
 
       overflow-x: hidden;
       overflow-y: auto;
-      border-left: 1px solid #EFEFEF;
+      border-right: 1px solid #EFEFEF;
       background: #fff;
       -webkit-backface-visibility: hidden;
       z-index: 10;
       height: 100%;
       padding-top: 48px;
       position: fixed;
-      right: 0px;
+      left: 0px;
+      width: 20%;
+      min-width: 224px;
       scrollbar: none;
     }
     .subtitle-sp{
@@ -158,6 +161,7 @@ body{
       padding-top: 48px;
       position: absolute;
       top: 0px;
+      
     }
     #textHW, #textHW_comment{
       resize: none;

@@ -7,7 +7,7 @@ function main(){
 
 
 
-      $('#central-part').css('left', '16.66666667%');
+      $('#central-part').css('margin-left', '20%');
 
       width_all_album = $('#all-albums').width();
       var i = 1;
