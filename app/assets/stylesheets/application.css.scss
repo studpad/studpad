@@ -600,7 +600,7 @@ body{
       width: 40px;
       height: 40px;
       border-radius: 200px;
-      
+      background-size: 22px 22px;
       background-position: center;
       background-size: 20px 20px;
       background-repeat: no-repeat;
@@ -610,30 +610,26 @@ body{
       margin-bottom: -16px;
      }
      .type-image{
-      border: 1px solid #D8A330;
-      background-size: 22px 22px;
+      border: 1px solid #D8A330;      
       background-image: url("instagram10.png");
      }
      .type-document{
       border: 1px solid #21b07e;
-      background-size: 22px 22px;
       background-image: url("paper clip.png");
      }
      .type-video{
       border: 1px solid #84181f;
-      background-size: 22px 22px;
       background-image: url("playbutton5.png");
      }
      .type-link{
       border: 1px solid #1f7bb5;
-      background-size: 22px 22px;
       background-image: url("connector3.png");
      }
      .this-useful-material_all{
       border-bottom: 1px solid #EFEFEF;
       padding-top: 15px;
       padding-bottom: 7px;
-      padding-bottom: 5px;
+      padding-bottom: 7px;
       &:hover{
         background-color: #FBFBFA;
       }
