@@ -1,9 +1,9 @@
 <div class ='container' id = 'main-container'>
   <div class = 'row'>
 
-    <%= render  "partials/list_subject"%>
+    <%= render  "partials/right_part_page"%>
 
-    <div class = 'col-lg-10 col-md-10 col-xs-10' id = 'central-part'>
+    <div class = 'col-lg-7 col-md-7 col-xs-7' id = 'central-part'>
       <div class = 'row'>
         <div class = 'col-lg-12 col-md-12 col-xs-12'>
           <div class = 'title-sp' id = 'class-name-school'>
@@ -12,19 +12,24 @@
         </div>
       </div>
 
-        <div class = 'row' id = 'all-albums'>
-          <div>
+        <div class = 'row' id = 'all-photos-album'>
+          
             <% @photos.each do |p|%>
             <a class="fancybox-thumb" rel="fancybox-thumb"
-            href="<%= p.image.url %>" title="elgol sunset (matty brooks)">
-              <div class="col-sm-4 col-md-3 the-wrap-photo">
-                <div class="thumbnail" style = 'background: url("<%= p.image.url %>"); background-size: cover; height: 234px;'>
+            href="<%= p.image.url %>">
+              <div class="col-sm-6 col-md-4" style = 'height: 287px;'>
+                <div class = 'this-photo'>
+                  <div class="thumbnail" style = 'background: url("<%= p.image.url %>"); background-size: cover; height: 234px;'>
+                  </div>
+                  <div class="date-of-photos">
+                    <span class="date-news">27 апреля</span>
+                  </div>
                 </div>
               </div>
             </a>
             <% end %>
 
-          </div>
+          
         </div>
 
     </div>

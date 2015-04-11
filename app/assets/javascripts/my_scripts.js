@@ -8,15 +8,7 @@ function main(){
 
 
       $('#central-part').css('margin-left', '20%');
-
-      width_all_album = $('#all-albums').width();
-      var i = 1;
-
-      while(width_all_album - i*234 > 0){
-         i++;
-      }
-      paddingSize = (width_all_album - (i - 1)*234)/2;
-      $('#all-albums').css('padding-left', paddingSize);
+      $('.right-functional').css('margin-left', '80%');      
 
 
 

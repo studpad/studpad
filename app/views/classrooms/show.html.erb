@@ -1,3 +1,9 @@
+<%
+def classroom_id
+    params[:classroom_id] || params[:id]
+end
+%>
+
 <div class ='container' id = 'main-container'>
   <div class = 'row'>
     <%= render "partials/right_part_page" %>
