@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: { message: 'Такой email уже занят'}
 
   mount_uploader :avatar, AvatarUploader
+  crop_uploaded :avatar
 
   def teacher?
     false

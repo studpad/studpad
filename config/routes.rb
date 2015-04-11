@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'materials/index'
+  get 'materials/new'
+  get 'materials/edit'
+  get 'materials/show'
   root 'users#profile'
 
   resources :classrooms do
@@ -9,7 +13,8 @@ Rails.application.routes.draw do
         post 'newphoto' => 'albums#create_newphoto'
       end
     end
-    resources :subjects, onle: :show
+    resources :subjects, only: :show
+    resources :materials
     resources :news, only: :create do
       member do
         post 'comment'

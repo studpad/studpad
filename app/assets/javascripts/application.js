@@ -16,3 +16,5 @@
 //= require bootstrap-sprockets
 //= require my_scripts
 //= require jquery.fancybox
+// require jquery.jcrop
+// require students

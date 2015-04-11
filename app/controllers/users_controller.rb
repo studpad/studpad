@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def create_ava
     @user = current_user
     if @user.update_attribute :avatar, params[:user][:avatar]
-      redirect_to user_path(@user)
+      render 'new_ava'
     else
       flash[:warning] = 'Недопустимый формат изображения'
       render 'new_ava'
@@ -65,6 +65,12 @@ class UsersController < ApplicationController
     def find_user
       @user = User.find(params[:id])
     end
+
+    def ava_params
+      params.require(:user).permit(:fieldname_crop_x, :fieldname_crop_y,
+      :fieldname_crop_w, :fieldname_crop_h, :avatar)
+    end
+
     def user_params
       params.require(:teacher).permit(:name, :email, :password, :password_confirmation)
     end

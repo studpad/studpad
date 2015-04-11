@@ -20,9 +20,20 @@ class AvatarUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  version :thumb do
-    process :resize_to_fill => [50, 50]
+  # version :thumb do
+  #   process :resize_to_fill => [50, 50]
+  # end
+  ## If ONLY "thumb" version is to be cropped
+  version :jumbo do
+    resize_to_limit(600,600)
   end
+
+  version :thumb do
+    process crop: :avatar  ## Crops this version based on original image
+    resize_to_limit(100,100)
+  end
+
+  process crop: :avatar
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
