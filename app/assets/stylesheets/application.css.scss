@@ -20,13 +20,13 @@
 @import "http://webfonts.ru/import/osans.css";
 
 body{
-      background-color: rgb(251, 251, 251);
       color: rgb(90, 103, 112);
       cursor: default;
       font-family: 'PT Sans';
+      background: #FBFBFA;
     }
     #hat-studpad{
-      background-color: #00739D;
+      background: #23677C;
       height: 48px;
       border-bottom: 1px solid rgb(226, 226, 226);
       width: 100%;
@@ -74,18 +74,23 @@ body{
       color: rgb(90, 103, 112);
       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
     }
+    .a_without_textdecoration{
+      text-decoration: none;
+    }
     #right-part-page{
 
       overflow-x: hidden;
       overflow-y: auto;
-      border-left: 1px solid #EFEFEF;
+      border-right: 1px solid #EFEFEF;
       background: #fff;
       -webkit-backface-visibility: hidden;
       z-index: 10;
       height: 100%;
       padding-top: 48px;
       position: fixed;
-      right: 0px;
+      left: 0px;
+      width: 20%;
+      min-width: 224px;
       scrollbar: none;
     }
     .subtitle-sp{
@@ -159,6 +164,7 @@ body{
       padding-top: 48px;
       position: absolute;
       top: 0px;
+      
     }
     #textHW, #textHW_comment{
       resize: none;
@@ -236,6 +242,8 @@ body{
     .img-avatar{
       border-radius: 200px;
       box-shadow: 0px 0px 2px grey;
+      width: 44px;
+      height: 44px;
     }
     #show-teachers-students{
       margin-top: 10px;
@@ -346,6 +354,7 @@ body{
     .date-news{
       color: #a6a6a6;
       font-size: 12px;
+      text-decoration: none;
     }
     .give-comment{
       margin-left: 12px;
@@ -449,31 +458,34 @@ body{
      .modal-footer{
       border-top: none;
      }
-     .wrap-album{
-      height: 330px;
-     }
      .thumbnail{
       padding: 0px;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+      border: 1px solid rgb(239, 239, 239);
       cursor: pointer;
+      border-radius: 0px;
+      margin-bottom: 0px;
      }
 
      .cover-photos-img{
       border-bottom: 1px solid #EFEFEF;
       border-radius: 4px;
+
      }
      .description-album{
       border-bottom: 1px solid #EFEFEF;
       padding-bottom: 3px;
       padding-top: 3px;
       margin-bottom: 10px;
+      text-align: left;
      }
      .date-create-album{
       color: #a8a8a8;
       font-size: 12px;
+      text-align: left;
      }
-     #all-albums{
+     #all-photos-album{
       text-align: center;
+      margin-top: 10px;
      }
      .the-wrap-photo{
       padding-left: 8px;
@@ -481,7 +493,7 @@ body{
 
      }
      .the-wrap-photo{
-      width: 234px;
+      width: 250px;
       height: 234px;
       margin-top: 8px;
      }
@@ -517,17 +529,58 @@ body{
       border-bottom: 1px solid #EFEFEF;
       padding-top: 10px;
      }
+     .card-sp-under-photo{
+      font-size: 13px;
+      padding-left: 7px;
+      font-family: "Open Sans";
+      height: 40px;
+      border-bottom: 1px solid #EFEFEF;
+      padding-top: 10px;
+     }
+     .album-data-created{
+      padding: 5px;
+     }
      .subject-useful-material_last{
-      margin-top: 10px;
+      padding-top: 10px;
+      &:hover{
+        background-color: #FBFBFA;
+      }
      }
      .label-subject{
       font-size: 13px;
       font-family: "Open Sans";
-      background-color: #00739D;
+      background-color: #23677C;
      }
      #contact-data-user{
       margin-top: 20px;
      }
+     .right-functional{
+      top: 95px;
+     }
+     .this-photo{
+
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+      padding: 6px;
+      background: white;
+      margin-top: 5px;
+
+      .date-of-photos{
+        display: none;
+        padding-top: 5px;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      &:hover{
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.32);
+        .date-of-photos{
+          display: block;
+        }
+      }
+
+     }
+
+
 
 
 
@@ -555,6 +608,7 @@ body{
   top: 0;
   left: 0;
   z-index: 8020;
+
 }
 
 .fancybox-skin {

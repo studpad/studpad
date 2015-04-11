@@ -1,12 +1,72 @@
+<%
+def classroom_id
+    params[:classroom_id] || params[:id]
+end
+%>
+
 <div class ='container' id = 'main-container'>
   <div class = 'row'>
-    <%= render  "partials/list_subject"%>
-    <div class = 'col-lg-7 col-md-7 col-xs-7' id = 'central-part'>
+    <%= render "partials/right_part_page" %>
+    <div class = 'col-lg-7 col-md-8 col-xs-9' id = 'central-part'>
       <div class = 'row'>
         <div class = 'col-lg-12 col-md-12 col-xs-12'>
           <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
+        </div>
+      </div>
+      <div class = 'row'>
+        <div class = 'col-lg-7 col-md-7 col-xs-12'>
+          <div class = 'card-sp'>
+            <div id = 'subject-useful-material_img'>
+            </div>
+            <div class = 'subject-useful-material_menu'>
+                <span class="label label-success label-subject">Полезные материалы</span> • Показать все
+            </div>
+            <div class = 'subject-useful-material_last'>
+              <div class = 'container-fluid'>
+                <div class = 'row'>
+                  <div class = 'col-lg-12 col-md-12 col-xs-12'>
+                    <div class = 'news-username'>
+                      Никитин Максим Вадимович
+                    </div>
+                    <div class = 'main-text-news'>
+                      <span class = 'span-main-text-news'>Я просто вчера сильно расстроился, купив Coda 2 и найдя, что он вроде с одной стороны и приятный, а с другой стороны какой-то тугой и (лично для меня) не удобный именно базовым фунционалом.</span>
+                    </div>
+                    <div class = 'menu-of-form-send-comment-of-news'>
+                      <span class = 'date-news'>5 апреля 2014</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = 'col-lg-5 col-md-5 col-xs-12'>
+          <div class = 'card-sp'>
+            <div id = 'subject-HW_img'>
+            </div>
+            <div class = 'subject-useful-material_menu'>
+                <span class="label label-success label-subject">Домашнее задание</span> • Показать все
+            </div>
+            <div class = 'subject-useful-material_last'>
+              <div class = 'container-fluid'>
+                <div class = 'row'>
+                  <div class = 'col-lg-12 col-md-12 col-xs-12'>
+                    <div class = 'news-username'>
+                      Никитин Максим Вадимович
+                    </div>
+                    <div class = 'main-text-news'>
+                      <span class = 'span-main-text-news'>Я просто вчера сильно расстроился, купив Coda 2 и найдя, что он вроде с одной стороны и приятный, а с другой стороны какой-то тугой</span>
+                    </div>
+                    <div class = 'menu-of-form-send-comment-of-news'>
+                      <span class = 'date-news'>5 апреля 2014</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class = 'row'>
@@ -35,6 +95,6 @@
       </div>
     </div>
 
-    <%= render "partials/right_part_page" %>
+    
   </div>
 </div>

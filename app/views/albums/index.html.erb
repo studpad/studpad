@@ -1,7 +1,6 @@
 <div class ='container' id = 'main-container'>
 <div class = 'row'>
-
-  <%= render  "partials/list_subject"%>
+  <%= render "partials/right_part_page" %>
 
   <div class = 'col-lg-7 col-md-7 col-xs-7' id = 'central-part'>
     <div class = 'row'>
@@ -12,37 +11,39 @@
       </div>
     </div>
 
-    <div class = 'row' id = 'all-albums'>
+    <div class = 'row'>
       <% @albums.each do |a| %>
       <div class="col-sm-6 col-md-4">
-        <%= link_to classroom_album_path(@classroom, a) do %>
-        <div class="thumbnail wrap-album" style = 'padding: 0px;'>
+        <%= link_to classroom_album_path(@classroom, a), class: 'a_without_textdecoration' do %>
+        <div class="card-sp" style = 'padding: 0px;'>
           <% if a.last_photo %>
-            <img src="<%= a.last_photo.image.url %>" class = 'cover-photos-img'>
+            <div style = 'background: url("<%= a.last_photo.image.url %>"); background-size: cover; height: 234px;'>
+          </div>
           <% else %>
-            <img src="/empty.png" class = 'cover-photos-img'>
+            <div style = 'background: url("/empty.png"); background-size: cover; height: 234px;'>
+          </div>
           <% end %>
           <div class="caption">
-            <div class = 'description-album'>
-              <p><%= a.name %></p>
-              <%= link_to 'Добавить фото', newphoto_classroom_album_path(@classroom, a) %>
+            <div class="card-sp-under-photo">
+                <span><%= a.name %></span>
             </div>
-            <div>
-              <span class = 'date-create-album'>
-                <%= a.created_at.strftime("%d %b %H:%M") %>
-              </span>
+            <div class="menu-of-form-send-comment-of-news album-data-created">
+              <span class="date-news"><%= a.created_at.strftime("%d %b %H:%M") %></span>
             </div>
           </div>
         </div>
         <% end %>
       </div>
       <% end %>
-      <%= link_to "Новый альбом", new_classroom_album_path , class: 'btn btn-default'%>
+      
     </div>
 
   </div>
 
-  <%= render "partials/right_part_page" %>
+  <div class = "col-lg-2 col-md-2 col-xs-2 right-functional">
+    <%= link_to "Новый альбом", new_classroom_album_path , class: 'btn btn-default'%>
+  </div>
+
 
 </div>
 </div>
