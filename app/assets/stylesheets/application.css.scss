@@ -11,7 +11,6 @@
  * file per style scope.
  *
  *= require_tree .
- *= require jquery.jcrop
  *= require_self
  */
 
@@ -505,6 +504,7 @@ body{
       background-color: white;
       cursor: pointer;
       border-radius: 2px;
+      padding-bottom: 3px;
       &:hover{
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.32);
       }
@@ -514,6 +514,14 @@ body{
       background-size: cover;
       height: 180px;
       border-radius: 2px;
+     }
+     #page-useful-material_img{
+      background: url('http://themes.startbootstrap.com/spectrum-v1.2.0/assets/img/demo-portfolio/9.jpg');
+      background-position: 0px -50px;
+      background-size: cover;
+      height: 250px;
+      border-radius: 2px;
+      margin-bottom: 20px;
      }
      #subject-HW_img{
       background: url('http://poselkovgid.ru/media/pictures/2012.04/650/27094afb3f543d4d26bfe70fb68964f4.jpg');
@@ -580,7 +588,68 @@ body{
 
      }
 
-
+     .files-this-post{
+        border-left: 1px solid rgb(239, 239, 239);
+        width: 30%;
+     }
+     .message-this-post{
+        width: 70%;
+     }
+     .files-image{
+      border: 1px solid #D8A330;
+      width: 40px;
+      height: 40px;
+      border-radius: 200px;
+      
+      background-position: center;
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+     }
+     .this-material{
+      margin-top: 5px;
+      margin-bottom: -16px;
+     }
+     .type-image{
+      border: 1px solid #D8A330;
+      background-size: 22px 22px;
+      background-image: url("instagram10.png");
+     }
+     .type-document{
+      border: 1px solid #21b07e;
+      background-size: 22px 22px;
+      background-image: url("paper clip.png");
+     }
+     .type-video{
+      border: 1px solid #84181f;
+      background-size: 22px 22px;
+      background-image: url("playbutton5.png");
+     }
+     .type-link{
+      border: 1px solid #1f7bb5;
+      background-size: 22px 22px;
+      background-image: url("connector3.png");
+     }
+     .this-useful-material_all{
+      border-bottom: 1px solid #EFEFEF;
+      padding-top: 15px;
+      padding-bottom: 7px;
+      padding-bottom: 5px;
+      &:hover{
+        background-color: #FBFBFA;
+      }
+     }
+     .name-files{
+      position: relative;
+      font-size: 13px;
+      bottom: 29px;
+      left: 47px;
+      height: 16px;
+      max-width: 150px;
+      overflow: hidden;
+     }
+     
+     
+     
 
 
 
