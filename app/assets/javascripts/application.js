@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require my_scripts
 //= require jquery.fancybox
-// require jquery.jcrop
-// require students
+//= require jquery.Jcrop.min
+//= require my_scripts

@@ -45,11 +45,20 @@ class UsersController < ApplicationController
   def create_ava
     @user = current_user
     if @user.update_attribute :avatar, params[:user][:avatar]
-      render 'new_ava'
+      render 'crop'
     else
       flash[:warning] = 'Недопустимый формат изображения'
       render 'new_ava'
     end
+  end
+
+  def crop
+    @user = current_user
+    @user.avatar.crop(params[:crop_x], params[:crop_y], params[:crop_w], params[:crop_h])
+    @user.save!
+    @user.avatar.recreate_versions!
+
+    redirect_to user_path
   end
 
   def profile

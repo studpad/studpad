@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:destroy, :update]
   resources :users do
     member do
+      post 'crop'
       get 'new_ava'
       post 'new_ava' => 'users#create_ava'
     end

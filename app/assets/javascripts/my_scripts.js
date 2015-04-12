@@ -1,6 +1,20 @@
 
 function main(){
 
+      function update_crop(coords) {
+         $('#crop_x').val(coords.x);
+         $('#crop_y').val(coords.y);
+         $('#crop_w').val(coords.w);
+         $('#crop_h').val(coords.h);
+      }
+
+      $('#cropbox').Jcrop({
+         onChange: update_crop,
+         onSelect: update_crop,
+         setSelect: [0, 0, 500, 500],
+         aspectRatio: 1
+      });
+
       $("textarea").focus(function(){
       	 $(this).css('box-shadow', 'none').css('border', '1px solid #E8E8E8');
    	 });
@@ -8,7 +22,7 @@ function main(){
 
 
       $('#central-part').css('margin-left', '20%');
-      $('.right-functional').css('margin-left', '80%');      
+      $('.right-functional').css('margin-left', '80%');
 
 
 
