@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'homeworks/index'
+  get 'homeworks/show'
   get 'materials/index'
   get 'materials/new'
   get 'materials/edit'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :subjects, only: :show
     resources :materials
+    resources :homeworks
     resources :news, only: :create do
       member do
         post 'comment'
