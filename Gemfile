@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1.rc1'
 # Use postgresql as the database for Active Record
-gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,18 +31,22 @@ gem 'carrierwave'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :production do
   gem 'rails_12factor', '0.0.2'
+  gem 'unicorn'
+  gem 'sqlite3'
 end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'pg'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -58,11 +61,5 @@ group :development do
   gem 'capistrano-bundler'
   # Добавление поддержки Rbenv (менеджера версий для Ruby)
   gem 'capistrano-rbenv'
-  # Интеграция пумы и капистрано
-  gem 'capistrano3-puma'
 end
 
-group :production do
-  # Puma - это Ruby/Rack сервер, который будет получать запросы из Nginx и направлять их в Rails, эдакое связующее звено
-  gem 'puma'
-end
