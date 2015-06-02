@@ -52,6 +52,7 @@ set(:symlinks, [
   {
     source: "nginx.conf",
     link: "/etc/nginx/sites-enabled/{{full_app_name}}"
+    #link: "/etc/nginx/nginx.conf"
   },
   {
     source: "unicorn_init.sh",
