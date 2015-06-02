@@ -1,0 +1,63 @@
+---
+- hosts: 'all'
+  remote_user: 'root'
+
+  # В данном блоке объявляются переменные, которые будут использоваться в playbook и конфигах, представленных выше
+  vars:
+
+    # Пользователь, от лица которого будет происходит деплой
+    user: 'deploy'
+    # Домашняя директория
+    home: '/home/{{ user }}'
+    # Директория установки Rbenv
+    rbenv_root: '{{ home }}/.rbenv'
+    # Название приложения
+    name: 'studpad'
+    # Путь до нашего приложения
+    application: '{{ home }}/applications/{{ name }}'
+
+  # Список задач, которые будут выполнены последовательно
+  tasks:
+    # Обновление кеша и установка необходимых пакетов, всего программного обеспечения,
+    # необходимого для работы нашего сервера
+    - name: 'apt | update'
+      action: 'apt update_cache=yes'
+
+    - name: 'apt | install dependencies'
+      action: 'apt pkg={{ item }}'
+      # with_items - это обычный цикл в Ansible, он возьмёт и прогонит все его элементы через action
+      with_items:
+        - 'build-essential'
+        - 'libssl-dev'
+        - 'libyaml-dev'
+        - 'libreadline6-dev'
+        - 'zlib1g-dev'
+        - 'libcurl4-openssl-dev'
+        - 'git'
+        - 'nginx'
+        - 'redis-server'
+        - 'postgresql'
+        - 'postgresql-contrib'
+        - 'libpq-dev'
+        - 'imagemagick'
+        - 'libmagickwand-dev'
+        - 'nodejs'
+        - 'htop'
+        - 'curl'
+
+    # Создаём нашего пользователя deploy, копируем авторизационный ключ,
+    # а так же публичный и приватный ssh ключи
+    - name: 'account | create'
+      user: 'name={{ user }} shell=/bin/bash'
+
+    - name: 'account | copy authorized keys'
+      # shell - это модуль Ansible, который позволяет выполнять обычные bash команды
+      shell: 'mkdir -p {{ home }}/.ssh -m 700 && cp /root/.ssh/authorized_keys {{ home }}/.ssh && chown -R {{ user }}:{{ user }} {{ home }}/.ssh'
+
+    - name: 'account | copy ssh private key'
+      # Модуль copy просто берёт и копирует файл из папки src в папку dest
+      copy: 'src=~/.ssh/id_rsa dest={{ home }}/.ssh/id_rsa owner={{ user }} group={{ user }} mode=0600'
+
+    - name: 'account | copy ssh public key'
+      copy: 'src=~/.ssh/id_rsa.pub dest={{ home }}/.ssh/id_rsa.pub owner={{ user }} group={{ user }} mode=0644'
+

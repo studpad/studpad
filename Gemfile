@@ -27,12 +27,13 @@ gem 'mini_magick'
 gem 'sorcery'
 gem 'simple_form'
 gem 'carrierwave'
+gem 'active_type'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-
+gem 'unicorn'
 
 
 # Use Capistrano for deployment
@@ -40,7 +41,6 @@ gem 'carrierwave'
 
 group :production do
   gem 'rails_12factor', '0.0.2'
-  gem 'puma'
 end
 
 group :development, :test do
@@ -55,13 +55,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capistrano-rvm'
-  gem 'capistrano3-puma'
-  # Гем, который добавляет специфические для Rails таски, такие как прогон миграций и компиляция ассетов
-  gem 'capistrano-rails'
-  # Гем, добавляющий возможности bundle к capistrano
-  gem 'capistrano-bundler'
-  # Добавление поддержки Rbenv (менеджера версий для Ruby)
   gem 'capistrano-rbenv'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
 end
 

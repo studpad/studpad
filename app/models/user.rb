@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
     presence: { message: 'Не может быть пустым' }, on: :create
   validates :password, confirmation:  {message: 'Пароли не совпадают' }, on: :create
   validates :password_confirmation, presence: { message: 'Не может быть пустым' }, on: :create
-  validates :email, uniqueness: { message: 'Такой email уже занят'}
+  validates :email, uniqueness: { message: 'Такой email уже занят'}, presence: true
+  validates :name, presence: true
 
   mount_uploader :avatar, AvatarUploader
 
