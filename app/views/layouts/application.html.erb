@@ -18,17 +18,19 @@
           <div class = 'col-lg-2 col-md-2 col-xs-2' id = 'hat-studpad-title'>
             <a id = 'hat-main-studpad' href="/">Studpad</a>
           </div>
-          <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-base-menu'>
-            <%= link_to profile_path do %>
-            <span class="glyphicon glyphicon-user"></span> Мой профиль
-            <% end %>
-          </div>
-          <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-base-menu'>
-            <% if current_user && current_user.student? %>
-              <%= link_to classroom_path(current_user.classroom) do %>
-              <span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span> Мой класс
+          <div id = 'menu-on-hat'>
+            <div class = 'col-lg-1 col-md-1 col-xs-1'>
+              <%= link_to profile_path do %>
+              <%= image_tag "http://localhost:3000/uploads/teacher/avatar/1/thumb_7_______.jpg", style: 'border: 1px solid #BBC3C7; border-radius: 200px; margin-top: 6px;', size: "35x35" %>
               <% end %>
-            <% end %>
+            </div>
+            <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-hat-menu'>
+              <% if current_user && current_user.student? %>
+                <%= link_to classroom_path(current_user.classroom) do %>
+                  <%= image_tag "myclass.png", style: 'margin-top: 6px;', size: "35x35" %><span class = 'name-action-of-hat-menu'> Мой класс</span>
+                <% end %>
+              <% end %>
+            </div>
           </div>
          </div>
       </div>
