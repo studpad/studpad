@@ -18,16 +18,17 @@ set :keep_releases, 5
 set :linked_files, %w{config/database.yml}
 
 # dirs we want symlinking to shared
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 # what specs should be run before deployment is allowed to
 # continue, see lib/capistrano/tasks/run_tests.cap
 set :tests, []
-
+set :bundle_binstubs, -> { shared_path.join('bin') } #for get rails consle working
 # which config files should be copied by deploy:setup_config
 # see documentation in lib/capistrano/tasks/setup_config.cap
 # for details of operations
 set(:config_files, %w(
+  secrets.yml
   nginx.conf
   database.yml
   log_rotation
