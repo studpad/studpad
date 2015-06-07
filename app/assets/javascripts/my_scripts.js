@@ -19,11 +19,14 @@ function main(){
       	 $(this).css('box-shadow', 'none').css('border', '1px solid #E8E8E8');
    	 });
 
+      /*$(".element-of-squares-menu").mouseover(function(){
+         $(this).children('.title-element-of-squares-menu').css('opacity', '1');
+      });
+      $(".element-of-squares-menu").mouseout(function(){
+         $(this).children('.title-element-of-squares-menu').css('opacity', '0.5');
+      });*/
 
-
-      $('#central-part').css('margin-left', '20%');
       $('.right-functional').css('margin-left', '80%');
-
 
 
    	$(".js-example-basic-multiple").select2();
@@ -79,6 +82,7 @@ function main(){
       	$(this).css('height', '50px').css('color', 'black');
       	$(this).next().children('.post-comment-of-news').css('display', 'block');
 
+
       });
 
 
@@ -98,16 +102,18 @@ function main(){
 
       $(".give-comment").click(function(){
 
-      	$(this).parent().next().css('display', 'block');
+         $(this).parent().next().css('display', 'block');
+      	$(this).parent().next().children('form').children('.textHW_comment').focus();
       });
 
 
       $(".pencil-news").click(function(){
 
       	val = $(this).parent().next().next().children().html();
-      	$(this).parent().next().next().css('display', 'none');
+      	$(this).parent().next().next().children('span').css('display', 'none');
       	$(this).parent().next().next().next().children().children('textarea').val(val);
       	$(this).parent().next().next().next().css('display', 'block');
+         $(this).parent().next().next().next().children().children('textarea').focus();
 
       });
 
@@ -119,6 +125,7 @@ function main(){
       	$(this).parent().next().next().css('display', 'none');
       	$(this).parent().next().next().next().children().children('textarea').val(val);
       	$(this).parent().next().next().next().css('display', 'block');
+         $(this).parent().next().next().next().children().children('textarea').focus();
 
       });
 

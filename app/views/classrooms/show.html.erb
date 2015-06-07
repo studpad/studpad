@@ -5,9 +5,15 @@ end
 %>
 
 <div class ='container' id = 'main-container'>
-  <div class = 'row'>
-    <%= render "partials/right_part_page" %>
-    <div class = 'col-lg-7 col-md-8 col-xs-9' id = 'central-part'>
+    <%= render "/partials/squares_menu" %>
+    <div class = 'main-wall' id = 'central-part'>
+      <div class = 'row'>
+        <div class = 'col-lg-12 col-md-12 col-xs-12'>
+          <div class = 'title-sp' id = 'class-name-school'>
+            Ваш класс
+          </div>
+        </div>
+      </div>
       <div class = 'row'>
         <div class = 'col-lg-12 col-md-12 col-xs-12'>
           <% flash.each do |key, value| %>
@@ -18,14 +24,14 @@ end
         <%= render "classrooms/materials_and_HW" %>
       <div class = 'row'>
         <div class = 'col-lg-12 col-md-12 col-xs-12'>
-          <div id = 'main-wall'>
-            <div class = 'row'>
+          <!-- <div id = 'main-wall'>
+           <div class = 'row'>
               <div class = 'col-lg-12 col-md-12 col-xs-12'>
                 <% if current_user %>
                 <%= render "classrooms/class_photos" %>
                 <% end %>
-              </div>
-            </div>
+              </div> 
+            </div>-->
             <% if current_user && current_user.can_view?(@classroom) %>
             <%= render "classrooms/news"%>
             <% else %>
@@ -42,6 +48,4 @@ end
       </div>
     </div>
 
-    
-  </div>
 </div>
