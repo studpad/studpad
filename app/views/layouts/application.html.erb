@@ -20,8 +20,10 @@
           </div>
           <div id = 'menu-on-hat'>
             <div class = 'col-lg-1 col-md-1 col-xs-1'>
-              <%= link_to profile_path do %>
-              <%= image_tag "http://localhost:3000/uploads/teacher/avatar/1/thumb_7_______.jpg", style: 'border: 1px solid #BBC3C7; border-radius: 200px; margin-top: 6px;', size: "35x35" %>
+              <% if current_user %>
+                <%= link_to profile_path do %>
+                <%= image_tag current_user.avatar.url || "http://localhost:3000/uploads/teacher/avatar/1/thumb_7_______.jpg", style: 'border: 1px solid #BBC3C7; border-radius: 200px; margin-top: 6px;', size: "35x35" %>
+                <% end %>
               <% end %>
             </div>
             <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-hat-menu'>

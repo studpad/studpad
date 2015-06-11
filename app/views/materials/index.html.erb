@@ -11,8 +11,13 @@ end
 	      <div class = 'col-lg-12 col-md-12 col-xs-12'>
 	        <div class = 'title-sp' id = 'class-name-school'>
 	          Полезные материалы
+        <br>
+        <%= link_to new_classroom_material_path(classroom_id) do%>
+          <span class="glyphicon glyphicon-floppy-saved">Новый материал</span>
+        <% end %>
 	        </div>
 	      </div>
+
 	    </div>
       <%= render "each_materials" %>
     </div>
