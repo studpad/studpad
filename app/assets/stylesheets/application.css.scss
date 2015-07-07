@@ -302,6 +302,13 @@ body{
       width: 44px;
       height: 44px;
     }
+    .big-img-avatar{
+      border-radius: 200px;
+      box-shadow: 0px 0px 2px grey;
+      width: 104px;
+      height: 104px;
+      margin: 30px 0px;
+    }
     #show-teachers-students{
       margin-top: 10px;
     }
@@ -1129,4 +1136,11 @@ body{
    &:hover{
     color: rgb(240, 240, 240);
    }
+}
+.show-persons{
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+    background-color: rgb(247, 247, 247);
+  }
 }
