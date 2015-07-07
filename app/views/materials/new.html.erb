@@ -3,11 +3,13 @@
     <div class="col-lg-4 col-md-4 col-xs-4
     col-lg-offset-4 col-md-offset-4 col-xs-offset-4 text-on-page">
     <h1>Новый полезный материал</h1>
-    <%= simple_form_for(@material, url: classroom_materials_path(params[:classroom_id]), html: { class: 'form-vertical' }) do |f| %>
+    <%= simple_form_for(@material, url: materials_path, html: { class: 'form-vertical' }) do |f| %>
       <%= f.input :name, label: 'Имя' %>
       <%= f.input :description, label: 'Описание' %>
-      <%= f.file_field :file, label: 'Файл' %>
       <%= f.button :submit, 'Создать' %>
+    <% end %>
+
+    <%= form_tag( attachments_path,  id: 'material-dropzone', class: 'dropzone' ) do %>
     <% end %>
     </div>
   </div>

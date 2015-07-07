@@ -8,8 +8,10 @@ class MaterialsController < ApplicationController
   end
 
   def create
+    @mp = material_params
     @material = Material.create(material_params)
-    render 'edit'
+    @material.save!
+    render nil
   end
 
   def edit
@@ -20,6 +22,6 @@ class MaterialsController < ApplicationController
 
   private
     def material_params
-      params.require(:material).permit(:name, :description, file).deep_merge({classroom_id: params[:classroom_id]})
+      params.require(:material).permit(:name, :description, :file)
     end
 end

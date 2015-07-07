@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'homeworks/index'
-  get 'homeworks/show'
-  get 'materials/index'
-  get 'materials/new'
-  get 'materials/edit'
-  get 'materials/show'
+
   root 'users#profile'
+  resources :materials
+  resources :attachments, only: [:create, :destroy]
 
   resources :classrooms do
     resources :albums do

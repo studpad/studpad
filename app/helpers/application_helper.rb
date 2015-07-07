@@ -8,4 +8,8 @@ module ApplicationHelper
       @subjects = Subject.all
     end
   end
+
+  def classroom_id
+    params[:classroom_id] || params[:id]
+  end
 end
