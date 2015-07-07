@@ -25,6 +25,9 @@ body{
       font-family: 'PT Sans';
       background: rgba(244, 244, 241, 0.8);
     }
+    a{
+      cursor: pointer;
+    }
     #hat-studpad{
       background: #23677C;
       height: 48px;
@@ -60,8 +63,17 @@ body{
       background-color: white;
       position: absolute;
       left: 50%;
-      top: 99px;
+      top: 132px;
       margin-left: -490px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+    }
+    .right-button-action{
+      width: 100px;
+      background-color: white;
+      position: absolute;
+      right: 50%;
+      top: 81px;
+      margin-right: -426px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     }
     .element-of-squares-menu{
@@ -110,6 +122,20 @@ body{
       font-size: 19px;
       color: rgb(90, 103, 112);
       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+    }
+    .title-underline{
+      font-size: 20px;
+      padding-bottom: 7px;
+      border-bottom: 3px solid #23677C;
+    }
+    .align-c{
+      text-align: center;
+    }
+    .margin-b40{
+      margin-bottom: 40px;
+    }
+    .margin-b20{
+      margin-bottom: 20px;
     }
     .a_without_textdecoration{
       text-decoration: none;
@@ -264,8 +290,8 @@ body{
       padding-top: 12px;
     }
     .main-text-news{
-      color: black;
-      font-size: 14px;
+      color: rgb(94, 94, 94);
+      font-size: 13px;
       margin-top: 5px;
       padding: 3px;
     }
@@ -336,7 +362,7 @@ body{
       padding-left: 20px;
     }
     .news-username{
-      font-size: 15px;
+      font-size: 14px;
     }
     .title-background{
       background-color: #FFF;
@@ -369,6 +395,11 @@ body{
       margin-left: 3px;
       font-size: 12px;
       margin-top: 3px;
+      margin-bottom: 7px;
+    }
+    .card-date{
+      font-size: 12px;
+      margin-top: 10px;
       margin-bottom: 7px;
     }
     .textarea-form-send-comment-of-news{
@@ -552,21 +583,16 @@ body{
 
      .card-sp{
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-      min-height: 360px;
       margin-top: 12px;
       background-color: white;
-      cursor: pointer;
       border-radius: 2px;
       padding-bottom: 3px;
       &:hover{
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.32);
       }
      }
-     #subject-useful-material_img{
-      background: url("http://themes.startbootstrap.com/spectrum-v1.2.0/assets/img/demo-portfolio/9.jpg");
-      background-size: cover;
-      height: 180px;
-      border-radius: 2px;
+     .useful-material_img{
+      text-align: center;
      }
      #page-useful-material_img{
       background: url('http://themes.startbootstrap.com/spectrum-v1.2.0/assets/img/demo-portfolio/9.jpg');
@@ -609,9 +635,10 @@ body{
      .album-data-created{
       padding: 5px;
      }
-     .subject-useful-material_last{
-      padding-top: 10px;
+     .useful-material_info{
+      padding-top: 40px;
       min-height: 149px;
+      padding-left: 45px;
       &:hover{
         background-color: #FBFBFA;
       }
@@ -687,8 +714,10 @@ body{
       border: 1px solid #1f7bb5;
       background-image: url("connector3.png");
      }
-     .this-useful-material_all{
-      border-bottom: 1px solid #EFEFEF;
+     /*.this-useful-material_all{
+      
+     }*/
+     .this-homework{
       padding-top: 15px;
       padding-bottom: 7px;
       padding-bottom: 7px;
@@ -699,11 +728,10 @@ body{
      .name-files{
       position: relative;
       font-size: 13px;
-      bottom: 29px;
+      bottom: 38px;
       left: 47px;
-      height: 16px;
-      max-width: 150px;
-      overflow: hidden;
+      width: 80%;
+      
      }
      #for-margin-news{
       margin-top: 12px;
@@ -990,9 +1018,108 @@ body{
   }
 }
 
+.sharp-wrap{
+  border-radius: 0px !important;
+}
+.name-after-avatar{
+  margin-left: 10px;
+}
+.useful-material_list{
+  height: 100px;
+  background-color: whitesmoke;
+}
+.useful-material_post{
+  margin-bottom: 30px;
+}
+.title-page{
+  height: 50px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 22px;
+  color: #5a6770;
+  font-size: 20px;
+  padding-top: 8px;
+  
+}
+.my-setting-modal-content{
+  border-radius: 2px;
+  width: 685px;
+}
+.my-setting-modal-body{
+  padding: 0px;
+}
+.my-setting-form-control{
+  font-size: 13px;
+}
+.wrap-photos{
+  height: 220px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.set-of-photos4{
+  background-size: cover;
+  height: 110px;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  padding: 0px;
+}
+.description-add-material{
+  resize: none;
+  height: 200px !important;
+  border: 1px dashed #ccc;
+  box-shadow: none;
+  background-color: #FAFAFA;
+}
+.drop-zone {    
+    color: #5a6770;
+    font-size: 16px;
+    text-align: center;    
+    
+    width: 100%;
+    padding: 30px 0;
+    margin-top: 43px;
+    
+    background: #FAFAFA;
+    border: 1px dashed #ccc;
+    
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.height350{
+  height: 350px !important;
+}
+.drop-zone:hover {
+    background: #F7F7F7;
+    border-color: #aaa;
+}
 
+.drop-zone.error {
+    background: #faa;
+    border-color: #f00;
+}
 
-
-
-
-
+.drop-zone.drop {
+    background: #afa;
+    border-color: #0f0;
+}
+.del-this-file{
+  text-align: right;
+  padding: 0px;
+  height: 0px;
+}
+.X18{
+   font-size: 18px;
+   background-color: rgba(50, 72, 76, 0.81);
+   color: #FFFFFF;
+   padding: 0px 6px;
+   border-radius: 2px;
+   cursor: pointer;
+   display: none;
+   position: relative;
+   bottom: 2px;
+   z-index: 100;
+   &:hover{
+    color: rgb(240, 240, 240);
+   }
+}
