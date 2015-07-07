@@ -1,0 +1,14 @@
+<%
+def classroom_id
+    params[:classroom_id] || params[:id]
+end
+%>
+
+<div class ='container' id = 'main-container'>
+    <%= render "/partials/squares_menu" %>
+    <div class = 'main-wall'>
+    	<%= render "list_classmates" %>
+    </div>
+
+
+</div>

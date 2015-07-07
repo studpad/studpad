@@ -9,11 +9,9 @@ $(document).on("page:load ready", function(){
   }).on('removedfile', function(){
     alert('hello world')
   })
-})
 
-$(".show-X").mouseover(function(){
-  $(this).children('.del-this-file').children().css("display", "inline");
-});
-$(".show-X").mouseout(function(){
-  $(this).children('.del-this-file').children().css("display", "none");
+  $(".description-add-material").focus(function(){
+     $(this).addClass('height350');
+  });
+
 });

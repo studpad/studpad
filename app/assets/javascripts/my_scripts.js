@@ -1,4 +1,3 @@
-
 function main(){
 
     function update_crop(coords) {
@@ -75,7 +74,9 @@ function main(){
       }
     });
 
-
+    $(".description-add-material").focus(function(){
+      $(this).css('border', 'none').css('padding', '0px').css('background-color', 'rgba(0,0,0,0)');
+    });
 
     $(".textHW_comment").focus(function(){
 
@@ -84,12 +85,6 @@ function main(){
 
 
     });
-
-      $(".description-add-material").focus(function(){
-
-         $(this).css('border', 'none').css('padding', '0px').css('background-color', 'rgba(0,0,0,0)').addClass('height350');
-
-      });
 
     $(".textHW_comment").blur(function(){
 
@@ -149,12 +144,13 @@ function main(){
     }
   });
 
-   $(".show-X").mouseover(function(){
-      $(this).children('.del-this-file').children().css("display", "inline");
-   });
-    $(".show-X").mouseout(function(){
-      $(this).children('.del-this-file').children().css("display", "none");
-   });
+  $(".show-X").mouseover(function(){
+     $(this).children('.del-this-file').children().css("display", "inline");
+  });
+  $(".show-X").mouseout(function(){
+     $(this).children('.del-this-file').children().css("display", "none");
+  });
+
 
 
 }

@@ -1,0 +1,2 @@
+class ClassmatesController < ApplicationController
+end
