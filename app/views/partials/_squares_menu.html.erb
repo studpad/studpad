@@ -1,34 +1,42 @@
 <div id = 'squares-menu'>
 	<div class = 'element-of-squares-menu'>
+    <%= link_to classroom_path(classroom_id) do %>
 		<div class = 'img-element-of-squares-menu' id = 'homeclass'>
 			<%= image_tag "homeclass_on.png", size: "50x50" %>
     </div>
     <div class = 'title-element-of-squares-menu'>
     	Главная
     </div>
+    <% end %>
 	</div>
 	<div class = 'element-of-squares-menu'>
+    <%= link_to classroom_path(classroom_id) do %>
 		<div class = 'img-element-of-squares-menu'>
 			<%= image_tag "peoplelist_on.png", size: "50x50" %>
     </div>
     <div class = 'title-element-of-squares-menu'>
     	Мы
     </div>
+    <% end %>
 	</div>
 	<div class = 'element-of-squares-menu'>
+    <%= link_to classroom_materials_path(classroom_id) do %>
 		<div class = 'img-element-of-squares-menu'>
 			<%= image_tag "materialclass_on.png", size: "50x50" %>
     </div>
     <div class = 'title-element-of-squares-menu'>
     	Материалы
     </div>
+    <% end %>
 	</div>
 	<div class = 'element-of-squares-menu'>
+    <%= link_to classroom_homeworks_path(classroom_id) do %>
 		<div class = 'img-element-of-squares-menu'>
 			<%= image_tag "homeworkclass_on.png", size: "50x50" %>
     </div>
     <div class = 'title-element-of-squares-menu'>
     	ДЗ
     </div>
+    <% end %>
 	</div>
 </div>

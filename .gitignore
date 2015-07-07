@@ -8,6 +8,8 @@
 /.bundle
 
 database.yml
+secrets.yml.erb
+database.yml.erb
 
 # Ignore all logfiles and tempfiles.
 /log/*

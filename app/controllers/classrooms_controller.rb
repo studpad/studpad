@@ -64,6 +64,10 @@ class ClassroomsController < ApplicationController
       params.require(:student).permit(:name, :email, :password, :password_confirmation)
     end
 
+    def classroom_id
+      params[:classroom_id] || params[:id]
+    end
+
     def load_subjects
       @subjects = Subject.all
     end
