@@ -10,3 +10,10 @@ $(document).on("page:load ready", function(){
     alert('hello world')
   })
 })
+
+$(".show-X").mouseover(function(){
+  $(this).children('.del-this-file').children().css("display", "inline");
+});
+$(".show-X").mouseout(function(){
+  $(this).children('.del-this-file').children().css("display", "none");
+});
