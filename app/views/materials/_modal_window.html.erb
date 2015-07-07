@@ -25,16 +25,18 @@
                     </div>
                   </div>
                   <div class = 'col-lg-6 col-md-6 col-xs-6'>
-                     <div class = 'margin-b40'>
+                    <div class = 'margin-b40'>
                       <span class = 'title-underline'>
                         Файлы
                       </span>
                     </div>
-                    <div class = 'drop-zone margin-b40'>
+                    <%= form_tag( attachments_path,  id: 'material-dropzone' ) do %>
+                      <div id="material-dropzone" class = 'drop-zone margin-b40'>
                       Для загрузки файлов, кликните или перетащите их сюда.
-                    </div>
-                    
-                     <div class = 'wrap-video wrap-video-preview margin-b20 show-X'>
+                      </div>
+                    <% end %>
+
+                    <div class = 'wrap-video wrap-video-preview margin-b20 show-X'>
                       <div class = 'del-this-file'>
                             <span class = 'X18'>&times;</span>
                       </div>
@@ -43,19 +45,19 @@
                       </video>
                     </div>
                     <div class = 'wrap-photos wrap-photos-preview margin-b20'>
-                      <div class = 'row'>
+                      <div id="loaded-photos" class = 'row'>
                         <div class = 'col-xs-6 set-of-photos4 show-X' style = 'background: url(https://pp.vk.me/c7009/v7009404/1b9f/GpY9TPDnK54.jpg); background-size: cover;'>
                           <div class = 'del-this-file'>
                             <span class = 'X18'>&times;</span>
                           </div>
                         </div>
+                        <!--
                         <div class = 'col-xs-6 set-of-photos4 show-X' style = 'background: url(https://pp.vk.me/c7009/v7009404/1bbb/PIUJ7iH_V7M.jpg); background-size: cover;'>
                           <div class = 'del-this-file'>
                             <span class = 'X18'>&times;</span>
                           </div>
                         </div>
-                      </div>
-                      <div class = 'row'>
+
                         <div class = 'col-xs-6 set-of-photos4 show-X' style = 'background: url(https://pp.vk.me/c7009/v7009404/1bad/gxwORy5kZyY.jpg); background-size: cover;'>
                           <div class = 'del-this-file'>
                             <span class = 'X18'>&times;</span>
@@ -66,6 +68,7 @@
                             <span class = 'X18'>&times;</span>
                           </div>
                         </div>
+                        -->
                       </div>
                     </div>
                     <div class = 'this-material this-material-preview show-X'>

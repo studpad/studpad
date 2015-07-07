@@ -8,8 +8,11 @@
       <%= f.input :description, label: 'Описание' %>
       <%= f.button :submit, 'Создать' %>
     <% end %>
+    <div id="loaded">
 
-    <%= form_tag( attachments_path,  id: 'material-dropzone', class: 'dropzone' ) do %>
+    </div>
+    <%= form_tag( attachments_path,  id: 'material-dropzone', class: 'dro form' ) do %>
+      <div class='message' style="height: 100px; width: 100%; background: red;">asdfasdfasdfasdfsadfsad</div>
     <% end %>
     </div>
   </div>

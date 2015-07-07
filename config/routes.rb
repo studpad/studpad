@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'users#profile'
   resources :materials
   resources :attachments, only: [:create, :destroy]
+  get 'trouble' => "attachments#create"
 
   resources :classrooms do
     resources :albums do

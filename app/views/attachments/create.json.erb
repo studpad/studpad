@@ -1,0 +1,8 @@
+<% elem_id = "attachment" + @a.id.to_s %>
+{
+  "id" : "<%= elem_id %>",
+  "remove_link": "<%= raw((link_to @a.file.file.filename, attachment_path(@a),
+  method: :delete, remote: true, id: elem_id).gsub('"', "'") )%>",
+  "link" : "<%= @a.file.url %>"
+}
+
