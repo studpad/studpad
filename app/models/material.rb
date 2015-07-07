@@ -4,4 +4,5 @@ class Material < ActiveRecord::Base
   has_many :attachments, as: :attachable, dependent: :destroy
 
   mount_uploader :file, FileUploader
+
 end
