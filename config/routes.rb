@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
     resources :subjects, only: :show
     resources :materials
+    resources :classmates
     resources :homeworks
     resources :news, only: :create do
       member do

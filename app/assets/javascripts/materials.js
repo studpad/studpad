@@ -10,6 +10,7 @@ $(document).on("page:load ready", function(){
     dictDefaultMessage: 'Нажмите сюда или просто перетащите файлы для загрузки',
     clickable: '.drop-zone'
   })
+
   dz.on("success", function(file, response) {
     dz.removeFile(file);
     //Добавление превью файла
@@ -38,6 +39,7 @@ $(document).on("page:load ready", function(){
     }
 
   });
+  $(".description-add-material").focus(function(){
+     $(this).addClass('height350');
+  });
 })
-
-

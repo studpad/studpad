@@ -19,5 +19,6 @@
 //= require dropzone
 //= require my_scripts
 //= require materials
+//= require homeworks
 
 Dropzone.autoDiscover = false;

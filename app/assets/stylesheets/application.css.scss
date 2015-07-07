@@ -1053,7 +1053,6 @@ body{
   font-size: 13px;
 }
 .wrap-photos{
-  height: 220px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -1091,6 +1090,7 @@ body{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .height350{
   height: 350px !important;
@@ -1119,6 +1119,7 @@ body{
    background-color: rgba(50, 72, 76, 0.81);
    color: #FFFFFF;
    padding: 0px 6px;
+   margin-right: 1px;
    border-radius: 2px;
    cursor: pointer;
    display: none;
