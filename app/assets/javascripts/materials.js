@@ -19,3 +19,10 @@ $(document).on("page:load ready", function(){
     });
   });
 })
+
+$(".show-X").mouseover(function(){
+  $(this).children('.del-this-file').children().css("display", "inline");
+});
+$(".show-X").mouseout(function(){
+  $(this).children('.del-this-file').children().css("display", "none");
+});
