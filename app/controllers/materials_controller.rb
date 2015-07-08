@@ -27,10 +27,12 @@ class MaterialsController < ApplicationController
       @main.save!
     end
 
-    render json: @material
+    render @material, layout: false
   end
 
   def edit
+    @material = Material.first
+    render @material, layout: false
   end
 
   def show

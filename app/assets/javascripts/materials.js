@@ -1,6 +1,6 @@
 
 $(document).on("page:load ready", function(){
-  
+
   var dz = new Dropzone("#material-dropzone", {
     clickable: '#material-dropzone .drop-zone',
     previewsContainer: false
@@ -76,6 +76,7 @@ $(document).on("page:load ready", function(){
   $("#send").click(function(){
     $("#material-form").ajaxSubmit({
       success: function(data, status, response) {
+        $(".title-page").after(response.responseText)
         console.log(response)
       },
       error: function(data) {
