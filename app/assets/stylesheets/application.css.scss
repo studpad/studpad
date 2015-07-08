@@ -371,11 +371,14 @@ body{
       text-align: right;
     }
     .glyphicon{
-      color: #d7d7d7;
+      color: #a6a6a6;
     }
     .glyphicon:hover{
       color: #3680be;
       cursor: pointer;
+    }
+    .glyphicon-heart{
+      color: #B21923;
     }
     .wrap-avatar-news{
       padding-left: 20px;
@@ -1160,7 +1163,7 @@ body{
 }
 .tag{
   color: #fff !important;
-  padding: 10px;
+  padding: 9px;
   padding-right: 25px;
   padding-left: 25px;
 }
@@ -1201,4 +1204,67 @@ body{
 .show-X:hover > .del-this-file > .X18{
   display: inline;
 }
-
+.float-l{
+  float: left;
+}
+.float-r{
+  float: right;
+}
+.margin-l40{
+  margin-left: 40px;
+}
+.margin-b10{
+  margin-bottom: 10px;
+}
+.padding-b10{
+  padding-bottom: 10px;
+}
+.tooltip-inner{
+  background-color: #8E979D;
+}
+.tooltip.top .tooltip-arrow{
+  border-top-color: #8E979D;
+}
+.big-lightblue-font{
+  font-size: 30px;
+  color: #3680be;
+}
+.big-lightgrey-font{
+  font-size: 30px;
+  color: #a6a6a6;
+}
+.big-smokeblue-font{
+  font-size: 30px;
+  color: #92ACC2;
+}
+.update-UM{
+  font-family: 'PT Sans';
+}
+.share-post{
+  cursor: pointer;
+  &:hover{
+    color: #3680BE;
+  }
+}
+.share-post:hover .glyphicon{
+  color: #3680BE;
+}
+.share-obj{
+  height: 210px;
+  font-size: 50px !important;
+  color: #a6a6a6;
+  cursor: pointer;
+  &:hover{
+    color: #3680be;
+    background-color: rgb(247, 247, 247);
+  }
+}
+.helper-valign-m{
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+.share-who{
+  display: inline-block;
+  vertical-align: middle;
+}
