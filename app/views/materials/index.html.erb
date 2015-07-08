@@ -5,6 +5,11 @@ end
 %>
 
 <div class ='container' id = 'main-container'>
+    <%= render "/partials/squares_menu" %>
+    <div class = 'main-wall'>
+      <%= render "each_materials" %>
+      <%= render "modal_window" %>
+    </div>
   <%= render "/partials/squares_menu" %>
   <div class = 'main-wall'>
     <div class = 'row'>
@@ -17,7 +22,7 @@ end
 
       </div>
       <div class = 'right-button-action'>
-        <div class = 'element-of-squares-menu' data-toggle="modal" data-target="#myModal">
+        <div class = 'element-of-squares-menu' data-toggle="modal" data-target="#modal_window">
           <div class = 'img-element-of-squares-menu'>
             <%= image_tag "plus.png", size: "50x50" %>
           </div>
