@@ -30,12 +30,12 @@ body{
       cursor: pointer;
     }
     #hat-studpad{
-      background: #23677C;
+      background: #3680be;
       height: 48px;
       border-bottom: 1px solid rgb(226, 226, 226);
       width: 100%;
       z-index: 50;
-      position: fixed;
+      position: absolute;
       top: 0px;
     }
     #hat-studpad-title{
@@ -127,10 +127,16 @@ body{
     .title-underline{
       font-size: 20px;
       padding-bottom: 7px;
-      border-bottom: 3px solid #23677C;
+      border-bottom: 3px solid #3680be;
     }
     .align-c{
       text-align: center;
+    }
+    .align-l{
+      text-align: left;
+    }
+    .align-r{
+      text-align: right;
     }
     .margin-b40{
       margin-bottom: 40px;
@@ -356,6 +362,9 @@ body{
      .the-comment:hover .sign-sp{
       display: block;
      }
+     .useful-material_info:hover .sign-sp{
+      display: block;
+     }
     .close-news{
       text-align: right;
     }
@@ -363,7 +372,7 @@ body{
       color: #d7d7d7;
     }
     .glyphicon:hover{
-      color: #5a6770;
+      color: #3680be;
       cursor: pointer;
     }
     .wrap-avatar-news{
@@ -1143,4 +1152,22 @@ body{
   &:hover{
     background-color: rgb(247, 247, 247);
   }
+}
+.tag{
+  color: #fff !important;
+  padding: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.tag-humane{
+  box-shadow: 0 2px #CAA514;
+  background: #EABD0C;
+}
+.tag-technical{
+  box-shadow: 0 2px #265985;
+  background: #3680be;
+}
+.tag-natural{
+  box-shadow: 0 2px #166410;
+  background: #27941F;
 }
