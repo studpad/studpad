@@ -22,13 +22,12 @@
                         Описание
                       </span>
                     </div>
-                    <%= form_tag( materials_path ) do %>
+                    <%= form_tag( materials_path, id: "material-form") do %>
                     <input type = 'hidden' name = 'attached_files'>
                     <input type = 'hidden' name = 'main_image'>
                     <div class = 'main-text-news'>
                       <textarea class="form-control span-main-text-news description-add-material my-setting-form-control" name = 'description' rows="3" placeholder = 'Введите описание'></textarea>
                     </div>
-                    <input type='submit'>
                     <% end %>
                   </div>
                   <div class = 'col-lg-6 col-md-6 col-xs-6'>
@@ -89,7 +88,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-          <button type="button" class="btn btn-primary">Создать</button>
+          <button id="send" type="button" class="btn btn-primary">Создать</button>
         </div>
       </div>
     </div>

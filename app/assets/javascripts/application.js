@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require jquery.fancybox
 //= require jquery.Jcrop.min
+//= require jquery.form
 //= require dropzone
 //= require my_scripts
 //= require materials
