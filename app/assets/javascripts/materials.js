@@ -55,9 +55,20 @@ $(document).on("page:load ready", function(){
     //dz.removeFile(file);
 
     html = "<div class = 'useful-material_img show-X'>"
-    html += "<div class = 'del-this-file'><span class = 'X18'>&times;</span></div>"
+    html += "<div class = 'del-this-file'>" + response.remove_link + "</div>"
     html += "<img src = '" + response.link + "' width = '100%'/></div>"
-    $("#main-photo-dropzone").parent().prepend(html);
+
+    $("#main-photo-dropzone").parent().prepend(html)
+    $(".useful-material_img").mouseover(function(){
+      $(this).children('.del-this-file').children().css("display", "inline");
+    }).mouseout(function(){
+      $(this).children('.del-this-file').children().css("display", "none");
+    }).find('a.X18').click(function() {
+      $(this).parent().parent().remove()
+      input = $("input[name=attached_files]")
+      input.val(input.val().replace(response.id, ""))
+    });
+
     $("#main-photo-dropzone").hide();
     $("input[name=main_image]").val(response.id)
   })

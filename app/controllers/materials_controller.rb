@@ -1,7 +1,7 @@
 class MaterialsController < ApplicationController
   def index
   	@classroom = Classroom.find(params[:classroom_id])
-
+    @materials = Material.all
   end
 
   def new
