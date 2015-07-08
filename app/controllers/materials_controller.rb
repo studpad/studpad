@@ -20,6 +20,13 @@ class MaterialsController < ApplicationController
       f.save!
     end
 
+    unless params[:main_image].blank?
+      @main = Attachment.find(Integer(params[:main_image]))
+      @main.attachable = @material
+      @main.main = true
+      @main.save!
+    end
+
     render json: @material
   end
 

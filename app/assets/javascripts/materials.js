@@ -62,7 +62,23 @@ $(document).on("page:load ready", function(){
     $("input[name=main_image]").val(response.id)
   })
 
-
+  $("#send").click(function(){
+    $("#material-form").ajaxSubmit({
+      success: function(data, status, response) {
+        console.log(response)
+      },
+      error: function(data) {
+        console.log("error")
+      }
+    });
+    $("#main-photo-dropzone").prev().hide();
+    $("#main-photo-dropzone").show();
+    $("#loaded-photos").empty();
+    $("#loaded-documents").empty();
+    $("input[name=main_image]").val(null)
+    $("input[name=attached_files]").val(null)
+    $("textarea[name=description").val(null).removeAttr("style")
+  })
   $(".description-add-material").focus(function(){
      $(this).addClass('height350');
   });
