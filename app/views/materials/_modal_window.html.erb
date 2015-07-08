@@ -6,11 +6,13 @@
           <h4 class="modal-title" id="myModalLabel">Создайте полезный материал</h4>
         </div>
         <div class = "modal-body my-setting-modal-body">
+            <%= form_tag( attachments_path,  id: 'main-photo-dropzone' ) do %>
             <div class = 'drop-zone margin-b40'>
                       Загрузите изображение, сделайте этот материал запоминающимся и красивым.
                       </br>
                       Кликните или перетащите изображение сюда
             </div>
+            <% end %>
             <div class = 'useful-material_info'>
               <div class = 'container-fluid'>
                 <div class = 'row'>
@@ -20,9 +22,14 @@
                         Описание
                       </span>
                     </div>
+                    <%= form_tag( materials_path ) do %>
+                    <input type = 'hidden' name = 'attached_files'>
+                    <input type = 'hidden' name = 'main_image'>
                     <div class = 'main-text-news'>
-                      <textarea class="form-control span-main-text-news description-add-material my-setting-form-control" rows="3" placeholder = 'Введите описание'></textarea>
+                      <textarea class="form-control span-main-text-news description-add-material my-setting-form-control" name = 'description' rows="3" placeholder = 'Введите описание'></textarea>
                     </div>
+                    <input type='submit'>
+                    <% end %>
                   </div>
                   <div class = 'col-lg-6 col-md-6 col-xs-6'>
                     <div class = 'margin-b40'>
@@ -31,7 +38,7 @@
                       </span>
                     </div>
                     <%= form_tag( attachments_path,  id: 'material-dropzone' ) do %>
-                      <div id="material-dropzone" class = 'drop-zone margin-b40'>
+                      <div class = 'drop-zone margin-b40'>
                       Для загрузки файлов, кликните или перетащите их сюда.
                       </div>
                     <% end %>
@@ -56,15 +63,17 @@
                         -->
                       </div>
                     </div>
-                    <div class = 'this-material this-material-preview show-X'>
-                      <div class = 'del-this-file'>
-                            <span class = 'X18'>&times;</span>
-                      </div>
-                      <div class = 'files-image type-document'>
-                      </div>
-                      <div class = 'name-files'>
-                        <a>Название Название документа.jpg Название документа.jpg документа.jpg</a>
-                      </div>
+                    <div id="loaded-documents">
+                      <!-- <div class = 'this-material this-material-preview show-X'>
+                        <div class = 'del-this-file'>
+                              <span class = 'X18'>&times;</span>
+                        </div>
+                        <div class = 'files-image type-document'>
+                        </div>
+                        <div class = 'name-files'>
+                          <a>Название Название документа.jpg Название документа.jpg документа.jpg</a>
+                        </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>

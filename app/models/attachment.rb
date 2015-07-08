@@ -7,8 +7,6 @@ class Attachment < ActiveRecord::Base
     extension = file.file.extension
     if ['jpg', 'gif', 'png'].include?(extension)
       return "image"
-    elsif ['mov', 'mp4'].include?(extension)
-      return "video"
     else
       return "other"
     end

@@ -1,6 +1,7 @@
 class MaterialsController < ApplicationController
   def index
-  	 @classroom = Classroom.find(params[:classroom_id])
+  	@classroom = Classroom.find(params[:classroom_id])
+
   end
 
   def new
@@ -8,10 +9,18 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    @mp = material_params
-    @material = Material.create(material_params)
+    @material = Material.new
+    @material.description = params[:description]
     @material.save!
-    render nil
+
+    @files = params[:attached_files]
+    @files = @files.to_s.squish.split(" ")
+    Attachment.find(@files).each do |f|
+      f.attachable = @material
+      f.save!
+    end
+
+    render json: @material
   end
 
   def edit
