@@ -18,12 +18,13 @@
                 <div class = 'row'>
                   <div class = 'col-xs-6'>
                     <div class = 'margin-b40'>
-                      <select class="js-basic-multiple choice-theme-material" multiple="multiple" style = 'width: 100%;'>
+                      <select class="js-basic-multiple choice-theme-material" name="tag" multiple="multiple" style = 'width: 100%;'>
                         <option disabled>Предметная область материала</option>
-                        <option>Русский язык</option>
+                        <%= options_from_collection_for_select(Subject.all, 'id', 'name') %>
+                        <!-- <option>Русский язык</option>
                         <option>Литература</option>
                         <option>Математика</option>
-                        <option>Химия</option>
+                        <option>Химия</option> -->
                       </select>
                     </div>
                   </div>
@@ -38,8 +39,9 @@
                     <%= form_tag( materials_path, id: "material-form") do %>
                     <input type = 'hidden' name = 'attached_files'>
                     <input type = 'hidden' name = 'main_image'>
+                    <input type = 'hidden' name = 'tag'>
                     <div class = 'main-text-news'>
-                      <textarea class="form-control span-main-text-news description-add-material my-setting-form-control" name = 'description' rows="3" placeholder = 'Введите описание'></textarea>
+                      <textarea required class="form-control span-main-text-news description-add-material my-setting-form-control" name = 'description' rows="3" placeholder = 'Введите описание'></textarea>
                     </div>
                     <% end %>
                   </div>

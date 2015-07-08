@@ -14,12 +14,7 @@ $(document).on("page:load ready", function(){
       html += "); background-size: cover;'>\
               <div class = 'del-this-file'>"
       html += response.remove_link + "</div></div>"
-      $("#loaded-photos").append(html)
-      $("#loaded-photos .show-X:last-child").mouseover(function(){
-        $(this).children('.del-this-file').children().css("display", "inline");
-      }).mouseout(function(){
-        $(this).children('.del-this-file').children().css("display", "none");
-      }).find('a').click(function() {
+      $("#loaded-photos").append(html).find('a').click(function() {
         $(this).parent().parent().remove()
         input = $("input[name=attached_files]")
         input.val(input.val().replace(response.id, ""))
@@ -31,12 +26,7 @@ $(document).on("page:load ready", function(){
       html += "</div><div class = 'files-image type-document'></div><div class = 'name-files'>"
       html += "<a>" + response.name + "</a>"
       html += "</div></div>"
-      $("#loaded-documents").append(html)
-      $("#loaded-documents .show-X:last-child").mouseover(function(){
-        $(this).children('.del-this-file').children().css("display", "inline");
-      }).mouseout(function(){
-        $(this).children('.del-this-file').children().css("display", "none");
-      }).find('a.X18').click(function() {
+      $("#loaded-documents").append(html).find('a').click(function() {
         $(this).parent().parent().remove()
         input = $("input[name=attached_files]")
         input.val(input.val().replace(response.id, ""))
@@ -44,29 +34,24 @@ $(document).on("page:load ready", function(){
     }
     input = $("input[name=attached_files]")
     files = input.val(input.val() + ' ' + response.id)
-
   });
 
   var main_photo_dz = new Dropzone("#main-photo-dropzone", {
     clickable: '#main-photo-dropzone .drop-zone',
-    previewsContainer: false
+    previewsContainer: false,
+    acceptedFiles: ".jpg,.gif,.png"
   })
+
   main_photo_dz.on("success", function(file, response) {
-    //dz.removeFile(file);
 
     html = "<div class = 'useful-material_img show-X'>"
     html += "<div class = 'del-this-file'>" + response.remove_link + "</div>"
     html += "<img src = '" + response.link + "' width = '100%'/></div>"
 
-    $("#main-photo-dropzone").parent().prepend(html)
-    $(".useful-material_img").mouseover(function(){
-      $(this).children('.del-this-file').children().css("display", "inline");
-    }).mouseout(function(){
-      $(this).children('.del-this-file').children().css("display", "none");
-    }).find('a.X18').click(function() {
+    $("#main-photo-dropzone").parent().prepend(html).find('a').click(function() {
       $(this).parent().parent().remove()
-      input = $("input[name=attached_files]")
-      input.val(input.val().replace(response.id, ""))
+      $("#main-photo-dropzone").show();
+      $("input[name=main_image]").val(null)
     });
 
     $("#main-photo-dropzone").hide();
@@ -74,6 +59,12 @@ $(document).on("page:load ready", function(){
   })
 
   $("#send").click(function(){
+    if ($.trim($("textarea[name=description").val()) == "")
+      return;
+    tag = $("select[name=tag]").val()
+    if (tag != null){
+      $("input[name=tag]").val(tag[0])
+    }
     $("#material-form").ajaxSubmit({
       success: function(data, status, response) {
         $(".title-page").after(response.responseText)
@@ -88,6 +79,7 @@ $(document).on("page:load ready", function(){
     $("#loaded-photos").empty();
     $("#loaded-documents").empty();
     $("input[name=main_image]").val(null)
+    $("input[name=tag]").val(null)
     $("input[name=attached_files]").val(null)
     $("textarea[name=description").val(null).removeAttr("style")
   })

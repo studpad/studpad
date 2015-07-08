@@ -9,9 +9,13 @@
     <div class = 'container-fluid'>
       <div class = 'row'>
         <div class = 'col-xs-6'>
+          <% if material.subject %>
           <div class = 'margin-b40'>
-              <span class = 'tag tag-technical'>Физика</span>
+              <span class = 'tag <%= material.subject.cssclass %>'>
+                <%= material.subject.name %>
+              </span>
           </div>
+          <% end %>
         </div>
         <div class = 'col-xs-6'>
           <div class = 'margin-b40 align-r'>
@@ -69,7 +73,9 @@
         <div class = 'col-lg-12 col-md-12 col-xs-12'>
           <div class = 'card-date'>
                 <span class = 'date-news'>
-                  <%= material.created_at.strftime("%d %b %H:%M") %> • <span>Никитина Елена Сергеевна</span></span>
+                  <%= material.created_at.strftime("%d %b %H:%M") %> •
+                  <span><%= material.user.name %></span>
+                </span>
           </div>
         </div>
       </div>

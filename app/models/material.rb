@@ -1,9 +1,8 @@
 class Material < ActiveRecord::Base
   belongs_to :user
   belongs_to :classroom
+  belongs_to :subject
   has_many :attachments, as: :attachable, dependent: :destroy
-
-  mount_uploader :file, FileUploader
 
   def main_image
     attachments.find{|a| a.main? }
