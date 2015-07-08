@@ -59,7 +59,8 @@ $(document).on("page:load ready", function(){
   main_photo_dz.on("success", function(file, response) {
     //dz.removeFile(file);
 
-    html = "<div class = 'useful-material_img'>"
+    html = "<div class = 'useful-material_img show-X'>"
+    html += "<div class = 'del-this-file'><span class = 'X18'>&times;</span></div>"
     html += "<img src = '" + response.link + "' width = '100%'/></div>"
     $("#main-photo-dropzone").parent().prepend(html);
     $("#main-photo-dropzone").hide();
