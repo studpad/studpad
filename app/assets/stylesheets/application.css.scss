@@ -14,6 +14,8 @@
  *= require jquery.Jcrop.min
  *= require dropzone/dropzone
  *= require_self
+ *= require selectize
+ *= require selectize.default
  */
 
 @import "bootstrap-sprockets";
@@ -537,13 +539,13 @@ body{
      }
      select{
       box-shadow: none;
-      border: 1px solid #E8E8E8;
+      border: 1px solid #ccc;
      }
-     .select2-container--default .select2-selection--multiple{
-      border: 1px solid rgb(232, 232, 232);
+     .select2-selection .select2-selection--multiple{
+      border: 1px solid #ccc;
      }
      .select2-container--default .select2-results__option--highlighted[aria-selected]{
-      background-color: #00739D;
+      background-color: #3680be;
      }
      #send-news-from-profile{
       margin-top: 4px;
@@ -1090,6 +1092,9 @@ body{
   border: 1px dashed #ccc;
   box-shadow: none;
   background-color: #FAFAFA;
+  &:hover{
+    background-color: #F7F7F7;
+  }
 }
 .drop-zone {    
     color: #5a6770;
@@ -1171,3 +1176,29 @@ body{
   box-shadow: 0 2px #166410;
   background: #27941F;
 }
+.choice-theme{
+  width: 100% !important;
+}
+
+.my-setting-select2-selection{
+  border: 1px dashed #ccc !important;
+  font-size: 13px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #FAFAFA !important;
+  &:hover{
+    background-color: #F7F7F7 !important;
+  }
+}
+.all0{
+  border: none !important;
+  padding: 0px;
+  background-color: rgba(0,0,0,0) !important;
+}
+.display-none1{
+  display: none !important;
+}
+.show-X:hover > .del-this-file > .X18{
+  display: inline;
+}
+

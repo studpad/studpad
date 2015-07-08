@@ -21,5 +21,6 @@
 //= require my_scripts
 //= require materials
 //= require homeworks
+//= require selectize
 
 Dropzone.autoDiscover = false;

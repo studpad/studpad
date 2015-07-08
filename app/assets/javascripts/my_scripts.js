@@ -28,15 +28,15 @@ function main(){
     $('.right-functional').css('margin-left', '80%');
 
 
-    $(".js-example-basic-multiple").select2();
     $(".choice-class").select2({
-    placeholder: "Класс"
+      placeholder: "Класс"
     });
-    $(".choice-theme").select2({
-    placeholder: "Тема"
+    $(".choice-theme-material").select2({
+      maximumSelectionLength: 1,
+      placeholder: "Предмет"
     });
 
-
+    $(".choice-theme-material").next().children().children().addClass('my-setting-select2-selection');
 
     $(".type-profiles").click(function(){
 
@@ -75,7 +75,7 @@ function main(){
     });
 
     $(".description-add-material").focus(function(){
-      $(this).css('border', 'none').css('padding', '0px').css('background-color', 'rgba(0,0,0,0)');
+      $(this).addClass('all0');
     });
 
     $(".textHW_comment").focus(function(){
@@ -142,13 +142,6 @@ function main(){
         height   : 50
       }
     }
-  });
-
-  $(".show-X").mouseover(function(){
-     $(this).children('.del-this-file').children().css("display", "inline");
-  });
-  $(".show-X").mouseout(function(){
-     $(this).children('.del-this-file').children().css("display", "none");
   });
 
 
