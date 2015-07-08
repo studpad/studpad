@@ -144,6 +144,8 @@ function main(){
     }
   });
 
+  $('.share-post').tooltip();
+
 
 
 }
