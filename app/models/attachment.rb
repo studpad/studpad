@@ -3,6 +3,10 @@ class Attachment < ActiveRecord::Base
 
   mount_uploader :file, FileUploader
 
+  def image?
+    ['jpg', 'gif', 'png'].include?(file.file.extension)
+  end
+
   def type
     extension = file.file.extension
     if ['jpg', 'gif', 'png'].include?(extension)
