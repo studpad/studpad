@@ -1,0 +1,38 @@
+{
+  "description": "<%= html_to_json @material.description %>",
+  "remove_link": "<%= html_to_json(link_to "Удалить", material_path(@material)) %>",
+  "form_link": "<%= material_path(@material) %>",
+  "html_id" : "material<%= @material.id %>"
+  <% if @material.subject_id %>
+    ,"tag": <%= @material.subject_id %>
+  <% end %>
+  <% if @material.main_image %>
+    ,"main_photo": "<%= html_to_json(render partial: "main_image", formats: :html) %>"
+  <% end %>
+  ,"images": [
+    <% first = true %>
+    <% @material.images.each do |i| %>
+
+      <% if first %>
+        <% first = false %>
+      <% else %>
+        ,
+      <% end %>
+      "<%= html_to_json(render partial: "image", object: i, formats: :html) %>"
+    <% end %>
+  ]
+  ,"files": [
+    <% first = true %>
+    <% @material.files.each do |f| %>
+
+      <% if first %>
+        <% first = false %>
+      <% else %>
+        ,
+      <% end %>
+      "<%= html_to_json(render partial: "file", object: f, formats: :html) %>"
+    <% end %>
+  ]
+
+
+}

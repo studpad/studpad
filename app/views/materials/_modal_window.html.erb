@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal_window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data="create">
     <div class="modal-dialog my-setting-modal-dialog">
       <div class="modal-content my-setting-modal-content">
         <div class="modal-header">
@@ -39,6 +39,7 @@
                     <%= form_tag( materials_path, id: "material-form") do %>
                     <input type = 'hidden' name = 'attached_files'>
                     <input type = 'hidden' name = 'main_image'>
+                    <input type = "hidden" name = "_method" value="post">
                     <input type = 'hidden' name = 'tag'>
                     <div class = 'main-text-news'>
                       <textarea required class="form-control span-main-text-news description-add-material my-setting-form-control" name = 'description' rows="3" placeholder = 'Введите описание'></textarea>

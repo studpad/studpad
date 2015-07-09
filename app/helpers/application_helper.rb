@@ -12,4 +12,10 @@ module ApplicationHelper
   def classroom_id
     params[:classroom_id] || params[:id]
   end
+  def html_to_json(s)
+    { '"' => "'", "\n" => '\n' }.each do |k,v|
+     s = s.gsub(k,v)
+    end
+    raw s
+  end
 end
