@@ -10,18 +10,9 @@
         <%= render @materials %>
 
       </div>
-      <div class = 'right-button-action'>
-        <div id = 'create_material' class = 'element-of-squares-menu' data-toggle="modal" data-target="#modal_window">
-          <div class = 'img-element-of-squares-menu'>
-            <%= image_tag "plus.png", size: "50x50" %>
-          </div>
-          <div class = 'title-element-of-squares-menu'>
-            Добавить
-          </div>
-        </div>
-      </div>
     </div>
   </div>
+    <%= render "right_button_action" %>
     <%= render "modal_window" %>
     <%= render "/partials/modal_share" %>
 </div>

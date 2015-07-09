@@ -5,11 +5,18 @@ end
 %>
 
 <div class ='container' id = 'main-container'>
-  	<%= render "/partials/squares_menu" %>
-    <div class = 'main-wall'>
-      <%= render "each_homeworks" %>
-      <%= render "modal_window" %>
+  <%= render "/partials/squares_menu" %>
+  <div class = 'main-wall'>
+    <div class = 'row'>
+      <div class = 'col-xs-12'>
+        <div class = 'title-page'>
+          Домашнее задание
+        </div>
+        <%= render "each_homeworks" %>
+      </div>
     </div>
-
-
+  </div>
+  	<%= render "right_button_action" %>
+    <%= render "modal_window" %>
+    <%= render "/partials/modal_share" %>
 </div>

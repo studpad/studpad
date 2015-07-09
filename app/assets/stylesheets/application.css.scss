@@ -50,7 +50,6 @@ body{
     #hat-studpad-title{
       padding-top: 8px;
       font-size: 22px;
-      padding-left: 30px;
       color: #3680be;
       font-weight: bold;
       min-width: 120px;
@@ -59,24 +58,22 @@ body{
     #hat-main-studpad{
       color: #3680be;
       text-decoration: none;
-      margin-right: 110px;
       font-weight: bold;
     }
     .main-wall{
       width: 650px;
       position: relative;
       left: 50%;
-      margin-left: 285px;
       top: 50px;
-      margin-left: -375px;
+      margin-left: -325px;
     }
     #squares-menu{
       width: 100px;
       background-color: white;
       position: absolute;
       left: 50%;
-      top: 70px;
-      margin-left: -490px;
+      top: 61px;
+      margin-left: -440px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     }
     .right-button-action{
@@ -84,7 +81,7 @@ body{
       background-color: white;
       position: absolute;
       right: 50%;
-      top: 20px;
+      top: 61px;
       margin-right: -441px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     }
@@ -1085,7 +1082,6 @@ body{
   height: 55px;
   margin-top: 10px;
   text-align: center;
-  font-size: 22px;
   color: #516574;
   font-size: 18px;
   padding-top: 15px;
@@ -1340,7 +1336,7 @@ body{
   left: 50%;
   min-height: 600px;
   width: 220px;
-  margin-left: -606px;
+  margin-left: -556px;
 }
 .feed-profile-avatar{
   position: relative;
