@@ -95,7 +95,10 @@
                 <div class = 'row'>
                   <div class = 'col-lg-12 col-md-12 col-xs-12'>
                     <div class = 'card-date'>
-                          <span class = 'date-news'>5 апреля 2014 • <span>Никитина Елена Сергеевна</span></span>
+                      <span class = 'date-news'>
+                        <%= Time.now.strftime("%d %b %H:%M") %> •
+                        <span><%= current_user.name %></span>
+                      </span>
                     </div>
                   </div>
                 </div>

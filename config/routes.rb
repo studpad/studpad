@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :materials
   resources :attachments, only: [:create, :destroy]
   get 'trouble' => "materials#edit"
-  resource :line, only: :show
+  get 'feed' => "feed#show"
 
   resources :classrooms do
     resources :albums do
