@@ -26,35 +26,43 @@ body{
       color: rgb(90, 103, 112);
       cursor: default;
       font-family: 'PT Sans';
-      background: rgba(244, 244, 241, 0.8);
+      /*background: rgba(244, 244, 241, 0.8);*/
+      background-image: url(https://abs.twimg.com/images/themes/theme1/bg.png);
+      background-position: left 46px;
+      background-attachment: fixed;
+      background-repeat: repeat;
+      background-repeat: no-repeat;
+      background-color: #C0DEED;
     }
     a{
       cursor: pointer;
     }
     #hat-studpad{
-      background: #3680be;
+      background: white;
       height: 48px;
       border-bottom: 1px solid rgb(226, 226, 226);
       width: 100%;
       z-index: 50;
-      position: absolute;
+      position: fixed;
       top: 0px;
     }
     #hat-studpad-title{
       padding-top: 8px;
       font-size: 22px;
-      text-align: left;
       padding-left: 30px;
-      color: white;
+      color: #3680be;
       font-weight: bold;
       min-width: 120px;
+
     }
     #hat-main-studpad{
-      color: white;
+      color: #3680be;
       text-decoration: none;
+      margin-right: 110px;
+      font-weight: bold;
     }
     .main-wall{
-      width: 750px;
+      width: 650px;
       position: relative;
       left: 50%;
       margin-left: 285px;
@@ -66,7 +74,7 @@ body{
       background-color: white;
       position: absolute;
       left: 50%;
-      top: 132px;
+      top: 70px;
       margin-left: -490px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     }
@@ -75,8 +83,8 @@ body{
       background-color: white;
       position: absolute;
       right: 50%;
-      top: 81px;
-      margin-right: -426px;
+      top: 20px;
+      margin-right: -441px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     }
     .element-of-squares-menu{
@@ -111,11 +119,28 @@ body{
       display: inline-block;
     }
     .btn-st{
-      background-color: #1f7bb5;
-      box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.22);
+      background-color: #3680be;
+      box-shadow: 0 2px #265985;
+      outline: none !important;
     }
     .btn-st:hover{
-      background-color: #0C6C90;
+      background-color: #265985;
+      position: relative;
+      top: 2px;
+      box-shadow: 0 1px #265985;
+    }
+    .btn-st-inert{
+      color: #333;
+      background-color: #fff;
+      border-color: #ccc;
+      box-shadow: 0 2px #ccc;
+      outline: none !important;
+    }
+    .btn-st-inert:hover{
+      background-color: #ccc;
+      position: relative;
+      top: 2px;
+      box-shadow: 0 1px #ccc;
     }
     .container-sp{
       padding: 10px 5px;
@@ -127,7 +152,7 @@ body{
       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
     }
     .title-underline{
-      font-size: 20px;
+      font-size: 16px;
       padding-bottom: 7px;
       border-bottom: 3px solid #3680be;
     }
@@ -605,7 +630,6 @@ body{
 
      .card-sp{
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-      margin-top: 12px;
       background-color: white;
       border-radius: 2px;
       padding-bottom: 3px;
@@ -1054,21 +1078,23 @@ body{
   background-color: whitesmoke;
 }
 .useful-material_post{
-  margin-bottom: 30px;
+  margin-bottom: 42px;
 }
 .title-page{
-  height: 50px;
+  height: 55px;
   margin-top: 20px;
   text-align: center;
   font-size: 22px;
   color: #5a6770;
-  font-size: 20px;
-  padding-top: 8px;
-  
+  font-size: 18px;
+  padding-top: 15px;
+  background-color: white;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 .my-setting-modal-content{
   border-radius: 2px;
-  width: 685px;
+  width: 650px;
 }
 .my-setting-modal-body{
   padding: 0px;
@@ -1081,7 +1107,7 @@ body{
   padding-right: 15px;
 }
 .set-of-photos4{
-  height: 110px;
+  height: 80px;
   border-left: 2px solid white;
   border-top: 2px solid white;
   padding: 0px;
@@ -1104,7 +1130,7 @@ body{
 }
 .drop-zone {    
     color: #5a6770;
-    font-size: 16px;
+    font-size: 13px;
     text-align: center;    
     
     width: 100%;
@@ -1301,4 +1327,8 @@ body{
 }
 .theme-of-UM-natural{
   color: #27941F;
+}
+.my-setting-modal-dialog{
+  position: relative;
+  right: 75px;
 }
