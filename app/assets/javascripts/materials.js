@@ -67,14 +67,15 @@ $(document).on("page:load ready", function(){
     }
     $("#material-form").ajaxSubmit({
       success: function(data, status, response) {
-        $(".title-page").after(response.responseText)
+        $(".title-page").after(response.responseText).next()
+        .find(".update-UM").click(edit_material)
         console.log(response)
       },
       error: function(data) {
         console.log("error")
       }
     });
-    $("#main-photo-dropzone").prev().hide();
+    $("#main-photo-dropzone").prev().remove();
     $("#main-photo-dropzone").show();
     $("#loaded-photos").empty();
     $("#loaded-documents").empty();
@@ -87,6 +88,34 @@ $(document).on("page:load ready", function(){
      $(this).addClass('height350');
   });
   //Редактирование материала
+  //Очистка формы
+  edit_material = function(){
+    alert("hell")
+    $("a.X18").click()
+    url = $(this).attr("data")
+    $.getJSON(url, function(data){
+      if (data.main_photo){
+        $("#main-photo-dropzone").hide().parent().prepend(data.main_photo)
+        .find('a').click(function() {
+          $(this).parent().parent().remove()
+          $("#main-photo-dropzone").show();
+          $("input[name=main_image]").val(null)
+        });
+      }
 
+      $(".choice-theme-material").select2('val', data.tag);
+      photos_container = $("#loaded-photos")
+      for(var i in data.images){
+        photos_container.append(data.images[i])
+      }
+      documents_container = $("#loaded-documents")
+      for(var f in data.files){
+        documents_container.append(data.files[f])
+      }
+
+    })
+  }
+  $(".update-UM").click(edit_material)
+  //Наполнение содержимым
 
 })

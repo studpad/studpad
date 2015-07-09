@@ -1,0 +1,7 @@
+<div class='useful-material_img show-X'>
+  <div class='del-this-file'>
+    <%= link_to '×', attachment_path(@material.main_image),
+  method: :delete, remote: true, class: 'X18' %>
+  </div>
+  <img src='<%= @material.main_image.file.url %>' width='100%'>
+</div>

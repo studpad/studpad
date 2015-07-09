@@ -34,12 +34,12 @@ class MaterialsController < ApplicationController
 
   def edit
     @material = Material.first
-    render @material, layout: false
+    render "show.json.erb", layout: false
   end
 
   def show
     @material = Material.find(params[:id])
-    render json: @material, includes: :attachments
+    render "show.json", formats: :json, layout: false
   end
 
   private

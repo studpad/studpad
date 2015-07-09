@@ -1,0 +1,7 @@
+<div class = 'col-xs-6 set-of-photos4 show-X'
+style = 'background: url(<%= image.file.url%>); background-size: cover;'>
+  <div class = 'del-this-file'>
+    <%= link_to '×', attachment_path(image),
+  method: :delete, remote: true, class: 'X18' %>
+  </div>
+</div>

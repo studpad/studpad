@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'users#profile'
   resources :materials
   resources :attachments, only: [:create, :destroy]
-  get 'trouble' => "attachments#create"
+  get 'trouble' => "materials#edit"
   resource :line, only: :show
 
   resources :classrooms do
