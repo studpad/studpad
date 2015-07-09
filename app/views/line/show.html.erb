@@ -1,2 +1,22 @@
-<h1>Line#show</h1>
-<p>Find me in app/views/line/show.html.erb</p>
+<%
+def classroom_id
+    params[:classroom_id] || params[:id]
+end
+%>
+
+<div class ='container' id = 'main-container'>
+  <div class = 'main-wall'>
+    <div class = 'row'>
+      <div class = 'col-xs-11'>
+        <div class = 'title-page'>
+          Полезные материалы
+        </div>
+
+        <%= render @materials %>
+
+      </div>
+    </div>
+  </div>
+    <%= render "/partials/modal_share" %>
+</div>
+

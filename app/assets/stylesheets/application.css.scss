@@ -661,9 +661,12 @@ body{
       padding-top: 40px;
       min-height: 149px;
       padding-left: 45px;
-      &:hover{
-        background-color: #FBFBFA;
-      }
+      box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.03);
+     }
+     .useful-material_info_upload{
+      padding-top: 40px;
+      min-height: 149px;
+      padding-left: 45px;
      }
      .label-subject{
       font-size: 13px;
@@ -1140,7 +1143,7 @@ body{
 }
 .X18{
    font-size: 18px;
-   background-color: rgba(50, 72, 76, 0.81);
+   background-color: rgba(50, 72, 76, 0);
    color: #FFFFFF;
    padding: 0px 6px;
    margin-right: 1px;
@@ -1150,8 +1153,10 @@ body{
    position: relative;
    bottom: 2px;
    z-index: 100;
+   border-radius: 50px;
+   text-decoration: none !important;
    &:hover{
-    color: rgb(240, 240, 240);
+    color: grey;
    }
 }
 .show-persons{
@@ -1178,9 +1183,6 @@ body{
 .tag-natural{
   box-shadow: 0 2px #166410;
   background: #27941F;
-}
-.choice-theme{
-  width: 100% !important;
 }
 
 .my-setting-select2-selection{
@@ -1213,11 +1215,23 @@ body{
 .margin-l40{
   margin-left: 40px;
 }
+.margin-l30{
+  margin-left: 30px;
+}
 .margin-b10{
   margin-bottom: 10px;
 }
+.margin-t10{
+  margin-top: 10px;
+}
 .padding-b10{
   padding-bottom: 10px;
+}
+.padding0{
+  padding: 0;
+}
+.margin0{
+  margin: 0;
 }
 .tooltip-inner{
   background-color: #8E979D;
@@ -1267,4 +1281,24 @@ body{
 .share-who{
   display: inline-block;
   vertical-align: middle;
+}
+.theme-of-UM{
+  height: 41px;
+  padding: 9px;
+  padding-right: 25px;
+  padding-left: 58px;
+  background: #fff;
+  z-index: 100;
+  color: #3680be;
+  font-weight: bold;
+  font-size: 18px;
+}
+.theme-of-UM-humane{
+  color:  #EABD0C;
+}
+.theme-of-UM-technical{
+  color:  #3680be;
+}
+.theme-of-UM-natural{
+  color: #27941F;
 }
