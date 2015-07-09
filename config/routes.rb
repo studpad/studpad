@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'line/show'
-  root 'users#profile'
+  root 'feed#show'
   resources :materials
   resources :attachments, only: [:create, :destroy]
   get 'trouble' => "materials#edit"
