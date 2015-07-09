@@ -86,10 +86,7 @@ $(document).on("page:load ready", function(){
   $(".description-add-material").focus(function(){
      $(this).addClass('height350');
   });
+  //Редактирование материала
 
-  /*$(".select2-selection__rendered").bind("DOMNodeInserted", function(){
-    val_theme = $(this).children('.select2-selection__choice').attr('title');
-    if(val_theme != 'undefined') $('.my-setting-select2-selection').addClass('display-none1');
-  });*/
 
 })
