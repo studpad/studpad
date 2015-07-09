@@ -1,70 +1,20 @@
-<div class = 'col-lg-12 col-md-12 col-xs-12' id = 'user-card'>
-	<div class = 'container-fluid'>
-		<div class="row">
-		 	<div class="col-lg-12 col-md-12 col-xs-12" style = 'padding: 0px;'>
-		 		<div class="profile">
-
-		 			<div class="col-sm-12" id = 'top-part-user'>
-		 				<div class="col-xs-12 col-sm-7">
-		 					<h2><%= @user.name %></h2>
-		 					<% if @user.student?%>
-		 					<p><strong>Школа: </strong><%= @user.classroom.school.name %></p>
-		 					<p><strong>Класс: </strong>
-		 						<%= link_to @user.classroom.name, classroom_path(@user.classroom) %>
-		 					</p>
-		 					<% else %>
-		 					<p><strong>Ваши классы: </strong>
-		 						<% @user.his_main_classrooms.each do |c| %>
-		 							<%= link_to c.name, classroom_path(c) %>
-		 						<% end %>
-		 					</p>
-		 					<p><strong>Предметная область: </strong>
-		 						<span class="tags">Русский язык</span>
-		 						<span class="tags">Литература</span>
-		 					</p>
-		 					<% end %>
-		 					<div id = 'contact-data-user'>
-								<h4><strong>Контакты</strong></h4>
-	 							<p><strong>Почта: </strong><small><%= @user.email %></small></p>
-								<p><strong>Телефон: </strong><small>+79166307331</small></p>
-	 						</div>
-	 						<%= link_to 'Новая ава', new_ava_user_path(@user), class: 'btn btn-default' %>
-		 					<%# if current_user.teacher? && current_user.his_main_classrooms.present? %>
-		 						<%= render "model_window" %>
-		 					<%# end %>
-
-		 				</div>
-		 				<div class="col-xs-12 col-sm-5">
-		 					<figure>
-		 						<% if @user.avatar.url %>
-		 						<%= image_tag @user.avatar.url, class: 'img-thumbnail img-responsive', id: 'user-avatar' %>
-		 						<% else %>
-				 				<img src="https://pp.vk.me/c616620/v616620124/b879/szMeLRYua84.jpg" id = 'user-avatar' class="img-thumbnail img-responsive">
-				 				<% end %>
-				 			</figure>
-		 				</div>
-		 			</div>
-		 			<div class="col-xs-12 divider text-center">
-		 				<% if current_user.teacher? && current_user.his_main_classrooms.present? %>
-		 				<div class="col-xs-12 col-sm-4 emphasis">
-		 					<h4><strong>Домашнее задание</strong></h4>
-		 					<p><small>Сообщите о домашнем задании</small></p>
-		 					<button class="btn btn-block show-modal-window btn-user-page" id = 'write-HW-user-page' data-toggle="modal" data-target="#myModalHW"><span class="fa fa-plus-circle"></span>Написать домашнее задание</button>
-		 				</div>
-						<div class="col-xs-12 col-sm-4 emphasis">
-						 	<h4><strong>Полезные материалы</strong></h4>
-						 	<p><small>Поделитесь полезными материалами</small></p>
-						 	<button class="btn btn-block show-modal-window btn-user-page" id = 'write-material-user-page' data-toggle="modal" data-target="#myModalUM"><span class="fa fa-user"></span>Поделиться материалами</button>
-						</div>
-	 					<div class="col-xs-12 col-sm-4 emphasis">
-						 	<h4><strong>Новости</strong></h4>
-						 	<p><small>Сообщите о новостях детям и их родителям</small></p>
-						 	<button class="btn btn-block show-modal-window btn-user-page" id = 'write-news-user-page' data-toggle="modal" data-target="#myModalnews"><span class="fa fa-user"></span>Написать новость</button>
-						</div>
-						<% end %>
-		 			</div>
-				</div>
-			</div>
-		</div>
+<div id = 'page_user'>
+	<div class = 'profile-background' style = 'background: url(https://pp.vk.me/c623424/v623424048/2b65a/qdYT-cjgOtY.jpg); background-size: cover;'>
 	</div>
+    
+  <div class = 'profile-avatar'>
+    <div class = 'profile-avatar_img' style = 'background: url(https://pp.vk.me/c624717/v624717048/33ad4/_wdFNlRCSLQ.jpg) no-repeat; background-size: cover;'>
+    </div>
+	  <div class = 'profile-info'>
+	    <div class = 'profile-info_name'>Стрельников Борис</div>
+	    <div class = 'profile-info_school'>МБОУ СОШ №15 с. Ивановского</div>
+	    <div class = 'profile-info_start'>В Studpad с 21 августа 2015</div>
+	  </div>
+  </div>
+    
+    <div class = 'profile-sidebar'>
+    	<div id = 'profile-sidebar_position'>
+	      
+    	</div>
+    </div>
 </div>

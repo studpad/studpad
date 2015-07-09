@@ -16,6 +16,7 @@
  *= require_self
  *= require selectize
  *= require selectize.default
+ *= require profile
  */
 
 @import "bootstrap-sprockets";
@@ -23,7 +24,7 @@
 @import "http://webfonts.ru/import/osans.css";
 
 body{
-      color: rgb(90, 103, 112);
+      color: #383838;
       cursor: default;
       font-family: 'PT Sans';
       /*background: rgba(244, 244, 241, 0.8);*/
@@ -324,7 +325,7 @@ body{
       padding-top: 12px;
     }
     .main-text-news{
-      color: rgb(94, 94, 94);
+      color: #393939;
       font-size: 13px;
       margin-top: 5px;
       padding: 3px;
@@ -1082,15 +1083,16 @@ body{
 }
 .title-page{
   height: 55px;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
   font-size: 22px;
-  color: #5a6770;
+  color: #516574;
   font-size: 18px;
   padding-top: 15px;
   background-color: white;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+  border: 1px solid #e5e5e5;
 }
 .my-setting-modal-content{
   border-radius: 2px;
@@ -1331,4 +1333,56 @@ body{
 .my-setting-modal-dialog{
   position: relative;
   right: 75px;
+}
+#feed-left-branch{
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  min-height: 600px;
+  width: 220px;
+  margin-left: -606px;
+}
+.feed-profile-avatar{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  left: 10px;
+  top: 10px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  
+}
+#feed-card-user{
+  cursor: pointer;
+}
+.feed-profile-background{
+      background-image: white;
+      border-radius: 2px;
+      border: 1px solid rgb(229, 229, 229);
+      border-bottom: none;
+      height: 60px;
+ }
+ .feed-profile-name-email{
+    height: 0px;
+    width: 160px;
+    position: relative;
+    bottom: 32px;
+    left: 63px;
+
+ }
+ .feed-profile-name{
+    font-size: 15px;
+    color: #393939;
+    font-weight: bold;
+
+ }
+ .feed-profile-email{
+    font-size: 13px;
+    color: #516574;
+ }
+.border-t-radius{
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
