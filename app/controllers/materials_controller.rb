@@ -34,7 +34,28 @@ class MaterialsController < ApplicationController
 
   def edit
     @material = Material.first
-    render "show.json.erb", layout: false
+  end
+
+  def update
+    @material = Material.find(params[:id])
+    @material.description = params[:description]
+    @material.subject_id = params[:tag]
+    @material.save!
+
+    @files = params[:attached_files]
+    @files = @files.to_s.squish.split(" ")
+    Attachment.find(@files).each do |f|
+      f.attachable = @material
+      f.save!
+    end
+
+    unless params[:main_image].blank?
+      @main = Attachment.find(Integer(params[:main_image]))
+      @main.attachable = @material
+      @main.main = true
+      @main.save!
+    end
+    render @material, layout: false
   end
 
   def show

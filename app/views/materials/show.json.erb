@@ -1,5 +1,8 @@
 {
-  "description": "<%= @material.description %>"
+  "description": "<%= html_to_json @material.description %>",
+  "remove_link": "<%= html_to_json(link_to "Удалить", material_path(@material)) %>",
+  "form_link": "<%= material_path(@material) %>",
+  "html_id" : "material<%= @material.id %>"
   <% if @material.subject_id %>
     ,"tag": <%= @material.subject_id %>
   <% end %>

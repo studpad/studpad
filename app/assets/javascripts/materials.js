@@ -1,6 +1,70 @@
 
 $(document).on("page:load ready", function(){
 
+  function clear_modal_window(){
+    $("#main-photo-dropzone").show().prev().remove();
+    $("#loaded-photos").empty();
+    $("#loaded-documents").empty();
+    $("input[name=main_image]").val(null)
+    $("input[name=tag]").val(null)
+    $("input[name=attached_files]").val(null)
+    $("textarea[name=description").val(null).removeAttr("style")
+  }
+
+  function delete_files (){
+    $("a.X18").click()
+  }
+
+  //Редактирование материала
+  function edit_material(){
+    modal_window = $('#modal_window')
+
+    if (modal_window.attr('data') == 'create'){
+      delete_files()
+      modal_window.attr('data', 'edit')
+    }
+
+    clear_modal_window()
+
+    url = $(this).attr("data")
+    $.getJSON(url, function(data){
+      $("#material-form").attr('action', data.form_link).attr('old_id', data.html_id)
+      .find('input[name=_method]').val('patch')
+      $("textarea[name=description]").val(data.description)
+      if (data.main_photo){
+        $("#main-photo-dropzone").hide().parent().prepend(data.main_photo)
+        .find('a').click(function() {
+          $(this).parent().parent().remove()
+          $("#main-photo-dropzone").show();
+          $("input[name=main_image]").val(null)
+        });
+      }
+
+      $(".choice-theme-material").select2('val', data.tag);
+      photos_container = $("#loaded-photos")
+      for(var i in data.images){
+        photos_container.append(data.images[i])
+      }
+      documents_container = $("#loaded-documents")
+      for(var f in data.files){
+        documents_container.append(data.files[f])
+      }
+
+    })
+  }
+
+  $('#create_material').click(function(){
+    if ($('#modal_window').attr('data') == 'edit'){
+      clear_modal_window()
+      $(this).attr('data', 'create')
+    }
+    $('#modal_window').attr('data', 'create')
+    $("#material-create").attr('action', '/materials')
+      .find('input[name=_method').val('post')
+  })
+  $(".update-UM").click(edit_material)
+
+  //Прикрипление файлов#####################################
   var dz = new Dropzone("#material-dropzone", {
     clickable: '#material-dropzone .drop-zone',
     previewsContainer: false
@@ -36,6 +100,7 @@ $(document).on("page:load ready", function(){
     files = input.val(input.val() + ' ' + response.id)
   });
 
+  //Прикрипление главной фотографии#####################################
   var main_photo_dz = new Dropzone("#main-photo-dropzone", {
     clickable: '#main-photo-dropzone .drop-zone',
     previewsContainer: false,
@@ -67,55 +132,25 @@ $(document).on("page:load ready", function(){
     }
     $("#material-form").ajaxSubmit({
       success: function(data, status, response) {
-        $(".title-page").after(response.responseText).next()
-        .find(".update-UM").click(edit_material)
-        console.log(response)
+        if ($('#modal_window').attr('data') == 'edit'){
+          html_id = "#" + $('#material-form').attr('old_id')
+          $(html_id).replaceWith(response.responseText)
+          $(html_id).find(".update-UM").click(edit_material)
+        } else {
+          $(".title-page").after(response.responseText).next()
+          .find(".update-UM").click(edit_material)
+          console.log(response)
+        }
       },
       error: function(data) {
         console.log("error")
       }
     });
-    $("#main-photo-dropzone").prev().remove();
-    $("#main-photo-dropzone").show();
-    $("#loaded-photos").empty();
-    $("#loaded-documents").empty();
-    $("input[name=main_image]").val(null)
-    $("input[name=tag]").val(null)
-    $("input[name=attached_files]").val(null)
-    $("textarea[name=description").val(null).removeAttr("style")
+    clear_modal_window()
   })
+
+
   $(".description-add-material").focus(function(){
      $(this).addClass('height350');
   });
-  //Редактирование материала
-  //Очистка формы
-  edit_material = function(){
-    alert("hell")
-    $("a.X18").click()
-    url = $(this).attr("data")
-    $.getJSON(url, function(data){
-      if (data.main_photo){
-        $("#main-photo-dropzone").hide().parent().prepend(data.main_photo)
-        .find('a').click(function() {
-          $(this).parent().parent().remove()
-          $("#main-photo-dropzone").show();
-          $("input[name=main_image]").val(null)
-        });
-      }
-
-      $(".choice-theme-material").select2('val', data.tag);
-      photos_container = $("#loaded-photos")
-      for(var i in data.images){
-        photos_container.append(data.images[i])
-      }
-      documents_container = $("#loaded-documents")
-      for(var f in data.files){
-        documents_container.append(data.files[f])
-      }
-
-    })
-  }
-  $(".update-UM").click(edit_material)
-  //Наполнение содержимым
-
 })
