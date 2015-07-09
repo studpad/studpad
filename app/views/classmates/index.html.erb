@@ -1,14 +1,25 @@
-<%
-def classroom_id
-    params[:classroom_id] || params[:id]
-end
-%>
-
 <div class ='container' id = 'main-container'>
     <%= render "/partials/squares_menu" %>
     <div class = 'main-wall'>
-    	<%= render "list_classmates" %>
+      <div class = 'row'>
+        <div class = 'col-xs-12'>
+          <div class = 'title-page'>
+                  Мы
+          </div>
+          <div class = 'card-sp sharp-wrap'>
+            <div class = 'container-fluid'>
+              <div class = 'row'>
+                <% @classmates.each do |c| %>
+                  <%= link_to user_path(c), class: 'col-xs-4 show-persons' do %>
+                    <img src = '<%= c.avatar.url %>' class = 'big-img-avatar' />
+                    <p class = 'span-main-text-news'><%= c.name %></p>
+                  <% end %>
+                <% end %>
+                <%#= render "list_classmates" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-
 </div>

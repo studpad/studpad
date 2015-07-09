@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'line/show'
   root 'users#profile'
   resources :materials
   resources :attachments, only: [:create, :destroy]
   get 'trouble' => "attachments#create"
+  resource :line, only: :show
 
   resources :classrooms do
     resources :albums do

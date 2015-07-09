@@ -1,7 +1,7 @@
 class MaterialsController < ApplicationController
   def index
   	@classroom = Classroom.find(params[:classroom_id])
-    @materials = Material.all
+    @materials = Material.all.order(created_at: :desc)
   end
 
   def new
@@ -11,6 +11,8 @@ class MaterialsController < ApplicationController
   def create
     @material = Material.new
     @material.description = params[:description]
+    @material.user = current_user
+    @material.subject_id = params[:tag]
     @material.save!
 
     @files = params[:attached_files]
