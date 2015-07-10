@@ -9,6 +9,7 @@ $(document).on("page:load ready", function(){
     $("input[name=tag]").val(null)
     $("input[name=attached_files]").val(null)
     $("textarea[name=description").val(null).removeAttr("style")
+    $(".choice-theme-material").select2('val', null);
   }
 
   function delete_files (){
@@ -28,9 +29,12 @@ $(document).on("page:load ready", function(){
 
     url = $(this).attr("data")
     $.getJSON(url, function(data){
+      console.log(data)
       $("#material-form").attr('action', data.form_link).attr('old_id', data.html_id)
       .find('input[name=_method]').val('patch')
       $("textarea[name=description]").val(data.description)
+      $("input[name=main_image]").val(data.main_image_id)
+      $("input[name=attached_files]").val(data.attachment_ids)
       if (data.main_photo){
         $("#main-photo-dropzone").hide().parent().prepend(data.main_photo)
         .find('a').click(function() {
@@ -46,18 +50,20 @@ $(document).on("page:load ready", function(){
         photos_container.append(data.images[i])
       }
       photos_container.find('a').click(function() {
+        id = $(this).attr('attachment')
         $(this).parent().parent().remove()
         input = $("input[name=attached_files]")
-        input.val(input.val().replace(response.id, ""))
+        input.val(input.val().replace(id, ""))
       })
       documents_container = $("#loaded-documents")
       for(var f in data.files){
         documents_container.append(data.files[f])
       }
       documents_container.find('a').click(function() {
+        id = $(this).attr('attachment')
         $(this).parent().parent().remove()
         input = $("input[name=attached_files]")
-        input.val(input.val().replace(response.id, ""))
+        input.val(input.val().replace(id, ""))
       })
 
     })

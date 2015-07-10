@@ -8,6 +8,13 @@ class Material < ActiveRecord::Base
     attachments.find{|a| a.main? }
   end
 
+  def files_ids
+    result = attachments.ids
+    mi = main_image
+    result.delete(mi.id) if mi
+    result.join " "
+  end
+
   def images
     attachments.find_all{|a| !a.main? && a.image? }
   end
