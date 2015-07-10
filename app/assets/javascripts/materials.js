@@ -45,10 +45,20 @@ $(document).on("page:load ready", function(){
       for(var i in data.images){
         photos_container.append(data.images[i])
       }
+      photos_container.find('a').click(function() {
+        $(this).parent().parent().remove()
+        input = $("input[name=attached_files]")
+        input.val(input.val().replace(response.id, ""))
+      })
       documents_container = $("#loaded-documents")
       for(var f in data.files){
         documents_container.append(data.files[f])
       }
+      documents_container.find('a').click(function() {
+        $(this).parent().parent().remove()
+        input = $("input[name=attached_files]")
+        input.val(input.val().replace(response.id, ""))
+      })
 
     })
   }

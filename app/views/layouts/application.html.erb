@@ -16,20 +16,22 @@
     <div class = 'container-fluid'>
       <div class = 'row'>
           <div class = 'col-xs-12 align-c' id = 'hat-studpad-title'>
-            
+
             <h1 id = 'hat-logo-studpad'>
               <a class = 'hat-logo-studpa-a' href="/">Studpad</a>
             </h1>
             <div class = 'global-menu'>
               <nav class = "global-actions">
-                  <a href="/">
+                  <%= link_to root_path do %>
                     <span><%= image_tag "home7.png", size: "28x28" %></span>
                     <span class="text">Главная</span>
-                  </a>
+                  <% end %>
+                  <%= link_to root_path do %>
                   <a href="/">
                     <span><%= image_tag "heart13.png", size: "28x28" %></span>
                     <span class="text">Мой класс</span>
                   </a>
+                  <% end %>
               </nav>
             </div>
           </div>
