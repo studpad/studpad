@@ -163,9 +163,10 @@ $(document).on("page:load ready", function(){
           $(html_id).replaceWith(response.responseText)
           $(html_id).find(".update-UM").click(edit_material)
         } else {
-          $(".title-page").after(response.responseText).next()
+
+          $("#all_materials").prepend(response.responseText).next()
           .find(".update-UM").click(edit_material)
-          console.log(response)
+          console.log($("#all_materials"))
         }
       },
       error: function(data) {
@@ -174,5 +175,5 @@ $(document).on("page:load ready", function(){
     });
     clear_modal_window()
   })
-  
+
 })
