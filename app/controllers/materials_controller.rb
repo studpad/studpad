@@ -72,6 +72,11 @@ class MaterialsController < ApplicationController
     render "show.json", formats: :json, layout: false
   end
 
+  def destroy
+    Material.find(params[:id]).destroy
+    render :nothing => true, :status => 200, :content_type => 'text/html'
+  end
+
   private
     def material_params
       params.require(:material).permit(:name, :description, :file)

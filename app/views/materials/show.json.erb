@@ -1,6 +1,5 @@
 {
   "description": "<%= html_to_json @material.description %>",
-  "remove_link": "<%= html_to_json(link_to "Удалить", material_path(@material)) %>",
   "form_link": "<%= material_path(@material) %>",
   "html_id" : "material<%= @material.id %>",
   "main_image_id": "<%= @material.main_image.id  if @material.main_image %>",

@@ -19,6 +19,8 @@ $(document).on("page:load ready", function(){
   //Редактирование материала
   function edit_material(){
     modal_window = $('#modal_window')
+    $('#myModalLabel').html("Редактирование")
+    $('#send').html("Сохранить")
 
     if (modal_window.attr('data') == 'create'){
       delete_files()
@@ -30,6 +32,10 @@ $(document).on("page:load ready", function(){
     url = $(this).attr("data")
     $.getJSON(url, function(data){
       console.log(data)
+      $("#remove_material").attr('href', data.form_link).show()
+      .click(function(){
+        $("#" + data.html_id).remove()
+      })
       $("#material-form").attr('action', data.form_link).attr('old_id', data.html_id)
       .find('input[name=_method]').val('patch')
       $("textarea[name=description]").val(data.description)
@@ -73,10 +79,14 @@ $(document).on("page:load ready", function(){
     if ($('#modal_window').attr('data') == 'edit'){
       clear_modal_window()
       $(this).attr('data', 'create')
+      $('#myModalLabel').html("Создайте полезный материал")
+      $('#send').html("Создать")
     }
+
+    $("#remove_material").hide()
     $('#modal_window').attr('data', 'create')
-    $("#material-create").attr('action', '/materials')
-      .find('input[name=_method').val('post')
+    $("#material-form").attr('action', '/materials')
+      .find('input[name=_method]').val('post')
   })
   $(".update-UM").click(edit_material)
 
