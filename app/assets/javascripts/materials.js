@@ -164,9 +164,5 @@ $(document).on("page:load ready", function(){
     });
     clear_modal_window()
   })
-
-
-  $(".description-add-material").focus(function(){
-     $(this).addClass('height350');
-  });
+  
 })

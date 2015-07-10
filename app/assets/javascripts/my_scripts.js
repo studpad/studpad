@@ -74,6 +74,10 @@ function main(){
       $(this).addClass('all0');
     });*/
 
+    $(".description-add-material").focus(function(){
+       $(this).addClass('height350');
+    });
+
     $(".textHW_comment").focus(function(){
 
       $(this).css('height', '50px').css('color', 'black');

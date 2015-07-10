@@ -134,29 +134,22 @@ body{
     }
     .btn-st{
       background-color: #3680be;
-      box-shadow: 0 2px #265985;
       outline: none !important;
-    }
-    .btn-st:hover{
-      background-color: #265985;
-      position: relative;
-      top: 2px;
-      box-shadow: 0 1px #265985;
+      border-radius: 2px;
+      border-color: #2F74AE;
+      &:hover{
+        background-color: #2E77B3;
+      }
     }
     .btn-st-inert{
-      color: #333;
       background-color: #fff;
-      border-color: #ccc;
-      box-shadow: 0 2px #ccc;
       outline: none !important;
-    }
-    .btn-st-inert:hover{
-      background-color: #ccc;
-      position: relative;
-      top: 2px;
-      box-shadow: 0 1px #ccc;
+      border-radius: 2px;
     }
     .btn-st-red{
+      background-color: #fff;
+      outline: none !important;
+      border-radius: 2px;
       &:hover{
         background-color: #d43f3a;
         color: white;
@@ -381,7 +374,6 @@ body{
     }
     #post-news{
       display: none;
-      background-color: #00739D;
     }
     .post-comment-of-news{
       display: none;
@@ -428,12 +420,18 @@ body{
     .news-username{
       font-size: 14px;
     }
+    .news-username > a{
+      color: #23527c;
+      &:hover{
+        color: #3680be;
+      }
+    }
     .title-background{
       background-color: #FFF;
       padding-bottom: 10px;
     }
     .wrap-send-button{
-      margin-top: 3px;
+      margin-top: 10px;
       text-align: left;
     }
     #form-send-news{
@@ -1124,7 +1122,7 @@ body{
   font-size: 13px;
   border: none !important;
   border-bottom: 1px solid #E8E8E8 !important;
-  box-shadow: none;
+  box-shadow: none !important;
   border-radius: 0px;
   height: 30px !important;
   background-color: transparent !important;
@@ -1140,7 +1138,7 @@ body{
   padding: 0px;
 }
 .set-of-photos1{
-  height: 150px;
+  height: 130px;
   border-left: 2px solid white;
   border-top: 2px solid white;
   padding: 0px;
@@ -1148,6 +1146,7 @@ body{
 .description-add-material{
   resize: none;
   background-color: #FAFAFA;
+  border-top: 1px solid #E8E8E8 !important;
   &:hover{
     background-color: #F7F7F7;
   }
