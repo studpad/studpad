@@ -315,7 +315,7 @@ body{
     }
     .the-news{
       border-bottom: 1px solid #EFEFEF;
-      padding-top: 10px;
+      padding-top: 30px;
       padding-bottom: 10px;
     }
     .each-comment-of-the-news{
@@ -451,7 +451,7 @@ body{
     }
 
     .form-send-comment-of-news{
-
+      margin-top: 10px;
     }
     .menu-of-form-send-comment-of-news{
       margin-left: 3px;
@@ -1126,6 +1126,7 @@ body{
   border-radius: 0px;
   height: 30px !important;
   background-color: transparent !important;
+  resize: none;
 }
 .wrap-photos{
   padding-left: 15px;

@@ -61,9 +61,9 @@
           </div>
           <div class = 'textarea-form-send-comment-of-news'>
             <%= form_tag comment_classroom_news_path(params[:id], n.id) do %>
-            <%= text_area_tag(:text, nil, class: 'form-control textHW_comment', placeholder: "Ваш комментарий...") %>
+            <%= text_area_tag(:text, nil, class: 'form-control textHW_comment my-setting-form-control', placeholder: "Ваш комментарий...") %>
             <div class = 'wrap-send-button'>
-              <button type="submit" class="btn btn-primary btn-xs btn-st post-comment-of-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
+              <button type="submit" class="btn btn-primary btn-xs btn-st post-comment-of-news">Отправить</button>
             </div>
           </div>
           <% end %>
