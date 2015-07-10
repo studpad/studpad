@@ -37,6 +37,24 @@ body{
     }
     a{
       cursor: pointer;
+      text-decoration: none !important;
+    }
+    #hat-logo-studpad{
+      font-weight: bold;
+      min-width: 120px;
+      font-size: 22px;
+      position: absolute;
+      left: 50%;
+      top: 0px;
+    }
+    h1#hat-logo-studpad{
+      margin: 10px 0 10px -60px;
+    }
+    .hat-logo-studpa-a{
+      color: #3680be;
+      &:hover{
+        color: #3680be;
+      }
     }
     #hat-studpad{
       background: white;
@@ -46,14 +64,6 @@ body{
       z-index: 50;
       position: fixed;
       top: 0px;
-    }
-    #hat-studpad-title{
-      padding-top: 8px;
-      font-size: 22px;
-      color: #3680be;
-      font-weight: bold;
-      min-width: 120px;
-
     }
     #hat-main-studpad{
       color: #3680be;
@@ -100,7 +110,7 @@ body{
     .title-element-of-squares-menu{
       text-align: center;
       margin-top: 5px;
-      color: #5a6770;
+      color: #586B7A;
     }
     .left-wall{
       width: 280px;
@@ -139,6 +149,16 @@ body{
       position: relative;
       top: 2px;
       box-shadow: 0 1px #ccc;
+    }
+    .btn-st-red{
+      &:hover{
+        background-color: #d43f3a;
+        color: white;
+      }
+    }
+    .del-post-modal-window{
+      position: relative;
+      right: 330px;
     }
     .container-sp{
       padding: 10px 5px;
@@ -194,10 +214,6 @@ body{
     }
     .whattext-sp{
       color: rgb(168, 168, 168);
-    }
-    a{
-      color: rgb(90, 103, 112);
-      text-decoration: none;
     }
     #each-students{
       margin-top: 5px;
@@ -637,6 +653,7 @@ body{
      }
      .useful-material_img{
       text-align: center;
+      
      }
      #page-useful-material_img{
       background: url('http://themes.startbootstrap.com/spectrum-v1.2.0/assets/img/demo-portfolio/9.jpg');
@@ -1077,6 +1094,9 @@ body{
 }
 .useful-material_post{
   margin-bottom: 42px;
+  &:hover{
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  }
 }
 .title-page{
   height: 55px;
@@ -1089,7 +1109,7 @@ body{
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border: 1px solid #e5e5e5;
-  border-bottom: none;
+  border-bottom: 1px solid whitesmoke;
 }
 .my-setting-modal-content{
   border-radius: 2px;
@@ -1382,4 +1402,37 @@ body{
 .border-t-radius{
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+}
+
+
+
+
+
+
+
+/* hat */
+.global-menu{
+  display: inline-block;
+  float: left;
+  height: 48px;
+  position: relative;
+  left: 141px;
+}
+.global-actions{
+  height: 48px;
+  border-bottom: none;
+  margin-top: 10px;
+}
+.global-actions > a { 
+  color: #516574;
+  transition: all .15s ease-out;
+  font-size: 16px;
+  margin-right: 24px;
+  &:hover{
+    color: #3680BE;
+  }
+}
+.global-actions > a > span > img{
+  position: relative;
+  bottom: 2px;
 }
