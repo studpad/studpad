@@ -77,6 +77,9 @@ body{
       top: 60px;
       margin-left: -325px;
     }
+    .profile-main-wall{
+      margin-top: 10px;
+    }
     .squares-menu > div{
       font-size: 16px;
       height: 46px;
@@ -429,6 +432,11 @@ body{
     .title-background{
       background-color: #FFF;
       padding-bottom: 10px;
+    }
+    .title-background-border{
+      background-color: #FFF;
+      padding-bottom: 10px;
+      border: 1px solid rgb(237, 237, 237);
     }
     .wrap-send-button{
       margin-top: 10px;
@@ -1108,7 +1116,6 @@ body{
   background-color: white;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  border: 1px solid #e5e5e5;
   border-bottom: none;
 }
 .my-setting-modal-content{
@@ -1380,7 +1387,6 @@ body{
 .feed-profile-background{
       background-image: white;
       border-radius: 2px;
-      border: 1px solid rgb(229, 229, 229);
       border-bottom: none;
       height: 60px;
  }
