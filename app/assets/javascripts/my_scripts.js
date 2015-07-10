@@ -14,10 +14,6 @@ function main(){
       aspectRatio: 1
     });
 
-    $("textarea").focus(function(){
-       $(this).css('box-shadow', 'none').css('border', '1px solid #E8E8E8');
-     });
-
     /*$(".element-of-squares-menu").mouseover(function(){
       $(this).children('.title-element-of-squares-menu').css('opacity', '1');
     });
@@ -74,9 +70,9 @@ function main(){
       }
     });
 
-    $(".description-add-material").focus(function(){
+    /*$(".description-add-material").focus(function(){
       $(this).addClass('all0');
-    });
+    });*/
 
     $(".textHW_comment").focus(function(){
 

@@ -2,14 +2,14 @@
 </div> -->
 <div class = 'card-sp'>
  <div class = 'title-background'>
-  <div class = 'title-sp' id = 'title-news'>
+  <div class = 'title-page'>
     Новости
   </div>
   <div id = 'form-send-news'>
     <%= form_tag classroom_news_index_path(params[:id]) do %>
     <%= text_area_tag(:textHW, nil, class: 'form-control', placeholder: "Ваша новость...") %>
     <div class = 'wrap-send-button'>
-      <button type="submit" id = 'post-news' class="btn btn-primary btn-sm"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
+      <button type="submit" id = 'post-news' class="btn btn-primary btn-st"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Опубликовать</button>
     </div>
     <% end %>
   </div>

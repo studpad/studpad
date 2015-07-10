@@ -5,13 +5,18 @@ end
 %>
 
 <div class ='container' id = 'main-container'>
-  <%= render "/partials/squares_menu" %>
+  <%= render "/partials/left_branch" %>
   <div class = 'main-wall'>
+    <div class = 'submenu'>
+          <%= render "/partials/squares_menu" %>
+    </div>
+    <div class = 'title-background'>
+      <div class = 'title-page'>
+        Домашнее задание
+      </div>
+    </div>
     <div class = 'row'>
       <div class = 'col-xs-12'>
-        <div class = 'title-page'>
-          Домашнее задание
-        </div>
         <%= render "each_homeworks" %>
       </div>
     </div>

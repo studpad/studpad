@@ -74,17 +74,17 @@ body{
       width: 650px;
       position: relative;
       left: 50%;
-      top: 50px;
+      top: 60px;
       margin-left: -325px;
     }
-    #squares-menu{
-      width: 100px;
-      background-color: white;
-      position: absolute;
-      left: 50%;
-      top: 61px;
-      margin-left: -440px;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+    .squares-menu > div{
+      font-size: 16px;
+      height: 46px;
+      border-bottom: none;
+      transition: all .15s ease-in-out;
+      &:hover{
+        border-bottom: 3px solid #3680BE;
+      }
     }
     .right-button-action{
       width: 100px;
@@ -94,20 +94,26 @@ body{
       top: 61px;
       margin-right: -441px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-    }
-    .element-of-squares-menu{
-      height: 100px;
-      border-bottom: 1px solid #efefef;
       cursor: pointer;
       &:hover{
         background-color: #FBFBFA;
       }
+
     }
-    .img-element-of-squares-menu{
+    .element-of-squares-menu{
+      height: 20px;
+      border-bottom: 1px solid #efefef;
+      cursor: pointer;
+      float: left;
+      &:hover{
+        background-color: #FBFBFA;
+      }
+    }
+    .img-right-button-action{
       padding-top: 15px;
       text-align: center;
     }
-    .title-element-of-squares-menu{
+    .title-right-button-action{
       text-align: center;
       margin-top: 5px;
       color: #586B7A;
@@ -163,11 +169,12 @@ body{
     .container-sp{
       padding: 10px 5px;
     }
-
-    .title-sp{
+    .title-page{
+      color: #516574;
       font-size: 19px;
-      color: rgb(90, 103, 112);
       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+      text-align: center;
+      padding-top: 32px;
     }
     .title-underline{
       font-size: 16px;
@@ -275,7 +282,9 @@ body{
       width: 100%;
       height: 33px;
       box-shadow: none;
-      border: 1px solid #E8E8E8;
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid #E8E8E8;
       overflow: hidden;
       color: rgb(166, 166, 166);
     }
@@ -287,14 +296,12 @@ body{
       width: 100%;
       height: 33px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
-      border: 1px solid #E8E8E8;
       overflow: hidden;
       color: black;
       margin-top: 3px;
       margin-bottom: 3px;
     }
     #textHW:hover, #textHW_comment:hover, .textHW-update:hover{
-      border: 1px solid #d7d7d7;
       box-shadow: none;
     }
     #main-wall{
@@ -333,10 +340,6 @@ body{
     .comment-username{
       font-size: 14px;
     }
-    #title-news{
-      text-align: center;
-      padding-top: 12px;
-    }
     .main-text-news{
       color: #393939;
       font-size: 13px;
@@ -344,8 +347,8 @@ body{
       padding: 3px;
     }
     .img-avatar{
-      border-radius: 200px;
-      box-shadow: 0px 0px 2px grey;
+      border-radius: 2px;
+      box-shadow: 0px 0px 1px whitesmoke;
       width: 44px;
       height: 44px;
     }
@@ -647,9 +650,9 @@ body{
       background-color: white;
       border-radius: 2px;
       padding-bottom: 3px;
-      &:hover{
+      /*&:hover{
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.32);
-      }
+      }*/
      }
      .useful-material_img{
       text-align: center;
@@ -1098,9 +1101,8 @@ body{
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   }
 }
-.title-page{
-  height: 55px;
-  margin-top: 10px;
+.submenu{
+  height: 62px;
   text-align: center;
   color: #516574;
   font-size: 18px;
@@ -1109,7 +1111,7 @@ body{
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border: 1px solid #e5e5e5;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: none;
 }
 .my-setting-modal-content{
   border-radius: 2px;
@@ -1120,6 +1122,12 @@ body{
 }
 .my-setting-form-control{
   font-size: 13px;
+  border: none !important;
+  border-bottom: 1px solid #E8E8E8 !important;
+  box-shadow: none;
+  border-radius: 0px;
+  height: 30px !important;
+  background-color: transparent !important;
 }
 .wrap-photos{
   padding-left: 15px;
@@ -1139,9 +1147,6 @@ body{
 }
 .description-add-material{
   resize: none;
-  height: 200px !important;
-  border: 1px dashed #ccc;
-  box-shadow: none;
   background-color: #FAFAFA;
   &:hover{
     background-color: #F7F7F7;
@@ -1188,17 +1193,15 @@ body{
 }
 .X18{
    font-size: 18px;
-   background-color: rgba(50, 72, 76, 0);
    color: #FFFFFF;
-   padding: 0px 6px;
+   padding: 0px 5px;
    margin-right: 1px;
-   border-radius: 2px;
+   border-radius: 4px;
    cursor: pointer;
    display: none;
    position: relative;
    bottom: 2px;
    z-index: 100;
-   border-radius: 50px;
    text-decoration: none !important;
    &:hover{
     color: grey;
@@ -1250,6 +1253,7 @@ body{
 }
 .show-X:hover > .del-this-file > .X18{
   display: inline;
+  background-color: #ccc;
 }
 .float-l{
   float: left;
@@ -1333,7 +1337,6 @@ body{
   padding-right: 25px;
   padding-left: 58px;
   background: #fff;
-  z-index: 100;
   color: #3680be;
   font-weight: bold;
   font-size: 18px;
@@ -1349,7 +1352,7 @@ body{
 }
 .my-setting-modal-dialog{
   position: relative;
-  right: 75px;
+  right: 25px;
 }
 #feed-left-branch{
   position: absolute;
