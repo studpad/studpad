@@ -48,10 +48,10 @@ Rails.application.routes.draw do
 
   get 'development' => 'sessions#development' #на время разработки
 
-  get 'login'  => 'sessions#new'
   get 'logout' => 'sessions#destroy'
 
   get 'signup'  => 'users#new'
+  get 'welcome'  => 'sessions#new'
   get 'profile' => 'users#profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
