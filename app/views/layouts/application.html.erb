@@ -26,11 +26,11 @@
                     <span><%= image_tag "homeclass.png", size: "28x28" %></span>
                     <span class="text">Главная</span>
                   <% end %>
-                  <%= link_to root_path do %>
-                  <a href="/">
-                    <span><%= image_tag "homeworkclass.png", size: "28x28" %></span>
-                    <span class="text">Мой класс</span>
-                  </a>
+                  <% if current_user.student? %>
+                    <%= link_to classroom_path(current_user.classroom) do %>
+                      <span><%= image_tag "homeworkclass.png", size: "28x28" %></span>
+                      <span class="text">Мой класс</span>
+                    <% end %>
                   <% end %>
               </nav>
             </div>

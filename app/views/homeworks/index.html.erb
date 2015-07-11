@@ -1,9 +1,3 @@
-<%
-def classroom_id
-    params[:classroom_id] || params[:id]
-end
-%>
-
 <div class ='container' id = 'main-container'>
   <%= render "/partials/left_branch" %>
   <div class = 'main-wall'>
@@ -16,8 +10,8 @@ end
       </div>
     </div>
     <div class = 'row'>
-      <div class = 'col-xs-12'>
-        <%= render "each_homeworks" %>
+      <div id = 'all_homeworks' class = 'col-xs-12'>
+        <%= render @homeworks %>
       </div>
     </div>
   </div>
