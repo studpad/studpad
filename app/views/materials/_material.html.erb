@@ -12,7 +12,7 @@
     </div>
   </div>
   <% end %>
-  <div class = 'useful-material_info'>
+  <div class = 'useful-material_info' data-toggle="modal" data-target="#view_material">
     <div class = 'container-fluid'>
       <div class = 'row'>
         <div class = 'col-lg-7 col-md-7 col-xs-7'>
@@ -54,11 +54,14 @@
           <% end %>
         </div>
       </div>
+    </div>
+  </div>
+  <div class = 'useful-material_date'>
+    <div class = 'container-fluid'>
       <div class = 'row'>
         <div class = 'col-lg-12 col-md-12 col-xs-12'>
           <div class = 'card-date'>
                 <span class = 'date-news'>
-
                   <%= material.created_at.strftime("%d %b %H:%M") %> •
                   <span><%= material.user.name %></span>
                 </span>
@@ -69,7 +72,6 @@
                 <span class = 'count-share'> &nbsp;&nbsp;<b>578</b></span>
                 <span class="glyphicon glyphicon-pencil pencil-news update-UM margin-l40" data-toggle="modal" data-target="#modal_window"
                 data='<%= material_path( material ) %>'> Редактировать</span>
-
           </div>
         </div>
       </div>

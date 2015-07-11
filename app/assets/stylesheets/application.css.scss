@@ -17,6 +17,7 @@
  *= require selectize
  *= require selectize.default
  *= require profile
+  *= require animations
  */
 
 @import "bootstrap-sprockets";
@@ -273,9 +274,9 @@ body{
     .the-subject:hover{
       background-color: #EAEFF0;
     }
-    #textHW, #textHW_comment{
+    #textHW, .textHW_comment{
       resize: none;
-      width: 100%;
+      width: 98%;
       height: 33px;
       box-shadow: none;
       border: none;
@@ -283,19 +284,25 @@ body{
       border-bottom: 1px solid #E8E8E8;
       overflow: hidden;
       color: rgb(166, 166, 166);
+      padding-left: 0px !important;
+      background-color: transparent;
     }
      #textHW_from_profile{
       height: 80px;
      }
     .textHW-update{
       resize: none;
-      width: 100%;
+      width: 98%;
       height: 33px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+      box-shadow: none !important;
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid #E8E8E8 !important;
       overflow: hidden;
-      color: black;
-      margin-top: 3px;
-      margin-bottom: 3px;
+      color: #393939;
+      font-size: 13px;
+      padding-left: 0px !important;
+      background-color: transparent;
     }
     #textHW:hover, #textHW_comment:hover, .textHW-update:hover{
       box-shadow: none;
@@ -329,9 +336,12 @@ body{
       border-top: 1px solid rgb(226, 226, 226);
       padding-top: 20px;
       padding-bottom: 20px;
-      background-color: rgb(250, 250, 250);
+      background-color: #FBFBFA;
       padding-left: 10px;
       padding-right: 10px;
+    }
+    .the-comment:first-child{
+      border-top: none !important;
     }
     .comment-username{
       font-size: 14px;
@@ -423,11 +433,14 @@ body{
     .news-username{
       font-size: 14px;
     }
-    .news-username > a{
+    .news-username > a, .comment-username > a{
       color: #23527c;
       &:hover{
         color: #3680be;
       }
+    }
+    .the-comment-content{
+      padding-left: 20px;
     }
     .title-background{
       background-color: #FFF;
@@ -443,8 +456,8 @@ body{
       text-align: left;
     }
     #form-send-news{
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
       margin-top: 15px;
     }
     .element-menu-under-news{
@@ -710,6 +723,26 @@ body{
       min-height: 149px;
       padding-left: 45px;
       box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      &:hover{
+        background-color: #FBFBFA;
+      }
+     }
+     .useful-material_info_view{
+      padding-left: 45px;
+      padding-right: 45px;
+      padding-top: 40px;
+      min-height: 149px;
+      box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.03);
+     }
+     .useful-material_date-view{
+      text-align: center;
+     }
+     .view-material-pic{
+      max-width: 100%;
+     }
+     .useful-material_date{
+      padding-left: 45px;
      }
      .useful-material_info_upload{
       padding-top: 40px;
@@ -1445,3 +1478,54 @@ body{
   position: relative;
   bottom: 2px;
 }
+.modal{
+  z-index: 1050;
+}
+.modal_share{
+  z-index: 1100 !important;
+}
+
+/* нью всякие там */
+.dfdf{
+  resize: none;
+  width: 100%;
+  height: 33px;
+  box-shadow: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #E8E8E8;
+  overflow: hidden;
+  color: rgb(166, 166, 166);
+}
+.form-create-new-object{
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  background-color: white;
+  border-radius: 3px;
+  padding: 20px;
+  width: 650px;
+  position: relative;
+  left: 50%;
+  top: 80px;
+  margin-left: -325px;
+ }
+.input-sp{
+  box-shadow: none !important;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #E8E8E8;
+  overflow: hidden;
+  color: #516574;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 18px;
+  &:focus{
+    border-color: #8EC1DA;
+  }
+}
+.simple_form > div{
+  margin-top: 30px;
+}
+.fade-object{
+  display: none;
+}
+/* end нью всякие там */

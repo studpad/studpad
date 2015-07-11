@@ -44,7 +44,7 @@
             <%= form_tag news_path(n), method: 'patch' do %>
             <%= text_area_tag(:text, nil, class: 'form-control textHW-update') %>
             <div class = 'wrap-send-button'>
-              <button type="submit" class="btn btn-primary btn-xs btn-st change-news"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
+              <button type="submit" class="btn btn-primary btn-xs btn-st change-news">Сохранить</button>
             </div>
             <% end %>
           </div>
@@ -74,7 +74,7 @@
                 <div class = 'col-xs-1 wrap-avatar-news'>
                   <img src = 'https://pp.vk.me/c623926/v623926048/203d3/Fm_NWAvhpss.jpg' width = '40' height = '40' class = 'img-avatar'/>
                 </div>
-                <div class = 'col-xs-11'>
+                <div class = 'col-xs-11 the-comment-content'>
                   <% if current_user.id == c.user_id %>
                   <div class = 'sign-sp close-news'>
                     <span class="glyphicon glyphicon-pencil pencil-comment">
@@ -94,7 +94,7 @@
                     <%= form_tag comment_path(c), method: 'patch' do %>
                     <%= text_area_tag(:text, nil, class: 'form-control textHW-update') %>
                     <div class = 'wrap-send-button'>
-                      <button type="submit" class="btn btn-primary btn-xs btn-st change-comment"><span class = 'glyphicon glyphicon-send'></span> &nbsp;Сохранить</button>
+                      <button type="submit" class="btn btn-primary btn-xs btn-st change-comment">Сохранить</button>
                     </div>
                     <% end %>
                   </div>
