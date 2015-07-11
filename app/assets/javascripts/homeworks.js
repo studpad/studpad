@@ -79,7 +79,7 @@ $(document).on("page:load ready", function(){
         } else {
           console.log('after create')
           $("#all_homeworks").prepend(response.responseText).next()
-          .find(".update-HM").click(edit_material)
+          .find(".update-HM").click(edit_homework)
         }
       },
       error: function(data) {
