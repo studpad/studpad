@@ -274,7 +274,7 @@ body{
     .the-subject:hover{
       background-color: #EAEFF0;
     }
-    #textHW, #textHW_comment{
+    #textHW, .textHW_comment{
       resize: none;
       width: 98%;
       height: 33px;
@@ -284,20 +284,25 @@ body{
       border-bottom: 1px solid #E8E8E8;
       overflow: hidden;
       color: rgb(166, 166, 166);
-      padding-left: 0;
+      padding-left: 0px !important;
+      background-color: transparent;
     }
      #textHW_from_profile{
       height: 80px;
      }
     .textHW-update{
       resize: none;
-      width: 100%;
+      width: 98%;
       height: 33px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+      box-shadow: none !important;
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid #E8E8E8 !important;
       overflow: hidden;
-      color: black;
-      margin-top: 3px;
-      margin-bottom: 3px;
+      color: #393939;
+      font-size: 13px;
+      padding-left: 0px !important;
+      background-color: transparent;
     }
     #textHW:hover, #textHW_comment:hover, .textHW-update:hover{
       box-shadow: none;
@@ -331,9 +336,12 @@ body{
       border-top: 1px solid rgb(226, 226, 226);
       padding-top: 20px;
       padding-bottom: 20px;
-      background-color: rgb(250, 250, 250);
+      background-color: #FBFBFA;
       padding-left: 10px;
       padding-right: 10px;
+    }
+    .the-comment:first-child{
+      border-top: none !important;
     }
     .comment-username{
       font-size: 14px;
@@ -425,11 +433,14 @@ body{
     .news-username{
       font-size: 14px;
     }
-    .news-username > a{
+    .news-username > a, .comment-username > a{
       color: #23527c;
       &:hover{
         color: #3680be;
       }
+    }
+    .the-comment-content{
+      padding-left: 20px;
     }
     .title-background{
       background-color: #FFF;
