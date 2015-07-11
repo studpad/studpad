@@ -12,6 +12,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment = Attachment.find(params[:id])
     @attachment.destroy if @attachment
-
+    render nothing: true
   end
+
 end
