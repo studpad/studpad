@@ -1,0 +1,94 @@
+<div class="homepage-hero-module">
+    <div class="video-container">
+        <div class="filter"></div>
+        <video autoplay muted class="fillWidth">
+            <source src="<%= image_path "Marguerite.mp4" %>" type="video/mp4"/>
+        </video>
+        <div class="title-container">
+            <div class="headline">
+                <h1>Студпад</h1>
+                <h3 class="text-white text-thin">Описание коротенькое</h3>
+                <h5 class="text-white text-thin">какая-нибудь фишка<a class="coverr-nav-item btn-track" href="#newsletter" data-event="MondayScroll_Click" style="text-decoration: none; border-bottom: 1px dotted #fff; color: #fff;"> Ссылка может быть</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .title-container {
+      z-index: 1000;
+      position: absolute;
+      top: 35%;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+    }
+</style>
+
+
+
+
+<script>
+    $( document ).ready(function() {
+       // $('#hat-studpad').hide();
+        scaleVideoContainer();
+
+        initBannerVideoSize('.video-container .poster img');
+        initBannerVideoSize('.video-container .filter');
+        initBannerVideoSize('.video-container video');
+
+        $(window).on('resize', function() {
+            scaleVideoContainer();
+            scaleBannerVideoSize('.video-container .poster img');
+            scaleBannerVideoSize('.video-container .filter');
+            scaleBannerVideoSize('.video-container video');
+        });
+
+    });
+
+    function scaleVideoContainer() {
+
+        var height = $(window).height() + 5;
+        var unitHeight = parseInt(height) + 'px';
+        $('.homepage-hero-module').css('height',unitHeight);
+
+    }
+
+    function initBannerVideoSize(element){
+
+        $(element).each(function(){
+            $(this).data('height', $(this).height());
+            $(this).data('width', $(this).width());
+        });
+
+        scaleBannerVideoSize(element);
+
+    }
+
+    function scaleBannerVideoSize(element){
+
+        var windowWidth = $(window).width(),
+        windowHeight = $(window).height() + 5,
+        videoWidth,
+        videoHeight;
+
+        console.log(windowHeight);
+
+        $(element).each(function(){
+            var videoAspectRatio = $(this).data('height')/$(this).data('width');
+
+            $(this).width(windowWidth);
+
+            if(windowWidth < 1000){
+                videoHeight = windowHeight;
+                videoWidth = videoHeight / videoAspectRatio;
+                $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+
+                $(this).width(videoWidth).height(videoHeight);
+            }
+
+            $('.homepage-hero-module .video-container video').addClass('animated');
+
+        });
+    }
+</script>

@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
   get 'welcome'  => 'sessions#new'
   get 'profile' => 'users#profile'
+  get 'main' => 'static_pages#main'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
