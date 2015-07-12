@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @materials = @user.materials.order(created_at: :desc)
   end
 
   def new_ava
@@ -64,10 +65,6 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     render 'show'
-  end
-
-  def destroy
-
   end
 
   private

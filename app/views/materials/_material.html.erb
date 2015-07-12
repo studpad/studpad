@@ -12,7 +12,8 @@
     </div>
   </div>
   <% end %>
-  <div class = 'useful-material_info' data-toggle="modal" data-target="#view_material">
+  <div class = 'useful-material_info view-the-material'
+  link = '<%= material_path(material) %>' data-toggle="modal" data-target="#view_material">
     <div class = 'container-fluid'>
       <div class = 'row'>
         <div class = 'col-lg-7 col-md-7 col-xs-7'>
@@ -28,29 +29,31 @@
           </div>
         </div>
         <div class = 'col-lg-5 col-md-5 col-xs-5'>
-           <div class = 'margin-b40'>
-            <span class = 'title-underline'>
-              Файлы
-            </span>
-          </div>
-          <div class = 'wrap-photos margin-b20'>
-            <div class = 'row'>
-              <% material.images.each do |f| %>
-              <div class = 'col-xs-6 set-of-photos4' style = 'background: url(
-                <%= f.file.url %>
-                ); background-size: cover;'>
-              </div>
-              <% end %>
+          <% if material.images.any? || material.files.any? %>
+            <div class = 'margin-b40'>
+              <span class = 'title-underline'>
+                Файлы
+              </span>
             </div>
-          </div>
-          <% material.files.each do |f| %>
-            <div class = 'this-material'>
-              <div class = 'files-image type-document'>
-              </div>
-              <div class = 'name-files'>
-                <%= link_to truncate(f.file.file.filename, length: 25), f.file.url %>
+            <div class = 'wrap-photos margin-b20'>
+              <div class = 'row'>
+                <% material.images.each do |f| %>
+                <div class = 'col-xs-6 set-of-photos4' style = 'background: url(
+                  <%= f.file.url %>
+                  ); background-size: cover;'>
+                </div>
+                <% end %>
               </div>
             </div>
+            <% material.files.each do |f| %>
+              <div class = 'this-material'>
+                <div class = 'files-image type-document'>
+                </div>
+                <div class = 'name-files'>
+                  <%= link_to truncate(f.file.file.filename, length: 25), f.file.url %>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>

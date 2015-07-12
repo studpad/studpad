@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   before_validation :remove_whitespaces
   has_many :news_items
+  has_many :materials
+
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 5, message: 'Не менее 5 символов' },
@@ -11,6 +13,10 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   mount_uploader :avatar, AvatarUploader
+
+  def began_with
+     Russian::strftime(created_at, '%e %B %Y')
+  end
 
   def teacher?
     false

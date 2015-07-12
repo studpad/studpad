@@ -18,6 +18,7 @@ $(document).on("page:load ready", function(){
 
   //Редактирование материала
   function edit_material(){
+    console.log('Редактирование начато')
     modal_window = $('#modal_window')
     $('#myModalLabel').html("Редактирование")
     $('#send-material').html("Сохранить")
@@ -163,7 +164,7 @@ $(document).on("page:load ready", function(){
           $(html_id).find(".update-UM").click(edit_material)
         } else {
 
-          $("#all_materials").prepend(response.responseText).next()
+          $("#all_materials").prepend(response.responseText)
           .find(".update-UM").click(edit_material)
           console.log($("#all_materials"))
         }
@@ -173,6 +174,16 @@ $(document).on("page:load ready", function(){
       }
     });
     clear_modal_window()
+  })
+  $(".view-the-material").click(function(){
+    $.ajax({
+      type: "GET",
+      url: $(this).attr('link'),
+      success: function(data){
+        $('#modal-view-the-material').html(data)
+      }
+    });
+
   })
 
 })
