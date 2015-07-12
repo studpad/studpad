@@ -26,7 +26,7 @@
                     <span><%= image_tag "homeclass.png", size: "28x28" %></span>
                     <span class="text">Главная</span>
                   <% end %>
-                  <% if current_user.student? %>
+                  <% if current_user && current_user.student? %>
                     <%= link_to classroom_path(current_user.classroom) do %>
                       <span><%= image_tag "homeworkclass.png", size: "28x28" %></span>
                       <span class="text">Мой класс</span>
