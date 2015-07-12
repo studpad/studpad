@@ -69,7 +69,7 @@ class MaterialsController < ApplicationController
 
   def show
     @material = Material.find(params[:id])
-    render "show.json", formats: :json, layout: false
+    render "show", layout: false
   end
 
   def destroy

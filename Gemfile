@@ -33,7 +33,7 @@ gem 'jquery-form-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'russian'
 # Use Unicorn as the app server
 gem 'unicorn'
 
