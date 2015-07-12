@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'classrooms/:classroom_id/news' => 'homeworks#index', as: 'mynews'
 
   get 'line/show'
   root 'feed#show'

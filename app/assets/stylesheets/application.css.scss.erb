@@ -18,6 +18,7 @@
  *= require selectize.default
  *= require profile
  *= require animations
+ *= require animations1
  *= require static_pages
  */
 
@@ -48,7 +49,11 @@ body{
       position: absolute;
       left: 50%;
       top: 0px;
+      font-family: 'Helvetica Neue';
     }
+    .font-helvetica{
+      font-family: 'Helvetica Neue';
+    } 
     h1#hat-logo-studpad{
       margin: 10px 0 10px -60px;
     }
@@ -63,7 +68,7 @@ body{
       height: 48px;
       border-bottom: 1px solid rgb(226, 226, 226);
       width: 100%;
-      z-index: 50;
+      z-index: 1000;
       position: fixed;
       top: 0px;
     }
@@ -96,10 +101,11 @@ body{
       background-color: white;
       position: absolute;
       right: 50%;
-      top: 61px;
+      top: 60px;
       margin-right: -441px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
       cursor: pointer;
+      border-radius: 2px;
       &:hover{
         background-color: #FBFBFA;
       }
@@ -446,6 +452,10 @@ body{
     .title-background{
       background-color: #FFF;
       padding-bottom: 10px;
+    }
+    .border-radius-top{
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
     }
     .title-background-border{
       background-color: #FFF;
@@ -1490,17 +1500,6 @@ body{
 }
 
 /* нью всякие там */
-.dfdf{
-  resize: none;
-  width: 100%;
-  height: 33px;
-  box-shadow: none;
-  border: none;
-  border-radius: 0px;
-  border-bottom: 1px solid #E8E8E8;
-  overflow: hidden;
-  color: rgb(166, 166, 166);
-}
 .form-create-new-object{
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   background-color: white;
