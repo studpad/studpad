@@ -335,14 +335,15 @@ body{
       padding-top: 30px;
       padding-bottom: 10px;
     }
+    .the-news:first-child{
+      padding-top: 0px;
+    }
     .each-comment-of-the-news{
       margin-top: 3px;
-      border-top: 1px solid #EFEFEF;
     }
     .the-comment{
       border-top: 1px solid rgb(226, 226, 226);
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 10px;
       background-color: #FBFBFA;
       padding-left: 10px;
       padding-right: 10px;
@@ -362,8 +363,8 @@ body{
     .img-avatar{
       border-radius: 2px;
       box-shadow: 0px 0px 1px whitesmoke;
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
     }
     .big-img-avatar{
       border-radius: 200px;
@@ -411,6 +412,7 @@ body{
       height: 0px;
       padding-right: 10px;
       display: none;
+      font-color: 14px !important;
     }
      .content-the-news:hover .sign-sp{
       display: block;
@@ -438,7 +440,7 @@ body{
       padding-left: 20px;
     }
     .news-username{
-      font-size: 14px;
+      font-size: 15px;
     }
     .news-username > a, .comment-username > a{
       color: #23527c;
@@ -798,6 +800,9 @@ body{
         border-left: 1px solid rgb(239, 239, 239);
         width: 30%;
      }
+     .files-this-post-news{
+
+     }
      .message-this-post{
         width: 70%;
      }
@@ -806,9 +811,17 @@ body{
       width: 40px;
       height: 40px;
       border-radius: 200px;
-      background-size: 22px 22px;
       background-position: center;
       background-size: 20px 20px;
+      background-repeat: no-repeat;
+     }
+     .files-image-mini{
+      border: 1px solid #D8A330;
+      width: 25px;
+      height: 25px;
+      border-radius: 200px;
+      background-position: center;
+      background-size: 18px 18px;
       background-repeat: no-repeat;
      }
      .this-material{
@@ -848,7 +861,12 @@ body{
       bottom: 38px;
       left: 47px;
       width: 80%;
-      
+     }
+     .name-files-mini{
+      position: relative;
+      font-size: 13px;
+      bottom: 21px;
+      left: 32px;
      }
      #for-margin-news{
       margin-top: 12px;
