@@ -87,9 +87,12 @@ $(document).on("page:load ready", function(){
 
     $("#remove_material").hide()
     $('#modal_window').attr('data', 'create')
-    $("#material-form").attr('action', '/materials')
+    material_form = $("#material-form")
+    original_action =  material_form.attr('original_action')
+    material_form.attr('action', original_action)
       .find('input[name=_method]').val('post')
   })
+
   $(".update-UM").click(edit_material)
 
   //Прикрипление файлов#####################################
@@ -156,6 +159,7 @@ $(document).on("page:load ready", function(){
     if (tag != null){
       $("input[name=tag]").val(tag[0])
     }
+    console.log($("#material-form").attr('action'))
     $("#material-form").ajaxSubmit({
       success: function(data, status, response) {
         if ($('#modal_window').attr('data') == 'edit'){

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711141326) do
+ActiveRecord::Schema.define(version: 20150713072852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20150711141326) do
 
   add_index "classrooms", ["main_teacher_id"], name: "index_classrooms_on_main_teacher_id", using: :btree
   add_index "classrooms", ["school_id"], name: "index_classrooms_on_school_id", using: :btree
+
+  create_table "classrooms_materials", force: :cascade do |t|
+    t.integer "classroom_id"
+    t.integer "material_id"
+  end
+
+  add_index "classrooms_materials", ["classroom_id"], name: "index_classrooms_materials_on_classroom_id", using: :btree
+  add_index "classrooms_materials", ["material_id"], name: "index_classrooms_materials_on_material_id", using: :btree
 
   create_table "classrooms_teachers", force: :cascade do |t|
     t.integer "teacher_id"
@@ -89,9 +97,10 @@ ActiveRecord::Schema.define(version: 20150711141326) do
     t.integer  "user_id"
     t.string   "description"
     t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "subject_id"
+    t.integer  "classrooms_count", default: 0
   end
 
   add_index "materials", ["classroom_id"], name: "index_materials_on_classroom_id", using: :btree

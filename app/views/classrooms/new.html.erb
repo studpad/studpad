@@ -9,8 +9,6 @@
   html: { novalidate: false, class: 'form-vertical' }) do |f| %>
   <%= f.input :name, label: 'Название',
     required: false, input_html: {required: true} %>
-  <%= f.input :school_id, label: 'Школа', collection: @all_schools,
-    required: false, input_html: {required: true} %>
   <%= f.button :submit, 'Создать' %>
 <% end %>
       </div>

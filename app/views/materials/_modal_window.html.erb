@@ -6,7 +6,7 @@
           <h4 class="modal-title" id="myModalLabel">Создайте полезный материал</h4>
         </div>
         <div class = "modal-body my-setting-modal-body">
-            <%= form_tag( attachments_path,  id: 'main-photo-dropzone' ) do %>
+            <%= form_tag( attachments_path,  id: 'main-photo-dropzone') do %>
             <div class = 'drop-zone margin-b40'>
                       Загрузите изображение, сделайте этот материал запоминающимся и красивым.
                       </br>
@@ -36,7 +36,8 @@
                         Описание
                       </span>
                     </div>
-                    <%= form_tag( materials_path, id: "material-form") do %>
+                    <% original_action = classroom_id ? classroom_materials_path(classroom_id): nil %>
+                    <%= form_tag( materials_path, id: "material-form", original_action: original_action ) do %>
                     <input type = 'hidden' name = 'attached_files'>
                     <input type = 'hidden' name = 'main_image'>
                     <input type = "hidden" name = "_method" value="post">
