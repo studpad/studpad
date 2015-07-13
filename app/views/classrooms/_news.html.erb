@@ -6,8 +6,49 @@
   <div id = 'form-send-news'>
     <%= form_tag classroom_news_index_path(params[:id]) do %>
     <%= text_area_tag(:textHW, nil, class: 'form-control', placeholder: "Ваша новость...") %>
-    <div class = 'wrap-send-button'>
+    <div class = 'wrap-send-news'>
       <button type="submit" id = 'post-news' class="btn btn-primary btn-st">Опубликовать</button>
+      <button type="submit" id = 'attach-file-news' class="btn btn-default btn-st-inert">Прикрепить файл</button>
+      <div class = 'preview-images-news row'>
+        <div class = 'col-xs-2 this-preview-images-news' style = 'background: url(https://cs7055.vk.me/c7002/v7002481/9518/WhvigLLPSQE.jpg); background-size: cover;'>
+
+        </div>
+        <div class = 'col-xs-2 this-preview-images-news' style = 'background: url(https://pp.vk.me/c621823/v621823397/457c/ztRcLSaleiM.jpg); background-size: cover;'>
+
+        </div>
+        <div class = 'col-xs-2 this-preview-images-news' style = 'background: url(https://cs7055.vk.me/c540104/v540104522/29d32/2elyOL7rbrY.jpg); background-size: cover;'>
+
+        </div>
+        <div class = 'col-xs-2 this-preview-images-news' style = 'background: url(https://cs7055.vk.me/c7002/v7002481/9518/WhvigLLPSQE.jpg); background-size: cover;'>
+
+        </div>
+        <div class = 'col-xs-2 this-preview-images-news' style = 'background: url(https://pp.vk.me/c543100/v543100257/1569c/v6Kr6ydfy3g.jpg); background-size: cover;'>
+
+        </div>
+        <div class = 'col-xs-2 this-preview-images-news' style = 'background: url(https://pp.vk.me/c543100/v543100257/156af/jZchF5F38qA.jpg); background-size: cover;'>
+
+        </div>
+      </div>
+      <div class = 'preview-files-news row'>
+        <div class="files-this-post-news col-xs-3">
+          <div class="this-material">
+            <div class="files-image-mini type-document">
+            </div>
+            <div class="name-files-mini">
+              <a href="/uploads/attachment/file/73/2my_task.c">2my_task.c</a>
+            </div>
+          </div>
+        </div>
+        <div class="files-this-post-news col-xs-3">
+          <div class="this-material">
+            <div class="files-image-mini type-document">
+            </div>
+            <div class="name-files-mini">
+              <a href="/uploads/attachment/file/73/2my_task.c">2my_task.c</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <% end %>
   </div>
