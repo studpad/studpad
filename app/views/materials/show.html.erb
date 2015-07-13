@@ -69,7 +69,7 @@
             <div class="card-date">
                   <span class="date-news">
                     <%= @material.created_at.strftime("%d %b %H:%M") %> •
-                    <span><%= @material.user.name %></span>
+                    <span><%=link_to @material.user.name, user_path(@material.user) %></span>
                   </span>
             </div>
           </div>

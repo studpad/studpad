@@ -66,13 +66,14 @@
           <div class = 'card-date'>
                 <span class = 'date-news'>
                   <%= material.created_at.strftime("%d %b %H:%M") %> •
-                  <span><%= material.user.name %></span>
+                  <span><%=link_to material.user.name, user_path(material.user) %></span>
                 </span>
-                <span class = 'margin-l40 share-post'  data-toggle="modal" data-target="#modal_share">
+                <span class = 'margin-l40 share-post'  data-toggle="modal"
+                material_id='<%= material.id %>' data-target="#modal_share">
                   <span>Поделиться &nbsp;</span>
                   <span class="glyphicon glyphicon-bullhorn"></span>
                 </span>
-                <span class = 'count-share'> &nbsp;&nbsp;<b>578</b></span>
+                <span class = 'count-share'> &nbsp;&nbsp;<b><%= material.classrooms_count %></b></span>
                 <span class="glyphicon glyphicon-pencil pencil-news update-UM margin-l40" data-toggle="modal" data-target="#modal_window"
                 data='<%= material_path( material ) %>'> Редактировать</span>
           </div>

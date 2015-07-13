@@ -75,11 +75,11 @@ $(document).on("page:load ready", function(){
           console.log('after edit')
           html_id = "#" + $('#homework-form').attr('old_id')
           $(html_id).replaceWith(response.responseText)
-          $(html_id).find(".update-HM").click(edit_homework)
+          $(html_id).find(".update-HW").click(edit_homework)
         } else {
           console.log('after create')
           $("#all_homeworks").prepend(response.responseText).next()
-          .find(".update-HM").click(edit_homework)
+          .find(".update-HW").click(edit_homework)
         }
       },
       error: function(data) {
@@ -89,7 +89,7 @@ $(document).on("page:load ready", function(){
     clear_modal_window()
   })
 
-  $(".update-HM").click(edit_homework)
+  $(".update-HW").click(edit_homework)
 
   $("#homework-file-dropzone").dropzone({
     clickable: '.drop-zone',

@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   get 'line/show'
   root 'feed#show'
-  resources :materials
+  resources :materials do
+    collection do
+      post 'share'
+    end
+  end
   resources :attachments, only: [:create, :destroy]
   get 'trouble' => "materials#edit"
   get 'feed' => "feed#show"

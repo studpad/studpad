@@ -22,5 +22,6 @@
 //= require materials
 //= require homeworks
 //= require selectize
+//= require share_materials
 
 Dropzone.autoDiscover = false;

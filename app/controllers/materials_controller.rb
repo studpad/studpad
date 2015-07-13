@@ -1,7 +1,7 @@
 class MaterialsController < ApplicationController
   def index
   	@classroom = Classroom.find(params[:classroom_id])
-    @materials = Material.all.order(created_at: :desc)
+    @materials = @classroom.materials.order(created_at: :desc)
   end
 
   def new
@@ -9,11 +9,13 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    @material = Material.new
-    @material.description = params[:description]
-    @material.user = current_user
-    @material.subject_id = params[:tag]
+    @material = Material.new do |m|
+      m.description = params[:description]
+      m.user = current_user
+      m.subject_id = params[:tag]
+    end
     @material.save!
+    @material.classrooms << Classroom.find(params[:classroom_id])
 
     @files = params[:attached_files]
     @files = @files.to_s.squish.split(" ")
@@ -75,6 +77,18 @@ class MaterialsController < ApplicationController
   def destroy
     Material.find(params[:id]).destroy
     render :nothing => true, :status => 200, :content_type => 'text/html'
+  end
+
+  def share
+    material = Material.find(params[:material_id])
+    logger.debug material.classrooms.ids
+    logger.debug params[:classroom_id]
+    classroom_id = Integer(params[:classroom_id])
+    unless material.classrooms.ids.include?(classroom_id)
+      logger.debug 'Не включает'
+      material.classrooms << Classroom.find(classroom_id)
+    end
+    render text: material.classrooms_count
   end
 
   private

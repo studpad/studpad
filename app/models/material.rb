@@ -2,6 +2,10 @@ class Material < ActiveRecord::Base
   belongs_to :user
   belongs_to :classroom
   belongs_to :subject
+
+  has_many :shares
+  has_many :classrooms, through: :shares
+
   has_many :attachments, as: :attachable, dependent: :destroy
 
   def main_image
