@@ -33,7 +33,6 @@ $(document).on("page:load ready", function(){
     url = $(this).attr("data")
 
     $.getJSON(url, function(data){
-      console.log(data)
       $("#remove_material").attr('href', data.form_link).show()
       .click(function(){
         $("#" + data.html_id).remove()
@@ -166,10 +165,12 @@ $(document).on("page:load ready", function(){
           html_id = "#" + $('#material-form').attr('old_id')
           $(html_id).replaceWith(response.responseText)
           $(html_id).find(".update-UM").click(edit_material)
+          .end().find(".view-the-material").click(view_material)
         } else {
 
           $("#all_materials").prepend(response.responseText)
           .find(".update-UM").click(edit_material)
+          .end().find(".view-the-material").click(view_material)
           console.log($("#all_materials"))
         }
       },
@@ -179,15 +180,16 @@ $(document).on("page:load ready", function(){
     });
     clear_modal_window()
   })
-  $(".view-the-material").click(function(){
+
+  function view_material(){
     $.ajax({
       type: "GET",
       url: $(this).attr('link'),
       success: function(data){
         $('#modal-view-the-material').html(data)
       }
-    });
-
-  })
+    })
+  }
+  $(".view-the-material").click(view_material);
 
 })

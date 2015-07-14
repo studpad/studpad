@@ -12,7 +12,7 @@
         <div class = "modal-body my-setting-modal-body">
           <div class = 'container-fluid'>
             <div class = 'row'>
-              <% Classroom.all.any? do |c| %>
+              <% Classroom.all.each do |c| %>
               <div class = 'col-xs-4 align-c share-obj'
                 classroom_id='<%= c.id %>'>
                 <div class = 'share-who'><%= c.name %></div>

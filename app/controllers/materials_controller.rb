@@ -15,10 +15,12 @@ class MaterialsController < ApplicationController
       m.subject_id = params[:tag]
     end
     @material.save!
+
     @material.classrooms << Classroom.find(params[:classroom_id])
 
     @files = params[:attached_files]
     @files = @files.to_s.squish.split(" ")
+
     Attachment.find(@files).each do |f|
       f.attachable = @material
       f.save!
@@ -30,7 +32,7 @@ class MaterialsController < ApplicationController
       @main.main = true
       @main.save!
     end
-
+    @material.classrooms_count -= 1 #какой-то баг при создании
     render @material, layout: false
   end
 
@@ -88,7 +90,7 @@ class MaterialsController < ApplicationController
       logger.debug 'Не включает'
       material.classrooms << Classroom.find(classroom_id)
     end
-    render text: material.classrooms_count
+    render text: material.times_shared
   end
 
   private

@@ -1,7 +1,9 @@
 class NewsController < ApplicationController
   def create
-    NewsItem.create text: params[:textHW], classroom_id: params[:classroom_id], user_id: current_user.id
-    redirect_to classroom_path(params[:classroom_id])
+    @news = NewsItem.new news_params
+    @news.user_id = current_user.id
+    @news.save!
+    render 'show', layout: false
   end
 
   def destroy
@@ -26,5 +28,10 @@ class NewsController < ApplicationController
   def multicreate
 
   end
+
+  private
+    def news_params
+      params.require(:news_item).permit(:classroom_id, :text)
+    end
 
 end

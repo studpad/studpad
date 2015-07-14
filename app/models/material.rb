@@ -8,6 +8,10 @@ class Material < ActiveRecord::Base
 
   has_many :attachments, as: :attachable, dependent: :destroy
 
+  def times_shared
+    (classrooms_count - 1 == 0) ? '' : (classrooms_count - 1)
+  end
+
   def main_image
     attachments.find{|a| a.main? }
   end

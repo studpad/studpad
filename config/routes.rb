@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       post 'new_student' => 'classrooms#create_student'
     end
   end
-  resources :news, only: [:destroy, :update] do
+  resources :news do
     collection do
       post 'multicreate'
     end

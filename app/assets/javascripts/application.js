@@ -23,5 +23,6 @@
 //= require homeworks
 //= require selectize
 //= require share_materials
+//= require news
 
 Dropzone.autoDiscover = false;

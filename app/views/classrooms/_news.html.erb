@@ -4,11 +4,11 @@
     Новости
   </div>
   <div id = 'form-send-news'>
-    <%= form_tag classroom_news_index_path(params[:id]) do %>
-    <%= text_area_tag(:textHW, nil, class: 'form-control', placeholder: "Ваша новость...") %>
-    <div class = 'wrap-send-button'>
-      <button type="submit" id = 'post-news' class="btn btn-primary btn-st">Опубликовать</button>
-    </div>
+    <% @n = NewsItem.new classroom_id: classroom_id  %>
+    <%= form_for @n, url: classroom_news_index_path(classroom_id) do |f|%>
+      <%= f.text_field :text %>
+      <%= f.hidden_field :classroom_id %>
+      <span id = 'send-news' class="btn btn-primary btn-st">Опубликовать</span>
     <% end %>
   </div>
 </div>
@@ -118,7 +118,7 @@
       </div>
     </div>
     </div>
-    <% end %>
- </div>
+  <% end %>
+  </div>
 </div>
 </br>
