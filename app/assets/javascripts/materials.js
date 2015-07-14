@@ -1,6 +1,6 @@
 
 $(document).on("page:load ready", function(){
-
+  console.log("Глобальная перезагрузка")
   function clear_modal_window(){
     $("#main-photo-dropzone").show().prev().remove();
     $("#loaded-photos").empty();
@@ -156,7 +156,7 @@ $(document).on("page:load ready", function(){
     if (tag != null){
       $("input[name=tag]").val(tag[0])
     }
-    console.log($("#material-form").attr('action'))
+
     $("#material-form").ajaxSubmit({
       success: function(data, status, response) {
         if ($('#modal_window').attr('data') == 'edit'){
@@ -167,9 +167,9 @@ $(document).on("page:load ready", function(){
         } else {
 
           $("#all_materials").prepend(response.responseText)
-          .find(".update-UM").click(edit_material)
+          .children().first().find(".update-UM").click(edit_material)
           .end().find(".view-the-material").click(view_material)
-          console.log($("#all_materials"))
+
         }
       },
       error: function(data) {
