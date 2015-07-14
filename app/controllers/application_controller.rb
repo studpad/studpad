@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   private
     def not_authenticated
       flash[:warning] = "Пожалуйста, войдите"
-      redirect_to login_path
+      redirect_to welcome_path
     end
 end

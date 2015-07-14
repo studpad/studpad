@@ -1,0 +1,58 @@
+<% n = @news %>
+<div class = 'the-news'>
+    <div class = 'row'>
+      <div class = 'col-xs-1 wrap-avatar-news'>
+        <% if n.user.avatar.url %>
+        <%= image_tag n.user.avatar.url(:thumb), class: 'img-avatar' %>
+        <% else %>
+        <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
+        <% end %>
+      </div>
+      <div class = 'col-xs-11'>
+        <div class = 'content-the-news'>
+          <% if current_user.id == n.user_id %>
+          <div class = 'sign-sp close-news'>
+            <span class="glyphicon glyphicon-pencil pencil-news"></span>
+            &nbsp;&nbsp;
+            <%= link_to news_path(n), method:'delete' do %>
+            <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </div>
+          <% end %>
+          <div class = 'news-username'>
+            <%= link_to n.user.name, user_path(n.user) %>
+          </div>
+          <div class = 'main-text-news'>
+            <span class = 'span-main-text-news'><%= n.text %></span>
+          </div>
+          <div class = 'textarea-update-news'>
+            <%= form_tag news_path(n), method: 'patch' do %>
+            <%= text_area_tag(:text, nil, class: 'form-control textHW-update') %>
+            <div class = 'wrap-send-button'>
+              <button type="submit" class="btn btn-primary btn-xs btn-st change-news">Сохранить</button>
+            </div>
+            <% end %>
+          </div>
+          <div class = 'wrap-img-in-page'>
+          </div>
+          <div class = 'files-this-post-news'>
+            <div class="this-material">
+              <div class="files-image-mini type-document">
+              </div>
+              <div class="name-files-mini">
+                <a href="/uploads/attachment/file/73/2my_task.c">2my_task.c</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = 'form-send-comment-of-news'>
+          <div class = 'menu-of-form-send-comment-of-news'>
+            <span class = 'date-news'><%= n.created_at.strftime("%d %b %H:%M") %></span>
+            <span class = 'give-comment'>Комментировать</span>
+          </div>
+          <div class = 'textarea-form-send-comment-of-news'>
+        </div>
+
+      </div>
+    </div>
+    </div>

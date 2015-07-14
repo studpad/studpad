@@ -13,6 +13,7 @@ $(document).on("page:load ready", function(){
     .val(classroom_id)
     form.ajaxSubmit({
       success: function(data, status, response) {
+        console.log(data)
         material_id = $("#share-form").find('input[name=material_id]').val()
         $("#material" + material_id).find("span b").html(data)
       }

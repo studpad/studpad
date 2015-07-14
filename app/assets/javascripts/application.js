@@ -24,5 +24,6 @@
 //= require selectize
 //= require share_materials
 //= require autoresize.jquery.min
+//= require news
 
 Dropzone.autoDiscover = false;
