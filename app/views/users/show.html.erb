@@ -25,10 +25,12 @@
 	  </div>
   </div>
 
-  <div class = 'profile-sidebar'>
-  	<div id = 'profile-sidebar_position'>
 
-  	</div>
+
+  <div class = 'profile-sidebar'>
+    <input type = 'button' class = 'btn btn-primary btn-st create-class' data-toggle = "modal" data-target = "#modal-window-create-class" value = 'Создать класс' />
+    <input type = 'button' class = 'btn btn-primary btn-st create-community' value = 'Создать сообщество' />
+    <input type = 'button' class = 'btn btn-primary btn-st' value = 'Настройки' />
   </div>
 
   <div class = 'profile-main-wall'>
@@ -46,3 +48,4 @@
 </div>
 <%= render "/partials/view_material" %>
 <%= render "materials/modal_window" %>
+<%= render "form_create_class" %>
