@@ -53,7 +53,7 @@ function main(){
     $("#textHW").focus(function(){
 
       $(this).css('height', '80px').css('color', 'black');
-      $('#post-news').css('display', 'block');
+      $('.wrap-send-news').css('display', 'block');
 
     });
 
@@ -65,7 +65,7 @@ function main(){
       val = $.trim(val);
 
       if(!val){
-        $('#post-news').css('display', 'none');
+        $('.wrap-send-news').css('display', 'none');
         $(this).css('height', '30px');
       }
     });
