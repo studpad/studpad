@@ -14,6 +14,15 @@ function main(){
       aspectRatio: 1
     });
 
+    $('textarea').autoResize({
+      limit:300, 
+      animate:true
+    });
+    $('textarea.description-add-material').autoResize({
+      limit:600, 
+      animate:true
+    });
+
     /*$(".element-of-squares-menu").mouseover(function(){
       $(this).children('.title-element-of-squares-menu').css('opacity', '1');
     });
@@ -52,7 +61,7 @@ function main(){
 
     $("#textHW").focus(function(){
 
-      $(this).css('height', '80px').css('color', 'black');
+      $(this).css('color', 'black');
       $('.wrap-send-news').css('display', 'block');
 
     });
@@ -74,9 +83,7 @@ function main(){
       $(this).addClass('all0');
     });*/
 
-    $(".description-add-material").focus(function(){
-       $(this).addClass('height350');
-    });
+    
 
     $(".textHW_comment").focus(function(){
 

@@ -56,16 +56,15 @@
  border-top: 1px solid rgb(226, 226, 226);
  border-bottom :1px solid rgb(226, 226, 226);
  background-color: white;
-}
-.profile-sidebar_position{
- position: absolute;
- left: 50%;
- top: 360px;
- margin-left: -290px;
+ text-align: center;
 }
 .profile-main-wall{
   width: 650px;
   position: absolute;
   left: 50%;
   margin: 0px 0px 20px -300px;
+}
+.counsel-text{
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
