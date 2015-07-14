@@ -16,10 +16,10 @@ class ClassroomsController < ApplicationController
   end
 
   def create
-    unless current_user.teacher?
-      flash[:warning] = 'Только учитель может создавать класс'
-      redirect_to root_path
-    end
+    # unless current_user.teacher?
+    #   flash[:warning] = 'Только учитель может создавать класс'
+    #   redirect_to root_path
+    # end
     @classroom = Classroom.new classroom_params
     @classroom.main_teacher_id = current_user.id
 
@@ -57,7 +57,7 @@ class ClassroomsController < ApplicationController
 
   private
     def classroom_params
-      params.require(:classroom).permit(:name, :school_id)
+      params.require(:classroom).permit(:name)
     end
 
     def new_student_params

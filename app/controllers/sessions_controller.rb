@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   def destroy
     logout
     flash[:success] = "Успешно вышли"
-    redirect_to login_path
+    redirect_to welcome_path
   end
 
   private

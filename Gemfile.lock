@@ -150,11 +150,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails_12factor (0.0.2)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.4)
-    rails_stdout_logging (0.0.3)
     railties (4.2.1.rc1)
       actionpack (= 4.2.1.rc1)
       activesupport (= 4.2.1.rc1)
@@ -162,8 +157,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.4.2)
-    rdoc (4.2.0)
-      json (~> 1.4)
     russian (0.6.0)
       i18n (>= 0.5.0)
     sass (3.4.14)
@@ -173,9 +166,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    sdoc (0.4.1)
-      json (~> 1.7, >= 1.7.7)
-      rdoc (~> 4.0)
     selectize-rails (0.12.1)
     simple_form (3.1.0)
       actionpack (~> 4.0)
@@ -236,10 +226,8 @@ DEPENDENCIES
   mini_magick
   pg
   rails (= 4.2.1.rc1)
-  rails_12factor (= 0.0.2)
   russian
   sass-rails (~> 5.0)
-  sdoc (~> 0.4.0)
   selectize-rails (~> 0.12.1)
   simple_form
   sorcery
