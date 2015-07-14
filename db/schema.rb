@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713072852) do
+ActiveRecord::Schema.define(version: 20150714154236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "albums", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "classroom_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "albums", ["classroom_id"], name: "index_albums_on_classroom_id", using: :btree
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file"
@@ -40,7 +31,6 @@ ActiveRecord::Schema.define(version: 20150713072852) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string   "name",            null: false
-    t.integer  "school_id"
     t.integer  "main_teacher_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -48,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150713072852) do
   end
 
   add_index "classrooms", ["main_teacher_id"], name: "index_classrooms_on_main_teacher_id", using: :btree
-  add_index "classrooms", ["school_id"], name: "index_classrooms_on_school_id", using: :btree
 
   create_table "classrooms_materials", force: :cascade do |t|
     t.integer "classroom_id"
@@ -67,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150713072852) do
   add_index "classrooms_teachers", ["teacher_id"], name: "index_classrooms_teachers_on_teacher_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.text     "body"
+    t.text     "text"
     t.integer  "user_id"
     t.integer  "commentable_id"
     t.string   "commentable_type"
@@ -77,6 +66,16 @@ ActiveRecord::Schema.define(version: 20150713072852) do
 
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "communities", force: :cascade do |t|
+    t.string   "name",                   null: false
+    t.integer  "type",       default: 0
+    t.integer  "creator_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "communities", ["creator_id"], name: "index_communities_on_creator_id", using: :btree
 
   create_table "homeworks", force: :cascade do |t|
     t.string   "name"
@@ -96,7 +95,6 @@ ActiveRecord::Schema.define(version: 20150713072852) do
     t.integer  "classroom_id"
     t.integer  "user_id"
     t.string   "description"
-    t.string   "name"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.integer  "subject_id"
@@ -117,35 +115,6 @@ ActiveRecord::Schema.define(version: 20150713072852) do
 
   add_index "news_items", ["classroom_id"], name: "index_news_items_on_classroom_id", using: :btree
   add_index "news_items", ["user_id"], name: "index_news_items_on_user_id", using: :btree
-
-  create_table "news_items_subjects", force: :cascade do |t|
-    t.integer "news_item_id"
-    t.integer "subject_id"
-  end
-
-  add_index "news_items_subjects", ["news_item_id"], name: "index_news_items_subjects_on_news_item_id", using: :btree
-  add_index "news_items_subjects", ["subject_id"], name: "index_news_items_subjects_on_subject_id", using: :btree
-
-  create_table "photos", force: :cascade do |t|
-    t.string   "name"
-    t.string   "link"
-    t.integer  "user_id"
-    t.integer  "album_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "image"
-  end
-
-  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
-  add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
-
-  create_table "schools", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "ogrn_ident"
-    t.string   "kpp_ident"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name",       null: false
