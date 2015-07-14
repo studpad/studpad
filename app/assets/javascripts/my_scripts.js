@@ -151,8 +151,12 @@ function main(){
     }
   });
 
-  $('.share-post').tooltip();
+  $('#settigns-profile').tooltip();
 
+  $(".type-of-community").click(function(){
+    $(".type-of-community").removeClass('active-type-of-community');
+    $(this).addClass('active-type-of-community');
+  });
 
 
 }
