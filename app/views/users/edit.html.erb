@@ -1,26 +1,88 @@
-<div id = 'main-line' class = 'container'>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-xs-4">
+<style>
+  body{
+    background-image: none;
+    background-color: rgba(245, 248, 250, 1);
+  }
+</style>
+<div id = 'page_user'>
+  <div class = 'profile-background' style = 'background: url(https://pp.vk.me/c7009/v7009680/3cb9/WJleTB_3U98.jpg); background-size: cover;'>
+  </div>
 
+  <div class = 'profile-avatar'>
+    <div class = 'profile-avatar_img slideRight' style = 'background: url(<%= @user.avatar.url %>) no-repeat; background-size: cover;'>
+    </div>
+    <div class = 'profile-info'>
+      <div class = 'profile-info_name slideRight'><%= @user.name %> &nbsp;<%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %></div>
+      <div class = 'profile-info_school'>
+        ЗДЕСЬ ПОКА НИЧЕГО НЕТ </div>
+      <!-- <div class = 'profile-info_statistic'>
+        <p>
+          Публикации: <span><%= @user.materials.count %></span>
+        </p>
+      </div> -->
+    </div>
+    <!--<div class = ''>
+      <div class = 'user-classrooms'>
+        Классы: <a>11Б</a>
       </div>
-      <div class="col-lg-4 col-md-4 col-xs-4 text-on-page">
-<h1>Редактировать</h1>
-<%= simple_form_for(@user, novalidate: false,
-  html: { novalidate: false, class: 'form-vertical' }) do |f| %>
-  <%= f.input :name, label: 'Имя',
-    required: false, input_html: {required: true} %>
-  <%= f.input :email, label: 'Почта',
-    required: false, input_html: {required: true} %>
-  <%= f.input :password, label: 'Пароль',
-    required: false, input_html: {required: true} %>
-  <%= f.input :password_confirmation, label: 'Подтверждение пароля',
-    required: false, input_html: {required: true} %>
-  <%= f.button :submit, @button_name %>
-<% end %>
+      <a class = 'create-class' data-toggle = "modal" data-target = "#modal-window-create-class">Создать класс</a>
+      <div class = 'user-communities'>
+        Сообщества: <a>У Вас нет сообществ</a>
       </div>
-      <div class="col-lg-4 col-md-4 col-xs-4">
+      <a class = 'create-community' data-toggle = "modal" data-target = "#modal-window-create-class">Создать сообщество</a>
+    </div> -->
+    <div class="panel panel-default classes-and-communities">
+      <div class="panel-heading">
+        <h3 class="panel-title">Классы • <a id = 'create-class' data-toggle="modal" data-target="#modal-window-create-class">Создать класс</a></h3>
+      </div>
+      <div class="panel-body">
+        <a>11А</a>, <a>7Б</a>
+      </div>
+    </div>
 
+    <div class="panel panel-default classes-and-communities">
+      <div class="panel-heading">
+        <h3 class="panel-title">Группа • <a id = 'create-community' data-toggle="modal" data-target="#modal-window-create-community">Создать группу</a></h3>
+      </div>
+      <div class="panel-body">
+        Вы не состоите ни в одном сообществе
       </div>
     </div>
   </div>
+
+
+
+  <div class = 'profile-sidebar'>
+    <div class = 'position-profile-sidebar'>
+      <div class = 'element-of-profile-sidebar'>
+        Публикации
+        <div>
+          <span><%= @user.materials.count %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class = 'profile-main-wall'>
+    <div class = 'card-sp sharp-wrap'>
+        <div class="title-background-border title-without-border">
+          <div class="title-page">
+            Настройки профиля
+          </div>
+        </div>
+        <div class = 'edit-profile edit-profile-name'>
+          <input class = 'form-control input-sp input-edit-profile-name' placeholder = 'Ваше имя' />
+        </div>
+        <div class = 'edit-profile edit-profile-school'>
+          <input class = 'form-control input-sp input-edit-profile-school' placeholder = 'Ваше учебное заведение'/>
+        </div>
+        <div class="edit-profile-footer">
+          <button type="button" class="btn btn-primary btn-st">Сохранить</button>
+        </div>
+    </div>
+  </div>
+</div>
+<%= render "form_create_class" %>
+<%= render "form_create_community" %>
+
 

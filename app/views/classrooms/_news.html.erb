@@ -142,7 +142,7 @@
                   <%= link_to c.user.name, user_path(c.user) %>
                   </div>
                   <div class = 'main-text-news'>
-                    <span class = 'span-main-text-comment'><%= c.body %></span>
+                    <span class = 'span-main-text-comment'><%= c.text %></span>
                   </div>
                   <div class = 'textarea-update-news'>
                     <%= form_tag comment_path(c), method: 'patch' do %>
