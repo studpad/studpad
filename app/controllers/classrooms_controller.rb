@@ -6,6 +6,9 @@ class ClassroomsController < ApplicationController
     @classrooms = Classroom.all
   end
 
+  def edit
+  end
+
   def new
     unless current_user.teacher?
       flash[:warning] = 'Только учитель может создавать класс'

@@ -1,0 +1,17 @@
+<div id = "profile_user">
+  <%= link_to user_path(current_user) do %>
+  <div class = "border-t-radius" id = 'feed-card-user'>
+    <div class = 'card-sp '>
+      <div class = 'feed-profile-background'>
+     <div class = "feed-profile-avatar" style="background: url(
+     <%= current_user.avatar.url %>) no-repeat; background-size: cover;">
+      </div>
+      <div class = "feed-profile-name-email">
+        <div class = "feed-profile-name"><%= current_user.name %></div>
+        <div class = "feed-profile-email"><%= current_user.email %></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <% end %>
+</div>

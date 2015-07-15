@@ -1,0 +1,77 @@
+<div class ='container' id = 'main-container'>
+    <%= render "left_branch" %>
+    <%= render "/partials/profile" %>
+    <div class = 'main-wall' id = 'central-part'>
+      <div class = 'submenu'>
+          <%= render "/partials/squares_menu" %>
+      </div>
+      <div class = 'row'>
+        <div class = 'col-xs-12'>
+          <div class = 'card-sp sharp-wrap'>
+            <div class="title-background-border title-without-border">
+              <div class="title-page">
+                Настройки Вашего сообщества
+              </div>
+            </div>
+            <div class = 'row'>
+              <div class = 'col-xs-12 field-edit-data'>
+                <div class = 'edit-community edit-community-name'>
+                  <input class = 'form-control input-sp input-edit-community-name' placeholder = 'Название сообщества' />
+                </div>
+                <div class="wrap-radio">
+                  <input class="radioanswer" type="radio" name="var-ans">
+                  <label for="var3">соловья</label>
+                </div>
+                <div class="wrap-radio">
+                  <input class="radioanswer" type="radio" name="var-ans">
+                  <label for="var3">соловья</label>
+                </div>
+                <!--<div class = 'edit-classroom edit-classroom-school'>
+                  <input class = 'form-control input-sp input-edit-classroom-school' placeholder = 'Учебное заведение'/>
+                </div>-->
+                <div class="edit-community-footer">
+                  <button type="button" class="btn btn-primary btn-st">Сохранить</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+<style>
+  .wrap-radio {
+    margin-top: 20px;
+  }
+  input[type=radio] {
+    display: none;
+  }
+  input[type=radio]:checked + label:before {
+    background-color: #F0AD00;
+    color: #f3f3f3;
+    font-size: 60px;
+    text-align: center;
+    line-height: 18px;
+  }
+  label:before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    border-radius: 12px;
+    background-color: #47A1A5;
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  }
+  label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px;
+  margin-right: 15px;
+  font-size: 15px;
+}
+</style>
