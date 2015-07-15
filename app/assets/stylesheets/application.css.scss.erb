@@ -17,6 +17,7 @@
  *= require selectize
  *= require selectize.default
  *= require profile
+ *= require classroom
  *= require community
  *= require animations
  *= require animations1
@@ -336,6 +337,10 @@ body{
       padding-top: 30px;
       padding-bottom: 10px;
     }
+    .the-news.row{
+      margin-left: -5px;
+      margin-right: -5px;
+    }
     .the-news:first-child{
       padding-top: 0px;
     }
@@ -356,10 +361,24 @@ body{
       font-size: 14px;
     }
     .main-text-news{
-      color: #393939;
+      color: #383838;
       font-size: 13px;
       margin-top: 5px;
       padding: 3px;
+    }
+    .wrap-img-in-page{
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+    .wrap-img-in-page > div > div > img{
+      width: 100%;
+    }
+    .wrap-img-in-page > div{
+      margin-top: 10px;
+    }
+    .img-in-post{
+      max-width: 600px;
+      max-height: 320px;
     }
     .img-avatar{
       border-radius: 2px;
@@ -515,13 +534,7 @@ body{
       font-size: 12px;
       text-decoration: none;
     }
-    .wrap-img-in-page{
-      margin-top: 6px;
-    }
-    .img-in-post{
-      max-width: 600px;
-      max-height: 320px;
-    }
+    
     .give-comment{
       margin-left: 12px;
     }
@@ -1372,6 +1385,14 @@ textarea.form-control{
 }
 .update-UM{
   font-family: 'PT Sans';
+  color: #383838;
+  cursor: pointer;
+  &:hover{
+    color: #3680BE;
+  }
+}
+.update-UM:hover .glyphicon{
+  color: #3680BE;
 }
 .update-HW{
   font-family: 'PT Sans';
@@ -1427,11 +1448,10 @@ textarea.form-control{
   position: relative;
   right: 25px;
 }
-#feed-left-branch{
+#profile_user{
   position: absolute;
   top: 60px;
   left: 50%;
-  min-height: 600px;
   width: 220px;
   margin-left: -556px;
 }
@@ -1575,8 +1595,12 @@ textarea.form-control{
   padding: 10px;
   padding-top: 6px;
 }
-.second-left-block{
-  margin-top: 15px;
+.first-left-block{
+  position: absolute;
+  top: 133px;
+  left: 50%;
+  width: 220px;
+  margin-left: -556px;
 }
 .settings-left-block{
   margin-left: 10px;

@@ -87,7 +87,7 @@ function main(){
 
     $(".textHW_comment").focus(function(){
 
-      $(this).css('height', '50px').css('color', 'black');
+      $(this).css('color', '#383838');
       $(this).next().children('.post-comment-of-news').css('display', 'block');
 
 
@@ -116,8 +116,9 @@ function main(){
     $(".pencil-news").click(function(){
 
       val = $(this).parent().next().next().children().html();
+      height = $(this).parent().next().next().height();
       $(this).parent().next().next().children('span').css('display', 'none');
-      $(this).parent().next().next().next().children().children('textarea').val(val);
+      $(this).parent().next().next().next().children().children('textarea').height(height).val(val);
       $(this).parent().next().next().next().css('display', 'block');
       $(this).parent().next().next().next().children().children('textarea').focus();
 
@@ -128,8 +129,9 @@ function main(){
     $(".pencil-comment").click(function(){
 
       val = $(this).parent().next().next().children().html();
+      height = $(this).parent().next().next().height();
       $(this).parent().next().next().css('display', 'none');
-      $(this).parent().next().next().next().children().children('textarea').val(val);
+      $(this).parent().next().next().next().children().children('textarea').height(height).val(val);
       $(this).parent().next().next().next().css('display', 'block');
       $(this).parent().next().next().next().children().children('textarea').focus();
 
