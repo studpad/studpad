@@ -5,11 +5,14 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Создайте сообщество</h4>
       </div>
+      <%= form_for :community, url: communities_path do |f| %>
       <div class="modal-body">
         <div class = 'counsel-text'>
           Тут будет текст!
         </div>
-        <input type = 'text' class = 'input-sp form-control' placeholder = 'Название сообщества...' />
+        <%= f.text_field :name, class: 'input-sp form-control',
+          placeholder: 'Название класса...' %>
+        <%= f.hidden_field :status %>
         </br>
         </br>
         <div>
@@ -19,19 +22,20 @@
         </div>
         </br>
         <div class = 'row'>
-          <div class = 'col-xs-6 type-of-community align-c'>
+          <div class = 'col-xs-6 type-of-community align-c' data="open">
             <div class = 'text-type-community'>Открытое</div>
             <div class="helper-valign-m"></div>
           </div>
-          <div class = 'col-xs-6 type-of-community align-c'>
+          <div class = 'col-xs-6 type-of-community align-c' data="secret">
             <div class = 'text-type-community'>Закрытое</div>
             <div class="helper-valign-m"></div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-st">Создать</button>
+        <button type='submit' class="btn btn-primary btn-st">Создать</button>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

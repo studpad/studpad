@@ -74,7 +74,11 @@
   <div class = 'profile-main-wall'>
     <div class="title-background-border">
       <div class="title-page">
-        Ваши публикации
+        <% if @materials.any? %>
+          Ваши публикации
+        <% else %>
+          Опубликуйте что-нибудь))
+        <% end %>
       </div>
     </div>
     <div class = 'row'>

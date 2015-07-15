@@ -25,5 +25,6 @@
 //= require share_materials
 //= require autoresize.jquery.min
 //= require news
+//= require communities
 
 Dropzone.autoDiscover = false;
