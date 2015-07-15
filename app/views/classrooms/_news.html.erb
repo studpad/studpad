@@ -9,7 +9,7 @@
       <%#= f.text_field :text %>
       <%#= f.hidden_field :classroom_id %>
       <!-- <span id = 'send-news' class="btn btn-primary btn-st">Опубликовать</span> -->
-      <%= form_tag( materials_path, id: "material-form", original_action: original_action ) do %>
+      <%= form_tag( materials_path, id: "material-form" ) do %>
         <input type = 'hidden' name = 'attached_files'>
         <input type = 'hidden' name = 'main_image'>
         <input type = "hidden" name = "_method" value="post">
@@ -72,8 +72,7 @@
 </div>
 <div id = 'each-news'>
   <% @news.each do |n| %>
-  <div class = 'the-news'>
-    <div class = 'row'>
+  <div class = 'the-news row'>
       <div class = 'col-xs-1 wrap-avatar-news'>
         <% if n.user.avatar.url %>
         <%= image_tag n.user.avatar.url(:thumb), class: 'img-avatar' %>
@@ -174,7 +173,6 @@
           </div>
         <% end %>
       </div>
-    </div>
     </div>
   <% end %>
   </div>
