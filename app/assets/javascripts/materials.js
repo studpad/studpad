@@ -1,6 +1,7 @@
 
 $(document).on("page:load ready", function(){
   console.log("Глобальная перезагрузка")
+  //$("textarea[name=description]").autoResize()
   function clear_modal_window(){
     $("#main-photo-dropzone").show().prev().remove();
     $("#loaded-photos").empty();
@@ -71,6 +72,7 @@ $(document).on("page:load ready", function(){
         input = $("input[name=attached_files]");
         input.val(input.val().replace(id, ""));
       });
+      $("textarea[name=description]").keydown();
     })
   }
 

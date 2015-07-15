@@ -1,8 +1,9 @@
 class NewsController < ApplicationController
   def create
-    @news = NewsItem.new news_params
-    @news.user_id = current_user.id
-    @news.save!
+    @news = NewsItem.create news_params do |n|
+      n.user_id = current_user.id
+      n.classroom_id = params[:classroom_id]
+    end
     render 'show', layout: false
   end
 
@@ -31,7 +32,7 @@ class NewsController < ApplicationController
 
   private
     def news_params
-      params.require(:news_item).permit(:classroom_id, :text)
+      params.require(:news_item).permit(:text)
     end
 
 end

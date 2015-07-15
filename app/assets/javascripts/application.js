@@ -28,3 +28,11 @@
 //= require communities
 
 Dropzone.autoDiscover = false;
+
+function truncate(string, length){
+  if (string.length < length){
+    return string
+  } else {
+    return string.substr(0, length-3) + "..."
+  }
+}
