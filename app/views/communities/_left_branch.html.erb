@@ -1,0 +1,39 @@
+<div id = "feed-left-branch">
+  <%= link_to user_path(current_user) do %>
+  <div class = "border-t-radius" id = 'feed-card-user'>
+    <div class = 'card-sp '>
+      <div class = 'feed-profile-background'>
+     <div class = "feed-profile-avatar" style="background: url(
+     <%= current_user.avatar.url %>) no-repeat; background-size: cover;">
+      </div>
+      <div class = "feed-profile-name-email">
+        <div class = "feed-profile-name"><%= current_user.name %></div>
+        <div class = "feed-profile-email"><%= current_user.email %></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <% end %>
+  <div class = 'card-sp second-left-block'>
+    <div class = 'left-block-name'>
+      Городская библиотека №1
+    </div>
+    <div class = 'left-block-founder'>
+      <div class="feed-profile-background">
+       <div class="feed-profile-avatar" style="background: url(https://cs7054.vk.me/c540102/v540102773/2ce4e/X5KmNKz7qJk.jpg) no-repeat; background-size: cover;">
+        </div>
+        <div class="feed-profile-name-email">
+          <div class="feed-profile-name">Макс Никитин</div>
+          <div class="feed-profile-email">Основатель</div>
+        </div>
+      </div>
+    </div>
+    <div class = 'left-block-welcome'>
+      <input type = 'button' class = 'btn btn-primary btn-st' value = 'Присоединиться'/> <span class = 'settings-left-block'><%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %></span>
+    </div>
+  </div>
+</div>
+
+<style>
+
+</style>
