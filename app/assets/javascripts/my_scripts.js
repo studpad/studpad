@@ -74,7 +74,7 @@ function main(){
       val = $.trim(val);
 
       if(!val){
-        $('.wrap-send-news').css('display', 'none');
+        //$('.wrap-send-news').css('display', 'none');
         $(this).css('height', '30px');
       }
     });
