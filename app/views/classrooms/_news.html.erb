@@ -4,36 +4,31 @@
     Новости
   </div>
   <div id = 'form-send-news'>
-    <%# @n = NewsItem.new classroom_id: classroom_id  %>
-    <%#= form_for @n, url: classroom_news_index_path(classroom_id) do |f|%>
-      <%#= f.text_field :text %>
-      <%#= f.hidden_field :classroom_id %>
-      <!-- <span id = 'send-news' class="btn btn-primary btn-st">Опубликовать</span> -->
-      <%= form_tag( attachments_path,  id: 'news-dropzone') do %>
-      <% end %>
+    <%= form_tag( attachments_path,  id: 'news-dropzone') do %>
+    <% end %>
 
     <%= form_for NewsItem.new, url: classroom_news_index_path(classroom_id) do |f|%>
       <%= f.text_area(:text, class: 'form-control', id: "textHW", placeholder: "Ваша новость...") %>
-    <div class = 'wrap-send-news'>
-      <span id = 'send-news' class="btn btn-primary btn-st">Опубликовать</span>
-      <span id = 'attach-file-news' class="btn btn-default btn-st-inert">Прикрепить файл</span>
-      <div class = 'preview-images-news row'>
-        <!-- <div class = 'col-xs-2 this-preview-images-news' style = 'background: url(https://cs7055.vk.me/c7002/v7002481/9518/WhvigLLPSQE.jpg); background-size: cover;'>
-        </div> -->
-      </div>
-      <div class = 'preview-files-news row'>
-        <!-- <div class="files-this-post-news col-xs-3">
-          <div class="this-material">
-            <div class="files-image-mini type-document">
+      <input type="hidden" name='attached_files'>
+      <div class = 'wrap-send-news'>
+        <span id = 'send-news' class="btn btn-primary btn-st">Опубликовать</span>
+        <span id = 'attach-file-news' class="btn btn-default btn-st-inert">Прикрепить файл</span>
+        <div class = 'preview-images-news row'>
+          <!-- <div class = 'col-xs-2 this-preview-images-news' style = 'background: url(https://cs7055.vk.me/c7002/v7002481/9518/WhvigLLPSQE.jpg); background-size: cover;'>
+          </div> -->
+        </div>
+        <div class = 'preview-files-news row'>
+          <!-- <div class="files-this-post-news col-xs-3">
+            <div class="this-material">
+              <div class="files-image-mini type-document">
+              </div>
+              <div class="name-files-mini">
+                <a href="/uploads/attachment/file/73/2my_task.c">2my_task.c</a>
+              </div>
             </div>
-            <div class="name-files-mini">
-              <a href="/uploads/attachment/file/73/2my_task.c">2my_task.c</a>
-            </div>
-          </div>
-        </div> -->
-
+          </div> -->
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
@@ -74,22 +69,28 @@
           </div>
           <div class = 'wrap-img-in-page'>
             <div class = 'row'>
-              <div class = 'col-xs-6'><img src = 'https://pp.vk.me/c623423/v623423186/495cb/QolLVsu7tIM.jpg' /></div>
-              <div class = 'col-xs-6'><img src = 'https://pp.vk.me/c623423/v623423186/495b7/grX3yXfUI9s.jpg' /></div>
-            </div>
-            <div class = 'row'>
-              <div class = 'col-xs-6'><img src = 'https://pp.vk.me/c623423/v623423186/495cb/QolLVsu7tIM.jpg' /></div>
-              <div class = 'col-xs-6'><img src = 'https://pp.vk.me/c623423/v623423186/495b7/grX3yXfUI9s.jpg' /></div>
+              <% n.attachments.each do |a| %>
+                <% if a.image? %>
+                <div class = 'col-xs-6'>
+                  <img src = '<%= a.file.url %>' />
+                </div>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <div class = 'files-this-post-news'>
-            <div class="this-material">
-              <div class="files-image-mini type-document">
+            <% n.attachments.each do |a| %>
+              <% unless a.image? %>
+              <div class="this-material">
+                <div class="files-image-mini type-document">
+                </div>
+                <div class="name-files-mini">
+                  <%= link_to truncate(a.file.file.filename, length: 20), a.file.url %>
+                </div>
               </div>
-              <div class="name-files-mini">
-                <a href="/uploads/attachment/file/73/2my_task.c">2my_task.c</a>
-              </div>
-            </div>
+              <% end %>
+            <% end %>
+
           </div>
         </div>
         <div class = 'form-send-comment-of-news'>

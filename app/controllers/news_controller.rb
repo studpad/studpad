@@ -4,6 +4,16 @@ class NewsController < ApplicationController
       n.user_id = current_user.id
       n.classroom_id = params[:classroom_id]
     end
+
+    @files = params[:attached_files]
+    @files = @files.to_s.squish.split(" ")
+
+    Attachment.find(@files).each do |f|
+      f.attachable = @news
+      f.save!
+    end
+
+    @news.attachments(true)
     render 'show', layout: false
   end
 

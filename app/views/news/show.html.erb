@@ -33,15 +33,29 @@
         <% end %>
       </div>
       <div class = 'wrap-img-in-page'>
+        <div class="row">
+          <% @news.attachments.each do |a| %>
+            <% if a.image? %>
+            <div class = 'col-xs-6'>
+              <img src = '<%= a.file.url %>' />
+            </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
       <div class = 'files-this-post-news'>
-        <div class="this-material">
-          <div class="files-image-mini type-document">
-          </div>
-          <div class="name-files-mini">
-            <a href="/uploads/attachment/file/73/2my_task.c">2my_task.c</a>
-          </div>
-        </div>
+        <% @news.attachments.each do |a| %>
+          <% unless a.image? %>
+            <div class="this-material">
+              <div class="files-image-mini type-document">
+              </div>
+              <div class="name-files-mini">
+                <%= link_to truncate(a.file.file.filename, length: 20), a.file.url %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
       </div>
     </div>
     <div class = 'form-send-comment-of-news'>
