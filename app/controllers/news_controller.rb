@@ -26,7 +26,7 @@ class NewsController < ApplicationController
   end
 
   def comment
-    NewsItem.find(params[:id]).comments.create body: params[:text], user_id: current_user.id
+    NewsItem.find(params[:id]).comments.create text: params[:text], user_id: current_user.id
     redirect_to classroom_path(params[:classroom_id])
   end
 
@@ -34,10 +34,6 @@ class NewsController < ApplicationController
     n = NewsItem.find(params[:id])
     n.update_attribute :text, params[:text]
     redirect_to classroom_path(n.classroom_id)
-  end
-
-  def multicreate
-
   end
 
   private
