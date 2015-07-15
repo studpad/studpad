@@ -1605,4 +1605,43 @@ textarea.form-control{
 .settings-left-block{
   margin-left: 10px;
 }
+
+
+/* радио-кнопки */
+.wrap-radio > label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px;
+  margin-right: 15px;
+}
+input[type=radio] {
+  display: none;
+}
+
+.wrap-radio > label:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  border-radius: 12px;
+  background-color: #E8E8E8;
+  box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.3), 0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+}
+.wrap-radio > input[type=radio]:checked +  label:before {
+  background-color: #3680BE;
+  color: #f3f3f3;
+  font-size: 60px;
+  text-align: center;
+  line-height: 18px;
+}
+.wrap-radio{
+  margin-top: 20px;
+}
+
+
 /* end нью всякие там */

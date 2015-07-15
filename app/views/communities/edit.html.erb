@@ -15,16 +15,23 @@
             </div>
             <div class = 'row'>
               <div class = 'col-xs-12 field-edit-data'>
-                <div class = 'edit-community edit-community-name'>
+                <div class = 'edit-community'>
                   <input class = 'form-control input-sp input-edit-community-name' placeholder = 'Название сообщества' />
-                </div>
-                <div class="wrap-radio">
-                  <input class="radioanswer" type="radio" name="var-ans">
-                  <label for="var3">соловья</label>
-                </div>
-                <div class="wrap-radio">
-                  <input class="radioanswer" type="radio" name="var-ans">
-                  <label for="var3">соловья</label>
+                  <div>
+                    <span class = "title-underline">
+                          Выберите тип Вашего сообщества
+                    </span>
+                  </div>
+                  <div class = 'row'>
+                      <div class="wrap-radio align-c col-xs-2">
+                        <input class = "input-radio-sp" type = "radio" name = "community-type" id = 'open'>
+                        <label for = 'open'>Открытое</label>
+                      </div>
+                      <div class="wrap-radio align-c col-xs-2">
+                        <input class = "input-radio-sp" type = "radio" name = "community-type" id = 'close'>
+                        <label for = "close">Закрытое</label>
+                      </div>
+                  </div>
                 </div>
                 <!--<div class = 'edit-classroom edit-classroom-school'>
                   <input class = 'form-control input-sp input-edit-classroom-school' placeholder = 'Учебное заведение'/>
@@ -39,39 +46,3 @@
       </div>
     </div>
 </div>
-<style>
-  .wrap-radio {
-    margin-top: 20px;
-  }
-  input[type=radio] {
-    display: none;
-  }
-  input[type=radio]:checked + label:before {
-    background-color: #F0AD00;
-    color: #f3f3f3;
-    font-size: 60px;
-    text-align: center;
-    line-height: 18px;
-  }
-  label:before {
-    content: "";
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 1px;
-    border-radius: 12px;
-    background-color: #47A1A5;
-    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  }
-  label {
-  display: inline-block;
-  cursor: pointer;
-  position: relative;
-  padding-left: 35px;
-  margin-right: 15px;
-  font-size: 15px;
-}
-</style>
