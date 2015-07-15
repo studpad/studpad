@@ -5,7 +5,7 @@
   }
 </style>
 <div id = 'page_user'>
-	<div class = 'profile-background' style = 'background: url(https://pp.vk.me/c623424/v623424048/27254/baQNSFBAPLI.jpg); background-size: cover;'>
+	<div class = 'profile-background' style = 'background: url(https://pp.vk.me/c7009/v7009680/3cb9/WJleTB_3U98.jpg); background-size: cover;'>
 	</div>
 
   <div class = 'profile-avatar'>
@@ -15,14 +15,11 @@
 	    <div class = 'profile-info_name slideRight'><%= @user.name %> &nbsp;<%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %></div>
 	    <div class = 'profile-info_school'>
         ЗДЕСЬ ПОКА НИЧЕГО НЕТ </div>
-      <div class = 'profile-info_statistic'>
+      <!-- <div class = 'profile-info_statistic'>
         <p>
           Публикации: <span><%= @user.materials.count %></span>
         </p>
-      </div>
-	    <div class = 'profile-info_start'>В Studpad с
-        <%= @user.began_with %>
-      </div>
+      </div> -->
 	  </div>
     <!--<div class = ''>
       <div class = 'user-classrooms'>
@@ -56,19 +53,14 @@
 
 
   <div class = 'profile-sidebar'>
-
-    <!-- <div class="dropdown">
-      <a id="dLabel" class = 'btn-primary btn-st' role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-        Я хочу создать <span class="caret"></span>
-      </a>
-
-
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-        <li role="presentation"><span role="menuitem" tabindex="-1">Действие1</span></li>
-        <li role="presentation"><span role="menuitem" tabindex="-1">Действие2</span></li>
-        <li role="presentation"><span role="menuitem" tabindex="-1">Действие3</span></li>
-      </ul>
-    </div>-->
+    <div class = 'position-profile-sidebar'>
+      <div class = 'element-of-profile-sidebar'>
+        Публикации
+        <div>
+          <span><%= @user.materials.count %></span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class = 'profile-main-wall'>
