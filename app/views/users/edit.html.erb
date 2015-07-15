@@ -70,14 +70,23 @@
             Настройки профиля
           </div>
         </div>
-        <div class = 'edit-profile edit-profile-name'>
-          <input class = 'form-control input-sp input-edit-profile-name' placeholder = 'Ваше имя' />
-        </div>
-        <div class = 'edit-profile edit-profile-school'>
-          <input class = 'form-control input-sp input-edit-profile-school' placeholder = 'Ваше учебное заведение'/>
-        </div>
-        <div class="edit-profile-footer">
-          <button type="button" class="btn btn-primary btn-st">Сохранить</button>
+        <div class = 'row'>
+          <div class = 'col-xs-4 field-edit-avatar'>
+            <div class = 'current-edit-profile-avatar_img' style = 'background: url(<%= @user.avatar.url %>) no-repeat; background-size: cover;'>
+            </div>
+            <div class = 'align-c'><a class = 'edit-profile-avatar'>Сменить фотографию</a></div>
+          </div>
+          <div class = 'col-xs-8 field-edit-data'>
+            <div class = 'edit-profile edit-profile-name'>
+              <input class = 'form-control input-sp input-edit-profile-name' placeholder = 'Ваше имя' />
+            </div>
+            <div class = 'edit-profile edit-profile-school'>
+              <input class = 'form-control input-sp input-edit-profile-school' placeholder = 'Ваше учебное заведение'/>
+            </div>
+            <div class="edit-profile-footer">
+              <button type="button" class="btn btn-primary btn-st">Сохранить</button>
+            </div>
+          </div>
         </div>
     </div>
   </div>
