@@ -2,20 +2,12 @@ Rails.application.routes.draw do
 
   root 'feed#show'
 
-  resources :materials do
-    collection do
-      post 'share'
-    end
-  end
-
   resources :classrooms do
     resources :materials
-    resources :classmates
-    resources :homeworks
+    resources :classmates, controller: "classrooms/classmates"
+    resources :homeworks, controller: "classrooms/homeworks"
     resources :news, only: :create do
-      member do
-        post 'comment'
-      end
+      post 'comment', on: :member
     end
     member do
       get 'new_student'
@@ -23,11 +15,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :news do
-    collection do
-      post 'multicreate'
-    end
+  resources :communities do
+    resources :materials
+    resources :members, only: :index, controller: "communities/members"
   end
+
+  resources :materials do
+    post 'share', on: :collection
+  end
+
+  resources :news
 
   resources :attachments, only: [:create, :destroy]
   resources :comments, only: [:destroy, :update]
@@ -39,7 +36,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :communities
   resources :sessions
 
   get 'development' => 'sessions#development' #на время разработки

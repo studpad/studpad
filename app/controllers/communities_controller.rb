@@ -1,4 +1,6 @@
 class CommunitiesController < ApplicationController
+  #layout :community
+
   def edit
   end
 
