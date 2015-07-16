@@ -26,6 +26,7 @@
 //= require autoresize.jquery.min
 //= require news
 //= require communities
+//= require jquery.jplayer.min
 
 Dropzone.autoDiscover = false;
 

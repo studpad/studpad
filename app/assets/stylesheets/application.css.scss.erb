@@ -22,6 +22,9 @@
  *= require animations
  *= require animations1
  *= require static_pages
+ *= require audio
+ *= require font-awesome.min
+ *= require notification
  */
 
 @import "bootstrap-sprockets";
@@ -73,6 +76,7 @@ body{
       z-index: 1000;
       position: fixed;
       top: 0px;
+      z-index: 100;
     }
     #hat-main-studpad{
       color: #3680be;
@@ -80,7 +84,7 @@ body{
       font-weight: bold;
     }
     .main-wall{
-      width: 650px;
+      width: 620px;
       position: relative;
       left: 50%;
       top: 60px;
@@ -104,7 +108,7 @@ body{
       position: absolute;
       right: 50%;
       top: 60px;
-      margin-right: -441px;
+      margin-right: -411px;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
       cursor: pointer;
       border-radius: 2px;
@@ -201,6 +205,9 @@ body{
     }
     .margin-b20{
       margin-bottom: 20px;
+    }
+    .margin-b30{
+      margin-bottom: 30px;
     }
     .a_without_textdecoration{
       text-decoration: none;
@@ -367,8 +374,8 @@ body{
       padding: 3px;
     }
     .wrap-img-in-page{
-      margin-top: 16px;
-      margin-bottom: 16px;
+      margin-top: 0px;
+      margin-bottom: 0px;
     }
     .wrap-img-in-page > div > div > img{
       width: 100%;
@@ -416,6 +423,7 @@ body{
     .post-comment-of-news{
       display: none;
       background-color: #00739D;
+      margin-top: 5px;
     }
     #left-main-menu, #left-main-menu-s{
       border-bottom: 1px solid #EFEFEF;
@@ -526,7 +534,7 @@ body{
     .give-comment{
       cursor: pointer;
       &:hover{
-        text-decoration: underline;
+        color: #3680be;
       }
     }
     .date-news{
@@ -701,6 +709,22 @@ body{
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.32);
       }*/
      }
+     .card-sp-heading{
+        padding: 10px;
+        padding-bottom: 6px;
+        font-size: 15px;
+        color: #516574;
+     }
+     .card-sp-heading > input{
+        color: white;
+     }
+     .card-sp-body{
+      text-align: left;
+      padding: 10px;
+      padding-top: 6px;
+     }
+     .card-sp-heading > a{
+     }
      .useful-material_img{
       text-align: center;
       
@@ -747,9 +771,9 @@ body{
       padding: 5px;
      }
      .useful-material_info{
-      padding-top: 40px;
+      padding-top: 20px;
       min-height: 149px;
-      padding-left: 45px;
+      padding-left: 35px;
       border-top: 1px solid rgb(242, 242, 242);
       cursor: pointer;
       &:hover{
@@ -770,12 +794,12 @@ body{
       max-width: 100%;
      }
      .useful-material_date{
-      padding-left: 45px;
+      padding-left: 35px;
      }
      .useful-material_info_upload{
-      padding-top: 40px;
+      padding-top: 20px;
       min-height: 149px;
-      padding-left: 45px;
+      padding-left: 25px;
      }
      .label-subject{
       font-size: 13px;
@@ -1214,6 +1238,10 @@ body{
 textarea.form-control{
   height: 32px;
 }
+.wrap-photos > div{
+  margin-right: 0px;
+  margin-left: 0px;
+}
 .wrap-photos-view-material{
   padding-left: 15px;
   padding-right: 15px;
@@ -1359,6 +1387,9 @@ textarea.form-control{
 .margin-b10{
   margin-bottom: 10px;
 }
+.margin-b20{
+  margin-bottom: 20px;
+}
 .margin-t10{
   margin-top: 10px;
 }
@@ -1429,7 +1460,7 @@ textarea.form-control{
   height: 41px;
   padding: 9px;
   padding-right: 25px;
-  padding-left: 58px;
+  padding-left: 48px;
   background: #fff;
   color: #3680be;
   font-weight: bold;
@@ -1642,6 +1673,8 @@ input[type=radio] {
 .wrap-radio{
   margin-top: 20px;
 }
-
+.close{
+  outline: none !important;
+}
 
 /* end нью всякие там */
