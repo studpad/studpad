@@ -3,7 +3,7 @@
   <%= render "/partials/profile" %>
   <div class = 'main-wall'>
     <div class = 'submenu'>
-          <%= render "classrooms/menu" %>
+          <%= render "communities/menu" %>
     </div>
     <div class = 'title-background'>
       <div class = 'title-page'>
@@ -13,14 +13,14 @@
     <div class = 'row'>
       <div id = 'all_materials' class = 'col-xs-12'>
 
-        <%= render @materials %>
+        <%= render collection: @materials, partial: "materials/material" %>
 
       </div>
     </div>
   </div>
-    <%= render "right_button_action" %>
-    <% @new_material_action = classroom_id ? classroom_materials_path(classroom_id): nil %>
-    <%= render "modal_window" %>
+    <%= render "materials/right_button_action" %>
+    <% @new_material_action = community_id ? community_materials_path(community_id): nil %>
+    <%= render "materials/modal_window" %>
     <%= render "/partials/modal_share" %>
     <%= render "/partials/view_material" %>
 </div>

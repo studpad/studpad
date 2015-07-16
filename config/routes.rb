@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :communities do
-    resources :materials
+    resources :materials, only: [:index, :create], controller: "communities/materials"
     resources :members, only: :index, controller: "communities/members"
   end
 

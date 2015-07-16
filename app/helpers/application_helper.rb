@@ -12,4 +12,8 @@ module ApplicationHelper
   def classroom_id
     params[:classroom_id] || params[:id]
   end
+
+  def community_id
+    params[:community_id] || params[:id]
+  end
 end

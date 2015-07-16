@@ -36,8 +36,8 @@
                         Описание
                       </span>
                     </div>
-                    <% original_action = classroom_id ? classroom_materials_path(classroom_id): nil %>
-                    <%= form_tag( materials_path, id: "material-form", original_action: original_action ) do %>
+                    <%= form_tag( materials_path, id: "material-form",
+                    original_action: @new_material_action ) do %>
                     <input type = 'hidden' name = 'attached_files'>
                     <input type = 'hidden' name = 'main_image'>
                     <input type = "hidden" name = "_method" value="post">

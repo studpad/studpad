@@ -1,18 +1,18 @@
 <div class = 'row squares-menu margin0'>
   <div class = 'col-xs-4 align-c'>
-    <%= link_to community_path(classroom_id) do%>
+    <%= link_to community_path(community_id) do%>
       <%= image_tag "feather14.png", size: "28x28" %>
       <span>Новости</span>
     <% end %>
   </div>
   <div class = 'col-xs-4 align-c'>
-    <%= link_to community_members_path(classroom_id) do%>
+    <%= link_to community_members_path(community_id) do%>
       <%= image_tag "babies12.png", size: "28x28" %>
       <span>Мы</span>
     <% end %>
   </div>
   <div class = 'col-xs-4 align-c'>
-    <%= link_to community_path(classroom_id) do%>
+    <%= link_to community_materials_path(community_id) do%>
       <%= image_tag "materialclass.png", size: "28x28" %>
       <span>Материалы</span>
     <% end %>

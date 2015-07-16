@@ -12,7 +12,8 @@ class Material < ActiveRecord::Base
   has_many :attachments, as: :attachable, dependent: :destroy
 
   def times_shared
-    (classrooms_count - 1 == 0) ? '' : (classrooms_count - 1)
+    all = classrooms_count + communities_count
+    (all == 1) ? '' : (all - 1)
   end
 
   def main_image

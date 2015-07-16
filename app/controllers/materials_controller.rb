@@ -32,7 +32,7 @@ class MaterialsController < ApplicationController
       @main.main = true
       @main.save!
     end
-    @material.classrooms_count -= 1 #какой-то баг при создании
+    @material.classrooms_count = 1 #какой-то баг при создании
     render @material, layout: false
   end
 
