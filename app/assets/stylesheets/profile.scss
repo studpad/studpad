@@ -59,7 +59,7 @@
  text-align: center;
 }
 .profile-main-wall{
-  width: 650px;
+  width: 620px;
   position: absolute;
   left: 50%;
   margin: 0px 0px 20px -300px;
@@ -107,7 +107,14 @@
 }
 .classes-and-communities{
 	width: 220px;
-	margin-top: 30px;
+	margin-top: 15px;
+	padding-top: 15px;
+	box-shadow: none !important;
+  background-color: transparent !important;
+  border-top: 1px solid rgb(226, 226, 226);
+}
+.classes-and-communities > div{
+	padding-left: 0px !important;
 }
 .type-of-community{
 	height: 190px;

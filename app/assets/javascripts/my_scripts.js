@@ -93,6 +93,50 @@ function main(){
     }
   });
 
+  $("#close-notice").click(function(){
+    $(this).parent().fadeOut();
+  });
+
+  $("#save-edit-profile").click(function(){
+    $('.notice-content').html('Ваши данные успешно сохранены!');
+    $('.notice').fadeIn();
+  });
+
+  $("#save-edit-class").click(function(){
+    val = $('.input-edit-classroom-name').val();
+    if(val){
+      $('.notice-content').removeClass('warning').removeClass('error').html('Данные класса успешно сохранены!');
+      $('.notice').fadeIn();
+    }
+    else{
+      $('.notice-content').addClass('error').html('Вы ведь ничего не ввели в поле!');
+      $('.notice').fadeIn();
+    }
+  });
+
+  $("#save-edit-community").click(function(){
+    val = $('.input-edit-community-name').val();
+    if(val){
+      $('.notice-content').removeClass('warning').removeClass('error').html('Данные сообщества успешно сохранены!');
+      $('.notice').fadeIn();
+    }
+    else{
+      $('.notice-content').addClass('error').html('Вы ведь ничего не ввели в поле!');
+      $('.notice').fadeIn();
+    }
+  });
+
+  $('#join-to-community').click(function(){
+    $(this).css('display', 'none');
+    $(this).parent().prepend('<span>Вы с нами!</span>');
+  });
+
+  $('#join-to-class').click(function(){
+    $(this).css('display', 'none');
+    $(this).parent().prepend('<span>Вы с нами!</span>');
+  });
+
+
 }
 
 $(document).on("page:load ready", main)
