@@ -7,7 +7,7 @@
     <%= form_tag( attachments_path,  id: 'news-dropzone') do %>
     <% end %>
 
-    <%= form_for NewsItem.new, url: classroom_news_index_path(classroom_id) do |f|%>
+    <%= form_for NewsItem.new, url: @news_action do |f|%>
       <%= f.text_area(:text, class: 'form-control', id: "textHW", placeholder: "Ваша новость...") %>
       <input type="hidden" name='attached_files'>
       <div class = 'wrap-send-news'>
@@ -34,7 +34,8 @@
 </div>
 <div id = 'each-news'>
   <% @news.each do |n| %>
-  <div class = 'the-news row'>
+  <% news_id = "news#{n.id}" %>
+  <div id='<%= news_id %>' class = 'the-news row'>
       <div class = 'col-xs-1 wrap-avatar-news'>
         <% if n.user.avatar.url %>
         <%= image_tag n.user.avatar.url(:thumb), class: 'img-avatar' %>
@@ -48,7 +49,7 @@
           <div class = 'sign-sp close-news'>
             <span class="glyphicon glyphicon-pencil pencil-news"></span>
             &nbsp;&nbsp;
-            <%= link_to news_path(n), method:'delete' do %>
+            <%= link_to news_path(n), method:'delete', remote: true, remove_element: news_id do %>
             <span class="glyphicon glyphicon-remove"></span>
             <% end %>
           </div>

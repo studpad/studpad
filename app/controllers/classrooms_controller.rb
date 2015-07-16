@@ -37,6 +37,7 @@ class ClassroomsController < ApplicationController
 
   def show
     @classroom = Classroom.find(params[:id])
+    @news_action = classroom_news_index_path(classroom_id)
     @news = @classroom.news.order(created_at: :desc)
   end
 

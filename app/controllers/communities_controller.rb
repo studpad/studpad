@@ -11,6 +11,8 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.find params[:id]
+    @news = @community.news
+    @news_action = community_news_index_path(params[:id])
   end
 
   private

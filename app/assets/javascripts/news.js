@@ -20,6 +20,7 @@ $(document).on("page:load ready", function(){
     form.ajaxSubmit({
       success: function (data, status, response) {
         $('#each-news').prepend(data)
+        //Необходимо удаление новости
         clear_form()
         console.log("Новость успешно создана")
       }
@@ -65,6 +66,10 @@ $(document).on("page:load ready", function(){
       files = input.val(input.val() + ' ' + response.id)
     }
   });
+  $("a[remove_element]").click(function(){
+    $("#" + $(this).attr('remove_element')).remove()
+  })
+
 /*OLD#################################################################*/
   $("#textHW").focus(function(){
     $(this).css('color', 'black');

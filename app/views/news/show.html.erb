@@ -13,7 +13,7 @@
       <div class = 'sign-sp close-news'>
         <span class="glyphicon glyphicon-pencil pencil-news"></span>
         &nbsp;&nbsp;
-        <%= link_to news_path(@news), method:'delete' do %>
+        <%= link_to news_path(@news), method:'delete', remote: true do %>
         <span class="glyphicon glyphicon-remove"></span>
         <% end %>
       </div>

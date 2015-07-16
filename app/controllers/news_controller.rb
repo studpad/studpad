@@ -2,7 +2,7 @@ class NewsController < ApplicationController
   def create
     @news = NewsItem.create news_params do |n|
       n.user_id = current_user.id
-      n.classroom_id = params[:classroom_id]
+      n.source = Classroom.find(params[:classroom_id])
     end
 
     @files = params[:attached_files]
@@ -22,18 +22,19 @@ class NewsController < ApplicationController
     if current_user.id == news.user_id
       news.destroy
     end
-    redirect_to classroom_path(news.classroom_id)
+    redirect_to news.source #classroom_path(news.classroom_id)
   end
 
   def comment
-    NewsItem.find(params[:id]).comments.create text: params[:text], user_id: current_user.id
-    redirect_to classroom_path(params[:classroom_id])
+    news = NewsItem.find(params[:id])
+    news.comments.create text: params[:text], user_id: current_user.id
+    redirect_to news.source
   end
 
   def update
     n = NewsItem.find(params[:id])
     n.update_attribute :text, params[:text]
-    redirect_to classroom_path(n.classroom_id)
+    redirect_to n.source #classroom_path(n.classroom_id)
   end
 
   private
