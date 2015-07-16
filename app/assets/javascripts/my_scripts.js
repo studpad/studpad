@@ -85,6 +85,14 @@ function main(){
   });
 
 
+  $("#jquery_jplayer_1").jPlayer({
+    ready: function () {
+      $(this).jPlayer("setMedia", {
+        mp3: "/uploads/attachment/file/93/311971103044b7.mp3"
+      });
+    }
+  });
+
 }
 
 $(document).on("page:load ready", main)
