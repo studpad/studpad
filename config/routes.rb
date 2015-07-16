@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post 'comment', on: :member
     end
     member do
+      get 'join'
       get 'new_student'
       post 'new_student' => 'classrooms#create_student'
     end
@@ -20,6 +21,9 @@ Rails.application.routes.draw do
     resources :members, only: :index, controller: "communities/members"
     resources :news, only: :create, controller: "communities/news" do
       post 'comment', on: :member
+    end
+    member do
+      get 'join'
     end
   end
 

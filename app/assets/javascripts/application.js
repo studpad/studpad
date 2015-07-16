@@ -27,6 +27,7 @@
 //= require news
 //= require communities
 //= require jquery.jplayer.min
+//= require join
 
 Dropzone.autoDiscover = false;
 

@@ -13,6 +13,7 @@
     </div>
   </div>
   <div class = 'left-block-welcome'>
+   <%= link_to "Присоединиться", join_classroom_path(classroom_id), remote: true %>
     <input type = 'button' id = 'join-to-class' class = 'btn btn-primary btn-st' value = 'Присоединиться'/> <span class = 'settings-left-block'><%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %></span>
   </div>
 </div>
