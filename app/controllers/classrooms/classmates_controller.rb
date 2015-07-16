@@ -1,4 +1,4 @@
-class ClassmatesController < ApplicationController
+class Classrooms::ClassmatesController < ApplicationController
   def index
     @classmates = Classroom.find(params[:classroom_id]).students
   end

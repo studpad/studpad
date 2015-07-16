@@ -37,7 +37,7 @@ class ClassroomsController < ApplicationController
 
   def show
     @classroom = Classroom.find(params[:id])
-    @news = @classroom.news_items.order(created_at: :desc)
+    @news = @classroom.news.order(created_at: :desc)
   end
 
   def new_student

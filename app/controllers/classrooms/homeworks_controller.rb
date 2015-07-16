@@ -1,4 +1,4 @@
-class HomeworksController < ApplicationController
+class Classrooms::HomeworksController < ApplicationController
   def index
     @homeworks = Homework.all.order(created_at: :desc)
   end

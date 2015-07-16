@@ -3,8 +3,11 @@ class Material < ActiveRecord::Base
   belongs_to :classroom
   belongs_to :subject
 
-  has_many :shares
-  has_many :classrooms, through: :shares
+  has_many :classroom_shares
+  has_many :classrooms, through: :classroom_shares
+
+  has_many :community_shares
+  has_many :communities, through: :community_shares
 
   has_many :attachments, as: :attachable, dependent: :destroy
 
