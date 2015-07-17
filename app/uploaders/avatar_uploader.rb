@@ -25,11 +25,16 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
   ## If ONLY "thumb" version is to be cropped
 
-  def crop(x, y, w, h)
-    x = x.to_i
-    y = y.to_i
-    h = h.to_i
-    w = w.to_i
+  def crop(x, y, w, h, all_h, all_w)
+    image = MiniMagick::Image.open(path)
+    o_h = image['height'].to_f
+    o_w = image['width'].to_f
+    all_h = all_h.to_f
+    all_w = all_w.to_f
+    x = (x.to_i * o_w / all_w).to_i
+    y = (y.to_i * o_h / all_h).to_i
+    h = (h.to_i * o_h / all_h).to_i
+    w = (w.to_i * o_w / all_w).to_i
     manipulate! do |img|
       img.crop("#{w}x#{h}+#{x}+#{y}")
     end
