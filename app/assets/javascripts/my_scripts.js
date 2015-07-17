@@ -114,6 +114,16 @@ function main(){
     }
   });
 
+  $('#community_name').change(function(){
+    val = $(this).val();
+    if(val){
+      $('#btn-create-community').removeAttr('disabled');
+    }
+    else{
+      $('#btn-create-community').attr('disabled', 'disabled');
+    }
+  });
+
   $('#join-to-community').click(function(){
     $(this).css('display', 'none');
     $(this).parent().prepend('<span>Вы с нами!</span>');
