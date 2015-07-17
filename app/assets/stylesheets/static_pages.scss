@@ -58,7 +58,6 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: url(backpic-st.jpg);
 
 }
 .video-container .poster img {
@@ -111,10 +110,10 @@
     border-radius: 2px;
     margin-top: 20px;
 }
-.wrap-input-singUp:first-child{
-    border-bottom: 1px solid #e2e2e2;
+.second-input-signUp{
+    border-top: 1px solid #e2e2e2;
 }
-.wrap-input-singUp:last-child{
+.wrap-input-signUp:last-child{
     margin-top: 10px;
     text-align: left;
 }

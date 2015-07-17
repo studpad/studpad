@@ -3,6 +3,9 @@
     background-image: none;
     background-color: rgba(245, 248, 250, 1);
   }
+  .cloud{
+    display: none;
+  }
 </style>
 <div id = 'page_user'>
   <div class = 'profile-background' style = 'background: url(https://pp.vk.me/c7009/v7009680/3cb9/WJleTB_3U98.jpg); background-size: cover;'>
@@ -74,7 +77,7 @@
           <div class = 'col-xs-4 field-edit-avatar'>
             <div class = 'current-edit-profile-avatar_img' style = 'background: url(<%= @user.avatar_safe_url %>) no-repeat; background-size: cover;'>
             </div>
-            <div class = 'align-c'><a class = 'edit-profile-avatar'>Сменить фотографию</a></div>
+            <div class = 'align-c'><a class = 'edit-profile-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фотографию</a></div>
           </div>
           <div class = 'col-xs-8 field-edit-data'>
             <div class = 'edit-profile edit-profile-name'>
@@ -93,5 +96,6 @@
 </div>
 <%= render "form_create_class" %>
 <%= render "form_create_community" %>
+<%= render "change_avatar" %>
 
 
