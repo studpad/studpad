@@ -6,17 +6,19 @@
       <%= link_to "Войдите!", welcome_path %>
     </p>
     </br>
-    <div class = 'row'>
-        <div class="wrap-radio align-c col-xs-4">
-          <input class = "input-radio-sp" type = "radio" name = "user-type" id = 'teacher'>
-          <label for = 'teacher'>Преподавтель</label>
-        </div>
-        <div class="wrap-radio align-c col-xs-4">
-          <input class = "input-radio-sp" type = "radio" name = "user-type" id = 'student'>
-          <label for = "student">Обучающийся</label>
-        </div>
-    </div>
+
     <%= simple_form_for(@user, url: users_path, html: { class: 'form-vertical' }) do |f| %>
+      <div class = 'row'>
+          <div class="wrap-radio align-c col-xs-4">
+            <%= f.radio_button :type, "Teacher", class: 'input-radio-sp', required: true %>
+            <label for = 'user_type_teacher'>Преподаватель</label>
+            <!-- <input class = "input-radio-sp" type = "radio" name = "user-type" id = 'teacher'> -->
+          </div>
+          <div class="wrap-radio align-c col-xs-4">
+            <%= f.radio_button :type, "Student", class: 'input-radio-sp', required: true %>
+            <label for = 'user_type_student'>Ученик</label>
+          </div>
+      </div>
       <%= f.input :name, label: false, input_html: { class: 'input-sp', placeholder: 'Имя' } %>
       <%= f.input :email, label: false, input_html: { class: 'input-sp',  placeholder: 'Электронный адрес' } %>
       <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>

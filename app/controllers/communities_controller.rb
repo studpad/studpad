@@ -4,6 +4,10 @@ class CommunitiesController < ApplicationController
   def edit
   end
 
+  def join
+    Community.find(params[:id]).users << current_user
+  end
+
   def create
     @community = Community.create community_params
     redirect_to @community

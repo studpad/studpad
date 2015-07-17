@@ -9,6 +9,10 @@ class ClassroomsController < ApplicationController
   def edit
   end
 
+  def join
+    Classroom.find(params[:id]).students << current_user
+  end
+
   def new
     unless current_user.teacher?
       flash[:warning] = 'Только учитель может создавать класс'

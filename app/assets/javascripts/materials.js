@@ -166,12 +166,13 @@ $(document).on("page:load ready", function(){
           $(html_id).replaceWith(response.responseText)
           $(html_id).find(".update-UM").click(edit_material)
           .end().find(".view-the-material").click(view_material)
+          .end().find(".jp-jplayer").each(init_player)
         } else {
 
           $("#all_materials").prepend(response.responseText)
           .children().first().find(".update-UM").click(edit_material)
           .end().find(".view-the-material").click(view_material)
-
+          .end().find(".jp-jplayer").each(init_player)
         }
       },
       error: function(data) {

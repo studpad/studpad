@@ -20,6 +20,14 @@ class User < ActiveRecord::Base
      Russian::strftime(created_at, '%e %B %Y')
   end
 
+  def avatar_safe_url(size=nil)
+    if avatar.url(size)
+      avatar.url(size)
+    else
+      return '/empty.png'
+    end
+  end
+
   def teacher?
     false
   end

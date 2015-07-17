@@ -31,8 +31,16 @@ class Material < ActiveRecord::Base
     attachments.find_all{|a| !a.main? && a.image? }
   end
 
-  def files
+  def audios
+    attachments.find_all{|a| a.audio? }
+  end
+
+  def not_images
     attachments.find_all{|a| !a.image? }
+  end
+
+  def files
+    attachments.find_all{|a| a.other? }
   end
 
 end

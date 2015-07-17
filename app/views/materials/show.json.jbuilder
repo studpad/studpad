@@ -17,7 +17,7 @@ json.images do
   json.array! array_of_images_in_html
 end
 
-array_of_documents_in_html = @material.files.map do |i|
+array_of_documents_in_html = @material.not_images.map do |i|
   render partial: "file", object: i, formats: :html
 end
 
