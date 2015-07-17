@@ -15,11 +15,11 @@ function main(){
     });
 
     $('textarea').autoResize({
-      limit:300, 
+      limit:300,
       animate:true
     });
     $('textarea.description-add-material').autoResize({
-      limit:600, 
+      limit:600,
       animate:true
     });
 
@@ -59,7 +59,7 @@ function main(){
 
 
 
-    
+
 
 
   $(".fancybox-thumb").fancybox({
@@ -82,15 +82,6 @@ function main(){
   $(".type-of-community").click(function(){
     $(".type-of-community").removeClass('active-type-of-community');
     $(this).addClass('active-type-of-community');
-  });
-
-
-  $("#jquery_jplayer_1").jPlayer({
-    ready: function () {
-      $(this).jPlayer("setMedia", {
-        mp3: "/uploads/attachment/file/93/311971103044b7.mp3"
-      });
-    }
   });
 
   $("#close-notice").click(function(){

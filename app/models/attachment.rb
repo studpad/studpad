@@ -7,6 +7,14 @@ class Attachment < ActiveRecord::Base
     ['jpg', 'gif', 'png'].include?(file.file.extension)
   end
 
+  def audio?
+    ['mp3'].include?(file.file.extension)
+  end
+
+  def other?
+    !(image? || audio?)
+  end
+
   def type
     extension = file.file.extension
     if ['jpg', 'gif', 'png'].include?(extension)
