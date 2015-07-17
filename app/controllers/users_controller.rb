@@ -79,6 +79,10 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :type, :password, :password_confirmation)
+      name = :user
+      name = :teacher if params[:teacher]
+      name = :student if params[:student]
+
+      params.require(name).permit(:name, :email, :type, :password, :password_confirmation)
     end
 end
