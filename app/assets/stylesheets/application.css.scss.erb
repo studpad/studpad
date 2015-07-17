@@ -31,18 +31,65 @@
 @import "bootstrap";
 @import "http://webfonts.ru/import/osans.css";
 
-body{
+/*body{
       color: #383838;
       cursor: default;
       font-family: 'PT Sans';
-      /*background: rgba(244, 244, 241, 0.8);*/
       background-image: url(https://abs.twimg.com/images/themes/theme1/bg.png);
-      background-position: left 46px;
       background-attachment: fixed;
+      background-position: left 46px;
+      
       background-repeat: repeat;
       background-repeat: no-repeat;
       background-color: #C0DEED;
+    }*/
+    body{
+      color: #383838;
+      cursor: default;
+      font-family: 'PT Sans';
+      background: linear-gradient(to top, #B1D5E8, rgb(125, 185, 216));
+      background-attachment: fixed;
+      /*background: radial-gradient(circle, #B6D1E7, #77AAD3);*/
     }
+    .cloud{
+      opacity: 0.6;
+    }
+    @keyframes cloud-1 {
+      from {margin-left: -151px;}
+      to {margin-left: 100%;}
+    }
+    #cloud-1{
+        position: fixed;
+        top: 70px;
+        width: 100%;
+        -webkit-animation: cloud-1 80s linear infinite;
+        animation: cloud-1 80s linear infinite;
+    }
+    @keyframes cloud-2 {
+      from {margin-left: -151px;}
+      to {margin-left: 40%;}
+    }
+    #cloud-2{
+        position: fixed;
+        top: 140px;
+        left: 60%;
+        width: 100%;
+        -webkit-animation: cloud-2 60s linear infinite;
+        animation: cloud-2 60s linear infinite;
+    }
+    @keyframes cloud-3 {
+      from {margin-left: -151px;}
+      to {margin-left: 70%;}
+    }
+    #cloud-3{
+        position: fixed;
+        top: 210px;
+        left: 30%;
+        width: 100%;
+        -webkit-animation: cloud-3 70s linear infinite;
+        animation: cloud-3 70s linear infinite;
+    }
+    
     a{
       cursor: pointer;
       text-decoration: none !important;
@@ -1645,6 +1692,7 @@ textarea.form-control{
   position: relative;
   padding-left: 35px;
   margin-right: 15px;
+  font-weight: normal;
 }
 input[type=radio] {
   display: none;
