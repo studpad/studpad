@@ -1,0 +1,21 @@
+<div class="title-container">
+  <div class="headline animated fadeInUp">
+    <h1 class = 'logo'>Studpad</h1>
+    <h4 class = "font-helvetica subheading">Пусть процесс обучения станет интереснее и эффективнее</h4>
+    <div class = 'signUp'>
+      <%= form_for :user_sign_in, url: sessions_path do |f|%>
+      <div class = 'wrap-input-singUp'>
+        <%= f.text_field :email, class: 'form-control input-skiny font-helvetica input-main-page',   placeholder: 'Почта'%>
+      </div>
+      <div class = 'wrap-input-singUp'>
+        <%= f.password_field :password, class: 'form-control input-skiny font-helvetica input-main-page',   placeholder: 'Пароль'%>
+      </div>
+      <div class = 'wrap-input-singUp'>
+        <%= f.button 'Войти', class: 'btn btn-primary btn-st welcom-main-page' %>
+         •
+        <%= link_to "Регистрация", new_user_path, class: 'link-to-reg'%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
