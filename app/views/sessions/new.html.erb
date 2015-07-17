@@ -5,6 +5,9 @@
     <p>У Вас еще нет профиля на Студпаде?
       <%= link_to "Присоединяйтесь!", new_user_path %>
     </p>
+    <p>
+      <a>Забыли пароль?</a>
+    </p>
       <%= simple_form_for(@sign_in, url: sessions_path, html: { class: 'form-vertical' }) do |f| %>
         <%= f.input :email, label: false,  input_html: { class: 'input-sp', placeholder: 'Электронный адрес' }%>
         <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>

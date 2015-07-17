@@ -74,7 +74,7 @@ function main(){
     $(this).parent().fadeOut();
   });
 
-  $("#save-edit-profile").click(function(){
+  /*$("#save-edit-profile").click(function(){
     $('.notice-content').html('Ваши данные успешно сохранены!');
     $('.notice').fadeIn();
   });
@@ -100,6 +100,17 @@ function main(){
     else{
       $('.notice-content').addClass('error').html('Вы ведь ничего не ввели в поле!');
       $('.notice').fadeIn();
+    }
+  });
+*/
+
+  $('#classroom_name').change(function(){
+    val = $(this).val();
+    if(val){
+      $('#btn-create-class').removeAttr('disabled');
+    }
+    else{
+      $('#btn-create-class').attr('disabled', 'disabled');
     }
   });
 
