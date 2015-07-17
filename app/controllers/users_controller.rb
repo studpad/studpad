@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   skip_before_action :require_login, only: [ :new, :create]
 
-  before_action :find_user, only: [:edit, :show, :update, :destroy]
+  before_action :find_user, only: [:edit, :show, :update, :destroy, :new_ava]
 
   def new
     @user = User.new
@@ -22,17 +22,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @button_name = 'Сохранить'
   end
 
   def update
     if @user.update_attributes user_params
       flash[:success] = 'Данные успешно изменены'
-      redirect_to @user
+      redirect_to user_path
     else
       @button_name = 'Сохранить'
       render 'edit'
     end
+
   end
 
   def show
@@ -40,7 +40,6 @@ class UsersController < ApplicationController
   end
 
   def new_ava
-    @user = current_user
   end
 
   def create_ava
@@ -83,6 +82,7 @@ class UsersController < ApplicationController
       name = :teacher if params[:teacher]
       name = :student if params[:student]
 
-      params.require(name).permit(:name, :email, :type, :password, :password_confirmation)
+      params.require(name).permit(:name, :email, :type,
+        :school, :password, :password_confirmation)
     end
 end

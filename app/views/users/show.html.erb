@@ -15,7 +15,11 @@
     <div class = 'profile-avatar_img slideRight' style = 'background: url(<%= @user.avatar_safe_url %>) no-repeat; background-size: cover;'>
     </div>
 	  <div class = 'profile-info'>
-	    <div class = 'profile-info_name slideRight'><%= @user.name %> &nbsp;<%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %></div>
+	    <div class = 'profile-info_name slideRight'><%= @user.name %> &nbsp;
+        <%= link_to edit_user_path(@user) do %>
+        <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
+        <% end %>
+      </div>
 	    <div class = 'profile-info_school'>
         МБОУ Лицей №1 г. Невинномысск
       </div>
@@ -35,23 +39,7 @@
       </div>
       <a class = 'create-community' data-toggle = "modal" data-target = "#modal-window-create-class">Создать сообщество</a>
     </div> -->
-    <div class = "classes-and-communities card-sp margin-t10">
-      <div class = "card-sp-heading">
-        Классы: <a>11А</a>, <a>7Б</a>
-      </div>
-      <div class = "card-sp-body">
-        <input type = 'button' id = 'create-class' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-class" value = 'Создать класс' />
-      </div>
-    </div>
-
-    <div class = "classes-and-communities card-sp">
-      <div class = "card-sp-heading">
-        Сообщества: <a>Шахматный клуб "Ферзь"</a>, <a>ФК Локомотив</a>
-      </div>
-      <div class = "card-sp-body">
-        <input type = 'button' id = 'create-community' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-community" value = 'Создать группу' />
-      </div>
-    </div>
+    <%= render 'my_communities' %>
 
   </div>
 
