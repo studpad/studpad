@@ -28,7 +28,7 @@
                     <span class="text">Главная</span>
                   <% end %>
                    -->
-                  <% if current_user && current_user.student? %>
+                  <% if current_user && current_user.student? && current_user.classroom %>
                     <%= link_to classroom_path(current_user.classroom) do %>
                       <span><%= image_tag "homeworkclass.png", size: "28x28" %></span>
                       <span class="text">Мой класс</span>
@@ -39,18 +39,18 @@
           </div>
           <!--<div id = 'menu-on-hat'>
             <div class = 'col-lg-1 col-md-1 col-xs-1'>
-              <% if current_user %>
-                <%= link_to profile_path do %>
-                <%= image_tag current_user.avatar.url || "http://localhost:3000/uploads/teacher/avatar/1/thumb_7_______.jpg", style: 'border: 1px solid #BBC3C7; border-radius: 200px; margin-top: 6px;', size: "35x35" %>
-                <% end %>
-              <% end %>
+              <%# if current_user %>
+                <%#= link_to profile_path do %>
+                <%#= image_tag current_user.avatar.url || "http://localhost:3000/uploads/teacher/avatar/1/thumb_7_______.jpg", style: 'border: 1px solid #BBC3C7; border-radius: 200px; margin-top: 6px;', size: "35x35" %>
+                <%# end %>
+              <%# end %>
             </div>
             <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-hat-menu'>
-              <% if current_user && current_user.student? %>
-                <%= link_to classroom_path(current_user.classroom) do %>
-                  <%= image_tag "myclass.png", style: 'margin-top: 6px;', size: "35x35" %><span class = 'name-action-of-hat-menu'> Мой класс</span>
-                <% end %>
-              <% end %>
+              <%# if current_user && current_user.student? %>
+                <%#= link_to classroom_path(current_user.classroom) do %>
+                  <%#= image_tag "myclass.png", style: 'margin-top: 6px;', size: "35x35" %><span class = 'name-action-of-hat-menu'> Мой класс</span>
+                <%# end %>
+              <%# end %>
             </div>
           </div> -->
          </div>
@@ -59,8 +59,8 @@
 
     <div class = 'notice'>
       <button type="button" id = 'close-notice' class="close" aria-hidden="true">&times;</button>
-      <div class = 'title-underline notice-content'> 
-        
+      <div class = 'title-underline notice-content'>
+
       </div>
     </div>
 

@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :show, :update, :destroy]
 
   def new
-    @user = Teacher.new
-    @button_name = 'Создать'
+    @user = User.new
+    @button_name = 'Зарегестрироваться'
   end
 
   def create
-    @user = Teacher.new user_params
+    @user = User.new user_params
     if @user.save
       auto_login @user
       flash[:success] = 'Успешная регистрация'
@@ -64,6 +64,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
+    @materials = @user.materials.order(created_at: :desc)
     render 'show'
   end
 
@@ -78,6 +79,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:teacher).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :type, :password, :password_confirmation)
     end
 end

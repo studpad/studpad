@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'feed#show'
+  root 'static_pages#main'
 
   resources :classrooms do
     resources :materials
