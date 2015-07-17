@@ -1,4 +1,4 @@
 <%= link_to user_path(classmate), class: 'col-xs-4 show-persons' do %>
-  <img src = '<%= classmate.avatar.url %>' class = 'big-img-avatar' />
+  <img src = '<%= classmate.avatar_safe_url %>' class = 'big-img-avatar' />
   <p class = 'span-main-text-news'><%= classmate.name %></p>
 <% end %>

@@ -4,7 +4,7 @@
     <div class = 'card-sp '>
       <div class = 'feed-profile-background'>
      <div class = "feed-profile-avatar" style="background: url(
-     <%= current_user.avatar.url %>) no-repeat; background-size: cover;">
+     <%= current_user.avatar_safe_url(:thumb) %>) no-repeat; background-size: cover;">
       </div>
       <div class = "feed-profile-name-email">
         <div class = "feed-profile-name"><%= current_user.name %></div>

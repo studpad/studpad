@@ -37,11 +37,7 @@
   <% news_id = "news#{n.id}" %>
   <div id='<%= news_id %>' class = 'the-news row'>
       <div class = 'col-xs-1 wrap-avatar-news'>
-        <% if n.user.avatar.url %>
-        <%= image_tag n.user.avatar.url(:thumb), class: 'img-avatar' %>
-        <% else %>
-        <img src = 'https://pp.vk.me/c619119/v619119124/20d41/n51h6svfjtM.jpg' width = '44' height = '44' class = 'img-avatar'/>
-        <% end %>
+        <%= image_tag n.user.avatar_safe_url(:thumb), class: 'img-avatar' %>
       </div>
       <div class = 'col-xs-11'>
         <div class = 'content-the-news'>
