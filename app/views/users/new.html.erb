@@ -5,7 +5,6 @@
     <p>У Вас уже есть профиль на Студпаде?
       <%= link_to "Войдите!", welcome_path %>
     </p>
-    </br>
 
     <%= simple_form_for(@user, url: users_path, html: { class: 'form-vertical' }) do |f| %>
       <div class = 'row'>
