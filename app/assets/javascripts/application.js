@@ -29,6 +29,7 @@
 //= require jquery.jplayer.min
 //= require join
 //= require player
+//= require avatar
 
 Dropzone.autoDiscover = false;
 

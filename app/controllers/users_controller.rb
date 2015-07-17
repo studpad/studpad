@@ -45,17 +45,17 @@ class UsersController < ApplicationController
 
   def create_ava
     @user = current_user
-    if @user.update_attribute :avatar, params[:user][:avatar]
-      render 'crop'
+    if @user.update_attribute :avatar, params[:avatar]
+      render json: { url: @user.avatar.url, attachment_id: 1  }
     else
-      flash[:warning] = 'Недопустимый формат изображения'
-      render 'new_ava'
+      render json: { error: "Что-то пошло не так" }
     end
   end
 
   def crop
     @user = current_user
-    @user.avatar.crop(params[:crop_x], params[:crop_y], params[:crop_w], params[:crop_h])
+    @user.avatar.crop(params[:crop_x], params[:crop_y], params[:crop_w],
+     params[:crop_h], params[:height], params[:width])
     @user.save!
     @user.avatar.recreate_versions!
 

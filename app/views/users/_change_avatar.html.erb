@@ -5,18 +5,28 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Изменение фотографии профиля</h4>
       </div>
-      <%= form_for :classroom, url: classrooms_path do |f| %>
       <div class="modal-body">
+        <div id="mywrapper">
+        </div>
+        <%= form_tag new_ava_user_path(@user), id: "avatar-dropzone" do %>
         <div class = 'drop-zone margin-b40'>
                   Загрузите новую фотографию профиля
                   </br>
                   Кликните или перетащите изображение сюда
         </div>
+        <% end %>
+        <%#= image_tag @current_user.avatar.url, :id => "cropbox" %>
+        <%= form_tag crop_user_path(@current_user), id: "crop-form" do %>
+          <% for a in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+            <%= hidden_field_tag a %>
+          <% end %>
+          <%= hidden_field_tag :height %>
+          <%= hidden_field_tag :width %>
+        <% end %>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary btn-st">Сохранить</button>
+        <button id="send-avatar" type="submit" class="btn btn-primary btn-st">Сохранить</button>
       </div>
-      <% end %>
     </div>
   </div>
 </div>

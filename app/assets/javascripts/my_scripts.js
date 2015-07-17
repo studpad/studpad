@@ -1,19 +1,5 @@
 function main(){
 
-    function update_crop(coords) {
-      $('#crop_x').val(coords.x);
-      $('#crop_y').val(coords.y);
-      $('#crop_w').val(coords.w);
-      $('#crop_h').val(coords.h);
-    }
-
-    $('#cropbox').Jcrop({
-      onChange: update_crop,
-      onSelect: update_crop,
-      setSelect: [0, 0, 500, 500],
-      aspectRatio: 1
-    });
-
     $('textarea').autoResize({
       limit:300,
       animate:true
