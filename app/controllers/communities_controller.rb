@@ -1,26 +1,42 @@
 class CommunitiesController < ApplicationController
-  #layout :community
+  before_action :find_community, except: [:create]
 
   def edit
   end
 
+  def update
+    if @community.update_attributes community_params
+      redirect_to @community
+    else
+      render 'edit'
+    end
+  end
+
   def join
-    Community.find(params[:id]).users << current_user
+    unless @community.member? current_user
+      @community.users << current_user
+    end
   end
 
   def create
-    @community = Community.create community_params
+    @community = Community.new community_params
+    @community.founder = current_user
+    @community.save!
+
     redirect_to @community
   end
 
   def show
-    @community = Community.find params[:id]
     @news = @community.news
     @news_action = community_news_index_path(params[:id])
   end
 
   private
+    def find_community
+      @community = Community.find params[:id]
+    end
+
     def community_params
-      params.require(:community).permit(:name, :type)
+      params.require(:community).permit(:name, :status)
     end
 end

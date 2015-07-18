@@ -1,3 +1,29 @@
+<div class = 'profile-info'>
+  <div class = 'profile-info_name slideRight'><%= @user.name %> &nbsp;
+    <%= link_to edit_user_path(@user) do %>
+    <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
+    <% end %>
+  </div>
+  <div class = 'profile-info_school'>
+    <%= @user.school %>
+  </div>
+  <!-- <div class = 'profile-info_statistic'>
+    <p>
+      Публикации: <span><%= @user.materials.count %></span>
+    </p>
+  </div> -->
+</div>
+<!--<div class = ''>
+  <div class = 'user-classrooms'>
+    Классы: <a>11Б</a>
+  </div>
+  <a class = 'create-class' data-toggle = "modal" data-target = "#modal-window-create-class">Создать класс</a>
+  <div class = 'user-communities'>
+    Сообщества: <a>У Вас нет сообществ</a>
+  </div>
+  <a class = 'create-community' data-toggle = "modal" data-target = "#modal-window-create-class">Создать сообщество</a>
+</div> -->
+
 <div class = "classes-and-communities card-sp margin-t10">
   <div class = "card-sp-heading">
     <% if @user.teacher? %>

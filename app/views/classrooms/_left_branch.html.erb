@@ -1,6 +1,6 @@
 <div class = 'card-sp first-left-block'>
   <div class = 'left-block-name'>
-    11 А
+    <%= @classroom.name %>
   </div>
   <div class = 'left-block-founder'>
     <div class="feed-profile-background">
@@ -13,7 +13,15 @@
     </div>
   </div>
   <div class = 'left-block-welcome'>
-    <%= link_to "Присоединиться", join_classroom_path(classroom_id), remote: true %>
-    <input type = 'button' id = 'join-to-class' class = 'btn btn-primary btn-st' value = 'Присоединиться'/> <span class = 'settings-left-block'><%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %></span>
+    <%= link_to join_classroom_path(classroom_id), remote: true,
+    id: 'join-to-class', class: 'btn btn-primary btn-st' do %>
+      Присоединиться
+    <% end unless (@classroom.is_student? current_user)%>
+
+    <span class = 'settings-left-block'>
+      <%= link_to edit_classroom_path(@classroom) do %>
+      <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
+      <% end %>
+    </span>
   </div>
 </div>

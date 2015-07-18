@@ -15,15 +15,14 @@
             </div>
             <div class = 'row'>
               <div class = 'col-xs-12 field-edit-data'>
+                <%= form_for @classroom, url: classroom_path(@classroom) do |f|%>
                 <div class = 'edit-classroom edit-classroom-name'>
-                  <input class = 'form-control input-sp input-edit-classroom-name' placeholder = 'Название класса' />
+                   <%= f.text_field :name, class: 'form-control input-sp input-edit-classroom-name', placeholder: 'Название класса' %>
                 </div>
-                <!--<div class = 'edit-classroom edit-classroom-school'>
-                  <input class = 'form-control input-sp input-edit-classroom-school' placeholder = 'Учебное заведение'/>
-                </div>-->
                 <div class="edit-classroom-footer">
-                  <button type="button" id = 'save-edit-class' class="btn btn-primary btn-st">Сохранить</button>
+                  <button type="submit" id = 'save-edit-class' class="btn btn-primary btn-st">Сохранить</button>
                 </div>
+                <% end %>
               </div>
             </div>
         </div>

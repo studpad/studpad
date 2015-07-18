@@ -83,12 +83,19 @@ class MaterialsController < ApplicationController
 
   def share
     material = Material.find(params[:material_id])
-    logger.debug material.classrooms.ids
-    logger.debug params[:classroom_id]
-    classroom_id = Integer(params[:classroom_id])
-    unless material.classrooms.ids.include?(classroom_id)
-      logger.debug 'Не включает'
-      material.classrooms << Classroom.find(classroom_id)
+
+    if params[:type] == 'classroom'
+      logger.debug "Делимся с классом " + params[:id]
+      classroom_id = Integer(params[:id])
+      unless material.classroom_shares.exists? ({classroom_id: classroom_id})
+        material.classroom_shares.create ({classroom_id: classroom_id})
+      end
+    elsif params[:type] == 'community'
+      logger.debug "Делимся с сообществом " + params[:id]
+      community_id = Integer(params[:id])
+      unless material.community_shares.exists? ({community_id: community_id})
+        material.community_shares.create ({community_id: community_id})
+      end
     end
     render text: material.times_shared
   end
