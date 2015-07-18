@@ -15,27 +15,24 @@
             <div class = 'row'>
               <% if current_user.teacher? %>
                 <% current_user.classrooms.each do |c| %>
-                <div class = 'col-xs-4 align-c share-obj'
-                  data_id='<%= c.id %>' type="classroom">
-                  <div class = 'share-who'><%= c.name %></div>
-                  <div class = 'helper-valign-m'></div>
-                </div>
+                <a class="col-xs-4 share-obj" href="/users/3">
+                  <%= image_tag "default_avatar_community.png", size: "28x28" %>
+                  <p class="span-main-text-news">Это клуб с очень длинным  названием</p>
+                </a>
                 <% end %>
               <% else %>
                 <% if c = current_user.classroom %>
-                  <div class = 'col-xs-4 align-c share-obj'
-                  data_id='<%= c.id %>' type="classroom">
-                  <div class = 'share-who'><%= c.name %></div>
-                  <div class = 'helper-valign-m'></div>
-                  </div>
+                  <a class="col-xs-4 share-obj" href="/users/3">
+                    <%= image_tag "default_avatar_community.png", size: "28x28" %>
+                    <p class="span-main-text-news">Это клуб с очень длинным  названием</p>
+                  </a>
                 <% end %>
               <% end %>
               <% current_user.communities.each do |c| %>
-                <div class = 'col-xs-4 align-c share-obj'
-                  data_id='<%= c.id %>' type="community">
-                  <div class = 'share-who'><%= c.name %></div>
-                  <div class = 'helper-valign-m'></div>
-                </div>
+                <a class="col-xs-4 share-obj" href="/users/3">
+                  <%= image_tag "default_avatar_community.png", size: "28x28" %>
+                  <p class="span-main-text-news">Это клуб с очень длинным  названием</p>
+                </a>
               <% end %>
             </div>
           </div>
