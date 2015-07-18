@@ -2,12 +2,14 @@ function main(){
 
     $('textarea').autoResize({
       limit:300,
+      extraSpace:30,
       animate:true
     });
-    $('textarea.description-add-material').autoResize({
+    /*$('textarea.description-add-material').autoResize({
       limit:600,
+      extraSpace:30, 
       animate:true
-    });
+    });*/
 
     /*$(".element-of-squares-menu").mouseover(function(){
       $(this).children('.title-element-of-squares-menu').css('opacity', '1');

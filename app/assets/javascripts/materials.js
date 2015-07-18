@@ -42,6 +42,17 @@ $(document).on("page:load ready", function(){
       $("textarea[name=description]").val(data.description);
       $("input[name=main_image]").val(data.main_image_id);
       $("input[name=attached_files]").val(data.attachment_ids);
+
+      //для автоматического расширения
+      $('.autoequel-height').html(data.description);
+      $("#writedown-or-edit-description-material").height($('.autoequel-height').height() + 5);
+
+      $('textarea.description-add-material').autoResize({
+        limit:600,
+        extraSpace:30, 
+        animate:true
+      });
+
       if (data.main_photo){
         $("#main-photo-dropzone").hide().parent().prepend(data.main_photo)
         .find('a').click(function() {
@@ -73,7 +84,7 @@ $(document).on("page:load ready", function(){
         input.val(input.val().replace(id, ""));
       });
       $("textarea[name=description]").keydown();
-    })
+    });
   }
 
   $('#create_material').click(function(){
