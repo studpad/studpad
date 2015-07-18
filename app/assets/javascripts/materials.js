@@ -98,8 +98,12 @@ $(document).on("page:load ready", function(){
   $("#material-dropzone").dropzone({
     clickable: '#material-dropzone .drop-zone',
     previewsContainer: false,
+    processing: function(file) {
+      $('#send-material').button('loading');
+    },
     success: function(file, response) {
       //Добавление превью файла
+      $('#send-material').button('reset');
       if (response.type == "image") {
         html = "<div class = 'col-xs-6 set-of-photos4 show-X' style = 'background: url("
         html += response.link
@@ -129,13 +133,18 @@ $(document).on("page:load ready", function(){
     }
   });
 
+
   //Прикрипление главной фотографии#####################################
   $("#main-photo-dropzone").dropzone({
     clickable: '#main-photo-dropzone .drop-zone',
     previewsContainer: false,
     acceptedFiles: ".jpg,.gif,.png",
+    processing: function(file) {
+      $('#send-material').button('loading');
+    },
     success: function(file, response) {
 
+      $('#send-material').button('reset');
       html = "<div class = 'useful-material_img show-X'>"
       html += "<div class = 'del-this-file'>" + response.remove_link + "</div>"
       html += "<img src = '" + response.link + "' width = '100%'/></div>"
