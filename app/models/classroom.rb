@@ -9,4 +9,8 @@ class Classroom < ActiveRecord::Base
   has_many :news, as: :source, class_name: "NewsItem", dependent: :destroy
   has_many :homeworks
 
+  def is_student? (user)
+    user.student? && user.classroom_id == id
+  end
+
 end

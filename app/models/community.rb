@@ -7,4 +7,8 @@ class Community < ActiveRecord::Base
 
   belongs_to :founder, class_name: 'User'
   enum status: { open: 0, secret: 1 }
+
+  def member? (user)
+    users.exists? user
+  end
 end

@@ -1,5 +1,6 @@
 class Classrooms::ClassmatesController < ApplicationController
   def index
-    @classmates = Classroom.find(params[:classroom_id]).students
+    @classroom = Classroom.find(params[:classroom_id])
+    @classmates = @classroom.students
   end
 end

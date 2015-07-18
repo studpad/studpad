@@ -7,10 +7,12 @@ $(document).on("page:load ready", function(){
 
   $('.share-obj').click(function(){
 
-    classroom_id = $(this).attr('classroom_id')
+    data_id = $(this).attr('data_id')
+    type = $(this).attr('type')
     form = $("#share-form")
-    form.find('input[name=classroom_id]')
-    .val(classroom_id)
+    form.find('input[name=id]')
+    .val(data_id).end()
+    .find('input[name=type]').val(type)
     form.ajaxSubmit({
       success: function(data, status, response) {
         console.log(data)

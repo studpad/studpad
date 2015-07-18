@@ -5,19 +5,37 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title" id="myModalLabel">Поделитесь интересным материалом с классом</h4>
           <%= form_tag share_materials_path, id: 'share-form' do %>
-            <input type='hidden' name = 'classroom_id'>
+            <input type='hidden' name = 'id'>
+            <input type='hidden' name = 'type'>
             <input type='hidden' name = 'material_id'>
           <%end%>
         </div>
         <div class = "modal-body my-setting-modal-body">
           <div class = 'container-fluid'>
             <div class = 'row'>
-              <% Classroom.all.each do |c| %>
-              <div class = 'col-xs-4 align-c share-obj'
-                classroom_id='<%= c.id %>'>
-                <div class = 'share-who'><%= c.name %></div>
-                <div class = 'helper-valign-m'></div>
-              </div>
+              <% if current_user.teacher? %>
+                <% current_user.classrooms.each do |c| %>
+                <div class = 'col-xs-4 align-c share-obj'
+                  data_id='<%= c.id %>' type="classroom">
+                  <div class = 'share-who'><%= c.name %></div>
+                  <div class = 'helper-valign-m'></div>
+                </div>
+                <% end %>
+              <% else %>
+                <% if c = current_user.classroom %>
+                  <div class = 'col-xs-4 align-c share-obj'
+                  data_id='<%= c.id %>' type="classroom">
+                  <div class = 'share-who'><%= c.name %></div>
+                  <div class = 'helper-valign-m'></div>
+                  </div>
+                <% end %>
+              <% end %>
+              <% current_user.communities.each do |c| %>
+                <div class = 'col-xs-4 align-c share-obj'
+                  data_id='<%= c.id %>' type="community">
+                  <div class = 'share-who'><%= c.name %></div>
+                  <div class = 'helper-valign-m'></div>
+                </div>
               <% end %>
             </div>
           </div>

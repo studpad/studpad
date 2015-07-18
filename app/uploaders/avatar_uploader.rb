@@ -21,7 +21,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fill => [40, 40]
+    process :resize_to_fill => [60, 60]
   end
   ## If ONLY "thumb" version is to be cropped
 

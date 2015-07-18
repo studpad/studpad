@@ -1,5 +1,6 @@
 class ClassroomsController < ApplicationController
   skip_before_filter :require_login, only:[:show, :new_student, :create_student]
+  before_action :find_classroom, except: [:create, :index, :new, :new_student]
   before_action :load_subjects
 
   def index
@@ -9,8 +10,17 @@ class ClassroomsController < ApplicationController
   def edit
   end
 
+  def update
+    if @classroom.update_attributes classroom_params
+      redirect_to @classroom
+    else
+      render 'edit'
+    end
+
+  end
+
   def join
-    Classroom.find(params[:id]).students << current_user
+    @classroom.students << current_user
   end
 
   def new
@@ -40,8 +50,7 @@ class ClassroomsController < ApplicationController
   end
 
   def show
-    @classroom = Classroom.find(params[:id])
-    @news_action = classroom_news_index_path(classroom_id)
+    @news_action = classroom_news_index_path(@classroom)
     @news = @classroom.news.order(created_at: :desc)
   end
 
@@ -51,7 +60,6 @@ class ClassroomsController < ApplicationController
 
   def create_student
     @student = Student.new new_student_params
-    @classroom = Classroom.find(params[:id])
     @student.classroom = @classroom
 
     if @classroom.secretphrase.to_s == params[:secretphrase] && @student.save
@@ -72,8 +80,9 @@ class ClassroomsController < ApplicationController
       params.require(:student).permit(:name, :email, :password, :password_confirmation)
     end
 
-    def classroom_id
-      params[:classroom_id] || params[:id]
+    def find_classroom
+      id = params[:classroom_id] || params[:id]
+      @classroom = Classroom.find id
     end
 
     def load_subjects

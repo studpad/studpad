@@ -14,26 +14,6 @@
   <div class = 'profile-avatar'>
     <div class = 'profile-avatar_img slideRight' style = 'background: url(<%= @user.avatar_safe_url %>) no-repeat; background-size: cover;'>
     </div>
-    <div class = 'profile-info'>
-      <div class = 'profile-info_name slideRight'><%= @user.name %> &nbsp;<%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %></div>
-      <div class = 'profile-info_school'>
-        МБОУ Лицей №1 г. Невинномысск </div>
-      <!-- <div class = 'profile-info_statistic'>
-        <p>
-          Публикации: <span><%= @user.materials.count %></span>
-        </p>
-      </div> -->
-    </div>
-    <!--<div class = ''>
-      <div class = 'user-classrooms'>
-        Классы: <a>11Б</a>
-      </div>
-      <a class = 'create-class' data-toggle = "modal" data-target = "#modal-window-create-class">Создать класс</a>
-      <div class = 'user-communities'>
-        Сообщества: <a>У Вас нет сообществ</a>
-      </div>
-      <a class = 'create-community' data-toggle = "modal" data-target = "#modal-window-create-class">Создать сообщество</a>
-    </div> -->
     <%= render 'my_communities' %>
 
   </div>

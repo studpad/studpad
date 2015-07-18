@@ -3,7 +3,7 @@
     <%= render "/partials/profile" %>
     <div class = 'main-wall' id = 'central-part'>
       <div class = 'submenu'>
-          <%= render "menu" %>
+        <%= render "menu" %>
       </div>
       <div class = 'row'>
         <div class = 'col-xs-12'>
@@ -15,32 +15,34 @@
             </div>
             <div class = 'row'>
               <div class = 'col-xs-12 field-edit-data'>
+<%= form_for @community, url: community_path(@community) do |f|%>
                 <div class = 'edit-community'>
-                  <input class = 'form-control input-sp input-edit-community-name' placeholder = 'Название сообщества' />
-                  <div>
-                    <span class = "title-underline">
-                          Выберите тип Вашего сообщества
-                    </span>
-                  </div>
-                  <div class = 'row'>
-                      <div class="wrap-radio align-c col-xs-2">
-                        <input class = "input-radio-sp" type = "radio" name = "community-type" id = 'open'>
-                        <label for = 'open'>Открытое</label>
-                      </div>
-                      <div class="wrap-radio align-c col-xs-2">
-                        <input class = "input-radio-sp" type = "radio" name = "community-type" id = 'close'>
-                        <label for = "close">Закрытое</label>
-                      </div>
-                  </div>
+
+  <%= f.text_field :name, class: 'form-control input-sp input-edit-community-name', placeholder: 'Название сообщества' %>
+  <div>
+    <span class = "title-underline">
+          Выберите тип Вашего сообщества
+    </span>
+  </div>
+  <div class = 'row'>
+      <div class="wrap-radio align-c col-xs-2">
+        <%= f.radio_button :status, "open", class: 'input-radio-sp', required: true %>
+        <label for = 'community_status_open'>Открытое</label>
+      </div>
+      <div class="wrap-radio align-c col-xs-2">
+        <%= f.radio_button :status, "secret", class: 'input-radio-sp', required: true %>
+        <label for = 'community_status_secret'>Закрытое</label>
+      </div>
+  </div>
+
                 </div>
-                <!--<div class = 'edit-classroom edit-classroom-school'>
-                  <input class = 'form-control input-sp input-edit-classroom-school' placeholder = 'Учебное заведение'/>
-                </div>-->
                 <div class="edit-community-footer">
-                  <button type="button" id = 'save-edit-community' class="btn btn-primary btn-st">Сохранить</button>
+                  <button type="submit" id = 'save-edit-community' class="btn btn-primary btn-st">Сохранить</button>
                 </div>
+<% end %>
               </div>
             </div>
+
         </div>
         </div>
       </div>

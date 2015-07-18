@@ -1,19 +1,27 @@
 <div class = 'card-sp first-left-block'>
   <div class = 'left-block-name'>
-    Городская библиотека №1
+    <%= @community.name %>
   </div>
   <div class = 'left-block-founder'>
     <div class="feed-profile-background">
      <div class="feed-profile-avatar" style="background: url(https://cs7054.vk.me/c540102/v540102773/2ce4e/X5KmNKz7qJk.jpg) no-repeat; background-size: cover;">
       </div>
       <div class="feed-profile-name-email">
-        <div class="feed-profile-name">Макс Никитин</div>
+
+        <div class="feed-profile-name"><%= @community.founder.name %></div>
         <div class="feed-profile-email">Основатель</div>
       </div>
     </div>
   </div>
   <div class = 'left-block-welcome'>
-    <%= link_to "Присоединиться", join_community_path(community_id), remote: true %>
-    <input type = 'button' id = 'join-to-community' class = 'btn btn-primary btn-st' value = 'Присоединиться'/> <span class = 'settings-left-block'><%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %></span>
+    <%= link_to join_community_path(@community), remote: true do %>
+    <input type = 'button' id = 'join-to-community' class = 'btn btn-primary btn-st' value = 'Присоединиться'/>
+    <% end unless (@community.member? current_user)%>
+    <span class = 'settings-left-block'>
+    <%= link_to edit_community_path(@community) do %>
+    <%= image_tag "settings.png", id: 'settigns-profile',
+    size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
+    <% end %>
+    </span>
   </div>
 </div>
