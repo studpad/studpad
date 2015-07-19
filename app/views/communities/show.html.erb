@@ -5,10 +5,38 @@
     <div class = 'submenu'>
           <%= render "menu" %>
     </div>
-    <div class = 'title-background'>
-      <div class = 'title-page'>
-        Городская библиотека №1
-      </div>
+    <div class = 'community-heading'>
+        <div class = 'big-avatar-community' style = 'background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg); background-size: cover;'>
+        </div>
+        <div class = 'info-community'>
+          <div class = 'description-community'>
+            <div class="margin-b20">
+              <span class="title-underline">
+                <%= @community.name %>
+              </span>
+            </div>
+            Представляем вам простую оболочку для h1, которая устанавливает соответствующий отступ и сегментирует содержание страницы. В ней можно использовать элемент по умолчанию small и h1, а также много других компонентов (с дополнительными стилями). Представляем вам простую оболочку для h1, которая устанавливает соответствующий отступ и сегментирует содержание страницы. В ней можно использовать элемент по умолчанию small и h1, а также много других компонентов (с дополнительными стилями).
+          </div>
+          <div class = 'wrap-join-to-community'>
+            <%= link_to join_community_path(@community), remote: true do %>
+            <input type = 'button' id = 'join-to-community' class = 'btn btn-primary btn-st' value = 'Присоединиться'/>
+            <% end unless (@community.member? current_user)%>
+            <span class="dropdown">
+              <a class="dropdown-toggle you-are-participant badge" data-toggle="dropdown" href="#">
+                Вы являетесь членом этого экипажа <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Покинуть экипаж</a></li>
+              </ul>
+            </span>
+            <span class = 'settings-left-block'>
+              <%= link_to edit_community_path(@community) do %>
+              <%= image_tag "settings.png", id: 'settigns-profile',
+              size: "25x25", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
+              <% end %>
+              </span>
+          </div>
+        </div>
     </div>
     <%= render "classrooms/news"%>
     <div class = 'row'>
