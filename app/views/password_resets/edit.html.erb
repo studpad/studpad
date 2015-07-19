@@ -1,0 +1,15 @@
+<div class = 'form-create-new-object'>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+    <h3>Выбирите новый пароль</h3>
+    <%= simple_form_for :user, url: password_reset_path(@token), method: :put do |f| %>
+
+        <%= f.input :password, label: false,  input_html: { placeholder: 'Пароль' } %>
+
+        <%= f.input :password_confirmation, label: false,  input_html: { placeholder: 'Потверждение пароля' } %>
+
+        <%= f.button :submit, "Сохранить"%>
+    <% end %>
+    </div>
+  </div>
+</div>

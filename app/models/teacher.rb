@@ -4,8 +4,6 @@ class Teacher < User
   has_many :homeworks
   has_and_belongs_to_many :subjects, join_table: 'subjects_teachers'
 
-  authenticates_with_sorcery!
-
   def teacher?
     true
   end

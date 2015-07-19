@@ -1,0 +1,12 @@
+<div class = 'form-create-new-object'>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+    <%= simple_form_for :user, url: password_resets_path do |f| %>
+
+        <%= f.input :email, label: false,  input_html: { placeholder: 'Пароль' } %>
+
+        <%= f.button :submit, "Сбросить пароль!"%>
+    <% end %>
+    </div>
+  </div>
+</div>
