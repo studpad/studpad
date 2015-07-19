@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#main'
 
+  resources :password_resets, only: [:new, :create, :edit, :update]
+
   resources :classrooms do
     resources :materials
     resources :classmates, controller: "classrooms/classmates"
