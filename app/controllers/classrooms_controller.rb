@@ -1,5 +1,5 @@
 class ClassroomsController < ApplicationController
-  skip_before_filter :require_login, only:[:show, :new_student, :create_student]
+  skip_before_filter :require_login, only:[ :new_student, :create_student]
   before_action :find_classroom, except: [:create, :index, :new, :new_student]
   before_action :load_subjects
 

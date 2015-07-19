@@ -124,16 +124,25 @@
                   <%= material.created_at.strftime("%d %b %H:%M") %> •
                   <span><%=link_to material.user.name, user_path(material.user) %></span>
                 </span>
+                <% if current_user %>
                 <span class = 'margin-l40 share-post'  data-toggle="modal"
                 material_id='<%= material.id %>' data-target="#modal_share">
                   <span>Поделиться &nbsp;</span>
                   <span class="glyphicon glyphicon-bullhorn"></span>
                 </span>
                 <span class = 'count-share'> &nbsp;&nbsp;<b><%= material.times_shared %></b></span>
+                <% else %>
+                <span class = 'margin-l40'>
+                  <span class="glyphicon glyphicon-bullhorn"></span>
+                </span>
+                <span class = 'count-share'> &nbsp;&nbsp;<b><%= material.times_shared %></b></span>
+                <% end %>
+                <% if current_user && current_user.id == material.user_id %>
                 <span class = 'update-UM'  data-toggle="modal" data-target="#modal_window"
                   data='<%= material_path( material ) %>'>
                   <span class="glyphicon glyphicon-pencil pencil-news margin-l40"></span> &nbsp;<span>Редактировать</span>
                 </span>
+                <% end %>
           </div>
         </div>
       </div>

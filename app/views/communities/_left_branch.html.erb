@@ -21,7 +21,7 @@
     <%= link_to edit_community_path(@community) do %>
     <%= image_tag "settings.png", id: 'settigns-profile',
     size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
-    <% end %>
+    <% end if (current_user.id == @community.founder_id) %>
     </span>
   </div>
 </div>
