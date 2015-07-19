@@ -14,6 +14,8 @@ class UsersController < ApplicationController
     if @user.save
       auto_login @user
       flash[:success] = 'Успешная регистрация'
+      UserMailer.welcome(@user).deliver_later
+
       redirect_to profile_path
     else
       @button_name = 'Создать'

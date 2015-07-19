@@ -13,4 +13,8 @@ class Classroom < ActiveRecord::Base
     user.student? && user.classroom_id == id
   end
 
+  def is_main_teacher? (user)
+    user.teacher? && user.id == main_teacher_id
+  end
+
 end

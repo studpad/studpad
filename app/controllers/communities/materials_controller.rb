@@ -1,4 +1,5 @@
 class Communities::MaterialsController < ApplicationController
+
   def index
     @community = Community.find params[:community_id]
     @materials = @community.materials.order(created_at: :desc)

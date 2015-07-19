@@ -15,6 +15,14 @@ module Studpad
     g.assets false
     g.helper false
   end
+
+  mail_config = YAML.load_file("#{Rails.root}/config/mailer.yml")[Rails.env]
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+          api_key: mail_config['api_key'],
+          domain: mail_config['domain']
+  }
+
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

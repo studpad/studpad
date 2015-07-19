@@ -5,6 +5,9 @@
     <% end %>
   </div>
   <div class = 'profile-info_school'>
+    <%= @user.teacher? ? "Учитель" : "Ученик" %>
+  </div>
+  <div class = 'profile-info_school'>
     <%= @user.school %>
   </div>
   <!-- <div class = 'profile-info_statistic'>
@@ -35,9 +38,11 @@
       <%= link_to @user.classroom.name, classroom_path(@user.classroom) %>
     <% end %>
   </div>
+  <% if @user.teacher? %>
   <div class = "card-sp-body">
     <input type = 'button' id = 'create-class' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-class" value = 'Создать класс' />
   </div>
+  <% end %>
 </div>
 
 <div class = "classes-and-communities card-sp">

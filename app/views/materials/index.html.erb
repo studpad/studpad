@@ -18,9 +18,9 @@
       </div>
     </div>
   </div>
-    <%= render "right_button_action" %>
+    <%= render "right_button_action" if current_user%>
     <% @new_material_action = classroom_id ? classroom_materials_path(classroom_id): nil %>
-    <%= render "modal_window" %>
-    <%= render "/partials/modal_share" %>
+    <%= render "modal_window" if current_user %>
+    <%= render "/partials/modal_share" if current_user%>
     <%= render "/partials/view_material" %>
 </div>

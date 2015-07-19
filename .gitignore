@@ -8,6 +8,7 @@
 /.bundle
 
 database.yml
+mailer.yml
 secrets.yml.erb
 database.yml.erb
 

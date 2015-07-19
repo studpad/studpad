@@ -1,4 +1,6 @@
 class MaterialsController < ApplicationController
+  skip_before_action :require_login, only: [ :index, :show ]
+
   def index
   	@classroom = Classroom.find(params[:classroom_id])
     @materials = @classroom.materials.order(created_at: :desc)
