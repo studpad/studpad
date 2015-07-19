@@ -1,24 +1,54 @@
 <div class = 'card-sp first-left-block'>
   <div class = 'left-block-founder'>
     <div class="feed-profile-background">
-     <div class="feed-profile-avatar" style="background: url(https://cs7054.vk.me/c540102/v540102773/2ce4e/X5KmNKz7qJk.jpg) no-repeat; background-size: cover;">
+      <div class="feed-profile-avatar" style="background: url(https://pp.vk.me/c7009/v7009479/1e85/EYg0XELML1s.jpg) no-repeat; background-size: cover;">
       </div>
       <div class="feed-profile-name-email">
-
-        <div class="feed-profile-name"><%= @community.founder.name %></div>
-        <div class="feed-profile-email">Основатель</div>
+        <div class="profile-notice-name"><a><%= @community.founder.name %></a></div>
+        <div class="profile-notice-text">Основатель</div>
       </div>
     </div>
   </div>
-  <div class = 'left-block-welcome'>
-    <%= link_to join_community_path(@community), remote: true do %>
-    <input type = 'button' id = 'join-to-community' class = 'btn btn-primary btn-st' value = 'Присоединиться'/>
-    <% end unless (@community.member? current_user)%>
-    <span class = 'settings-left-block'>
-    <%= link_to edit_community_path(@community) do %>
-    <%= image_tag "settings.png", id: 'settigns-profile',
-    size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
-    <% end if (current_user.id == @community.founder_id) %>
-    </span>
+</div>
+<div class = 'card-sp second-left-block'>
+  <div class = 'left-block-name'>
+    <a>Уведомления</a>
+  </div>
+  <div class = 'left-block-notice'>
+     <div class = 'profile-notice'>
+      <div class="profile-notice-background">
+       <div class="profile-notice-avatar" style="background: url(https://pp.vk.me/c7009/v7009479/1e78/tgHhGcS1mcI.jpg) no-repeat; background-size: cover;">
+        </div>
+        <div class="profile-notice-name-text">
+
+          <div class="profile-notice-name"><a><%= @community.founder.name %></a></div>
+          <div class="profile-notice-text">Присоединился</div>
+        </div>
+      </div>
+    </div>
+
+    <div class = 'profile-notice'>
+      <div class="profile-notice-background">
+       <div class="profile-notice-avatar" style="background: url(https://pp.vk.me/c7009/v7009342/26b6/5qpGumJE8w8.jpg) no-repeat; background-size: cover;">
+        </div>
+        <div class="profile-notice-name-text">
+
+          <div class="profile-notice-name"><a><%= @community.founder.name %></a></div>
+          <div class="profile-notice-text">Поделился материалом</div>
+        </div>
+      </div>
+    </div>
+
+    <div class = 'profile-notice'>
+      <div class="profile-notice-background">
+       <div class="profile-notice-avatar" style="background: url(https://pp.vk.me/c7009/v7009943/bc2f/EUKknm6z6iM.jpg) no-repeat; background-size: cover;">
+        </div>
+        <div class="profile-notice-name-text">
+
+          <div class="profile-notice-name"><a><%= @community.founder.name %></a></div>
+          <div class="profile-notice-text">Хочет присоединиться</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
