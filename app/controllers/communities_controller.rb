@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-  before_action :find_community, except: [:create]
+  before_action :find_community, except: [:create, :index]
 
   def edit
   end
