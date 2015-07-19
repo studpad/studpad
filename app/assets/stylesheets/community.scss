@@ -84,7 +84,37 @@
 	  font-weight: normal !important;
 }
 .left-block-notice{
-	
 	margin-left: 10px;
 	margin-right: 10px;
+}
+.preview-community{
+	height: 150px;
+	margin: 20px 0;
+}
+.preview-community-avatar{
+	width: 155px;
+	float: left;
+	height: 150px;
+	border-radius: 2px;
+}
+.preview-community-info{
+	height: 150px;
+	width: 400px;
+	float: left;
+	padding-left: 10px;
+	padding-right: 2px;
+	position: relative;
+	bottom: 4px;
+}
+.preview-community-statistic{
+	margin-top: 5px;
+}
+.preview-community-statistic > div > div > .badge{
+	color: #3680BE;
+  background-color: #F4F4F4;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+.preview-community-name{
+	font-size: 14px;
 }
