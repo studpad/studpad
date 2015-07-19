@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     #@user = current_user
     @user.avatar.crop(params[:crop_x], params[:crop_y], params[:crop_w],
      params[:crop_h], params[:height], params[:width])
-    @user.save!
+    @user.save! #нахождение этой строчки именно здесь важно
     @user.avatar.recreate_versions!
 
     redirect_to user_path
