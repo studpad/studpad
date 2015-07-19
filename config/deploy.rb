@@ -28,6 +28,7 @@ set :bundle_binstubs, -> { shared_path.join('bin') } #for get rails consle worki
 # see documentation in lib/capistrano/tasks/setup_config.cap
 # for details of operations
 set(:config_files, %w(
+  mailer.yml
   secrets.yml
   nginx.conf
   database.yml

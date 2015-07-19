@@ -6,6 +6,8 @@ set :branch, "master"
 # need to create entries in your local Hosts file for testing.
 set :server_name, "studpad.ru www.studpad.ru"
 
+set :mailgun_api_key, ask('Enter api key for mailer:', nil)
+set :mailgun_domain_name, ask('Enter domain name for mailer:', nil)
 # used in case we're deploying multiple versions of the same
 # app side by side. Also provides quick sanity checks when looking
 # at filepaths
