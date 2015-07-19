@@ -8,7 +8,7 @@
 	border: none !important;
 }
 .input-edit-community-name{
-	font-size: 20px !important;
+	font-size: 16px !important;
 	height: 100% !important;
 }
 .input-edit-community-school{
@@ -18,4 +18,68 @@
 .edit-community-footer{
 	padding: 20px;
   text-align: right;
+}
+
+.community-heading{
+	height: 220px;
+	background-color: white;
+	padding: 15px;
+	padding-bottom: 5px;
+}
+.big-avatar-community{
+	float: left;
+	width: 221.25px;
+	height: 200px;
+	border-radius: 2px;
+}
+.info-community{
+	float: left;
+	width: 365.75px;
+	height: 200px;
+	padding-left: 15px;
+}
+.description-community{
+	height: 158px;
+	font-size: 13px;
+	overflow-y: hidden;
+	position: relative;
+	bottom: 9px;
+}
+.wrap-join-to-community{
+	height: 34px;
+	margin-top: 8px;
+}
+.wrap-join-to-community > .dropdown > .dropdown-menu{
+	width: 223px;
+  margin-left: -112px;
+  float: left;
+  padding: 0px 0 !important;
+  margin: 4px 0 0;
+  list-style: none;
+  font-size: 12px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #F4F4F4;
+  border-top: none;
+  border-radius: 0px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  left: 0px;
+
+}
+.dropdown-menu > li > a {
+  color: #383838 !important;
+  padding: 3px 10px !important;
+  &:hover{
+  	background-color: #FAFAFA !important;
+  }
+}
+.you-are-participant{
+	  color: #383838 !important;
+	  background-color: #EEF3F5 !important;
+	  border-radius: 2px !important;
+	  padding: 6px !important;
+	  padding-left: 10px !important;
+	  padding-right: 10px !important;
+	  font-weight: normal !important;
 }
