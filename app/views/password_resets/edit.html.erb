@@ -4,7 +4,7 @@
     <h3>Выбирите новый пароль</h3>
     <%= simple_form_for :user, url: password_reset_path(@token), method: :put do |f| %>
 
-        <%= f.input :password, label: false,  input_html: { placeholder: 'Пароль' } %>
+        <%= f.input :password, label: false,  input_html: { placeholder: 'Ваша почта' } %>
 
         <%= f.input :password_confirmation, label: false,  input_html: { placeholder: 'Потверждение пароля' } %>
 

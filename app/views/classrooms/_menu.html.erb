@@ -2,21 +2,21 @@
     <div class = 'col-xs-4 align-c'>
         <%= link_to classroom_path(classroom_id) do%>
             <%= image_tag "feather14.png", size: "28x28" %>
-            <span class="badge pull-right">249</span>
+            <%= times_tag(@classroom.news.count) %>
             <span>Новости</span>
         <% end %>
     </div>
     <div class = 'col-xs-4 align-c'>
         <%= link_to classroom_classmates_path(classroom_id) do%>
             <%= image_tag "babies12.png", size: "28x28" %>
-            <span class="badge pull-right">249</span>
+            <%= times_tag(@classroom.students.count) %>
             <span>Мы</span>
         <% end %>
     </div>
     <div class = 'col-xs-4 align-c'>
         <%= link_to classroom_materials_path(classroom_id) do%>
             <%= image_tag "materialclass.png", size: "28x28" %>
-            <span class="badge pull-right">249</span>
+            <%= times_tag(@classroom.materials.count) %>
             <span>Материалы</span>
         <% end %>
     </div>
