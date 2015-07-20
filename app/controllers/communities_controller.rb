@@ -4,6 +4,10 @@ class CommunitiesController < ApplicationController
   def edit
   end
 
+  def index
+    @communities = Community.all.includes(:founder)
+  end
+
   def update
     if @community.update_attributes community_params
       redirect_to @community
