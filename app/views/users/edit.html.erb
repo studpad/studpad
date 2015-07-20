@@ -52,6 +52,9 @@
             <div class = 'edit-profile edit-profile-school'>
               <%= f.text_field :school, class: 'form-control input-sp input-edit-profile-school', placeholder: 'Ваше учебное заведение' %>
             </div>
+            <div class = 'change-password'>
+              <a data-toggle="modal" data-target="#modal-window-change-password">Изменить пароль</a>
+            </div>
             <div class="edit-profile-footer">
               <button type="submit" id = 'save-edit-profile' class="btn btn-primary btn-st">Сохранить</button>
             </div>
@@ -65,5 +68,6 @@
 <%= render "form_create_class" %>
 <%= render "form_create_community" %>
 <%= render "change_avatar" %>
+<%= render "change_password" %>
 
 

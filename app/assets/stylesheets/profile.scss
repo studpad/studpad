@@ -17,6 +17,7 @@
  height: 166px;
  width: 100%;
  margin-bottom: 8px;
+ border-radius: 2px;
 }
 .profile-avatar_img{
  height: 220px;
@@ -184,4 +185,7 @@
 }
 .jcrop-keymgr{
   display: none !important;
+}
+.change-password{
+	margin-left: 20px;
 }

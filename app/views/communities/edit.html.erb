@@ -14,32 +14,39 @@
               </div>
             </div>
             <div class = 'row'>
-              <div class = 'col-xs-12 field-edit-data'>
-<%= form_for @community, url: community_path(@community) do |f|%>
-                <div class = 'edit-community'>
-
-  <%= f.text_field :name, class: 'form-control input-sp input-edit-community-name', placeholder: 'Название сообщества' %>
-  <div>
-    <span class = "title-underline">
-          Выберите тип Вашего сообщества
-    </span>
-  </div>
-  <div class = 'row'>
-      <div class="wrap-radio align-c col-xs-2">
-        <%= f.radio_button :status, "open", class: 'input-radio-sp', required: true %>
-        <label for = 'community_status_open'>Открытое</label>
-      </div>
-      <div class="wrap-radio align-c col-xs-2">
-        <%= f.radio_button :status, "secret", class: 'input-radio-sp', required: true %>
-        <label for = 'community_status_secret'>Закрытое</label>
-      </div>
-  </div>
-
+              <div class = 'col-xs-5 field-edit-avatar'>
+                <div class = 'current-edit-community-avatar_img' style = 'background: url(https://pp.vk.me/c7009/v7009943/b2d3/3ZEJBDWTZag.jpg) no-repeat; background-size: cover;'>
                 </div>
-                <div class="edit-community-footer">
-                  <button type="submit" id = 'save-edit-community' class="btn btn-primary btn-st">Сохранить</button>
-                </div>
-<% end %>
+                <div class = 'align-c'><a class = 'edit-community-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фото сообщества</a></div>
+              </div>
+              <div class = 'col-xs-7 field-edit-data'>
+                <%= form_for @community, url: community_path(@community) do |f|%>
+                                <div class = 'edit-community'>
+
+                  <%= f.text_field :name, class: 'form-control input-sp input-edit-community-name', placeholder: 'Название Вашего сообщества' %>
+                  </br>
+                  <textarea class = 'form-control my-setting-form-control' placeholder = 'Описание Вашего сообщества'></textarea>
+                  <div>
+                    <span class = "title-underline">
+                          Выберите тип Вашего сообщества
+                    </span>
+                  </div>
+                  <div class = 'row'>
+                      <div class="wrap-radio align-c col-xs-4">
+                        <%= f.radio_button :status, "open", class: 'input-radio-sp', required: true %>
+                        <label for = 'community_status_open'>Открытое</label>
+                      </div>
+                      <div class="wrap-radio align-c col-xs-4">
+                        <%= f.radio_button :status, "secret", class: 'input-radio-sp', required: true %>
+                        <label for = 'community_status_secret'>Закрытое</label>
+                      </div>
+                  </div>
+
+                                </div>
+                                <div class="edit-community-footer">
+                                  <button type="submit" id = 'save-edit-community' class="btn btn-primary btn-st">Сохранить</button>
+                                </div>
+                <% end %>
               </div>
             </div>
 
@@ -48,3 +55,4 @@
       </div>
     </div>
 </div>
+<%= render "change_avatar" %>

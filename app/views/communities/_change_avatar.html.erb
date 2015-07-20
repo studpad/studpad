@@ -1,0 +1,26 @@
+<div class="modal fade" id = "modal-change-avatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Изменение фотографии сообщества</h4>
+      </div>
+      <div class="modal-body">
+        <div id="mywrapper">
+        </div>
+
+        <div class = 'drop-zone margin-b40'>
+                  Загрузите новую фотографию сообщества
+                  </br>
+                  Кликните или перетащите изображение сюда
+        </div>
+
+        <%#= image_tag @current_user.avatar.url, :id => "cropbox" %>
+        
+      </div>
+      <div class="modal-footer">
+        <button id="send-avatar" type="submit" class="btn btn-primary btn-st">Сохранить</button>
+      </div>
+    </div>
+  </div>
+</div>

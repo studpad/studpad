@@ -1,5 +1,5 @@
 .edit-community{
-	padding: 20px;
+	padding-right: 15px;
 }
 .edit-community > div{
 	margin-top: 20px
@@ -117,4 +117,19 @@
 }
 .preview-community-name{
 	font-size: 14px;
+}
+.left-block-notice > .profile-notice-mini:last-child{
+	margin-bottom: 16px;
+}
+.field-edit-avatar, .field-edit-data{
+	margin-top: 10px;
+}
+.current-edit-community-avatar_img{
+	 height: 166px;
+	 width: 100%;
+	 margin-bottom: 8px;
+	 border-radius: 2px;
+}
+.edit-community-avatar{
+
 }
