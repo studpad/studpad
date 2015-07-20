@@ -20,17 +20,22 @@
             <%= @community.description %>
           </div>
           <div class = 'wrap-join-to-community'>
-            <%= link_to join_community_path(@community), remote: true do %>
-            <input type = 'button' id = 'join-to-community' class = 'btn btn-primary btn-st' value = 'Присоединиться'/>
-            <% end unless (@community.member? current_user)%>
-            <span class="dropdown">
-              <a class="dropdown-toggle you-are-participant badge" data-toggle="dropdown" href="#">
-                Вы являетесь членом этого экипажа <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Покинуть экипаж</a></li>
-              </ul>
-            </span>
+            <% if (@community.member? current_user) %>
+              <span class="dropdown">
+                <a class="dropdown-toggle you-are-participant badge" data-toggle="dropdown" href="#">
+                  Вы являетесь членом этого экипажа <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to "Покинуть экипаж", unjoin_community_path(@community) %>
+                  </li>
+                </ul>
+              </span>
+            <% else %>
+              <%= link_to join_community_path(@community) do %>
+              <input type = 'button' id = 'join-to-community' class = 'btn btn-primary btn-st' value = 'Присоединиться'/>
+              <% end %>
+            <% end %>
             <span class = 'settings-left-block'>
               <%= link_to edit_community_path(@community) do %>
               <%= image_tag "settings.png", id: 'settigns-profile',

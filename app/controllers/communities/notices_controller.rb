@@ -1,7 +1,11 @@
-class Communities::MembersController < ApplicationController
+class Communities::NoticesController < ApplicationController
   def index
     @community = Community.find params[:community_id]
-    @members = @community.users
     @notices = @community.notifications
   end
+
+  def new
+
+  end
+
 end

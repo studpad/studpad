@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     resources :news, only: :create, controller: "communities/news" do
       post 'comment', on: :member
     end
+    resources :notices, controller: "communities/notices"
     member do
+      get 'unjoin'
       get 'join'
       get 'notices'
       post 'crop'

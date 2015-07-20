@@ -1,37 +1,23 @@
 <div class = 'card-sp first-left-block'>
   <div class = 'left-block-name'>
-    <a>Уведомления</a>
+    <%= link_to 'Уведомления', community_notices_path(@community) %>
   </div>
   <div class = 'left-block-notice'>
-
-     <div class = 'profile-notice-mini'>
-      <div class="profile-notice-background-mini">
-        <div class = "profile-notice-avatar-mini" style="background: url(https://pp.vk.me/c7009/v7009479/1e78/tgHhGcS1mcI.jpg) no-repeat; background-size: cover;">
-        </div>
-        <div class="profile-notice-name-text-mini">
-          <div class="profile-notice-text"><a><%= @community.founder.name %></a> присоединился</div>
-        </div>
-      </div>
-    </div>
-
-    <div class = 'profile-notice-mini'>
-      <div class="profile-notice-background-mini">
-        <div class="profile-notice-avatar-mini" style="background: url(https://pp.vk.me/c7009/v7009342/26b6/5qpGumJE8w8.jpg) no-repeat; background-size: cover;">
-        </div>
-        <div class="profile-notice-name-text-mini">
-          <div class="profile-notice-text"><a><%= @community.founder.name %></a> поделился материалом</div>
+    <% @notices.each do |n| %>
+      <div class = 'profile-notice-mini'>
+        <div class="profile-notice-background-mini">
+          <div class = "profile-notice-avatar-mini" style="background: url(
+          <%= n.user.avatar_safe_url%>
+          ) no-repeat; background-size: cover;">
+          </div>
+          <div class="profile-notice-name-text-mini">
+            <div class="profile-notice-text">
+              <%= link_to n.user.name, user_path(n.user) %>
+              <%= n.mode_rus %>
+           </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class = 'profile-notice-mini'>
-      <div class="profile-notice-background-mini">
-        <div class="profile-notice-avatar-mini" style="background: url(https://pp.vk.me/c7009/v7009943/bc2f/EUKknm6z6iM.jpg) no-repeat; background-size: cover;">
-        </div>
-        <div class="profile-notice-name-text-mini">
-          <div class="profile-notice-text"><a><%= @community.founder.name %></a> хочет присоединиться</div>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>

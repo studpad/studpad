@@ -16,7 +16,9 @@
                 <div class = 'row'>
                   <% @communities.each do |c| %>
                   <div class = 'col-xs-12 preview-community'>
-                    <div class = 'preview-community-avatar' style = 'background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg); background-size: cover;'>
+                    <div class = 'preview-community-avatar' style = 'background: url(
+                    <%= c.avatar_safe_url %>
+                    ); background-size: cover;'>
 
                     </div>
                     <div class = 'preview-community-info'>

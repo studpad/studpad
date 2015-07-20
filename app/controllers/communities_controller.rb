@@ -16,10 +16,16 @@ class CommunitiesController < ApplicationController
     end
   end
 
+  def unjoin
+    @community.users.destroy(current_user)
+    redirect_to @community
+  end
+
   def join
     unless @community.member? current_user
       @community.users << current_user
     end
+    redirect_to @community
   end
 
   def create
@@ -55,6 +61,7 @@ class CommunitiesController < ApplicationController
   private
     def find_community
       @community = Community.find params[:id]
+      @notices = @community.notifications
     end
 
     def community_params
