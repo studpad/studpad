@@ -103,19 +103,19 @@
 }
 #create-class, #create-community{
 	font-size: 13px;
+	margin-top: 4px;
+	margin-bottom: 8px;
+	
 }
 .panel-default > .panel-heading > .panel-title{
 	color: #516574;
 }
 .classes-and-communities{
 	width: 220px;
-	padding-top: 7px;
+	/*padding-top: 7px;
 	box-shadow: none !important;
   background-color: transparent !important;
-  border-top: 1px solid rgb(226, 226, 226);
-}
-.classes-and-communities > div{
-	padding-left: 0px !important;
+  border-top: 1px solid rgb(226, 226, 226);*/
 }
 .type-of-community{
 	height: 190px;
