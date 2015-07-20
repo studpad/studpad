@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'join'
+      get 'notices'
     end
   end
 
