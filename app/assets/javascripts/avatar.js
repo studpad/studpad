@@ -16,13 +16,13 @@ $(document).on("page:load ready", function(){
     clickable: '#avatar-dropzone .drop-zone',
     previewsContainer: false,
     paramName: 'avatar',
-    acceptedFiles: ".jpg,.gif,.png",
+    acceptedFiles: ".jpeg,.jpg,.gif,.png",
     success: function(file, response) {
       avatar_crop = $('#avatar-crop').data('Jcrop');
       if (avatar_crop){
         avatar_crop.destroy();
       }
-
+      $('#attachment_id').val(response.attachment_id);
       var image_html = "<image id='avatar-crop' src='" + response.url +
       "' style='width:100%'>"
       $('#mywrapper').html(image_html)

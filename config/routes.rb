@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'static_pages#main'
 
-  resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :password_resets, only: [:new, :create, :edit, :update] do
+    post 'change', on: :collection
+  end
 
   resources :classrooms do
     resources :materials
@@ -27,6 +29,8 @@ Rails.application.routes.draw do
     member do
       get 'join'
       get 'notices'
+      post 'crop'
+      post 'create_ava'
     end
   end
 
@@ -41,7 +45,6 @@ Rails.application.routes.draw do
   resources :users do
     member do
       post 'crop'
-      get 'new_ava'
       post 'new_ava' => 'users#create_ava'
     end
   end

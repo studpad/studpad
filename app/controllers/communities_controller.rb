@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-  before_action :find_community, except: [:create, :index]
+  before_action :find_community, except: [:create, :index, :create_ava]
 
   def edit
   end
@@ -35,12 +35,29 @@ class CommunitiesController < ApplicationController
     @news_action = community_news_index_path(params[:id])
   end
 
+  def create_ava
+    a = Attachment.create(file: params[:avatar])
+    render json: { url: a.file.url, attachment_id: a.id  }
+  end
+
+  def crop
+    a = Attachment.find(params[:attachment_id])
+    @community.update_attribute :avatar, a.file.file
+    a.destroy
+    @community.avatar.crop(params[:crop_x], params[:crop_y], params[:crop_w],
+     params[:crop_h], params[:height], params[:width])
+    @community.save! #нахождение этой строчки именно здесь важно
+    @community.avatar.recreate_versions!
+
+    redirect_to community_path
+  end
+
   private
     def find_community
       @community = Community.find params[:id]
     end
 
     def community_params
-      params.require(:community).permit(:name, :status)
+      params.require(:community).permit(:name, :status, :description)
     end
 end

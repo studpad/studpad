@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719125850) do
+ActiveRecord::Schema.define(version: 20150720103338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,12 +68,14 @@ ActiveRecord::Schema.define(version: 20150719125850) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "communities", force: :cascade do |t|
-    t.string   "name",                   null: false
-    t.integer  "status",     default: 0
+    t.string   "name",                    null: false
+    t.integer  "status",      default: 0
     t.integer  "creator_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "founder_id"
+    t.string   "description"
+    t.string   "avatar"
   end
 
   add_index "communities", ["creator_id"], name: "index_communities_on_creator_id", using: :btree

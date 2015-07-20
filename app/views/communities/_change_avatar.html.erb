@@ -8,15 +8,21 @@
       <div class="modal-body">
         <div id="mywrapper">
         </div>
-
+        <%= form_tag create_ava_community_path(@community), id: "avatar-dropzone" do %>
         <div class = 'drop-zone margin-b40'>
-                  Загрузите новую фотографию сообщества
+                  Загрузите новую фотографию профиля
                   </br>
                   Кликните или перетащите изображение сюда
         </div>
-
-        <%#= image_tag @current_user.avatar.url, :id => "cropbox" %>
-        
+        <% end %>
+        <%= form_tag crop_community_path(@community), id: "crop-form" do %>
+          <% for a in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+            <%= hidden_field_tag a %>
+          <% end %>
+          <%= hidden_field_tag :height %>
+          <%= hidden_field_tag :width %>
+          <%= hidden_field_tag :attachment_id %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button id="send-avatar" type="submit" class="btn btn-primary btn-st">Сохранить</button>
