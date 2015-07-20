@@ -15,7 +15,9 @@
             </div>
             <div class = 'row'>
               <div class = 'col-xs-5 field-edit-avatar'>
-                <div class = 'current-edit-community-avatar_img' style = 'background: url(https://pp.vk.me/c7009/v7009943/b2d3/3ZEJBDWTZag.jpg) no-repeat; background-size: cover;'>
+                <div class = 'current-edit-community-avatar_img' style = 'background: url(
+                <%= @community.avatar_safe_url %>
+                ) no-repeat; background-size: cover;'>
                 </div>
                 <div class = 'align-c'><a class = 'edit-community-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фото сообщества</a></div>
               </div>
@@ -25,7 +27,7 @@
 
                   <%= f.text_field :name, class: 'form-control input-sp input-edit-community-name', placeholder: 'Название Вашего сообщества' %>
                   </br>
-                  <textarea class = 'form-control my-setting-form-control' placeholder = 'Описание Вашего сообщества'></textarea>
+                  <%= f.text_area :description, class: 'form-control my-setting-form-control', placeholder: 'Описание Вашего сообщества' %>
                   <div>
                     <span class = "title-underline">
                           Выберите тип Вашего сообщества

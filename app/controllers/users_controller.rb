@@ -42,16 +42,14 @@ class UsersController < ApplicationController
   end
 
   def create_ava
-    #@user = current_user
-    if @user.update_attribute :avatar, params[:avatar]
-      render json: { url: @user.avatar.url, attachment_id: 1  }
-    else
-      render json: { error: "Что-то пошло не так" }
-    end
+    a = Attachment.create(file: params[:avatar])
+    render json: { url: a.file.url, attachment_id: a.id  }
   end
 
   def crop
-    #@user = current_user
+    a = Attachment.find(params[:attachment_id])
+    @user.update_attribute :avatar, a.file.file
+    a.destroy
     @user.avatar.crop(params[:crop_x], params[:crop_y], params[:crop_w],
      params[:crop_h], params[:height], params[:width])
     @user.save! #нахождение этой строчки именно здесь важно

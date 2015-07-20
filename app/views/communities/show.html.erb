@@ -6,7 +6,9 @@
           <%= render "menu" %>
     </div>
     <div class = 'community-heading'>
-        <div class = 'big-avatar-community' style = 'background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg); background-size: cover;'>
+        <div class = 'big-avatar-community' style = 'background: url(
+        <%= @community.avatar_safe_url %>
+        ); background-size: cover;'>
         </div>
         <div class = 'info-community'>
           <div class = 'description-community'>
@@ -15,7 +17,7 @@
                 <%= @community.name %>
               </span>
             </div>
-            Представляем вам простую оболочку для h1, которая устанавливает соответствующий отступ и сегментирует содержание страницы. В ней можно использовать элемент по умолчанию small и h1, а также много других компонентов (с дополнительными стилями). Представляем вам простую оболочку для h1, которая устанавливает соответствующий отступ и сегментирует содержание страницы. В ней можно использовать элемент по умолчанию small и h1, а также много других компонентов (с дополнительными стилями).
+            <%= @community.description %>
           </div>
           <div class = 'wrap-join-to-community'>
             <%= link_to join_community_path(@community), remote: true do %>

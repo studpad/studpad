@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     member do
       get 'join'
       get 'notices'
+      post 'crop'
+      post 'create_ava'
     end
   end
 
@@ -43,7 +45,6 @@ Rails.application.routes.draw do
   resources :users do
     member do
       post 'crop'
-      get 'new_ava'
       post 'new_ava' => 'users#create_ava'
     end
   end
