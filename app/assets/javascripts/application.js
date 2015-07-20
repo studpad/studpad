@@ -30,6 +30,7 @@
 //= require join
 //= require player
 //= require avatar
+//= require change_password
 
 Dropzone.autoDiscover = false;
 
