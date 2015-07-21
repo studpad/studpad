@@ -25,7 +25,15 @@
                   <div class="profile-notice-name">
                     <%= link_to n.user.name, user_path(n.user) %>
                   <span class="profile-notice-date">• 12 апреля, 2014</span></div>
-                  <div class="profile-notice-text"><%= n.mode_rus %> </div>
+                  <div class="profile-notice-text"><%= n.mode_rus %>
+                  <% if n.mode == 'request' %>
+                  &nbsp;
+                  <%= link_to 'Отклонить', community_notice_path(@community, n),
+                  class: 'btn btn-xs btn-default btn-st-inert notice_delete', remote: true, method: :delete %>
+                  <%= link_to 'Принять', community_notice_path(@community, n),
+                  class: 'btn btn-primary btn-xs btn-st', method: :patch %>
+                  <% end %>
+                </div>
                 </div>
               </div>
             </div>

@@ -31,6 +31,7 @@
 //= require player
 //= require avatar
 //= require change_password
+//= require notifications
 
 Dropzone.autoDiscover = false;
 

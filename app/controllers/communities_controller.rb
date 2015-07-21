@@ -22,8 +22,12 @@ class CommunitiesController < ApplicationController
   end
 
   def join
-    unless @community.member? current_user
-      @community.users << current_user
+    if @community.secret?
+      @community.notifications.create user_id: current_user.id, mode: 'request'
+    else
+      unless @community.member? current_user
+        @community.users << current_user
+      end
     end
     redirect_to @community
   end
