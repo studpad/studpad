@@ -16,10 +16,8 @@
           <div class = 'useful-material_subject'>
             <% if material.subject %><span class = 'badge badge-sp'><%= material.subject.name %></span><% end %>
           </div>
-          <div class = 'main-text-news'>
-            <span class = 'span-main-text-news'>
+          <div class = 'description-material'>
               <%= material.description %>
-            </span>
           </div>
 
           <% material.audios.each do |a| %>
