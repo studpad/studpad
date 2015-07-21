@@ -25,39 +25,36 @@
 </div> -->
 
 <div class = 'card-sp classes-and-communities'>
-  <div class = 'left-block-name'>
+  <div class = 'block-title'>
     Сообщества
   </div>
-  <div class = 'left-block-notice'>
+  <div class = 'block-objects'>
 
-     <div class = 'profile-notice-mini'>
-      <div class="profile-notice-background-mini">
-        <div class = "profile-notice-avatar-mini" style="background: url(https://pp.vk.me/c7009/v7009479/1e78/tgHhGcS1mcI.jpg) no-repeat; background-size: cover;">
+    <div class = 'preview-object'>
+        <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c7009/v7009404/2445/GXEqpYbo_LM.jpg) no-repeat; background-size: cover;">
         </div>
-        <div class="profile-notice-name-text-mini">
-          <div class="profile-notice-text"><a></a> присоединился</div>
+        <div class="preview-object-info">
+          <div class = 'object-name'><a>Очень секретно</a></div>
+          <div class = 'object-text'>Закрытое сообщество</div>
         </div>
-      </div>
     </div>
 
-    <div class = 'profile-notice-mini'>
-      <div class="profile-notice-background-mini">
-        <div class="profile-notice-avatar-mini" style="background: url(https://pp.vk.me/c7009/v7009342/26b6/5qpGumJE8w8.jpg) no-repeat; background-size: cover;">
+    <div class = 'preview-object'>
+        <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c7009/v7009943/bb3b/sw8R5nIyYiM.jpg) no-repeat; background-size: cover;">
         </div>
-        <div class="profile-notice-name-text-mini">
-          <div class="profile-notice-text"><a></a> поделился материалом</div>
+        <div class="preview-object-info">
+          <div class = 'object-name'><a>Очень секретно, хотя не очень</a></div>
+          <div class = 'object-text'>Открытое сообщество</div>
         </div>
-      </div>
     </div>
 
-    <div class = 'profile-notice-mini'>
-      <div class="profile-notice-background-mini">
-        <div class="profile-notice-avatar-mini" style="background: url(https://pp.vk.me/c7009/v7009943/bc2f/EUKknm6z6iM.jpg) no-repeat; background-size: cover;">
+    <div class = 'preview-object'>
+        <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c7009/v7009943/bd4e/ZSfURcAwewM.jpg) no-repeat; background-size: cover;">
         </div>
-        <div class="profile-notice-name-text-mini">
-          <div class="profile-notice-text"><a></a> хочет присоединиться</div>
+        <div class="preview-object-info">
+          <div class = 'object-name'><a>Очень секретно</a></div>
+          <div class = 'object-text'>Закрытое сообщество</div>
         </div>
-      </div>
     </div>
 
     <input type = 'button' id = 'create-community' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-community" value = 'Создать сообщество' />
@@ -75,10 +72,10 @@
   </div>
 </div> -->
 <div class = "classes-and-communities card-sp margin-t15 margin-b40">
-  <div class = 'left-block-name'>
+  <div class = 'block-title'>
     Классы
   </div>
-  <div class = "left-block-notice">
+  <div class = "block-objects">
     <% if @user.teacher? %>
       <% @user.classrooms.each do |c| %>
         <%= link_to c.name, classroom_path(c) %>
@@ -86,7 +83,9 @@
     <% else %>
       <%= link_to @user.classroom.name, classroom_path(@user.classroom) %>
     <% end %>
-    <a>11 А<a/>
+    <div class="preview-object-info margin-l0">
+      <div class = 'object-name'><a>11 А</a>, <a>5 Б</a></div>
+    </div>
     </br>
     <% if @user.teacher? %>
       <input type = 'button' id = 'create-class' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-class" value = 'Создать класс' />

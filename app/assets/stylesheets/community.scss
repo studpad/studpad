@@ -21,7 +21,7 @@
 }
 
 .community-heading{
-	height: 220px;
+	height: 230px;
 	background-color: white;
 	padding: 15px;
 	padding-bottom: 5px;
@@ -39,7 +39,7 @@
 	padding-left: 15px;
 }
 .description-community{
-	height: 158px;
+	max-height: 158px;
 	font-size: 13px;
 	overflow-y: hidden;
 	position: relative;
@@ -76,7 +76,7 @@
 }
 .you-are-participant{
 	  color: #383838 !important;
-	  background-color: #EEF3F5 !important;
+	  background-color: #F2F4F5 !important;
 	  border-radius: 2px !important;
 	  padding: 6px !important;
 	  padding-left: 10px !important;
