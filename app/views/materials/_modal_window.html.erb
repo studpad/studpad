@@ -17,10 +17,8 @@
               <div class = 'container-fluid'>
                 <div class = 'row'>
                   <div class = 'col-xs-7'>
-                    <div class = 'margin-b30'>
-                      <span class = 'title-underline'>
-                        Описание
-                      </span> &nbsp;•&nbsp; <select class="js-basic-multiple choice-theme-material" name="tag" multiple="multiple">
+                    <div class = 'margin-b20'>
+                      <select class="js-basic-multiple choice-theme-material" name="tag" multiple="multiple">
                                               <option disabled>Предметная область материала</option>
                                               <%= options_from_collection_for_select(Subject.all, 'id', 'name') %>
                                               <!-- <option>Русский язык</option>
@@ -41,10 +39,15 @@
                     <% end %>
                   </div>
                   <div class = 'col-xs-5'>
-                    <div class = 'margin-b30'>
-                      <span class = 'title-underline'>
-                        Файлы
-                      </span>
+                    <div class = 'margin-b20'>
+                      <div class = 'preview-object autor-material'>
+                        <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg) no-repeat; background-size: cover;">
+                        </div>
+                        <div class="preview-object-info">
+                          <div class = 'object-name'><a>Это мое сообщество</a></div>
+                          <div class = 'object-text'>Открытое сообщество</div>
+                        </div>
+                      </div>
                     </div>
                     <%= form_tag( attachments_path,  id: 'material-dropzone' ) do %>
                       <div class = 'drop-zone margin-b40'>

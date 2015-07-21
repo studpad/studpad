@@ -6,34 +6,15 @@
     </div>
   <% end %>
 
-  <div class = 'wrap-autor-material'>
-    <div class = 'autor-material'>
-      <div class = 'row'>
-        <div class = 'col-xs-12'>
-          <div class = 'preview-object'>
-            <div class = "preview-object-avatar-mini" style="background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg) no-repeat; background-size: cover;">
-            </div>
-            <div class="preview-object-info-mini">
-              <div class = 'object-name'><a>Это мое сообщество</a></div>
-              <div class = 'object-text'>Открытое сообщество</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   
+
   <div class = 'useful-material_info view-the-material'
   link = '<%= material_path(material) %>' data-toggle="modal" data-target="#view_material">
     <div class = 'container-fluid'>
       <div class = 'row'>
         <div class = 'col-lg-7 col-md-7 col-xs-7'>
-          <div class = 'margin-b10'>
-            <div class = 'margin-b10'>
-              <span class = 'title-underline'>
-                Описание<% if material.subject %>&nbsp; • &nbsp;<span class = 'badge badge-sp'><%= material.subject.name %></span> <% end %>
-              </span>
-            </div>
+          <div class = 'useful-material_subject'>
+            <% if material.subject %><span class = 'badge badge-sp'><%= material.subject.name %></span><% end %>
           </div>
           <div class = 'main-text-news'>
             <span class = 'span-main-text-news'>
@@ -91,10 +72,16 @@
         <div class = 'col-lg-5 col-md-5 col-xs-5'>
           <% if material.images.any? || material.files.any? %>
             <div class = 'margin-b20'>
-              <span class = 'title-underline'>
-                Файлы
-              </span>
+              <div class = 'preview-object autor-material'>
+                <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg) no-repeat; background-size: cover;">
+                </div>
+                <div class="preview-object-info">
+                  <div class = 'object-name'><a>Это мое сообщество</a></div>
+                  <div class = 'object-text'>Открытое сообщество</div>
+                </div>
+              </div>
             </div>
+            <% if material.images.any? %>
             <div class = 'wrap-photos margin-b20'>
               <div class = 'row'>
                 <% material.images.each do |f| %>
@@ -105,6 +92,7 @@
                 <% end %>
               </div>
             </div>
+            <% end %>
             <% material.files.each do |f| %>
               <div class = 'this-material'>
                 <div class = 'files-image type-document'>
