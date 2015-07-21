@@ -136,6 +136,14 @@ function main(){
     $(this).parent().prepend('<span>Вы с нами!</span>');
   });
 
+  $(".useful-material_post").hover(
+      function(){
+        $(this).children('.wrap-autor-material').children().fadeIn(400);
+      },
+      function(){
+        $(this).children('.wrap-autor-material').children().fadeOut(400);
+  });
+
 
 }
 

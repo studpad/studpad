@@ -1,31 +1,28 @@
 <div class = 'card-sp first-left-block'>
-  <div class = 'left-block-name'>
+  <div class = 'block-title'>
     <%= @classroom.name %>
   </div>
-  <div class = 'left-block-founder'>
-    <div class="feed-profile-background">
-     <div class="feed-profile-avatar" style="background: url(
-     <%= @classroom.main_teacher.avatar_safe_url :thumb %>
-     ) no-repeat; background-size: cover;">
+  <div class = 'block-objects'>
+    <div class = 'preview-object autor-material'>
+      <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg) no-repeat; background-size: cover;">
       </div>
-      <div class="feed-profile-name-email">
-        <div class="feed-profile-name"><%= @classroom.main_teacher.name %></div>
-        <div class="feed-profile-email">Создатель</div>
+      <div class="preview-object-info">
+        <div class = 'object-name'><%= @classroom.main_teacher.name %></div>
+        <div class = 'object-text'>
+          Создатель
+        </div>
       </div>
     </div>
-  </div>
-  <% if current_user %>
-    <div class = 'left-block-welcome'>
-      <%= link_to join_classroom_path(@classroom), remote: true,
-      id: 'join-to-class', class: 'btn btn-primary btn-st' do %>
-        Присоединиться
-      <% end unless (@classroom.is_student? current_user)%>
 
-      <span class = 'settings-left-block'>
-        <%= link_to edit_classroom_path(@classroom) do %>
-        <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
-        <% end if @classroom.is_main_teacher? current_user %>
-      </span>
-    </div>
-  <% end %>
+    <%= link_to join_classroom_path(@classroom), remote: true,
+    id: 'join-to-class', class: 'btn btn-primary btn-st' do %>
+      Присоединиться
+    <% end unless (@classroom.is_student? current_user)%>
+
+    <span class = 'settings-left-block'>
+      <%= link_to edit_classroom_path(@classroom) do %>
+      <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
+      <% end if @classroom.is_main_teacher? current_user %>
+    </span>
+  </div>
 </div>

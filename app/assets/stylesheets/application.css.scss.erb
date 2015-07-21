@@ -25,6 +25,7 @@
  *= require audio
  *= require font-awesome.min
  *= require notification
+ *= require material
  */
 
 @import "bootstrap-sprockets";
@@ -152,7 +153,7 @@
     }
     .squares-menu > div > a > .badge{
       color: #3680BE;
-      background-color: #F4F4F4;
+      background-color: #F2F4F5;
       border-radius: 2px;
       margin-top: 4px;
     }
@@ -251,38 +252,6 @@
       font-size: 14px;
       border-bottom: 2px solid #3680be;
       line-height: 22px;
-    }
-    .autor-material{
-      padding-left: 48px;
-    }
-    .autor-material> div{
-      height: 51px;
-    }
-    .autor-material> div > .profile-notice-avatar{
-        width: 32px;
-        height: 32px;
-    }
-    .autor-material> div > .profile-notice-name-text{
-        bottom: 25px;
-        left: 40px;
-    }
-    .autor-material> div > .profile-notice-name-text > .profile-notice-name{
-        font-size: 13px;
-    }
-    .autor-material> div > .profile-notice-name-text > .profile-notice-text{
-        font-size: 11px;
-    }
-    .avatar-autor-material{
-      float: left;
-      width: 28px;
-      height: 28px;
-    }
-    .name-autor-material{
-      font-size: 13px;
-      margin-left: 37px;
-      width: 273px;
-      height: 35px;
-      overflow-y: hidden; 
     }
     .img-avatar-on-material{
       border-radius: 2px;
@@ -469,8 +438,9 @@
     .main-text-news{
       color: #383838;
       font-size: 13px;
-      margin-top: 5px;
+      margin-top: 0;
       padding: 3px;
+      padding-left: 0;
     }
     .wrap-img-in-page{
       margin-top: 0px;
@@ -558,9 +528,7 @@
      .the-comment:hover .sign-sp{
       display: block;
      }
-     .useful-material_info:hover .sign-sp{
-      display: block;
-     }
+     
     .close-news{
       text-align: right;
     }
@@ -883,16 +851,7 @@
      .album-data-created{
       padding: 5px;
      }
-     .useful-material_info{
-      padding-top: 20px;
-      min-height: 149px;
-      padding-left: 35px;
-      border-top: 1px solid rgb(242, 242, 242);
-      cursor: pointer;
-      &:hover{
-        background-color: #FBFBFA;
-      }
-     }
+     
      .useful-material_info_view{
       padding-left: 45px;
       padding-right: 45px;
@@ -1391,7 +1350,7 @@ textarea.form-control{
     
     width: 100%;
     padding: 30px 0;
-    margin-top: 43px;
+    margin-top: 28px;
     
     background: #FAFAFA;
     border: 1px dashed #ccc;
@@ -1504,6 +1463,9 @@ textarea.form-control{
 }
 .margin-b20{
   margin-bottom: 20px;
+}
+.margin-b15{
+  margin-bottom: 15px;
 }
 .margin-t10{
   margin-top: 10px;
@@ -1882,9 +1844,35 @@ input[type=radio] {
   padding-left: 15px;
   padding-right: 15px;
 }
+.all-notices > div{
+  margin-bottom: 20px;
+}
+.all-notices > div > .preview-object-info{
+  width: 80%;
+}
 .badge-sp{
   color: #FFFFFF;
   background-color: #3680BE;
   border-radius: 2px;
   margin-top: 4px;
+}
+.choice-theme-material{
+  width: 330px;
+}
+.block-objects{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.block-objects > div{
+}
+.block-title{
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #516574;
+    background-color: #F2F4F5;
+}
+.margin-l0{
+  margin-left: 0px;
 }

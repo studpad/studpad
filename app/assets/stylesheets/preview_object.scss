@@ -1,0 +1,47 @@
+.preview-object{
+	min-height: 32px;
+}
+.preview-object-avatar{
+  width: 36px;
+  height: 36px;
+  float: left;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+.preview-object-avatar-mini{
+	width: 28px;
+  height: 28px;
+  float: left;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+.preview-object-info{
+	position: relative;
+	bottom: 2px;
+	float: left;
+	margin-left: 5px;
+	width: 159px;
+	margin-bottom: 12px;
+}
+.preview-object-info-mini{
+	position: relative;
+	bottom: 3px;
+	float: left;
+	margin-left: 5px;
+	width: 163px;
+	margin-bottom: 12px;
+}
+.preview-object-info > .object-name{
+  font-size: 13px;
+}
+.preview-object-info > .object-text{
+  font-size: 12px;
+  color: #516574;
+}
+.preview-object-info-mini > .object-name{
+  font-size: 13px;
+}
+.preview-object-info-mini > .object-text{
+  font-size: 12px;
+  color: #516574;
+}

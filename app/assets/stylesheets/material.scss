@@ -1,0 +1,28 @@
+.autor-material{
+	margin-top: 4px;
+}
+.useful-material_subject > .badge-sp{
+	border-radius: 2px;
+	padding: 11px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.useful-material_info{
+  min-height: 149px;
+  padding-left: 35px;
+  padding-top: 35px;
+  cursor: pointer;
+  &:hover{
+    background-color: #FBFBFA;
+  }
+}
+.useful-material_info:hover .sign-sp{
+  display: block;
+ }
+ .description-material{
+  color: #383838;
+  font-size: 13px;
+  margin-top: 20px;
+  padding: 3px;
+  padding-left: 0;
+ }
