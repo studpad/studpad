@@ -4,6 +4,7 @@ class Community < ActiveRecord::Base
 
   has_many :community_shares
   has_many :materials, through: :community_shares
+  has_many :notifications, as: :notable
 
   belongs_to :founder, class_name: 'User'
   enum status: { open: 0, secret: 1 }

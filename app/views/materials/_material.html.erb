@@ -5,23 +5,22 @@
       <img src = '<%= main_image.file.url %>' width = '100%'/>
     </div>
   <% end %>
-  <div class = 'row margin-b20 margin0'>
-    <div class="profile-notice autor-material col-xs-7">
-      <div class="profile-notice-background">
-       <div class="profile-notice-avatar" style="background: url(
-       https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg
-       ) no-repeat; background-size: cover;">
-        </div>
-        <div class="profile-notice-name-text">
 
-          <div class="profile-notice-name">
-            <a href="/users/3">Это мое сообщество</a>
+  <div class = 'wrap-autor-material'>
+    <div class = 'autor-material'>
+      <div class = 'row'>
+        <div class = 'col-xs-12'>
+          <div class = 'preview-object'>
+            <div class = "preview-object-avatar-mini" style="background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg) no-repeat; background-size: cover;">
+            </div>
+            <div class="preview-object-info-mini">
+              <div class = 'object-name'><a>Это мое сообщество</a></div>
+              <div class = 'object-text'>Открытое сообщество</div>
+            </div>
           </div>
-          <div class="profile-notice-text">Открытое сообщество</div>
         </div>
       </div>
     </div>
-    
   </div>
   
   <div class = 'useful-material_info view-the-material'
@@ -32,8 +31,8 @@
           <div class = 'margin-b10'>
             <div class = 'margin-b10'>
               <span class = 'title-underline'>
-                Описание
-              </span><% if material.subject %>&nbsp; • &nbsp;<span class = 'badge badge-sp'><%= material.subject.name %></span> <% end %>
+                Описание<% if material.subject %>&nbsp; • &nbsp;<span class = 'badge badge-sp'><%= material.subject.name %></span> <% end %>
+              </span>
             </div>
           </div>
           <div class = 'main-text-news'>
@@ -91,7 +90,7 @@
         </div>
         <div class = 'col-lg-5 col-md-5 col-xs-5'>
           <% if material.images.any? || material.files.any? %>
-            <div class = 'margin-b15'>
+            <div class = 'margin-b20'>
               <span class = 'title-underline'>
                 Файлы
               </span>

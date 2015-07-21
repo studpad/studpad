@@ -1,0 +1,42 @@
+<div class ='container' id = 'main-container'>
+  <%= render "/communities/left_branch" %>
+  <%= render "/partials/profile" %>
+  <div class = 'main-wall'>
+    <div class = 'submenu'>
+          <%= render "/communities/menu" %>
+    </div>
+    <div class = 'row'>
+      <div class = 'col-xs-12'>
+        <div class = 'card-sp sharp-wrap'>
+          <div class="title-background-border title-without-border">
+            <div class="title-page">
+              Уведомления
+            </div>
+          </div>
+          <div class = 'all-notices'>
+            <% @notices.each do |n| %>
+            <div class = 'profile-notice'>
+              <div class="profile-notice-background">
+                <div class="profile-notice-avatar" style="background: url(
+                <%= n.user.avatar_safe_url%>
+                ) no-repeat; background-size: cover;">
+                </div>
+                <div class="profile-notice-name-text">
+                  <div class="profile-notice-name">
+                    <%= link_to n.user.name, user_path(n.user) %>
+                  <span class="profile-notice-date">• 12 апреля, 2014</span></div>
+                  <div class="profile-notice-text"><%= n.mode_rus %> </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <%= render "/partials/modal_share" %>
+    <%= render "/partials/view_material" %>
+</div>

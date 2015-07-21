@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   before_validation :remove_whitespaces
   has_many :news_items
   has_many :materials
-  #has_many :s
+  has_many :notifications
   has_and_belongs_to_many :communities
 
   authenticates_with_sorcery!

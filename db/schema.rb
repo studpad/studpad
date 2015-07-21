@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720103338) do
+ActiveRecord::Schema.define(version: 20150720144329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,20 @@ ActiveRecord::Schema.define(version: 20150720103338) do
 
   add_index "news_items", ["source_type", "source_id"], name: "index_news_items_on_source_type_and_source_id", using: :btree
   add_index "news_items", ["user_id"], name: "index_news_items_on_user_id", using: :btree
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "mode"
+    t.string   "text"
+    t.boolean  "public",       default: true
+    t.integer  "user_id"
+    t.integer  "notable_id"
+    t.string   "notable_type"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "notifications", ["notable_type", "notable_id"], name: "index_notifications_on_notable_type_and_notable_id", using: :btree
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name",       null: false
