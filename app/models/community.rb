@@ -19,6 +19,10 @@ class Community < ActiveRecord::Base
     end
   end
 
+  def status_rus
+    open? ? 'Открытое' : 'Закрытое'
+  end
+
   def member? (user)
     users.exists? user
   end
