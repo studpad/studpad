@@ -26,6 +26,7 @@ class CommunitiesController < ApplicationController
       @community.notifications.create user_id: current_user.id, mode: 'request'
     else
       unless @community.member? current_user
+        @community.notifications.create user_id: current_user.id, mode: 'join'
         @community.users << current_user
       end
     end
