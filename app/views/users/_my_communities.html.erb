@@ -2,7 +2,7 @@
   <div class = 'profile-info_name slideRight'><%= @user.name %> &nbsp;
     <%= link_to edit_user_path(@user) do %>
     <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
-    <% end %>
+    <% end if current_user == @user%>
   </div>
   <div class = 'profile-info_school'>
     <%= @user.school %>
@@ -29,33 +29,7 @@
     Сообщества
   </div>
   <div class = 'block-objects'>
-
-    <div class = 'preview-object'>
-        <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c7009/v7009404/2445/GXEqpYbo_LM.jpg) no-repeat; background-size: cover;">
-        </div>
-        <div class="preview-object-info">
-          <div class = 'object-name'><a>Очень секретно</a></div>
-          <div class = 'object-text'>Закрытое сообщество</div>
-        </div>
-    </div>
-
-    <div class = 'preview-object'>
-        <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c7009/v7009943/bb3b/sw8R5nIyYiM.jpg) no-repeat; background-size: cover;">
-        </div>
-        <div class="preview-object-info">
-          <div class = 'object-name'><a>Очень секретно, хотя не очень</a></div>
-          <div class = 'object-text'>Открытое сообщество</div>
-        </div>
-    </div>
-
-    <div class = 'preview-object'>
-        <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c7009/v7009943/bd4e/ZSfURcAwewM.jpg) no-repeat; background-size: cover;">
-        </div>
-        <div class="preview-object-info">
-          <div class = 'object-name'><a>Очень секретно</a></div>
-          <div class = 'object-text'>Закрытое сообщество</div>
-        </div>
-    </div>
+    <%= render collection: @user.communities, partial: 'community' %>
 
     <input type = 'button' id = 'create-community' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-community" value = 'Создать сообщество' />
   </div>
@@ -76,15 +50,17 @@
     Классы
   </div>
   <div class = "block-objects">
-    <% if @user.teacher? %>
-      <% @user.classrooms.each do |c| %>
-        <%= link_to c.name, classroom_path(c) %>
-      <% end %>
-    <% else %>
-      <%= link_to @user.classroom.name, classroom_path(@user.classroom) %>
-    <% end %>
+
     <div class="preview-object-info margin-l0">
-      <div class = 'object-name'><a>11 А</a>, <a>5 Б</a></div>
+      <div class = 'object-name'>
+        <% if @user.teacher? %>
+          <% @user.classrooms.each do |c| %>
+            <%= link_to c.name, classroom_path(c) %>
+          <% end %>
+        <% else %>
+          <%= link_to @user.classroom.name, classroom_path(@user.classroom) %>
+        <% end %>
+      </div>
     </div>
     </br>
     <% if @user.teacher? %>

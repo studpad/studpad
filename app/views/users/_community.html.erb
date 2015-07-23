@@ -1,0 +1,10 @@
+<div class = 'preview-object'>
+    <div class = "preview-object-avatar" style="background: url(
+    <%= community.avatar_safe_url %>
+    ) no-repeat; background-size: cover;">
+    </div>
+    <div class="preview-object-info">
+      <div class = 'object-name'><%= link_to community.name, community_path(community) %></div>
+      <div class = 'object-text'><%= community.status_rus%></div>
+    </div>
+</div>

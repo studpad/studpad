@@ -31,6 +31,12 @@
                   </li>
                 </ul>
               </span>
+            <% elsif (@community.secret? && @community.notifications.exists?(user_id: current_user.id, mode: 'requestion')) %>
+              <span>
+                <a class="dropdown-toggle you-are-participant badge" data-toggle="dropdown" href="#">
+                  Вы подали заявку
+                </a>
+              </span>
             <% else %>
               <%= link_to join_community_path(@community) do %>
               <input type = 'button' id = 'join-to-community' class = 'btn btn-primary btn-st' value = 'Присоединиться'/>

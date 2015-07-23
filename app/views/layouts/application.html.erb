@@ -39,12 +39,27 @@
                   <%= link_to logout_path do %>
                     <span class="text">Выйти</span>
                   <% end if current_user %>
-                  <% if current_user && current_user.student? && current_user.classroom %>
+                  <% if current_user %>
+                    <% if current_user.student? && current_user.classroom %>
                     <%= link_to classroom_path(current_user.classroom) do %>
                       <span><%= image_tag "homeworkclass.png", size: "28x28" %></span>
                       <span class="text">Мой класс</span>
+                      <% end %>
+                    <% elsif current_user.teacher? %>
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Ваши классы
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <% current_user.his_main_classrooms.each do |c|%>
+                        <li><%= link_to c.name, classroom_path(c) %></li>
+                        <% end %>
+                      </ul>
                     <% end %>
                   <% end %>
+
+
+
               </nav>
             </div>
           </div>

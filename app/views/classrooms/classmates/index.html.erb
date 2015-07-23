@@ -15,6 +15,7 @@
           <div class = 'card-sp sharp-wrap'>
             <div class = 'container-fluid'>
               <div class = 'row'>
+                <%= render partial: 'classmate', object: @classroom.main_teacher %>
                 <%= render partial: 'classmate', collection: @classmates %>
               </div>
             </div>

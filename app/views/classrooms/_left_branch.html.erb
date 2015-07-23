@@ -4,10 +4,14 @@
   </div>
   <div class = 'block-objects'>
     <div class = 'preview-object autor-material'>
-      <div class = "preview-object-avatar" style="background: url(https://pp.vk.me/c627724/v627724106/b57f/aopwePxhjio.jpg) no-repeat; background-size: cover;">
+      <div class = "preview-object-avatar" style="background: url(
+      <%=  @classroom.main_teacher.avatar_safe_url %>
+      ) no-repeat; background-size: cover;">
       </div>
       <div class="preview-object-info">
-        <div class = 'object-name'><%= @classroom.main_teacher.name %></div>
+        <div class = 'object-name'>
+          <%=link_to @classroom.main_teacher.name, user_path(@classroom.main_teacher) %>
+        </div>
         <div class = 'object-text'>
           Создатель
         </div>
