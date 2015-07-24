@@ -1559,11 +1559,7 @@ textarea.form-control{
   right: 25px;
 }
 #profile_user{
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  width: 220px;
-  margin-left: -556px;
+  padding-top: 10px;
 }
 .feed-profile-avatar{
   position: relative;
@@ -1584,7 +1580,7 @@ textarea.form-control{
       background-image: white;
       border-radius: 2px;
       border-bottom: none;
-      height: 60px;
+      min-height: 60px;
  }
  .feed-profile-name-email{
     height: 0px;
@@ -1594,8 +1590,8 @@ textarea.form-control{
     left: 58px;
 
  }
- .feed-profile-name{
-    font-size: 15px;
+ .profile-name{
+    font-size: 14px !important;
     color: #393939;
     font-weight: bold;
 
@@ -1707,11 +1703,7 @@ textarea.form-control{
   padding-top: 6px;
 }
 .first-left-block{
-  position: absolute;
-  top: 133px;
-  left: 50%;
-  width: 220px;
-  margin-left: -556px;
+  margin-top: 12px;
 }
 .second-left-block{
   position: absolute;
@@ -1875,4 +1867,23 @@ input[type=radio] {
 }
 .margin-l0{
   margin-left: 0px;
+}
+#community_description{
+  min-height: 38px;
+}
+.each-class{
+  background-color: #9CA7B0;
+  &:hover{
+    background-color: #3680BE;
+  }
+}
+.left-branch{
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  width: 220px;
+  margin-left: -556px;
+}
+.clearer {
+  clear: both;
 }
