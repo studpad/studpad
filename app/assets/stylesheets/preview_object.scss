@@ -8,6 +8,10 @@
   border-radius: 2px;
   -webkit-border-radius: 2px;
 }
+.profile-preview-object-avatar{
+  width: 40px !important;
+  height: 40px !important;
+}
 .preview-object-avatar-mini{
 	width: 28px;
   height: 28px;
@@ -22,6 +26,10 @@
 	margin-left: 5px;
 	width: 159px;
 	margin-bottom: 12px;
+}
+.profile-preview-object-info{
+  width: 152px !important;
+  margin-bottom: 0 !important;
 }
 .preview-object-info-mini{
 	position: relative;
