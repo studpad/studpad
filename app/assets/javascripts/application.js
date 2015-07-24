@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
 //= require bootstrap-sprockets
 //= require jquery.fancybox
 //= require jquery.Jcrop.min
@@ -24,7 +27,7 @@
 //= require selectize
 //= require share_materials
 //= require autoresize.jquery.min
-//= require news
+//= require livenews
 //= require communities
 //= require jquery.jplayer.min
 //= require join

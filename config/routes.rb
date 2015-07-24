@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   resources :news
 
   resources :attachments, only: [:create, :destroy]
-  resources :comments, only: [:destroy, :update]
+  resources :comments#, only: [:destroy, :update]
   resources :users do
     member do
       post 'crop'
