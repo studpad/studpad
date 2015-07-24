@@ -58,7 +58,7 @@
             <%= link_to c.name, classroom_path(c) %>
           <% end %>
         <% else %>
-          <%= link_to @user.classroom.name, classroom_path(@user.classroom) %>
+          <%= link_to @user.classroom.name, classroom_path(@user.classroom) if @user.classroom %>
         <% end %>
       </div>
     </div>
