@@ -10,4 +10,6 @@ class CommentsController < ApplicationController
     c.destroy
     redirect_to c.commentable.source
   end
+
+
 end

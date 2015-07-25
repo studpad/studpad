@@ -2,7 +2,7 @@ class NewsController < ApplicationController
   def create
     @news = NewsItem.create news_params do |n|
       n.user_id = current_user.id
-      n.source = Classroom.find(params[:classroom_id])
+      #n.source = Classroom.find(params[:classroom_id])
     end
 
     @files = params[:attached_files]
@@ -13,8 +13,10 @@ class NewsController < ApplicationController
       f.save!
     end
 
-    @news.attachments(true)
-    render 'show', layout: false
+    # @news.attachments(true)
+    # render 'show', layout: false
+    @newsItems = NewsItem.all.order(created_at: :desc)
+    render 'index', formats: :json
   end
 
   def destroy
@@ -35,6 +37,11 @@ class NewsController < ApplicationController
     n = NewsItem.find(params[:id])
     n.update_attribute :text, params[:text]
     redirect_to n.source #classroom_path(n.classroom_id)
+  end
+
+  def index
+    @newsItems = NewsItem.all.order(created_at: :desc)
+    render 'index', formats: :json
   end
 
   private
