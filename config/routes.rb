@@ -10,9 +10,7 @@ Rails.application.routes.draw do
     resources :materials
     resources :classmates, controller: "classrooms/classmates"
     resources :homeworks, controller: "classrooms/homeworks"
-    resources :news, only: :create do
-      post 'comment', on: :member
-    end
+    resources :news, controller: "classrooms/news"
     member do
       get 'join'
       get 'new_student'
