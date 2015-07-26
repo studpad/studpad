@@ -39,6 +39,14 @@ var NewsItem = React.createClass({
   editClick: function(){
     this.setState({editable: !this.state.editable});
   },
+  updateClick: function(){
+    var text = React.findDOMNode(this.refs.text).value.trim();
+    if (!text) {
+      return;
+    }
+    this.setState({editable: false});
+    this.props.updateNewsItem(this.props.data.id, text);
+  },
   render: function() {
     var comments = this.props.data.comments;
     comments = comments.map(function (n) {
@@ -46,6 +54,29 @@ var NewsItem = React.createClass({
         <Comment author={n.author} text={n.text} time={n.time}/>
       );
     });
+    var mainPart;
+    if (this.state.editable) {
+      mainPart = (
+        <div>
+          <textarea ref='text' className='form-control textHW-update'
+          defaultValue={this.props.data.text}/>
+          <div className='wrap-send-button'>
+            <button className="btn btn-primary btn-xs btn-st change-news"
+            onClick={this.updateClick}>
+              Сохранить
+            </button>
+          </div>
+        </div>
+        )
+    } else {
+      mainPart =(
+        <div className='main-text-news'>
+          <span className='span-main-text-news'>
+           {this.props.data.text}
+          </span>
+        </div>
+      )
+    }
     return (
       <div id = 'form-send-news'>
       <div className='the-news row'>
@@ -64,11 +95,7 @@ var NewsItem = React.createClass({
             <div className='news-username'>
               <a href={this.props.data.author.url}>{this.props.data.author.name}</a>
             </div>
-            <div className='main-text-news'>
-              <span className='span-main-text-news'>
-              {this.state.editable ? <h5>РЕДАКТИРОВАНИЕ</h5> : this.props.data.text}
-              </span>
-            </div>
+            {mainPart}
             <div className='form-send-comment-of-news'>
               <div className='menu-of-form-send-comment-of-news'>
                 <span className='date-news'>{this.props.data.time}</span>&nbsp;&nbsp;
@@ -89,9 +116,11 @@ var NewsItem = React.createClass({
 var NewsList = React.createClass({
   render: function() {
     var removeNewsItem = this.props.removeNewsItem;
+    var updateNewsItem = this.props.updateNewsItem;
     var newsItems = this.props.data.map(function (n) {
       return (
-        <NewsItem data={n} removeNewsItem={removeNewsItem} />
+        <NewsItem key={"newsItem" + n.id} data={n} removeNewsItem={removeNewsItem}
+        updateNewsItem={updateNewsItem}/>
       );
     });
     return (
@@ -142,6 +171,27 @@ var NewsBox = React.createClass({
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
+    });
+  },
+  updateNewsItem: function(id, data){
+    var url;
+    var newNewsItems = this.state.data.map(function (n) {
+      if (n.id == id){
+        url = n.url;
+        n.text = data;
+      }
+      return n;
+    });
+    this.setState({data: newNewsItems});
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'POST',
+      data: {
+        'news_item[text]' : data,
+        '_method': 'patch',
+        authenticity_token: formToken
+      }
     });
   },
   removeNewsItem: function(id) {
@@ -199,7 +249,8 @@ var NewsBox = React.createClass({
     return (
       <div className="commentBox">
         <NewsForm onNewsSubmit={this.handleNewsSubmit}/>
-        <NewsList data={this.state.data} removeNewsItem={this.removeNewsItem}/>
+        <NewsList data={this.state.data} removeNewsItem={this.removeNewsItem}
+        updateNewsItem={this.updateNewsItem}/>
       </div>
     );
   }

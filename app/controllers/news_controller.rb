@@ -36,8 +36,8 @@ class NewsController < ApplicationController
 
   def update
     n = NewsItem.find(params[:id])
-    n.update_attribute :text, params[:text]
-    redirect_to n.source #classroom_path(n.classroom_id)
+    n.update_attributes news_params
+    render nothing: true
   end
 
   def index
