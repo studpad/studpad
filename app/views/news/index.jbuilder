@@ -4,6 +4,8 @@ json.array! @newsItems do |n|
     json.url user_path(n.user)
     json.avatar n.user.avatar_safe_url
   end
+  json.id n.id
+  json.url news_path(n)
   json.text n.text
   json.time n.created_at.strftime("%d %b %H:%M")
   json.comments do

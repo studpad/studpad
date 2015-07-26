@@ -24,7 +24,8 @@ class NewsController < ApplicationController
     if current_user.id == news.user_id
       news.destroy
     end
-    redirect_to news.source #classroom_path(news.classroom_id)
+    #redirect_to news.source #classroom_path(news.classroom_id)
+    render nothing: true
   end
 
   def comment

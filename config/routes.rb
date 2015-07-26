@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  get 'development' => 'sessions#development' #на время разработки
+  get 'development' => 'static_pages#example' #на время разработки
 
   get 'logout' => 'sessions#destroy'
   get 'trouble' => "materials#edit"

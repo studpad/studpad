@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
       render 'main'
     end
   end
+
+  def example
+  end
 end
