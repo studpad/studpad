@@ -1,6 +1,7 @@
 
 var intervalID;
 var formToken;
+var currentUser;
 
 var Comment = React.createClass({
   render: function() {
@@ -26,6 +27,97 @@ var Comment = React.createClass({
     )
   }
 });
+var CommentForm = React.createClass({
+  sendComment: function () {
+    var textarea = React.findDOMNode(this.refs.text);
+    var text = textarea.value.trim()
+    if (!text) {
+      return;
+    }
+    textarea.value = '';
+    this.props.sendComment(text);
+  },
+  render: function () {
+    if (this.props.visible){
+      return (
+        <div>
+          <textarea ref="text" className='form-control textHW_comment my-setting-form-control'
+            placeholder="Ваш комментарий..." />
+          <button className="btn btn-primary btn-xs btn-st" onClick={this.sendComment}>
+            Отправить
+          </button>
+        </div>
+      )
+    } else {
+      return <div/>;
+    }
+  }
+});
+
+var CommentBox = React.createClass({
+  getInitialState: function() {
+    return {
+      comments: this.props.comments,
+      commentable: false
+    };
+  },
+  toggleCommentable: function(){
+    this.setState({commentable: !this.state.commentable});
+  },
+  sendComment: function(text){
+    this.toggleCommentable();
+    var comments = this.state.comments;
+    console.log(currentUser);
+    var piece = [{
+        text: text,
+        author: currentUser
+      }];
+    var newComments = piece.concat(comments);
+    this.setState({comments: newComments});
+    newComment = {
+      'comment[text]': text,
+      'comment[commentable_id]': this.props.newsId,
+      'comment[commentable_type]': 'NewsItem'
+    }
+    newComment.utf8 = "✓";
+    newComment.authenticity_token = formToken
+    $.ajax({
+      url: '/comments',
+      dataType: 'json',
+      type: 'POST',
+      data: newComment,
+      success: function(data) {
+        //this.setState({comments: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+    console.log(text);
+  },
+  render: function () {
+    var comments = this.state.comments;
+    comments = comments.map(function (c) {
+      return (
+        <Comment key={"comment" + c.id} author={c.author} text={c.text} time={c.time}/>
+      );
+    });
+    return (
+      <div>
+        <div className='form-send-comment-of-news'>
+          <div className='menu-of-form-send-comment-of-news'>
+            <span className='date-news'>{this.props.time}</span>&nbsp;&nbsp;
+            <span className='give-comment' onClick={this.toggleCommentable}>Комментировать</span>
+          </div>
+        </div>
+        <CommentForm visible={this.state.commentable} sendComment={this.sendComment}/>
+        <div className = 'each-comment-of-the-news'>
+          {comments}
+        </div>
+      </div>
+    );
+  }
+});
 
 var NewsItem = React.createClass({
   getInitialState: function() {
@@ -48,12 +140,6 @@ var NewsItem = React.createClass({
     this.props.updateNewsItem(this.props.data.id, text);
   },
   render: function() {
-    var comments = this.props.data.comments;
-    comments = comments.map(function (n) {
-      return (
-        <Comment author={n.author} text={n.text} time={n.time}/>
-      );
-    });
     var mainPart;
     if (this.state.editable) {
       mainPart = (
@@ -96,15 +182,7 @@ var NewsItem = React.createClass({
               <a href={this.props.data.author.url}>{this.props.data.author.name}</a>
             </div>
             {mainPart}
-            <div className='form-send-comment-of-news'>
-              <div className='menu-of-form-send-comment-of-news'>
-                <span className='date-news'>{this.props.data.time}</span>&nbsp;&nbsp;
-                <span className='give-comment'>Комментировать</span>
-              </div>
-            </div>
-            <div className = 'each-comment-of-the-news'>
-              {/*comments*/}
-            </div>
+            <CommentBox newsId={this.props.data.id} comments={this.props.data.comments} time={this.props.data.time}/>
           </div>
         </div>
       </div>
@@ -158,6 +236,11 @@ var NewsForm = React.createClass({
 var NewsBox = React.createClass({
   getInitialState: function() {
     formToken = this.props.token
+    currentUser = {
+      name: this.props.username,
+      avatar: this.props.userAvatar,
+      url: this.props.userUrl
+    }
     return {data: []};
   },
   loadNewsItemsFromServer: function() {
@@ -212,12 +295,10 @@ var NewsBox = React.createClass({
     //console.log("Удаление в родителе " + deletedItem.id)
   },
   handleNewsSubmit: function(text) {
-
     var newsItems = this.state.data;
     var piece = [{
         text: text,
-        author: this.props.username,
-        avatarUrl: this.props.userAvatar,
+        author: currentUser,
         comments: []
       }];
     var newNewsItems = piece.concat(newsItems);

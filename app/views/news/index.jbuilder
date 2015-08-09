@@ -10,6 +10,7 @@ json.array! @newsItems do |n|
   json.time n.created_at.strftime("%d %b %H:%M")
   json.comments do
     json.array! n.comments do |c|
+      json.id c.id
       json.text c.text
       json.author do
         json.name c.user.name

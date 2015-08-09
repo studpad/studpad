@@ -1,6 +1,6 @@
 
 $(document).on("page:load ready", function(){
-  console.log("Глобальная перезагрузка")
+  //console.log("Глобальная перезагрузка")
   //$("textarea[name=description]").autoResize()
   function clear_modal_window(){
     $("#main-photo-dropzone").show().prev().remove();
@@ -49,7 +49,7 @@ $(document).on("page:load ready", function(){
 
       $('textarea.description-add-material').autoResize({
         limit:600,
-        extraSpace:30, 
+        extraSpace:30,
         animate:true
       });
 

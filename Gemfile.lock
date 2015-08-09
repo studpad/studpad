@@ -47,6 +47,10 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.10)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.4.1)
@@ -77,6 +81,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -142,6 +147,8 @@ GEM
       multi_xml (~> 0.5)
       rack (~> 1.2)
     pg (0.18.2)
+    pundit (1.0.1)
+      activesupport (>= 3.0.0)
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -238,6 +245,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_type
+  better_errors
   bootstrap-sass
   byebug
   capistrano-bundler
@@ -254,6 +262,7 @@ DEPENDENCIES
   mailgun_rails
   mini_magick
   pg
+  pundit
   rails (= 4.2.1.rc1)
   react-rails
   russian

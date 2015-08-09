@@ -20,6 +20,7 @@
               url: classroom_news_index_path(@classroom),
               pollInterval: 2000,
               username: current_user.name,
+              userUrl: user_path(current_user),
               userAvatar: current_user.avatar_safe_url,
               token: form_authenticity_token
             }) %>

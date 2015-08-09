@@ -38,7 +38,9 @@ Rails.application.routes.draw do
     post 'share', on: :collection
   end
 
-  resources :news
+  resources :news do
+    resources :comments
+  end
 
   resources :attachments, only: [:create, :destroy]
   resources :comments#, only: [:destroy, :update]
