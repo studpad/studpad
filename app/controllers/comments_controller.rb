@@ -7,16 +7,19 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment.update_attribute :text, params[:text]
-    redirect_to c.commentable.source
+    @comment.update_attributes comment_params
   end
 
   def destroy
-    @comment.destroy
-    redirect_to @comment.commentable.source
+    logger.debug @comment.destroy
   end
 
   private
+    def render
+      @comments = @comment.commentable.comments.includes(:user)
+      super 'index'
+    end
+
     def comment_params
       params.require(:comment).permit(:text, :commentable_id, :commentable_type)
     end

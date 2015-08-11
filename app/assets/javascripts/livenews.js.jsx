@@ -3,23 +3,36 @@ var intervalID;
 var formToken;
 var currentUser;
 
+var c = function(obj){//На время отладки
+  console.log(obj);
+};
+
 var Comment = React.createClass({
+  removeClick: function(){
+    this.props.remove(this.props.data.id)
+  },
   render: function() {
     return(
     <div className='the-comment'>
       <div className='row'>
         <div className='col-xs-1 wrap-avatar-news'>
-          <img src={this.props.author.avatar} width='40' height='40' className='img-avatar'/>
+          <img src={this.props.data.author.avatar} width='40' height='40' className='img-avatar'/>
         </div>
         <div className='col-xs-11 the-comment-content'>
+          <div className = 'sign-sp close-news'>
+            <span className="glyphicon glyphicon-pencil pencil-comment"></span>
+            &nbsp;&nbsp;
+            <span className="glyphicon glyphicon-remove"
+            onClick={this.removeClick}></span>
+          </div>
           <div className='comment-username'>
-          <a href={this.props.author.urls}>{this.props.author.name}</a>
+          <a href={this.props.data.author.urls}>{this.props.data.author.name}</a>
           </div>
           <div className='main-text-news'>
-            <span className='span-main-text-comment'>{this.props.text}</span>
+            <span className='span-main-text-comment'>{this.props.data.text}</span>
           </div>
           <div className='menu-of-form-send-comment-of-news'>
-            <span className='date-news'>{this.props.time}</span>
+            <span className='date-news'>{this.props.data.time}</span>
           </div>
         </div>
       </div>
@@ -64,6 +77,22 @@ var CommentBox = React.createClass({
   toggleCommentable: function(){
     this.setState({commentable: !this.state.commentable});
   },
+  removeComment: function(id){
+    var Comments = this.state.comments
+    var newComments = $.grep(Comments, function(e){ return e.id != id; });
+    var deletedComment = $.grep(Comments, function(e){ return e.id == id; });
+    deletedComment = deletedComment[0]
+    this.setState({comments: newComments});
+    $.ajax({
+      url: deletedComment.url,
+      dataType: 'json',
+      type: 'POST',
+      data: {
+        '_method': 'delete',
+        authenticity_token: formToken
+      }
+    });
+  },
   sendComment: function(text){
     this.toggleCommentable();
     var comments = this.state.comments;
@@ -87,7 +116,8 @@ var CommentBox = React.createClass({
       type: 'POST',
       data: newComment,
       success: function(data) {
-        //this.setState({comments: data});
+        c(data);
+        this.setState({comments: data});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -96,10 +126,11 @@ var CommentBox = React.createClass({
     console.log(text);
   },
   render: function () {
+    var removeComment = this.removeComment;
     var comments = this.state.comments;
     comments = comments.map(function (c) {
       return (
-        <Comment key={"comment" + c.id} author={c.author} text={c.text} time={c.time}/>
+        <Comment key={"comment" + c.id} data={c} remove={removeComment} />
       );
     });
     return (

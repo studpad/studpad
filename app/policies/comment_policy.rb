@@ -1,4 +1,4 @@
-class CommentPolicy < < Struct.new(:user, :comment)
+class CommentPolicy < Struct.new(:user, :comment)
   def update?
     true
   end
