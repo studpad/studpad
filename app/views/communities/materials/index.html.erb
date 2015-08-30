@@ -8,8 +8,18 @@
           <%= render "communities/menu" %>
     </div>
     <div class = 'title-background'>
-      <div class = 'title-page'>
-        Полезные материалы
+      
+      <div class = 'summary-wrap'>
+        <span class = 'title-page'>Полезные материалы</span>
+        <div class = 'right-button-action'>
+          <!--<div class = 'img-right-button-action'>
+            
+          </div>
+          <div class = 'title-right-button-action'>
+            Создать новый
+          </div> -->
+          <button id="create_material" class="btn btn-primary btn-xs btn-st action-summary"  data-toggle="modal" data-target="#modal_window"><%= image_tag "feather_orange.png", size: "20x20" %> Создать новый</button>
+        </div>
       </div>
     </div>
     <div class = 'row'>
@@ -20,7 +30,6 @@
       </div>
     </div>
   </div>
-    <%= render "materials/right_button_action" %>
     <% @new_material_action = community_id ? community_materials_path(community_id): nil %>
     <%= render "materials/modal_window" %>
     <%= render "/partials/modal_share" %>

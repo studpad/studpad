@@ -1,6 +1,8 @@
 <div class ='container' id = 'main-container'>
-    <%= render "/classrooms/left_branch" %>
-    <%= render "/partials/profile" %>
+    <div class = 'left-branch'>
+      <%= render "/partials/profile" %>
+      <%= render "/classrooms/left_branch" %>
+    </div>
     <div class = 'main-wall'>
       <div class = 'submenu'>
           <%= render "classrooms/menu" %>
