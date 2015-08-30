@@ -1,15 +1,37 @@
 class CommentsController < ApplicationController
+  before_action :find_comment, except: :create
+  before_action :build_comment, only: :create
+
+  def create
+    @comment.save!
+  end
+
   def update
-    c = Comment.find(params[:id])
-    c.update_attribute :text, params[:text]
-    redirect_to c.commentable.source
+    @comment.update_attributes comment_params
   end
 
   def destroy
-    c = Comment.find(params[:id])
-    c.destroy
-    redirect_to c.commentable.source
+    logger.debug @comment.destroy
   end
 
+  private
+    def render
+      @comments = @comment.commentable.comments.includes(:user)
+      super 'index'
+    end
 
+    def comment_params
+      params.require(:comment).permit(:text, :commentable_id, :commentable_type)
+    end
+
+    def find_comment
+      @comment = Comment.find(params[:id])
+      authorize @comment
+    end
+
+    def build_comment
+      @comment = Comment.new comment_params
+      @comment.user = current_user
+      authorize @comment
+    end
 end

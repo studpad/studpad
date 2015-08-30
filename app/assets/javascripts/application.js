@@ -35,6 +35,7 @@
 //= require avatar
 //= require change_password
 //= require notifications
+// require news
 
 Dropzone.autoDiscover = false;
 

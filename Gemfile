@@ -21,7 +21,8 @@ gem 'jquery-form-rails'
 gem 'russian'
 gem 'unicorn'
 gem 'mailgun_rails'
-
+gem 'pundit'
+gem 'better_errors'
 gem 'react-rails'
 
 group :development, :test do

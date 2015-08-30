@@ -24,7 +24,8 @@ class NewsController < ApplicationController
     if current_user.id == news.user_id
       news.destroy
     end
-    redirect_to news.source #classroom_path(news.classroom_id)
+    #redirect_to news.source #classroom_path(news.classroom_id)
+    render nothing: true
   end
 
   def comment
@@ -35,8 +36,8 @@ class NewsController < ApplicationController
 
   def update
     n = NewsItem.find(params[:id])
-    n.update_attribute :text, params[:text]
-    redirect_to n.source #classroom_path(n.classroom_id)
+    n.update_attributes news_params
+    render nothing: true
   end
 
   def index

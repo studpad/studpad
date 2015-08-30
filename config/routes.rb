@@ -10,9 +10,7 @@ Rails.application.routes.draw do
     resources :materials
     resources :classmates, controller: "classrooms/classmates"
     resources :homeworks, controller: "classrooms/homeworks"
-    resources :news, only: :create do
-      post 'comment', on: :member
-    end
+    resources :news, controller: "classrooms/news"
     member do
       get 'join'
       get 'new_student'
@@ -40,7 +38,9 @@ Rails.application.routes.draw do
     post 'share', on: :collection
   end
 
-  resources :news
+  resources :news do
+    resources :comments
+  end
 
   resources :attachments, only: [:create, :destroy]
   resources :comments#, only: [:destroy, :update]
@@ -53,7 +53,7 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  get 'development' => 'sessions#development' #на время разработки
+  get 'development' => 'static_pages#example' #на время разработки
 
   get 'logout' => 'sessions#destroy'
   get 'trouble' => "materials#edit"
