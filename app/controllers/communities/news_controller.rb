@@ -17,6 +17,12 @@ class Communities::NewsController < ApplicationController
     render 'news/show', layout: false
   end
 
+  def index
+    @community = Community.find(params[:community_id])
+    @newsItems = @community.news.order(created_at: :desc)
+    render 'news/index', formats: :json
+  end
+
   private
     def news_params
       params.require(:news_item).permit(:text)

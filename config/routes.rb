@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :communities do
     resources :materials, only: [:index, :create], controller: "communities/materials"
     resources :members, only: :index, controller: "communities/members"
-    resources :news, only: :create, controller: "communities/news" do
+    resources :news, controller: "communities/news" do
       post 'comment', on: :member
     end
     resources :notices, controller: "communities/notices"
