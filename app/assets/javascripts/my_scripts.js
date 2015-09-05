@@ -144,6 +144,17 @@ function main(){
         $(this).children('.wrap-autor-material').children().fadeOut(400);
   });
 
+  $('.switch').click(function(){
+    if($(this).attr('src') == '/images/switch9.png'){
+      $(this).attr('src', '/images/switch13.png');
+      $('body').addClass('night').removeClass('day');
+      $('.mike-speach').html('Хммм... Сегодня очень рано стемнело!');
+    }else{
+      $(this).attr('src', '/images/switch9.png');
+      $('body').addClass('day').removeClass('night');
+      $('.mike-speach').html('О! А вот и солнышко!');
+    }
+  });
 
 }
 
