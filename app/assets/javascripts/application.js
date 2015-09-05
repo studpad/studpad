@@ -27,7 +27,6 @@
 //= require selectize
 //= require share_materials
 //= require autoresize.jquery.min
-//= require livenews
 //= require communities
 //= require jquery.jplayer.min
 //= require join
@@ -46,3 +45,12 @@ function truncate(string, length){
     return string.substr(0, length-3) + "..."
   }
 }
+
+
+var intervalID;
+var currentUser;
+
+var c = function(obj){//На время отладки
+  console.log(obj);
+};
+

@@ -4,4 +4,6 @@ class NewsItem < ActiveRecord::Base
 
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+
+  validates_associated :source
 end

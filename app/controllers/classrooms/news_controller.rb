@@ -12,14 +12,6 @@ class Classrooms::NewsController < ApplicationController
       n.source = @classroom
     end
 
-    @files = params[:attached_files]
-    @files = @files.to_s.squish.split(" ")
-
-    Attachment.find(@files).each do |f|
-      f.attachable = @news
-      f.save!
-    end
-
     @newsItems = @classroom.news.order(created_at: :desc)
     render 'news/index', formats: :json
   end
