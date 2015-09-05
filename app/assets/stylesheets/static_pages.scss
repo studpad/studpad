@@ -22,7 +22,6 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: #F5F8FA;
 }
 .about-UM{
     position: relative;
@@ -81,8 +80,11 @@
 }
 .headline{
     width: 350px;
+    height: 380px;
     margin: auto;
     border-radius: 5px;
+    padding: 20px;
+    background-color: white;
 }
 .subheading {
   font-size: 16px;
@@ -95,6 +97,7 @@
   font-size: 65px !important;
   font-family: 'Helvetica Neue';
   font-weight: bold;
+  color: #3680be;
 }
 .title-container{
   z-index: 100;
