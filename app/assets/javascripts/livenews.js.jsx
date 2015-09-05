@@ -12,6 +12,25 @@ var Comment = React.createClass({
     this.props.remove(this.props.data.id)
   },
   render: function() {
+    var remove_link;
+    if (this.props.data.can_remove) {
+      remove_link = (
+        <span
+          className="glyphicon glyphicon-remove"
+          onClick={this.removeClick}>
+        </span>
+        );
+    }
+    var edit_link;
+    //this.props.data.can_edit
+    if (false) {
+      edit_link = (
+        <span
+          className="glyphicon glyphicon-pencil pencil-news"
+          onClick={this.editClick}>
+        </span>
+        );
+    }
     return(
     <div className='the-comment'>
       <div className='row'>
@@ -20,10 +39,9 @@ var Comment = React.createClass({
         </div>
         <div className='col-xs-11 the-comment-content'>
           <div className = 'sign-sp close-news'>
-            <span className="glyphicon glyphicon-pencil pencil-comment"></span>
+            {edit_link}
             &nbsp;&nbsp;
-            <span className="glyphicon glyphicon-remove"
-            onClick={this.removeClick}></span>
+            {remove_link}
           </div>
           <div className='comment-username'>
           <a href={this.props.data.author.urls}>{this.props.data.author.name}</a>
@@ -194,6 +212,24 @@ var NewsItem = React.createClass({
         </div>
       )
     }
+    var remove_link;
+    if (this.props.data.can_remove) {
+      remove_link = (
+        <span
+          className="glyphicon glyphicon-remove"
+          onClick={this.removeClick}>
+        </span>
+        );
+    }
+    var edit_link;
+    if (this.props.data.can_edit) {
+      edit_link = (
+        <span
+          className="glyphicon glyphicon-pencil pencil-news"
+          onClick={this.editClick}>
+        </span>
+        );
+    }
     return (
       <div id = 'form-send-news'>
       <div className='the-news row'>
@@ -203,11 +239,9 @@ var NewsItem = React.createClass({
         <div className='col-xs-11'>
           <div className='content-the-news'>
             <div className = 'sign-sp close-news'>
-              <span className="glyphicon glyphicon-pencil pencil-news"
-              onClick={this.editClick}></span>
+              {edit_link}
               &nbsp;&nbsp;
-              <span className="glyphicon glyphicon-remove"
-              onClick={this.removeClick}></span>
+              {remove_link}
             </div>
             <div className='news-username'>
               <a href={this.props.data.author.url}>{this.props.data.author.name}</a>
