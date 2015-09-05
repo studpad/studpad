@@ -1,42 +1,20 @@
 class NewsController < ApplicationController
+  before_action :find_news_item, except: [:create, :index]
+
   def create
-    @news = NewsItem.create news_params do |n|
-      n.user_id = current_user.id
-      #n.source = Classroom.find(params[:classroom_id])
-    end
+    @news_item = NewsItem.create news_params.merge({user_id: current_user.id})
 
-    @files = params[:attached_files]
-    @files = @files.to_s.squish.split(" ")
-
-    Attachment.find(@files).each do |f|
-      f.attachable = @news
-      f.save!
-    end
-
-    # @news.attachments(true)
-    # render 'show', layout: false
     @newsItems = NewsItem.all.order(created_at: :desc)
     render 'index', formats: :json
   end
 
   def destroy
-    news = NewsItem.find(params[:id])
-    if current_user.id == news.user_id
-      news.destroy
-    end
-    #redirect_to news.source #classroom_path(news.classroom_id)
+    @news_item.destroy
     render nothing: true
   end
 
-  def comment
-    news = NewsItem.find(params[:id])
-    news.comments.create text: params[:text], user_id: current_user.id
-    redirect_to news.source
-  end
-
   def update
-    n = NewsItem.find(params[:id])
-    n.update_attributes news_params
+    @news_item.update_attributes news_params
     render nothing: true
   end
 
@@ -47,7 +25,12 @@ class NewsController < ApplicationController
 
   private
     def news_params
-      params.require(:news_item).permit(:text)
+      params.require(:news_item).permit(:text).
+        merge({ user_id: current_user.id })
     end
 
+    def find_news_item
+      @news_item = NewsItem.find(params[:id])
+      authorize @news_item
+    end
 end
