@@ -2,7 +2,44 @@ var Comment = React.createClass({
   removeClick: function(){
     this.props.remove(this.props.data.id)
   },
+  getInitialState: function() {
+    return {
+      editable: false
+    };
+  },
+  editClick: function(){
+    this.setState({editable: !this.state.editable});
+  },
+  updateClick: function(){
+    var text = React.findDOMNode(this.refs.text).value.trim();
+    if (!text) {
+      return;
+    }
+    this.setState({editable: false});
+    this.props.updateComment(this.props.data.id, text);
+  },
   render: function() {
+    var mainPart;
+    if (this.state.editable) {
+      mainPart = (
+        <div>
+          <textarea ref='text' className='form-control textHW-update'
+          defaultValue={this.props.data.text}/>
+          <div className='wrap-send-button'>
+            <button className="btn btn-primary btn-xs btn-st change-news"
+            onClick={this.updateClick}>
+              Сохранить
+            </button>
+          </div>
+        </div>
+        )
+    } else {
+      mainPart =(
+        <div className='main-text-news'>
+          <span className='span-main-text-comment'>{this.props.data.text}</span>
+        </div>
+      )
+    }
     var remove_link;
     if (this.props.data.can_remove) {
       remove_link = (
@@ -13,8 +50,7 @@ var Comment = React.createClass({
         );
     }
     var edit_link;
-    //this.props.data.can_edit
-    if (false) {
+    if (this.props.data.can_edit) {
       edit_link = (
         <span
           className="glyphicon glyphicon-pencil pencil-news"
@@ -37,9 +73,7 @@ var Comment = React.createClass({
           <div className='comment-username'>
           <a href={this.props.data.author.urls}>{this.props.data.author.name}</a>
           </div>
-          <div className='main-text-news'>
-            <span className='span-main-text-comment'>{this.props.data.text}</span>
-          </div>
+          {mainPart}
           <div className='menu-of-form-send-comment-of-news'>
             <span className='date-news'>{this.props.data.time}</span>
           </div>

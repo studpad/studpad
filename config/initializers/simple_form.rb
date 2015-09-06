@@ -1,4 +1,12 @@
-# Use this setup block to configure all options available in SimpleForm.
+SimpleForm::FormBuilder.class_eval do
+  def submit_with_override(field, options = {})
+    data_disable_with = { disable_with: 'Подождите...' }
+    options[:data] = data_disable_with.merge(options[:data] || {})
+    submit_without_override(field, options)
+  end
+  alias_method_chain :submit, :override
+end
+
 SimpleForm.setup do |config|
   # Wrappers are used by the form builder to generate a
   # complete input. You can remove any component from the
