@@ -19,6 +19,30 @@ var CommentBox = React.createClass({
       type: 'DELETE'
     });
   },
+  updateComment: function(id, text){
+    var url;
+    var newComments = this.state.comments.map(function (n) {
+      if (n.id == id){
+        url = n.url;
+        n.text = text;
+      }
+      return n;
+    });
+    c(newComments)
+    this.setState({comments: newComments});
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'PATCH',
+      data: {
+        'comment[text]' : text
+      },
+      success: function(data) {
+        c(data);
+        this.setState({comments: data});
+      }.bind(this)
+    });
+  },
   sendComment: function(text){
     this.toggleCommentable();
     var comments = this.state.comments;
@@ -52,10 +76,15 @@ var CommentBox = React.createClass({
   },
   render: function () {
     var removeComment = this.removeComment;
+    var updateComment = this.updateComment;
     var comments = this.state.comments;
     comments = comments.map(function (c) {
       return (
-        <Comment key={"comment" + c.id} data={c} remove={removeComment} />
+        <Comment
+          key={"comment" + c.id}
+          data={c}
+          updateComment={updateComment}
+          remove={removeComment} />
       );
     });
     return (
