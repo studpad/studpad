@@ -1,5 +1,7 @@
 function main(){
 
+    
+
     $('textarea').autoResize({
       limit:300,
       extraSpace:30,
