@@ -1,14 +1,27 @@
+<script>
+    $(document).on("page:load ready", function(){
+        $('body').addClass('night').removeClass('day');
+    });
+</script>
 <style>
-    
+    #cloud-1{
+        top: 50px;
+    }
+    #cloud-2{
+        top: 320px;
+    }
+    #cloud-3{
+        top: 450px;
+    }
 </style>
 <div class="homepage-hero-module">
-    <div class="welcome-yet" style = 'background: url(/images/background-main.png); background-size: 95%; background-repeat: no-repeat; background-position: center 0px;'>
+    <div class="welcome-yet" style = 'background: url(/images/background-main.png); background-size: 1000px 255px; background-repeat: no-repeat; background-position: center 60px;'>
         <div class="filter"></div>
         <!-- <video autoplay muted class="fillWidth">
             <source src="<%= image_path "Marguerite.mp4" %>" type="video/mp4"/>
         </video> -->
         <!--<img src = '' class = 'fillWidth'/>-->
-        
+    <%= render 'form' %>
     </div>
     <div class = 'introduce'>
         <div class = 'content content-introduce'>

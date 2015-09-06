@@ -79,33 +79,35 @@
     width: 100%;
 }
 .headline{
-    width: 350px;
-    height: 380px;
+    width: 469px;
+    height: 315px;
     margin: auto;
-    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgb(176, 201, 214);
+    background-color: #F3F8FB;
+    border-radius: 3px;
     padding: 20px;
-    background-color: white;
 }
 .subheading {
   font-size: 16px;
   line-height: 22px;
-  color: #fff;
+  color: #383838;
   text-align: center;
   font-weight: 200;
 }
 .logo{
-  font-size: 65px !important;
+  font-size: 45px !important;
   font-family: 'Helvetica Neue';
   font-weight: bold;
   color: #3680be;
+  margin-top: 0px;
 }
 .title-container{
   z-index: 100;
   position: absolute;
-  top: 23% !important;
+  top: 120px !important;
+  margin-left: -133px;
   width: 100%;
   text-align: center;
-  color: #fff;
 }
 .signUp{
     height: 100px;
@@ -114,7 +116,11 @@
     margin-top: 20px;
 }
 .second-input-signUp{
-    border-top: 1px solid #e2e2e2;
+    border-top: none !important;
+}
+.input-data-signUp{
+  border: 1px solid #e2e2e2;
+  border-radius: 2px;
 }
 .wrap-input-signUp:last-child{
     margin-top: 10px;
@@ -142,7 +148,7 @@
     font-size: 15px !important;
 }
 .link-to-reg{
-    color: white;
+    color: #3680be;
     font-size: 15px;
     margin-left: 10px;
     &:hover{
