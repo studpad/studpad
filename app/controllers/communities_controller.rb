@@ -18,6 +18,7 @@ class CommunitiesController < ApplicationController
 
   def unjoin
     @community.users.destroy(current_user)
+    @community.notifications.where(user_id: current_user.id).destroy_all
     redirect_to @community
   end
 
@@ -66,7 +67,7 @@ class CommunitiesController < ApplicationController
   private
     def find_community
       @community = Community.find params[:id]
-      @notices = @community.notifications
+      @notices = @community.notifications.last(3)
     end
 
     def community_params
