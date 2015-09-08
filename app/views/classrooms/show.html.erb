@@ -16,7 +16,7 @@
             </div>
           </div>
           <div id = 'each-news'>
-            <%= react_component("NewsBox", {
+            <%= react_component("PostBox", {
               url: classroom_news_index_path(@classroom),
               pollInterval: 2000,
               username: current_user.name,

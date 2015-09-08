@@ -1,4 +1,4 @@
-var NewsBox = React.createClass({
+var PostBox = React.createClass({
   getInitialState: function() {
     currentUser = {
       name: this.props.username,
@@ -7,7 +7,7 @@ var NewsBox = React.createClass({
     }
     return {data: []};
   },
-  loadNewsItemsFromServer: function() {
+  loadPostsFromServer: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -20,7 +20,7 @@ var NewsBox = React.createClass({
       }.bind(this)
     });
   },
-  updateNewsItem: function(id, data){
+  updatePost: function(id, data){
     var url;
     var newNewsItems = this.state.data.map(function (n) {
       if (n.id == id){
@@ -39,7 +39,7 @@ var NewsBox = React.createClass({
       }
     });
   },
-  removeNewsItem: function(id) {
+  removePost: function(id) {
     var NewsItems = this.state.data
     var newNewsItems = $.grep(NewsItems, function(e){ return e.id != id; });
     var deletedItem = $.grep(NewsItems, function(e){ return e.id == id; });
@@ -50,7 +50,7 @@ var NewsBox = React.createClass({
       type: 'DELETE'
     });
   },
-  handleNewsSubmit: function(text) {
+  handlePostSubmit: function(text) {
     var newsItems = this.state.data;
     var piece = [{
         text: text,
@@ -75,7 +75,7 @@ var NewsBox = React.createClass({
     });
   },
   componentDidMount: function() {
-    this.loadNewsItemsFromServer();
+    this.loadPostsFromServer();
     //intervalID = setInterval(this.loadNewsItemsFromServer, this.props.pollInterval);
   },
   componentWillUnmount: function(){
@@ -83,10 +83,12 @@ var NewsBox = React.createClass({
   },
   render: function() {
     return (
-      <div className="commentBox">
-        <NewsForm onNewsSubmit={this.handleNewsSubmit}/>
-        <NewsList data={this.state.data} removeNewsItem={this.removeNewsItem}
-        updateNewsItem={this.updateNewsItem}/>
+      <div className="postBox">
+        <PostForm onPostSubmit={this.handlePostSubmit}/>
+        <PostList
+          data={this.state.data}
+          removePost={this.removePost}
+          updatePost={this.updatePost}/>
       </div>
     );
   }

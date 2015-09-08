@@ -55,7 +55,7 @@ var CommentBox = React.createClass({
     this.setState({comments: newComments});
     newComment = {
       'comment[text]': text,
-      'comment[commentable_id]': this.props.newsId,
+      'comment[commentable_id]': this.props.postId,
       'comment[commentable_type]': 'NewsItem'
     }
     newComment.utf8 = "✓";
