@@ -1,13 +1,17 @@
 <div class ='container' id = 'main-container'>
-    <%= render "left_branch" %>
-    <%= render "/partials/profile" %>
-    <div class = 'main-wall' id = 'central-part'>
-      <div class = 'submenu'>
-          <%= render "menu" %>
-      </div>
+    <div class = 'left-branch'>
+        <%= render "/partials/profile" %>
+        <%= render "/classrooms/left_branch" %>
+    </div>
+    <div class = 'main-wall'>
+      
       <div class = 'row'>
         <div class = 'col-xs-12'>
-          <div class = 'card-sp sharp-wrap'>
+          <div class = 'card-sp'>
+            <div class = 'back-link'>
+               <span class = 'back-arrow'></span>
+               <span class = 'back-text'>&nbsp;На страницу класса</span>
+            </div>
             <div class="title-background-border title-without-border">
               <div class="title-page">
                 Настройки Вашего класса
@@ -25,7 +29,7 @@
                 <% end %>
               </div>
             </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>

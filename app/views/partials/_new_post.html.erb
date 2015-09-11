@@ -1,0 +1,27 @@
+<div class = 'new-post-buttons card-sp'>
+  <div class = 'new-post-wrap'>
+    <div class = 'new-post-label' id = 'new-post-label-text'>
+      <div class = 'icon-post-text icon-post' data-toggle="modal" data-target="#modal_new_post_text"><img src = '/images/text.png'/></div>
+      <span class = 'new-post-label-name'>Текст</span>
+    </div>
+    <div class = 'new-post-label' id = 'new-post-label-material'>
+      <div class = 'icon-post-material icon-post' data-toggle="modal" data-target="#modal_new_post_material"><img src = '/images/attache.png' /></div>
+      <span class = 'new-post-label-name'>Файл</span>
+    </div>
+    <div class = 'new-post-label' id = 'new-post-label-link'>
+      <div class = 'icon-post-link icon-post' data-toggle="modal" data-target="#modal_new_post_link"><img src = '/images/link.png' /></div>
+      <span class = 'new-post-label-name'>Ссылка</span>
+    </div>
+    <div class = 'new-post-label' id = 'new-post-label-cite'>
+      <div class = 'icon-post-cite icon-post' data-toggle="modal" data-target="#modal_new_post_cite"><img src = '/images/quote.png' /></div>
+      <span class = 'new-post-label-name'>Цитата</span>
+    </div>
+  </div>
+  <div class = 'clearboth'>
+  </div>
+</div>
+
+<%= render "/partials/modal_new_post_text" %>
+<%= render "/partials/modal_new_post_material" %>
+<%= render "/partials/modal_new_post_link" %>
+<%= render "/partials/modal_new_post_cite" %>

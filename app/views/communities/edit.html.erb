@@ -1,58 +1,66 @@
 <div class ='container' id = 'main-container'>
-    <%= render "left_branch" %>
-    <%= render "/partials/profile" %>
+    <div class = 'left-branch'>
+      <%= render "/partials/profile" %>
+      <%= render "/communities/left_branch" %>
+    </div>
     <div class = 'main-wall' id = 'central-part'>
-      <div class = 'submenu'>
-        <%= render "menu" %>
-      </div>
       <div class = 'row'>
         <div class = 'col-xs-12'>
-          <div class = 'card-sp sharp-wrap'>
+          <div class = 'card-sp'>
+            <div class = 'back-link'>
+               <span class = 'back-arrow'></span>
+               <span class = 'back-text'>&nbsp;На страницу сообщества</span>
+            </div>
             <div class="title-background-border title-without-border">
               <div class="title-page">
                 Настройки Вашего сообщества
               </div>
             </div>
-            <div class = 'row'>
-              <div class = 'col-xs-5 field-edit-avatar'>
-                <div class = 'current-edit-community-avatar_img' style = 'background: url(
-                <%= @community.avatar_safe_url %>
-                ) no-repeat; background-size: cover;'>
+            <div class = 'community-heading edit-community-heading'>
+                <div class = 'edit-community-avatar'>
+                  <div class = 'big-avatar-community' style = 'background: url(
+                  <%= @community.avatar_safe_url %>
+                  ) no-repeat; background-size: cover;'>
+                  </div>
+                  <div class = 'align-c margin-t10'>
+                    <a class = 'edit-community-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фото сообщества</a>
+                  </div>
                 </div>
-                <div class = 'align-c'><a class = 'edit-community-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фото сообщества</a></div>
-              </div>
-              <div class = 'col-xs-7 field-edit-data'>
-                <%= form_for @community, url: community_path(@community) do |f|%>
-                                <div class = 'edit-community'>
+                <div class = 'info-community'>
+                  <%= form_for @community, url: community_path(@community) do |f|%>
+                    <div class = 'edit-community'>
 
-                  <%= f.text_field :name, class: 'form-control input-sp input-edit-community-name', placeholder: 'Название Вашего сообщества' %>
-                  </br>
-                  <%= f.text_area :description, class: 'form-control my-setting-form-control', placeholder: 'Описание Вашего сообщества' %>
-                  <div>
-                    <span class = "title-underline">
-                          Выберите тип Вашего сообщества
-                    </span>
-                  </div>
-                  <div class = 'row'>
-                      <div class="wrap-radio align-c col-xs-4">
-                        <%= f.radio_button :status, "open", class: 'input-radio-sp', required: true %>
-                        <label for = 'community_status_open'>Открытое</label>
+                      <%= f.text_field :name, class: 'form-control input-sp input-edit-community-name', placeholder: 'Название Вашего сообщества' %>
+                      <br>
+                      <%= f.text_area :description, class: 'form-control my-setting-form-control', placeholder: 'Описание Вашего сообщества' %>
+                      <div>
+                        <div>
+                              Выберите тип Вашего сообщества
+                        </div>
+                        <div class = 'edit-type-community'>
+                            <div class="wrap-radio align-c">
+                              <%= f.radio_button :status, "open", class: 'input-radio-sp', required: true %>
+                              <label for = 'community_status_open'>Открытое</label>
+                            </div>
+                            <div class="wrap-radio align-c">
+                              <%= f.radio_button :status, "secret", class: 'input-radio-sp', required: true %>
+                              <label for = 'community_status_secret'>Закрытое</label>
+                            </div>
+                            <div class = 'clearboth'>
+                            </div>
+                        </div>
                       </div>
-                      <div class="wrap-radio align-c col-xs-4">
-                        <%= f.radio_button :status, "secret", class: 'input-radio-sp', required: true %>
-                        <label for = 'community_status_secret'>Закрытое</label>
+                      <div class="edit-community-footer">
+                        <button type="submit" id = 'save-edit-community' class="btn btn-primary btn-st">Сохранить</button>
                       </div>
-                  </div>
-
-                                </div>
-                                <div class="edit-community-footer">
-                                  <button type="submit" id = 'save-edit-community' class="btn btn-primary btn-st">Сохранить</button>
-                                </div>
-                <% end %>
-              </div>
+                    </div>
+                    
+                  <% end %>
+                </div>
+                <div class = 'clearboth'>
+                </div>
             </div>
-
-        </div>
+          </div>
         </div>
       </div>
     </div>

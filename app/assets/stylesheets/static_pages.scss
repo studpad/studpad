@@ -78,13 +78,18 @@
     width: 100%;
 }
 .headline{
-    width: 469px;
+    width: 400px;
     height: 315px;
     margin: auto;
-    box-shadow: 0 0 7px 0 rgb(176, 201, 214);
-    background-color: #F3F8FB;
+    box-shadow: 0 0 7px 0 #B9B9BB;
+    background-color: white;
     border-radius: 3px;
     padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -197px;
 }
 .subheading {
   font-size: 16px;
@@ -102,10 +107,8 @@
 }
 .title-container{
   z-index: 100;
-  position: absolute;
-  top: 120px !important;
-  margin-left: -194px;
   width: 100%;
+  height: 100%;
   text-align: center;
 }
 .signUp{
@@ -178,4 +181,12 @@
 }
 .img-hide{
     visibility: hidden;
+}
+.navbar-desc{
+  border: none;
+  width: 100%;
+  z-index: 101;
+  margin-bottom: 0;
+  transition: all .175s ease;
+  padding: 54px 0;
 }

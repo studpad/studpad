@@ -16,27 +16,41 @@
 	height: 100% !important;
 }
 .edit-community-footer{
-	padding: 20px;
+	padding-top: 40px;
   text-align: right;
 }
-
+.edit-type-community > div{
+	float: left;
+	margin-right: 10px;
+}
 .community-heading{
-	height: 240px;
 	background-color: white;
 	padding: 15px;
 	padding-bottom: 5px;
 }
 .big-avatar-community{
 	float: left;
-	width: 221.25px;
-	height: 210px;
-	border-radius: 2px;
+	width: 225.2px;
+	height: 225px;
+	border-radius: 3px;
+}
+.edit-community-avatar > .big-avatar-community{
+	float: none;
+}
+.edit-community-avatar{
+	float: left;
+	width: 225.2px;
 }
 .info-community{
 	float: left;
-	width: 365.75px;
-	height: 210px;
+	width: 344.8px;
 	padding-left: 15px;
+}
+.name-community{
+	text-align: left !important;
+	font-size: 15px !important;
+	margin-bottom: 15px;
+	font-weight: bold;
 }
 .description-community{
 	max-height: 168px;
@@ -95,7 +109,7 @@
 	width: 155px;
 	float: left;
 	height: 150px;
-	border-radius: 2px;
+	border-radius: 3px;
 }
 .preview-community-info{
 	height: 150px;
@@ -116,7 +130,13 @@
   margin-top: 4px;
 }
 .preview-community-name{
-	font-size: 14px;
+	font-size: 13px;
+	font-weight: bold;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+.preview-community-name > a{
+	color: #383838;
 }
 .left-block-notice > .profile-notice-mini:last-child{
 	margin-bottom: 16px;
@@ -124,12 +144,6 @@
 .field-edit-avatar, .field-edit-data{
 	margin-top: 10px;
 }
-.current-edit-community-avatar_img{
-	 height: 166px;
-	 width: 100%;
-	 margin-bottom: 8px;
-	 border-radius: 2px;
-}
 .edit-community-avatar{
-
+	font-size: 13px;
 }

@@ -1,18 +1,3 @@
-<div class = 'profile-info'>
-  <div class = 'profile-info_name slideRight'><%= @user.name %> &nbsp;
-    <%= link_to edit_user_path(@user) do %>
-    <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
-    <% end if current_user == @user%>
-  </div>
-  <div class = 'profile-info_school'>
-    <%= @user.school %>
-  </div>
-  <!-- <div class = 'profile-info_statistic'>
-    <p>
-      Публикации: <span><%= @user.materials.count %></span>
-    </p>
-  </div> -->
-</div>
 <!--<div class = ''>
   <div class = 'user-classrooms'>
     Классы: <a>11Б</a>
@@ -27,11 +12,12 @@
 <div class = 'card-sp classes-and-communities'>
   <div class = 'block-title'>
     Сообщества
+    <button class = 'action-angle' data-toggle="modal" data-target="#modal-window-create-community" >+</button>
   </div>
   <div class = 'block-objects'>
     <%= render collection: @user.communities, partial: 'community' %>
 
-    <input type = 'button' id = 'create-community' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-community" value = 'Создать сообщество' />
+    <!--<input type = 'button' id = 'create-community' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-community" value = 'Создать сообщество' />-->
   </div>
 </div>
 <!--<div class = "classes-and-communities card-sp">
@@ -48,6 +34,9 @@
 <div class = "classes-and-communities card-sp margin-t15 margin-b40">
   <div class = 'block-title'>
     Классы
+    <% if @user.teacher? %>
+      <button class = 'action-angle' data-toggle="modal" data-target="#modal-window-create-class" >+</button>
+    <% end %>
   </div>
   <div class = "block-objects">
 
@@ -63,9 +52,6 @@
       </div>
     </div>
     </br>
-    <% if @user.teacher? %>
-      <input type = 'button' id = 'create-class' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-class" value = 'Создать класс' />
-    <% end %>
 
   </div>
 </div>

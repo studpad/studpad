@@ -3,42 +3,173 @@
       <%= render "/partials/profile" %>
       <%= render "/classrooms/left_branch" %>
   </div>
-  <div class = 'main-wall' id = 'central-part'>
-    <div class = 'submenu'>
-        <%= render "menu" %>
-    </div>
-    <div class = 'row'>
-      <div class = 'col-lg-12 col-md-12 col-xs-12'>
-        <div class = 'card-sp'>
-          <div class = 'title-background'>
-            <div class = 'title-page'>
-              Новости
+  <div class = 'main-wall'>
+    <%= render "/partials/new_post" %>
+
+    <div class = 'post-container'>
+
+      <div class = 'post card-sp'>
+        <div class = 'post-autor'> 
+          <div class="usual-avatar" style="background: url(
+          /uploads/teacher/avatar/1/72b150d9c5.jpg
+          ) no-repeat; background-size: cover;">
+          </div>
+          <div class = 'post-autor-info'>
+            <div class = 'post-autor-name'>
+              Никитин Макс
+            </div>
+            <div class = 'post-autor-type'>
+              Преподаватель
             </div>
           </div>
-          <div id = 'each-news'>
-            <%= react_component("NewsBox", {
-              url: classroom_news_index_path(@classroom),
-              pollInterval: 2000,
-              username: current_user.name,
-              userUrl: user_path(current_user),
-              userAvatar: current_user.avatar_safe_url
-            }) %>
+        </div>
+        <div class = 'post-content'>
+          <div class = 'post-type'>
+            <div class = 'post-type-material'>
+              <div class = 'post-type-material-item'>
+                <div class = 'post-type-material-icon'>
+
+                </div>
+                <div class = 'post-type-material-text'>
+                  <a>Сcылка на файл</a>
+                </div>
+              </div>
+              <div class = 'clearboth'>
+              </div>
+              <div class = 'post-type-material-item'>
+                <div class = 'post-type-material-icon'>
+
+                </div>
+                <div class = 'post-type-material-text'>
+                  <a>Сыылка на файл</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class = 'clearboth'>
+          </div>
+          <div class = 'usual-post-contant'>
+            <div class = 'usual-post-text'>
+               Смерть, наверное, самое лучше изобретение Жизни. Она – причина перемен. Она очищает старое, чтобы открыть дорогу новому. Стив Джобс 
+            </div>
+            <div class = 'usual-post-photo'>
+              <img src = 'https://cs7055.vk.me/c7002/v7002049/bed6/aWcSTQMvi7w.jpg' />
+            </div>
           </div>
         </div>
+      </div>
 
-          <%# if current_user && current_user.can_view?(@classroom) %>
-          <%#= render "classrooms/news"%>
-          <%# else %>
-          <!-- </br>
-          <div class="alert alert-warning">
-            Пожалуйста станьте учеником или
-            учителем класса или
-            зарегестрируйтесь
-          </div> -->
-          <%# end %>
+      <div class = 'post card-sp'>
+        <div class = 'post-autor'> 
+          <div class="usual-avatar" style="background: url(
+          /uploads/teacher/avatar/1/72b150d9c5.jpg
+          ) no-repeat; background-size: cover;">
+          </div>
+          <div class = 'post-autor-info'>
+            <div class = 'post-autor-name'>
+              Никитин Макс
+            </div>
+            <div class = 'post-autor-type'>
+              Преподаватель
+            </div>
+          </div>
+        </div>
+        <div class = 'post-content'>
+          <div class = 'post-type'>
+            <a href = ''><div class = 'post-type-link extra-background'>
+              <header class = 'post-type-link-title'>
+                Ypanda
+              </header>
+              <div class = 'post-type-link-description'>
+                У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
+              </div>
+              <div class = 'post-type-link-link'>
+                <span class = 'decor-type-link-link'>ypanda.ru</span>
+              </div>
+            </div></a>
+          </div>
+          <div class = 'usual-post-contant'>
+            <div class = 'usual-post-text'>
+               The Natural History collection is wonderful and really beautiful, a lot of it seems to be laid out by evolutionary trait rather than geographical location or in some cases even species, so it’s pretty informative as well. 
+            </div>
+            <div class = 'usual-post-photo'>
+              <img src = 'https://vk.com/doc298175408_417440475?hash=6512d0ce91f5ba1077&dl=3837ee67300bd6467c&wnd=1' />
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class = 'post card-sp'>
+        <div class = 'post-autor'> 
+          <div class="usual-avatar" style="background: url(
+          /uploads/teacher/avatar/1/72b150d9c5.jpg
+          ) no-repeat; background-size: cover;">
+          </div>
+          <div class = 'post-autor-info'>
+            <div class = 'post-autor-name'>
+              Никитин Макс
+            </div>
+            <div class = 'post-autor-type'>
+              Преподаватель
+            </div>
+          </div>
+        </div>
+        <div class = 'post-content'>
+          <div class = 'post-type'>
+            <div class = 'post-type-text-title'>
+              <h2>Заголовок</h2>
+            </div>
+          </div>
+          <div class = 'usual-post-contant'>
+            <div class = 'usual-post-text'>
+               The Natural History collection is wonderful and really beautiful, a lot of it seems to be laid out by evolutionary trait rather than geographical location or in some cases even species, so it’s pretty informative as well. 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- цитата -->
+      <div class = 'post card-sp'>
+        <div class = 'post-autor'> 
+          <div class="usual-avatar" style="background: url(
+          /uploads/teacher/avatar/1/72b150d9c5.jpg
+          ) no-repeat; background-size: cover;">
+          </div>
+          <div class = 'post-autor-info'>
+            <div class = 'post-autor-name'>
+              Никитин Макс
+            </div>
+            <div class = 'post-autor-type'>
+              Преподаватель
+            </div>
+          </div>
+        </div>
+        <div class = 'post-content'>
+          <div class = 'post-type'>
+            <div class = 'post-type-cite'>
+              "Настоящий мужик должен на всех самок лазать! Ибо не надо вот это все вот так вот"
+            </div>
+          </div>
+          <div class = 'usual-post-contant'>
+            <div class = 'usual-post-text'>
+               Михал Палыч
+            </div>
+            <div class = 'usual-post-photo'>
+              <img src = 'https://cs7055.vk.me/c7002/v7002255/ba8d/OcPxI5Ef07s.jpg' />
+            </div>
+            <div class = 'usual-post-text'>
+               The Natural History collection is wonderful and really beautiful, a lot of it seems to be laid out by evolutionary trait rather than geographical location or in some cases even species, so it’s pretty informative as well. 
+            </div>
+            <div class = 'usual-post-devider'>
+            </div>
+            <div class = 'usual-post-text'>
+              The musical instruments part is pretty great, the Centenary Gallery has some neat things but it’s also kind of uneasy at times because it comes off sort of like a tribute to colonialism/just taking stuff, same with the African Worlds exhibit which also feels like they got a bunch of great stuff and didn’t know what to do with it. There’s a few other things but I ran out of time and didn’t get to see it so I can’t say.
+            </div>
+            <div class = 'usual-post-photo'>
+              <img src = 'https://pp.vk.me/c7010/v7010943/3004d/2fBtKBhXwxU.jpg' />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
