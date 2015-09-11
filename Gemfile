@@ -25,6 +25,7 @@ gem 'pundit'
 gem 'better_errors'
 gem 'react-rails'
 gem 'airbrake'
+gem 'acts_as_votable'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,4 +44,5 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
+  gem 'guard-rails'
 end
