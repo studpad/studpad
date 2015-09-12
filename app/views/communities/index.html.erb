@@ -19,7 +19,7 @@
                   <% @communities.each do |c| %>
                   <div class = 'col-xs-12 preview-community'>
                     <div class = 'preview-community-avatar' style = 'background: url(
-                    <%= c.avatar_safe_url %>
+                    <%= c.avatar %>
                     ); background-size: cover;'>
 
                     </div>
@@ -31,7 +31,7 @@
                         <div class = 'profile-notice'>
                           <div class="profile-notice-background">
                             <div class="profile-notice-avatar" style="background: url(
-                           <%= c.founder.avatar_safe_url %>
+                           <%= c.founder.avatar %>
                            ) no-repeat; background-size: cover;">
                             </div>
                             <div class="profile-notice-name-text">

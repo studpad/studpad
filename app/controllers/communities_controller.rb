@@ -43,7 +43,7 @@ class CommunitiesController < ApplicationController
   end
 
   def show
-    @news = @community.news
+    @posts = @community.posts
     @news_action = community_news_index_path(params[:id])
   end
 

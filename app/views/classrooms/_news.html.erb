@@ -37,7 +37,7 @@
   <% news_id = "news#{n.id}" %>
   <div id='<%= news_id %>' class = 'the-news row'>
       <div class = 'col-xs-1 wrap-avatar-news'>
-        <%= image_tag n.user.avatar_safe_url(:thumb), class: 'img-avatar' %>
+        <%= image_tag n.user.avatar.thumb, class: 'img-avatar' %>
       </div>
       <div class = 'col-xs-11'>
         <div class = 'content-the-news'>

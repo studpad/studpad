@@ -6,7 +6,7 @@
     <% @notices.each do |n| %>
       <div class = 'preview-object'>
           <div class = "preview-object-avatar-mini" style="background: url(
-          <%= n.user.avatar_safe_url(:thumb) %>
+          <%= n.user.avatar.thumb %>
           ) no-repeat; background-size: cover;">
           </div>
           <div class="preview-object-info-mini">

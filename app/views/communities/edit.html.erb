@@ -19,7 +19,7 @@
             <div class = 'community-heading edit-community-heading'>
                 <div class = 'edit-community-avatar'>
                   <div class = 'big-avatar-community' style = 'background: url(
-                  <%= @community.avatar_safe_url %>
+                  <%= @community.avatar %>
                   ) no-repeat; background-size: cover;'>
                   </div>
                   <div class = 'align-c margin-t10'>
@@ -54,7 +54,7 @@
                         <button type="submit" id = 'save-edit-community' class="btn btn-primary btn-st">Сохранить</button>
                       </div>
                     </div>
-                    
+
                   <% end %>
                 </div>
                 <div class = 'clearboth'>

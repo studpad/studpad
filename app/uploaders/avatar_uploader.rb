@@ -1,17 +1,16 @@
-# encoding: utf-8
-
 class AvatarUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  # Choose what kind of storage to use for this uploader:
   storage :file
-  # storage :fog
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
+  def to_s
+    if url
+      url
+    else
+      '/empty.png'
+    end
+  end
+
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
@@ -23,7 +22,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def filename
     "#{secure_token(10)}.#{file.extension}" if original_filename.present?
   end
-
 
   version :thumb do
     process :resize_to_fill => [60, 60]
@@ -49,5 +47,4 @@ class AvatarUploader < CarrierWave::Uploader::Base
       var = :"@#{mounted_as}_secure_token"
       model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(length/2))
     end
-
 end

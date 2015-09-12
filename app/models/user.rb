@@ -1,55 +1,33 @@
 class User < ActiveRecord::Base
-  before_validation :remove_whitespaces
-  has_many :news_items
-  has_many :materials
-  has_many :notifications
-  has_and_belongs_to_many :communities
-
   authenticates_with_sorcery!
+  before_validation :remove_whitespaces
 
-  validates :password, length: { minimum: 5, message: 'Не менее 5 символов' },
-    presence: { message: 'Не может быть пустым' }, on: :create
-  validates :password, confirmation:  {message: 'Пароли не совпадают' }, on: :create
+  has_many :notifications
+  has_many :posts
+
+  with_options association_foreign_key: 'group_id', join_table: 'groups_users' do |m|
+    m.has_and_belongs_to_many :groups
+    m.has_and_belongs_to_many :communities
+    m.has_and_belongs_to_many :classrooms
+  end
+
+  validates :password,
+    length:       {message: 'Не менее 5 символов', minimum: 5},
+    presence:     {message: 'Не может быть пустым'},
+    confirmation: {message: 'Пароли не совпадают'},
+    on:       :create
   validates :password_confirmation, presence: { message: 'Не может быть пустым' }, on: :create
   validates :email, uniqueness: { message: 'Такой email уже занят'}, presence: true
   validates :name, presence: true
 
   mount_uploader :avatar, AvatarUploader
 
-  def began_with
-     Russian::strftime(created_at, '%e %B %Y')
-  end
-
-  def avatar_safe_url(size=nil)
-    if avatar.url(size)
-      avatar.url(size)
-    else
-      return '/empty.png'
-    end
-  end
-
   def teacher?
-    false
+    is_a? Teacher
   end
 
   def student?
-    false
-  end
-
-  def can_view?(classroom)
-    classroom.main_teacher_id == id || classroom_id == classroom.id
-  end
-
-  def main_teacher_of?(classroom)
-    teacher? && id == classroom.main_teacher_id
-  end
-
-  def teacher_of?(classroom)
-    teacher? && classroom.teachers.exists?(id)
-  end
-
-  def student_of?(classroom)
-    student? && classroom_id == classroom.id
+    is_a? Student
   end
 
   private
