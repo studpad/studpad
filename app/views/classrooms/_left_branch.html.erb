@@ -5,7 +5,7 @@
   <div class = 'block-objects'>
     <div class = 'preview-object autor-material'>
       <div class = "preview-object-avatar" style="background: url(
-      <%=  @classroom.main_teacher.avatar_safe_url %>
+      <%= @classroom.main_teacher.avatar %>
       ) no-repeat; background-size: cover;">
       </div>
       <div class="preview-object-info">
@@ -21,12 +21,12 @@
       <%= link_to join_classroom_path(@classroom), remote: true,
       id: 'join-to-class', class: 'btn btn-primary btn-st' do %>
         Присоединиться
-      <% end unless (@classroom.is_student? current_user)%>
+      <% end %>
 
       <span class = 'settings-left-block'>
         <%= link_to edit_classroom_path(@classroom) do %>
         <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
-        <% end if @classroom.is_main_teacher? current_user %>
+        <% end %>
       </span>
     </div>
   </div>

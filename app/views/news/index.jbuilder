@@ -2,7 +2,7 @@ json.array! @newsItems do |n|
   json.author do
     json.name n.user.name
     json.url user_path(n.user)
-    json.avatar n.user.avatar_safe_url
+    json.avatar n.user.avatar.to_s
   end
   json.id n.id
   json.url news_path(n)
@@ -20,9 +20,8 @@ json.array! @newsItems do |n|
       json.author do
         json.name c.user.name
         json.url user_path(c.user)
-        json.avatar c.user.avatar_safe_url
+        json.avatar c.user.avatar.to_s
       end
-      json.avatarUrl c.user.avatar_safe_url
       json.time c.created_at.strftime("%d %b %H:%M")
     end
   end

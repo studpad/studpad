@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @materials = @user.materials.order(created_at: :desc)
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def create_ava

@@ -9,14 +9,14 @@
     <% Community.all.each do |c| %>
     <div class = 'preview-object'>
         <div class = "preview-object-avatar" style="background: url(
-        <%= c.avatar_safe_url %>
+        <%= c.avatar %>
         ) no-repeat; background-size: cover;">
         </div>
         <div class="preview-object-info">
           <div class = 'object-name'>
             <%= link_to c.name, community_path(c)%>
           </div>
-          <div class = 'object-text'><%= c.status_rus %></div>
+          <div class = 'object-text'><%= t c.status %></div>
         </div>
     </div>
     <div class = 'clearboth'>
