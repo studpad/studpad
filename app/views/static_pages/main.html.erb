@@ -25,11 +25,34 @@
         <!--<img src = '' class = 'fillWidth'/>-->
     <%= render 'form' %>
     </div>
+    <div class = 'introduce'>
+        <div class = 'content-introduce'>
+            <div class = 'text-description'>
+                <h2>В Studpad все легко и просто</h2>
+                <p>Создавать блоги и публиковать в них проще простого. Делитесь историями, фотографиями, GIF-ками, телесериалами, ссылками, шутками, рассказами, дорожками Spotify, mp3-записями, видео, философскими рассуждениями, новинками моды и искусства. Studpad — семейство блогов (254 миллионов), в котором вы найдете все, что угодно.</p>
+            </div>
+        </div>
+    </div>
+    <div class = 'about-studpad'>
+        <div class = 'content-about-studpad'>
+            <div class = 'text-description'>
+                <h2>В Studpad все легко и просто</h2>
+                <p>Создавать блоги и публиковать в них проще простого. Делитесь историями, фотографиями, GIF-ками, телесериалами, ссылками, шутками, рассказами, дорожками Spotify, mp3-записями, видео, философскими рассуждениями, новинками моды и искусства. Studpad — семейство блогов (254 миллионов), в котором вы найдете все, что угодно.</p>
+            </div>
+        </div>
+    </div>
+    <div class = 'conclusion'>
+        <div class = 'content-conclusion'>
+            <img src = "https://cs7055.vk.me/c540109/v540109420/d95/GDRYmraGCUA.jpg" id = 'about-HW_img' class="animate img-hide">
+            <div class = 'content-text-right'>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <script>
-    $(window).scroll(function() {
+    /*$(window).scroll(function() {
         $('#introduce_img').each(function(){
         var imagePos = $(this).offset().top;
 
@@ -62,7 +85,7 @@
                 $(this).addClass("slideUp");
             }
         });
-    });
+    }); */
 </script>
 
 <script>
@@ -70,15 +93,8 @@
         $('#hat-studpad').hide();
         scaleVideoContainer();
 
-        initBannerVideoSize('.video-container .poster img');
-        initBannerVideoSize('.video-container .filter');
-        initBannerVideoSize('.video-container video');
-
         $(window).on('resize', function() {
             scaleVideoContainer();
-            scaleBannerVideoSize('.video-container .poster img');
-            scaleBannerVideoSize('.video-container .filter');
-            scaleBannerVideoSize('.video-container video');
         });
 
     });

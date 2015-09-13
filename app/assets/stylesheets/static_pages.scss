@@ -23,40 +23,41 @@
     width: 100%;
     overflow: hidden;
 }
-.about-UM{
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
+.about-studpad{
+    height: 380px;
     width: 100%;
     overflow: hidden;
-    background-color: #E0756D;
-}
-.about-HW{
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-color: #4C6383;
+    background: url('/images/img-about-st1.png') 83% 30px no-repeat, #EF9C35;
+    background-size: 25%;
+    color: white;
 }
 .conclusion{
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
+    height: 380px;
     width: 100%;
     overflow: hidden;
-    background-color: #E7AB4F;
+    background-color: #E25D56;
 }
 .introduce{
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
+    height: 380px;
     width: 100%;
     overflow: hidden;
+    background-color: white;
+    background: url('/images/img-introduce2.png') 83% 30px no-repeat, white;
+    background-size: 25%;
+}
+.content-introduce, .content-about-studpad, .content-conclusion{
+    width: 40% !important;
+    padding-top: 20px;
+    text-align: left;
+    margin-left: 12%;
+    color: #383838;
+}
+.content-about-studpad > .text-description{
+  color: white;
+  font-size: 15px;
+}
+.text-description > p{
+  margin-top: 30px;
 }
 .video-container .poster img {
     width: 100%;
@@ -163,12 +164,7 @@
       margin: auto;
       color: white;
 }
-.content-introduce{
-    width: 70% !important;
-    max-height: 860px;
-    padding-top: 60px;
-    text-align: center;
-}
+
 .content-introduce > img{
     margin-top: 80px;
 }
