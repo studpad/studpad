@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
     length:       {message: 'Не менее 5 символов', minimum: 5},
     presence:     {message: 'Не может быть пустым'},
     confirmation: {message: 'Пароли не совпадают'},
-    on:       :create
-  validates :password_confirmation, presence: { message: 'Не может быть пустым' }, on: :create
+    on:           :create
   validates :email, uniqueness: { message: 'Такой email уже занят'}, presence: true
   validates :name, presence: true
 

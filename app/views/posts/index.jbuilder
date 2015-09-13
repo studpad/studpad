@@ -1,12 +1,14 @@
-json.array! @newsItems do |n|
+json.array! @posts do |n|
   json.author do
     json.name n.user.name
     json.url user_path(n.user)
     json.avatar n.user.avatar.to_s
   end
   json.id n.id
-  json.url news_path(n)
+  json.url post_path(n)
   json.text n.text
+  json.post_type n.post_type
+  json.title n.title
   json.time n.created_at.strftime("%d %b %H:%M")
   json.can_edit policy(n).update?
   json.can_remove policy(n).destroy?

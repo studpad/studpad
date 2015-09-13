@@ -53,13 +53,10 @@
         <div class = 'clearboth'>
         </div>
     </div>
-    <%#= render "/partials/new_post" %>
-    <%= react_component("PostBox", {})%>
 
-    <%= render "/partials/modal_new_post_text" %>
-    <%= render "/partials/modal_new_post_material" %>
-    <%= render "/partials/modal_new_post_link" %>
-    <%= render "/partials/modal_new_post_cite" %>
+    <%= react_component("PostBox",
+        posts_url: posts_community_path(@community),
+        group_id: @community.id) %>
 
     <!-- <div class = 'post-container'>
 

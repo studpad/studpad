@@ -1,11 +1,25 @@
 class CommunitiesController < ApplicationController
   before_action :find_community, except: [:create, :index, :create_ava]
 
-  def edit
+  def posts
+    @posts = @community.posts
+    render 'posts/index'
   end
 
   def index
     @communities = Community.all.includes(:founder)
+  end
+
+  def create
+    @community = current_user.communities.create community_params
+    redirect_to @community
+  end
+
+  def show
+    @posts = @community.posts
+  end
+
+  def edit
   end
 
   def update
@@ -17,34 +31,13 @@ class CommunitiesController < ApplicationController
   end
 
   def unjoin
-    @community.users.destroy(current_user)
-    @community.notifications.where(user_id: current_user.id).destroy_all
+    @community.unjoin(current_user)
     redirect_to @community
   end
 
   def join
-    if @community.secret?
-      @community.notifications.create user_id: current_user.id, mode: 'request'
-    else
-      unless @community.member? current_user
-        @community.notifications.create user_id: current_user.id, mode: 'join'
-        @community.users << current_user
-      end
-    end
+    @community.join(current_user)
     redirect_to @community
-  end
-
-  def create
-    @community = Community.new community_params
-    @community.founder = current_user
-    @community.save!
-
-    redirect_to @community
-  end
-
-  def show
-    @posts = @community.posts
-    @news_action = community_news_index_path(params[:id])
   end
 
   def create_ava

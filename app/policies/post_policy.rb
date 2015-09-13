@@ -1,4 +1,4 @@
-class NewsItemPolicy < Struct.new(:user, :news_item)
+class PostPolicy < Struct.new(:user, :post)
   def update?
     is_owner?
   end
@@ -13,6 +13,6 @@ class NewsItemPolicy < Struct.new(:user, :news_item)
 
   private
     def is_owner?
-      user.id == news_item.user_id
+      user.id == post.user_id
     end
 end

@@ -38,7 +38,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts_as_votable (0.10.0)
     airbrake (4.3.0)
       builder
       multi_json
@@ -215,6 +214,8 @@ GEM
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    react-bootstrap-rails (0.23.7)
+      rails (>= 3.1)
     react-rails (1.1.0)
       babel-transpiler (>= 0.7.0)
       coffee-script-source (~> 1.8)
@@ -284,7 +285,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_type
-  acts_as_votable
   airbrake
   better_errors
   bootstrap-sass
@@ -307,6 +307,7 @@ DEPENDENCIES
   pry-rails
   pundit
   rails (= 4.2.1.rc1)
+  react-bootstrap-rails
   react-rails
   russian
   sass-rails (~> 5.0)

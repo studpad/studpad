@@ -1,4 +1,4 @@
-var PostList = React.createClass({
+const PostList = React.createClass({
   render: function() {
     var removePost = this.props.removePost;
     var updatePost = this.props.updatePost;
@@ -11,7 +11,7 @@ var PostList = React.createClass({
       );
     });
     return (
-      <div className="postList">
+      <div className="post-container">
         {posts}
       </div>
     );
