@@ -25,7 +25,8 @@ gem 'pundit'
 gem 'better_errors'
 gem 'react-rails'
 gem 'airbrake'
-gem 'acts_as_votable'
+#gem 'acts_as_votable'
+gem 'react-bootstrap-rails'
 
 group :development, :test do
   gem 'byebug'

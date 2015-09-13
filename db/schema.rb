@@ -175,14 +175,15 @@ ActiveRecord::Schema.define(version: 20150912094745) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "text"
+    t.string   "title"
+    t.integer  "post_type",  null: false
     t.integer  "user_id"
-    t.integer  "source_id"
-    t.string   "source_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "posts", ["source_type", "source_id"], name: "index_posts_on_source_type_and_source_id", using: :btree
+  add_index "posts", ["group_id"], name: "index_posts_on_group_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "subjects", force: :cascade do |t|

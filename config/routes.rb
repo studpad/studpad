@@ -7,38 +7,29 @@ Rails.application.routes.draw do
   end
 
   resources :classrooms do
-    resources :materials
-    resources :classmates, controller: "classrooms/classmates"
-    resources :homeworks, controller: "classrooms/homeworks"
-    resources :news, controller: "classrooms/news"
+    resources :classmates, controller: 'classrooms/classmates'
+    get 'posts', on: :member
     member do
-      get 'join'
-      get 'new_student'
+      get  'join'
+      get  'new_student'
       post 'new_student' => 'classrooms#create_student'
     end
   end
 
   resources :communities do
-    resources :materials, only: [:index, :create], controller: "communities/materials"
-    resources :members, only: :index, controller: "communities/members"
-    resources :news, controller: "communities/news" do
-      post 'comment', on: :member
-    end
-    resources :notices, controller: "communities/notices"
+    resources :members, only: :index, controller: 'communities/members'
+    resources :notices, controller: 'communities/notices'
+    get 'posts', on: :member
     member do
-      get 'unjoin'
-      get 'join'
-      get 'notices'
+      get  'unjoin'
+      get  'join'
+      get  'notices'
       post 'crop'
       post 'create_ava'
     end
   end
 
-  resources :materials do
-    post 'share', on: :collection
-  end
-
-  resources :news do
+  resources :posts do
     resources :comments
   end
 
@@ -56,8 +47,8 @@ Rails.application.routes.draw do
   get 'development' => 'static_pages#example' #на время разработки
 
   get 'logout' => 'sessions#destroy'
-  get 'trouble' => "materials#edit"
-  get 'feed' => "feed#show"
+  get 'trouble' => 'materials#edit'
+  get 'feed' => 'feed#show'
   get 'signup'  => 'users#new'
   get 'welcome'  => 'sessions#new'
   get 'profile' => 'users#profile'

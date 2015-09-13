@@ -1,4 +1,4 @@
-var PostForm = React.createClass({
+const PostForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var text = React.findDOMNode(this.refs.text).value.trim();

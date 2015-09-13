@@ -3,8 +3,4 @@ class Teacher < User
   has_and_belongs_to_many :classrooms, join_table: 'classrooms_teachers'
   has_many :homeworks
   has_and_belongs_to_many :subjects, join_table: 'subjects_teachers'
-
-  def teacher?
-    true
-  end
 end

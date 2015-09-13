@@ -1,4 +1,4 @@
-var Post = React.createClass({
+const Post = React.createClass({
   getInitialState: function() {
     return {
       editable: false
@@ -18,75 +18,76 @@ var Post = React.createClass({
     this.setState({editable: false});
     this.props.updatePost(this.props.data.id, text);
   },
+
   render: function() {
-    var mainPart;
-    if (this.state.editable) {
-      mainPart = (
-        <div>
-          <textarea ref='text' className='form-control textHW-update'
-          defaultValue={this.props.data.text}/>
-          <div className='wrap-send-button'>
-            <button className="btn btn-primary btn-xs btn-st change-news"
-            onClick={this.updateClick}>
-              Сохранить
-            </button>
-          </div>
-        </div>
-        )
-    } else {
-      mainPart =(
-        <div className='main-text-news'>
-          <span className='span-main-text-news'>
-           {this.props.data.text}
-          </span>
-        </div>
-      )
-    }
-    var remove_link;
-    if (this.props.data.can_remove) {
-      remove_link = (
-        <span
-          className="glyphicon glyphicon-remove"
-          onClick={this.removeClick}>
-        </span>
-        );
-    }
-    var edit_link;
-    if (this.props.data.can_edit) {
-      edit_link = (
-        <span
-          className="glyphicon glyphicon-pencil pencil-news"
-          onClick={this.editClick}>
-        </span>
-        );
-    }
+    //console.warn("Inline styles")
     return (
-      <div id = 'form-send-news'>
-      <div className='the-news row'>
-        <div className='col-xs-1 wrap-avatar-news'>
-          <img src={this.props.data.author.avatar} className='img-avatar'/>
+      <div className='post card-sp'>
+        <PostAuthor author={this.props.data.author}/>
+        <PostContent text={this.props.data.text}/>
+      </div>
+    );
+  }
+});
+
+const PostAuthor = React.createClass({
+  render: function() {
+    return (
+      <div className='post-autor'>
+        <div className="usual-avatar"
+        style={{background: 'url(' + this.props.author.avatar + ') no-repeat',
+        backgroundSize: 'cover'}}>
         </div>
-        <div className='col-xs-11'>
-          <div className='content-the-news'>
-            <div className='sign-sp close-news'>
-              {edit_link}
-              &nbsp;&nbsp;
-              {remove_link}
-            </div>
-            <div className='news-username'>
-              <a href={this.props.data.author.url}>
-                {this.props.data.author.name}
-              </a>
-            </div>
-            {mainPart}
-            <CommentBox
-              postId={this.props.data.id}
-              comments={this.props.data.comments}
-              time={this.props.data.time}/>
+        <div className='post-autor-info'>
+          <div className='post-autor-name'>
+            {this.props.author.name}
+          </div>
+          <div className = 'post-autor-type'>
+            Преподаватель
           </div>
         </div>
       </div>
-      </div>
+    );
+  }
+});
+
+const PostContent = React.createClass({
+  render: function() {
+    return (
+       <div className = 'post-content'>
+          <div className = 'post-type'>
+            <div className = 'post-type-material'>
+              <div className = 'post-type-material-item'>
+                <div className = 'post-type-material-icon'>
+
+                </div>
+                <div className = 'post-type-material-text'>
+                  <a>Сcылка на файл</a>
+                </div>
+              </div>
+              <div className = 'clearboth'>
+              </div>
+              <div className = 'post-type-material-item'>
+                <div className = 'post-type-material-icon'>
+
+                </div>
+                <div className = 'post-type-material-text'>
+                  <a>Сыылка на файл</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = 'clearboth'>
+          </div>
+          <div className = 'usual-post-contant'>
+            <div className = 'usual-post-text'>
+              {this.props.text}
+            </div>
+            <div className = 'usual-post-photo'>
+              <img src = 'https://cs7055.vk.me/c7002/v7002049/bed6/aWcSTQMvi7w.jpg' />
+            </div>
+          </div>
+        </div>
     );
   }
 });
