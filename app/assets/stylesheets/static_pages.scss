@@ -31,11 +31,22 @@
     background-size: 25%;
     color: white;
 }
-.conclusion{
+.prospect{
     height: 380px;
     width: 100%;
     overflow: hidden;
+    background: url('/images/img-prospect.png') 83% 30px no-repeat, #EF9C35;
+    background-size: 25%;
     background-color: #E25D56;
+}
+.conclusion{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /*background-color: #4d8eb4;*/
+    padding-bottom: 60px;
+    color: white;
+    text-align: center;
 }
 .introduce{
     height: 380px;
@@ -45,14 +56,14 @@
     background: url('/images/img-introduce2.png') 83% 30px no-repeat, white;
     background-size: 25%;
 }
-.content-introduce, .content-about-studpad, .content-conclusion{
+.content-introduce, .content-about-studpad, .content-prospect{
     width: 40% !important;
     padding-top: 20px;
     text-align: left;
     margin-left: 12%;
     color: #383838;
 }
-.content-about-studpad > .text-description{
+.content-about-studpad > .text-description, .content-prospect > .text-description{
   color: white;
   font-size: 15px;
 }
@@ -86,11 +97,21 @@
     background-color: #F8FBFD;
     border-radius: 3px;
     padding: 20px;
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 50%;
     margin-left: -185px;
     margin-top: -197px;
+}
+.content-conclusion > h1{
+  margin-top: 50px;
+}
+.content-conclusion > p{
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.content-conclusion > .title-container > .headline{
+  margin-top: 20px;
 }
 .subheading {
   font-size: 16px;

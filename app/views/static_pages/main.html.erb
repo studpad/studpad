@@ -18,7 +18,6 @@
 </style>
 <div class="homepage-hero-module">
     <div class="welcome-yet" style = 'background: url(/images/bkg-m2.png); background-size: cover; background-repeat: no-repeat; background-position: center;'>
-        <div class="filter"></div>
         <!-- <video autoplay muted class="fillWidth">
             <source src="<%= image_path "Marguerite.mp4" %>" type="video/mp4"/>
         </video> -->
@@ -29,23 +28,36 @@
         <div class = 'content-introduce'>
             <div class = 'text-description'>
                 <h2>В Studpad все легко и просто</h2>
-                <p>Создавать блоги и публиковать в них проще простого. Делитесь историями, фотографиями, GIF-ками, телесериалами, ссылками, шутками, рассказами, дорожками Spotify, mp3-записями, видео, философскими рассуждениями, новинками моды и искусства. Studpad — семейство блогов (254 миллионов), в котором вы найдете все, что угодно.</p>
+                <p>Создавать публикации проще простого. Делитесь образовательными материалами, проектами, ссылками, фотографиями, планами уроков, рабочими листами, тестами, философскими рассуждениями или даже (интересными, веселыми историями и рассказами). Studpad — cемейство публикаций, в котором вы найдете все, что угодно.</p>
+                <p>Образовательные материалы, проекты, ссылки, фотографии, планы уроков, рабочие листы, тесты, философские рассуждения и даже (интересные, веселые истории и рассказы). Всеми этими публикациями вы можете делиться со своими коллегами и детьми. Интерес разгарается, т.к. публикации очень притягательны и красивы!</p>
             </div>
         </div>
     </div>
     <div class = 'about-studpad'>
         <div class = 'content-about-studpad'>
             <div class = 'text-description'>
-                <h2>В Studpad все легко и просто</h2>
-                <p>Создавать блоги и публиковать в них проще простого. Делитесь историями, фотографиями, GIF-ками, телесериалами, ссылками, шутками, рассказами, дорожками Spotify, mp3-записями, видео, философскими рассуждениями, новинками моды и искусства. Studpad — семейство блогов (254 миллионов), в котором вы найдете все, что угодно.</p>
+                <h2>Studpad дает возможности</h2>
+                <p>Простые инструменты могут творить чудеса! Ваши публикациями оценят коллеги со всей страны, а вы, в свою очередь, оцените их старания. Именно таким образов о вас узнают больше людей и оценят по достоинству.</p>
+            </div>
+        </div>
+    </div>
+    <div class = 'prospect'>
+        <div class = 'content-prospect'>
+            <div class = 'text-description'>
+                <h2>Набирайте высоту</h2>
+                <p>Станьте настоящим мастером в своем деле. Вы можете создать класс, пригласить детей и делиться с ними своими публикациями, материалами и всем, чем пожелаете. Ведь это ваш класс!</p>
             </div>
         </div>
     </div>
     <div class = 'conclusion'>
         <div class = 'content-conclusion'>
-            <img src = "https://cs7055.vk.me/c540109/v540109420/d95/GDRYmraGCUA.jpg" id = 'about-HW_img' class="animate img-hide">
-            <div class = 'content-text-right'>
-            </div>
+            <h1>Как видите, все очень просто</h1>
+            <p>Теперь вы знаете, как это работает. Добро пожаловать на борт!</p>
+            <!-- <video autoplay muted class="fillWidth">
+                <source src="<%= image_path "Marguerite.mp4" %>" type="video/mp4"/>
+            </video> -->
+            <!--<img src = '' class = 'fillWidth'/>-->
+            <%= render 'form' %>
         </div>
     </div>
 </div>
@@ -104,6 +116,7 @@
         var height = $(window).height() + 5;
         var unitHeight = parseInt(height) + 'px';
         $('.homepage-hero-module').css('height',unitHeight);
+
 
     }
 
