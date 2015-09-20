@@ -2031,7 +2031,7 @@ input[type=radio] {
     border-radius: 3px;
     padding: 15px;
 }
-button.action-angle {
+button.action-angle,  button.remove-angle,{
     padding: 0;
     cursor: pointer;
     background: transparent;
@@ -2053,6 +2053,26 @@ button.action-angle {
       opacity: 1;
       color: #3680be;
     }
+}
+.remove-angle{
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+    color: #AAABAC;
+    text-shadow: 0 1px 0 #fff;
+    outline: none;
+    transition-duration: .3s;
+    transition-timing-function: linear;
+    transition-delay: 0;
+    &:hover{
+      opacity: 1;
+      color: #D95851;
+    }
+}
+.remove-for-divider{
+  position: relative;
+  bottom: 24px;
 }
 .back-link{
   font-family: FontAwesome;

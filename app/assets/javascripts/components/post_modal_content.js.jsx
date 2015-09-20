@@ -76,20 +76,13 @@ const PostModalContent = React.createClass({
     switch (this.props.type) {
       case PostTypes.text:
         main_part = (
-        <div className='form-new-post'>
+        <div className='form-new-post usual-post-contant'>
           <div className='form-wrap-new-post-type'>
             <input
               ref='title'
               type='text'
               className='input-new-post form-text-title input-sp form-control'
               placeholder = 'Заголовок'/>
-          </div>
-          <div className='form-wrap-usual-text'>
-            <textarea
-              ref='text'
-              className='textarea-new-post textarea-sp form-control'
-              placeholder = 'Введите текст'>
-            </textarea>
           </div>
         </div>
         );
@@ -181,13 +174,6 @@ const PostModalContent = React.createClass({
               placeholder = 'Цитата'>
             </textarea>
           </div>
-          <div className='form-wrap-usual-text'>
-              <textarea
-                ref='text'
-                className='textarea-new-post textarea-sp form-control'
-                placeholder = '- Источник'>
-              </textarea>
-          </div>
         </div>
         );
         break;
@@ -200,6 +186,7 @@ const PostModalContent = React.createClass({
         <div className = 'row'>
           {main_part}
         </div>
+        <PostText typePost={this.props.type}/>
       </div>
     </div>
     );

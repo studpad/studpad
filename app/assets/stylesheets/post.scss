@@ -211,5 +211,28 @@
 .form-link{
 	background-color: transparent !important;
 }
-
-
+.post-add-text-element{
+	position: absolute;
+	left: -38px;
+	top: 90px;
+	background-color: white;
+	padding: 6px;
+	border-radius: 3px;
+	font-family: FontAwesome;
+	font-size: 20px;
+}
+.post-add-text-element > div{
+	cursor: pointer;
+	transition-duration: .3s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+	&:hover{
+		color: #3680be;
+	}
+}
+.add-element-label-photo:before{
+	content: "\f083";
+}
+.add-element-label-divider:before{
+	content: "\f07e";
+}
