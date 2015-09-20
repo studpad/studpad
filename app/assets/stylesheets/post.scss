@@ -102,6 +102,10 @@
 	margin-bottom: 20px;
 	border-top: 1px solid #DAE1E8;
 }
+.create-usual-post-divider{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 .usual-post-photo > img{
 	width: 100%;
 	margin-bottom: 20px;
@@ -200,6 +204,7 @@
 }
 .input-new-post, .textarea-new-post{
 	border: none !important;
+	resize: none;
 }
 .modal-dialog-new-post{
 	width: 500px !important;

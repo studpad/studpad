@@ -1,15 +1,20 @@
 var ElementTypes = {text: 'text', image: 'image', divider: 'divider'}
 var PostElement = React.createClass({
   handleChange: function() {
-      this.props.onChangeElementText(
-        this.props.id_element,
-        this.refs.textElement.getDOMNode().value
+    this.props.onChangeElementText(
+      this.props.id_element,
+      this.refs.textElement.getDOMNode().value
     );
   },
   handleRemoveElementPost: function() {
-      this.props.onRemoveElementPost(
-        this.props.id_element
+    this.props.onRemoveElementPost(
+      this.props.id_element
     );
+  },
+  componentDidMount: function() {
+    if(this.props.id_element == this.props.lengthElements - 1){
+      this.refs.textElement.getDOMNode().focus();
+    }
   },
   render: function() {
     var textPlaceholder;
@@ -33,7 +38,8 @@ var PostElement = React.createClass({
               className='textarea-new-post textarea-sp form-control'
               value={this.props.element.value}
               placeholder = {textPlaceholder}
-              onChange={this.handleChange}>
+              onChange={this.handleChange}
+              onLoad={this.handleAutofocus}>
             </textarea>
           </div>
         );
@@ -50,7 +56,9 @@ var PostElement = React.createClass({
           element_content = (
               <div>
                 <button className="remove-angle remove-for-divider" onClick={this.handleRemoveElementPost}>&times;</button>
-                <div className = 'usual-post-devider action-create-element-post'> 
+                <div className = 'usual-post-devider create-usual-post-divider action-create-element-post'> 
+                </div>
+                <div className = 'clearboth'>
                 </div>
               </div>
           );
@@ -121,15 +129,19 @@ var PostText = React.createClass({
   },
   render: function() {
     var elements = this.state.elements;
-    var full_elements = $.grep(elements, function(e){ return (e.display == 1) });
-    var empty_elements = $.grep(elements, function(e){ return (e.display != 1) });
-    full_elements = full_elements.map(function (c, id_element) {
+    var lengthElements = elements.length;
+   // var full_elements = $.grep(elements, function(e){ return (e.display == 1) });
+    //var empty_elements = $.grep(elements, function(e){ return (e.display != 1) });
+    full_elements = elements.map(function (c, id_element) {
+      if(c.display == 1){
       return <PostElement element={c} 
-              id_element={id_element + empty_elements.length} 
+              id_element={id_element} 
               key={id_element} 
               onChangeElementText={this.changeElementText} 
               typePost={this.props.typePost}
-              onRemoveElementPost={this.removeElementPost}/>
+              onRemoveElementPost={this.removeElementPost}
+              lengthElements={lengthElements}/>
+      }
     }.bind(this));
 
     return (
