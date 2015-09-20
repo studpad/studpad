@@ -6,6 +6,11 @@ var PostElement = React.createClass({
         this.refs.textElement.getDOMNode().value
     );
   },
+  handleRemoveElementPost: function() {
+      this.props.onRemoveElementPost(
+        this.props.id_element
+    );
+  },
   render: function() {
     var textPlaceholder;
     var element_content;
@@ -21,7 +26,8 @@ var PostElement = React.createClass({
         }
 
         element_content = (
-          <div className = 'usual-post-text'>
+          <div className = 'usual-post-text action-create-element-post'>
+            <button className="remove-angle" onClick={this.handleRemoveElementPost}>&times;</button>
             <textarea
               ref='textElement'
               className='textarea-new-post textarea-sp form-control'
@@ -34,14 +40,18 @@ var PostElement = React.createClass({
         break;
         case ElementTypes.image:
           element_content = (
-              <div className = 'usual-post-photo'>
+              <div className = 'usual-post-photo action-create-element-post'>
+                <button className="remove-angle" onClick={this.handleRemoveElementPost}>&times;</button>
                 <img src = 'https://cs7055.vk.me/c7002/v7002255/ba8d/OcPxI5Ef07s.jpg' />
               </div>
           );
         break;
         case ElementTypes.divider:
           element_content = (
-              <div className = 'usual-post-devider'>
+              <div>
+                <button className="remove-angle remove-for-divider" onClick={this.handleRemoveElementPost}>&times;</button>
+                <div className = 'usual-post-devider action-create-element-post'> 
+                </div>
               </div>
           );
         break;
@@ -66,6 +76,14 @@ var PostText = React.createClass({
         display: 1
       }]
     };
+  },
+  removeElementPost: function(id_element) {
+    var new_one;
+    new_one = this.state.elements;
+    new_one.splice(id_element, 1);
+    this.setState({
+      elements: new_one
+    })
   },
   changeElementText: function(id_element, value_element) {
     var new_one;
@@ -106,7 +124,12 @@ var PostText = React.createClass({
     var full_elements = $.grep(elements, function(e){ return (e.display == 1) });
     var empty_elements = $.grep(elements, function(e){ return (e.display != 1) });
     full_elements = full_elements.map(function (c, id_element) {
-      return <PostElement element={c} id_element={id_element + empty_elements.length} key={id_element} onChangeElementText={this.changeElementText} typePost={this.props.typePost}/>
+      return <PostElement element={c} 
+              id_element={id_element + empty_elements.length} 
+              key={id_element} 
+              onChangeElementText={this.changeElementText} 
+              typePost={this.props.typePost}
+              onRemoveElementPost={this.removeElementPost}/>
     }.bind(this));
 
     return (
