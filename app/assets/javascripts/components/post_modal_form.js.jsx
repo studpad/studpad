@@ -23,6 +23,7 @@ const PostModalForm = React.createClass({
       <div className="modal-content modal-content-new-post my-setting-modal-content">
         <PostModalAuthor />
         <PostModalContent ref='formContent' type={this.props.type}/>
+        
         <PostModalFooter
           close={this.props.hideModalForm}
           submit={this.submitForm} />

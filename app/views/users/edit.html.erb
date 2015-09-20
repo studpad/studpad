@@ -10,35 +10,39 @@
 
   <div class = 'main-wall'>
     <div class = 'card-sp'>
-        <div class="title-background-border title-without-border">
-          <div class="title-page">
-            Настройки профиля
-          </div>
-        </div>
-        <div class = 'row'>
-          <div class = 'col-xs-4 field-edit-avatar'>
-            <div class = 'current-edit-profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover;'>
+        
+            <div class="title-background-border title-without-border">
+              <div class="title-page">
+                Настройки профиля
+              </div>
             </div>
-            <div class = 'align-c'><a class = 'edit-profile-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фотографию</a></div>
-          </div>
-          <div class = 'col-xs-8 field-edit-data'>
-            <%= form_for @user, url: user_path(@user) do |f| %>
-            <div class = 'edit-profile edit-profile-name'>
-              <%= f.text_field :name, class: 'form-control input-sp input-edit-profile-name', placeholder: 'Ваше имя' %>
+            <div class = 'community-heading edit-community-heading'>
+                <div class = 'edit-community-avatar'>
+                  <div class = 'current-edit-profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover;'>
+                  </div>
+                  <div class = 'align-c margin-t10'>
+                    <a class = 'edit-profile-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фотографию</a>
+                  </div>
+                </div>
+                <div class = 'info-community'>
+                  <%= form_for @user, url: user_path(@user) do |f| %>
+                  <div class = 'edit-profile edit-profile-name'>
+                    <%= f.text_field :name, class: 'form-control input-sp input-edit-profile-name', placeholder: 'Ваше имя' %>
+                  </div>
+                  <div class = 'edit-profile edit-profile-school'>
+                    <%= f.text_field :school, class: 'form-control input-sp input-edit-profile-school', placeholder: 'Ваше учебное заведение' %>
+                  </div>
+                  <div class = 'change-password'>
+                    <a data-toggle="modal" data-target="#modal-window-change-password">Изменить пароль</a>
+                  </div>
+                  <div class="edit-profile-footer">
+                    <button type="submit" id = 'save-edit-profile' class="btn btn-primary btn-st">Сохранить</button>
+                  </div>
+                  <% end %>
+                </div>
+                <div class = 'clearboth'>
+                </div>
             </div>
-            <div class = 'edit-profile edit-profile-school'>
-              <%= f.text_field :school, class: 'form-control input-sp input-edit-profile-school', placeholder: 'Ваше учебное заведение' %>
-            </div>
-            <div class = 'change-password'>
-              <a data-toggle="modal" data-target="#modal-window-change-password">Изменить пароль</a>
-            </div>
-            <div class="edit-profile-footer">
-              <button type="submit" id = 'save-edit-profile' class="btn btn-primary btn-st">Сохранить</button>
-            </div>
-            <% end %>
-
-          </div>
-        </div>
     </div>
   </div>
 </div>
