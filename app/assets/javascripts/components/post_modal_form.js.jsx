@@ -11,7 +11,9 @@ const PostModalForm = React.createClass({
     return {type: PostTypes.text};
   },
   submitForm: function () {
-    this.props.createPost(this.refs.formContent.getFormData());
+    var postData = this.refs.formContent.getFormData();
+    console.info('Submit post form with', postData);
+    this.props.createPost(postData);
     this.props.hideModalForm();
   },
   render: function() {

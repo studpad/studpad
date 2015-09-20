@@ -43,7 +43,9 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-
+  namespace :ajax do
+    get 'page_description'
+  end
   get 'development' => 'static_pages#example' #на время разработки
 
   get 'logout' => 'sessions#destroy'

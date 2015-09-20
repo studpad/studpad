@@ -16,6 +16,7 @@
 //= require react
 //= require react_ujs
 //= require react_bootstrap
+//= require react-dropzone
 //= require components
 //= require bootstrap-sprockets
 //= require jquery.fancybox
@@ -55,3 +56,15 @@ var c = function(obj){//На время отладки
   console.log(obj);
 };
 
+function get_url_description(url, success_function){
+  $.ajax({
+    url: '/ajax/page_description',
+    dataType: 'json',
+    data: {url: url},
+    cache: false,
+    success: success_function,
+    error: function(xhr, status, err) {
+      console.error("Can't resolve host", status);
+    }
+  });
+};

@@ -1,0 +1,7 @@
+{
+  "name": "Studpad",
+  "version": "0.0.1",
+  "dependencies": {
+    "react-dropzone": "~2.1.0"
+  }
+}

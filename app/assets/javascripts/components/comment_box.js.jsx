@@ -81,7 +81,7 @@ var CommentBox = React.createClass({
     comments = comments.map(function (c) {
       return (
         <Comment
-          key={"comment" + c.id}
+          key={c.id}
           data={c}
           updateComment={updateComment}
           remove={removeComment} />
