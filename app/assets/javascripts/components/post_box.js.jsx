@@ -35,20 +35,27 @@ const PostBox = React.createClass({
   createPost: function(postData) {
     var oldPosts = this.state.posts;
     var newPost = [{
-      id: 12,
+      id: Date.now(),//random id for first
+      type: postData.type,
       text: postData.text,
       title: postData.title,
       author: currentUser,
-      comments: []
+      linkdata: {},
+      attachments: []
     }];
     var newPosts = newPost.concat(oldPosts);
     this.setState({posts: newPosts});
-    //return console.info(postData);
+    console.info('Send post data to server', postData);
     post = {
       'post[text]': postData.text,
       'post[group_id]': this.props.group_id,
       'post[title]': postData.title,
-      'post[post_type]': postData.post_type,
+      'post[post_type]': postData.type,
+      'post[attachment_ids]': postData.attachment_ids,
+      'post[linkdata][url]': postData.linkdata.url,
+      'post[linkdata][title]': postData.linkdata.title,
+      'post[linkdata][domain]': postData.linkdata.domain,
+      'post[linkdata][description]': postData.linkdata.description,
     };
     $.ajax({
       url: '/posts',
@@ -56,13 +63,28 @@ const PostBox = React.createClass({
       type: 'POST',
       data: post,
       success: function(data) {
-        //this.setState({data: data});
+        this.setState({posts: data});
         console.log(data)
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+  },
+  removePost: function(id){
+    console.info("remove Post", id, "in PostBox")
+    var Posts = this.state.posts
+    var newPosts = $.grep(Posts, function(e){ return e.id != id; });
+    var deletedPost = $.grep(Posts, function(e){ return e.id == id; });
+    deletedPost = deletedPost[0]
+    this.setState({posts: newPosts});
+    $.ajax({
+      url: deletedPost.url,
+      type: 'DELETE'
+    });
+  },
+  editPost: function(id){
+    console.info("update Post in PostBox", id)
   },
   render: function() {
     return (
@@ -76,7 +98,7 @@ const PostBox = React.createClass({
         <PostList
           data={this.state.posts}
           removePost={this.removePost}
-          updatePost={this.updatePost}/>
+          editPost={this.editPost}/>
       </div>
     );
   }

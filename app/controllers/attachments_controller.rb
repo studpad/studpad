@@ -1,5 +1,6 @@
 class AttachmentsController < ApplicationController
   def create
+    logger.debug params
     @a = Attachment.new(file: params[:file])
     if @a.save
       render 'create.json', layout: false

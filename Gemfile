@@ -25,6 +25,7 @@ gem 'pundit'
 gem 'better_errors'
 gem 'react-rails'
 gem 'airbrake'
+gem 'nokogiri'
 #gem 'acts_as_votable'
 gem 'react-bootstrap-rails'
 

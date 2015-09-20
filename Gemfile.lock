@@ -303,6 +303,7 @@ DEPENDENCIES
   jquery-rails
   mailgun_rails
   mini_magick
+  nokogiri
   pg
   pry-rails
   pundit
