@@ -31,7 +31,6 @@
 //= require autoresize.jquery.min
 //= require communities
 //= require jquery.jplayer.min
-//= require join
 //= require player
 //= require avatar
 //= require change_password
