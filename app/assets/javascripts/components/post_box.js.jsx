@@ -4,7 +4,10 @@ const PostBox = React.createClass({
     posts_url: React.PropTypes.string.isRequired
   },
   getInitialState: function () {
-    return {showModal: false, posts: []};
+    return {
+      showModal: false,
+      posts: []
+    };
   },
   initModalForm: function(type) {
     this.setState({showModal: true, type: type})
@@ -39,6 +42,7 @@ const PostBox = React.createClass({
       type: postData.type,
       text: postData.text,
       title: postData.title,
+      text_elements: postData.text_elements,
       author: currentUser,
       linkdata: {},
       attachments: []
@@ -47,21 +51,19 @@ const PostBox = React.createClass({
     this.setState({posts: newPosts});
     console.info('Send post data to server', postData);
     post = {
-      'post[text]': postData.text,
-      'post[group_id]': this.props.group_id,
-      'post[title]': postData.title,
-      'post[post_type]': postData.type,
-      'post[attachment_ids]': postData.attachment_ids,
-      'post[linkdata][url]': postData.linkdata.url,
-      'post[linkdata][title]': postData.linkdata.title,
-      'post[linkdata][domain]': postData.linkdata.domain,
-      'post[linkdata][description]': postData.linkdata.description,
+      text: postData.text,
+      group_id: this.props.group_id,
+      title: postData.title,
+      post_type: postData.type,
+      attachment_ids: postData.attachment_ids,
+      text_elements: postData.text_elements,
+      linkdata: postData.linkdata
     };
     $.ajax({
       url: '/posts',
       dataType: 'json',
       type: 'POST',
-      data: post,
+      data: {post: post},
       success: function(data) {
         this.setState({posts: data});
         console.log(data)

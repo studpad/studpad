@@ -19,4 +19,11 @@ json.array! @posts do |n|
       json.url a.file.to_s
     end
   end
+  json.text_elements do
+    json.array! n.text_elements do |e|
+      json.type e.text_type
+      json.url e.image.to_s
+      json.text e.text
+    end
+  end
 end

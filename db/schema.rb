@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920132405) do
+ActiveRecord::Schema.define(version: 20150922181313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -201,6 +201,18 @@ ActiveRecord::Schema.define(version: 20150920132405) do
 
   add_index "subjects_teachers", ["subject_id"], name: "index_subjects_teachers_on_subject_id", using: :btree
   add_index "subjects_teachers", ["teacher_id"], name: "index_subjects_teachers_on_teacher_id", using: :btree
+
+  create_table "text_elements", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "text_type",  default: 0
+    t.integer  "position",               null: false
+    t.string   "image"
+    t.integer  "post_id",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "text_elements", ["post_id"], name: "index_text_elements_on_post_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                           null: false

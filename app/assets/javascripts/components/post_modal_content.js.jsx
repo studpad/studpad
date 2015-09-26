@@ -30,10 +30,11 @@ const PostModalContent = React.createClass({
   getFormData: function() {
     postData = {};
     postData.title = this.refs.title.getDOMNode().value.trim();
-    postData.text = this.refs.text.getDOMNode().value.trim();
+    //postData.text = this.refs.text.getDOMNode().value.trim();
     postData.type = this.props.type;
     postData.linkdata = this.state.link_description;
     postData.attachment_ids = this.state.files.map(function(f){return f.id});
+    postData.text_elements = this.refs.post_text.getData();
     console.log(postData);
     return postData;
   },
@@ -127,13 +128,6 @@ const PostModalContent = React.createClass({
                 {link_domain}
               </div></a>
           </div>
-          <div className = 'form-wrap-usual-text'>
-              <textarea
-                ref='text'
-                className = 'textarea-new-post textarea-sp form-control'
-                placeholder = 'Если хотите, добавьте описание.'>
-              </textarea>
-          </div>
         </div>
         );
         break;
@@ -141,7 +135,8 @@ const PostModalContent = React.createClass({
         main_part = (
         <div className = 'form-new-post'>
           <div className = 'form-wrap-new-post-type'>
-            <DropzoneComponent onDrop={this.onDrop}>
+            <DropzoneComponent
+              onDrop={this.onDrop}>
               <div style={{height: 200}}>
               Кликните или перетащите файлы сюда.
               </div>
@@ -153,13 +148,6 @@ const PostModalContent = React.createClass({
               className='input-new-post form-text-title input-sp form-control'
               placeholder = 'Заголовок'/>
           {files}
-          <div className = 'form-wrap-usual-text'>
-            <textarea
-              ref='text'
-              className = 'textarea-new-post textarea-sp form-control'
-              placeholder = 'Если хотите, добавьте описание.'>
-            </textarea>
-          </div>
         </div>
         );
         break;
@@ -186,7 +174,7 @@ const PostModalContent = React.createClass({
         <div className = 'row'>
           {main_part}
         </div>
-        <PostText typePost={this.props.type}/>
+        <PostText ref='post_text' typePost={this.props.type}/>
       </div>
     </div>
     );

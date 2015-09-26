@@ -5,11 +5,11 @@ const Post = React.createClass({
     };
   },
   removeClick: function(){
-    console.info("Remove Post Click")
+    console.info('Remove Post Click')
     this.props.removePost(this.props.data.id);
   },
   editClick: function(){
-    console.info("Edit Post Click")
+    console.info('Edit Post Click')
     this.props.editPost(this.props.data.id);
   },
   updateClick: function(){
@@ -20,7 +20,6 @@ const Post = React.createClass({
     this.setState({editable: false});
     this.props.updatePost(this.props.data.id, text);
   },
-
   render: function() {
     return (
       <div className='post card-sp'>
@@ -29,10 +28,62 @@ const Post = React.createClass({
           editClick={this.editClick}/>
         <PostContent
           post={this.props.data}/>
+        <PostTextView elements={this.props.data.text_elements} />
       </div>
     );
   }
 });
+
+const PostTextView = React.createClass({
+  getDefaultProps: function() {
+    return {
+      elements: []
+    };
+  },
+  render: function() {
+    var rendered_elements = this.props.elements.map(function(e){
+      return <PostTextElementView element={e} />
+    })
+    return (
+      <div className='post-content'>
+        <div className='usual-post-contant'>
+          {rendered_elements}
+        </div>
+      </div>
+    );
+  }
+})
+
+const PostTextElementView = React.createClass({
+  render: function() {
+    switch (this.props.element.type) {
+      case ElementTypes.text:
+        return (
+          <div className = 'usual-post-text action-create-element-post'>
+            {this.props.element.text}
+          </div>
+        );
+        break;
+      case ElementTypes.image:
+        return (
+            <div className = 'usual-post-photo action-create-element-post'>
+              <img src = {this.props.element.url} />
+            </div>
+        );
+        break;
+      case ElementTypes.divider:
+        return (
+            <div>
+              <div className = 'usual-post-devider create-usual-post-divider action-create-element-post'/>
+              <div className = 'clearboth' />
+            </div>
+        );
+        break;
+      default:
+        console.log('Undefined PostText type');
+    }
+  }
+})
 
 const PostAuthor = React.createClass({
   render: function() {
