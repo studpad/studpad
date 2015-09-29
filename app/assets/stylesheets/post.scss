@@ -1,5 +1,5 @@
 .main-wall{
-      width: 600px;
+      width: 520px;
 }
 .new-post-buttons{
 	padding-bottom: 6px !important;
@@ -16,6 +16,7 @@
 }
 .new-post-label-name{
 	color: #516574;
+	font-size: 13px;
 }
 .icon-post{
 	position: relative;
@@ -31,8 +32,8 @@
   }
 }
 .icon-post > img{
-	width: 48px;
-	height: 48px;
+	width: 38px;
+	height: 38px;
 }
 /*.icon-post-text:before {
   content: "\f044";
@@ -111,7 +112,7 @@
 	margin-bottom: 20px;
 }
 .usual-post-text{
-	font-size: 14px;
+	font-size: 13px;
 	margin-bottom: 20px;
 }
 /* типы постов */
@@ -240,4 +241,12 @@
 }
 .add-element-label-divider:before{
 	content: "\f07e";
+}
+.post-action{
+	font-size: 15px;
+	margin-right: 15px;
+	margin-top: 10px;
+}
+.post-action > div > span{
+
 }

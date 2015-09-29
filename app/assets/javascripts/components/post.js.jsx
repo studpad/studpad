@@ -101,14 +101,19 @@ const PostAuthor = React.createClass({
             Преподаватель
           </div>
         </div>
-        <span
-          className="glyphicon glyphicon-pencil pencil-news"
-          onClick={this.props.editClick}>
-        </span>&nbsp;
-        <span
-          className="glyphicon glyphicon-remove"
-          onClick={this.props.removeClick}>
-        </span>
+        <div className = 'action-angle post-action'>
+          <div className = 'btn-group'>
+            <span className = 'sign-dots-menu' data-toggle="dropdown">•••</span>
+            <ul className="dropdown-menu" role="menu">
+              <li>
+                <a onClick={this.props.editClick}>Редактировать</a>
+              </li>
+              <li>
+                <a onClick={this.props.removeClick}>Удалить</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   }
