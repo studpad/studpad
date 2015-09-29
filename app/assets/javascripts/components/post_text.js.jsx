@@ -55,11 +55,6 @@ var PostTextElement = React.createClass({
     // if(this.props.position == this.props.lengthElements - 1){
     //   this.refs.textElement.getDOMNode().focus();
     // }
-    var $checkboxContainer = $(this.refs.checkboxContainer.getDOMNode());
-    var $checkbox = $('<input />').prop('type', 'checkbox');
-    $checkboxContainer.append($checkbox);
-
-        $checkbox.bootstrapSwitch({});
   },
   render: function() {
     var textPlaceholder;
@@ -111,24 +106,3 @@ var PostTextElement = React.createClass({
     return element_content;
   }
 });
-
-var Example = React.createClass({
-    componentDidMount: function() {
-        var $checkboxContainer = $(this.refs.checkboxContainer.getDOMNode());
-
-        var $checkbox = $('<input />').prop('type', 'checkbox');
-
-        $checkboxContainer.append($checkbox);
-
-        $checkbox.bootstrapSwitch({});
-    },
-    render: function() {
-        return (
-            <div>
-                <div ref="checkboxContainer"></div>
-            </div>
-        )
-    }
-});
-
-
