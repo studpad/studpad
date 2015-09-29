@@ -1,42 +1,81 @@
-var ElementTypes = {text: 'text', image: 'image', divider: 'divider'}
-var PostElement = React.createClass({
-  handleChange: function() {
+var PostText = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    addImage: React.PropTypes.func.isRequired,
+    addDivider: React.PropTypes.func.isRequired,
+    removeTextElement: React.PropTypes.func.isRequired,
+    text_elements: React.PropTypes.array.isRequired
+  },
+  //END*****************************************************DECLARE
+  render: function() {
+    var elements = this.props.text_elements;
+    var length = elements.length;
+    rendered_elements = elements.map(function (e, position) {
+      return <PostTextElement
+                key={position}
+                element={e}
+                position={position}
+                onChangeElementText={this.props.changeElementText}
+                removeTextElement={this.props.removeTextElement}
+                lengthElements={length}/>
+    }.bind(this));
+
+    return (
+      <div>
+        <PostTextManagmentPanel
+          addImage={this.props.addImage}
+          addDivider={this.props.addDivider}/>
+        {rendered_elements}
+      </div>
+    );
+  }
+});
+
+var PostTextElement = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    element: React.PropTypes.shape({
+      type: React.PropTypes.string.isRequired,
+      text: React.PropTypes.string
+    })
+  },
+  //END*****************************************************DECLARE
+  handleChange: function(e) {
     this.props.onChangeElementText(
       this.props.position,
-      this.refs.textElement.getDOMNode().value
+      e.target.value
     );
   },
   handleRemoveElementPost: function() {
-    this.props.onRemoveElementPost(
+    this.props.removeTextElement(
       this.props.position
     );
   },
   componentDidMount: function() {
-    if(this.props.position == this.props.lengthElements - 1){
-      this.refs.textElement.getDOMNode().focus();
-    }
+    // if(this.props.position == this.props.lengthElements - 1){
+    //   this.refs.textElement.getDOMNode().focus();
+    // }
   },
   render: function() {
     var textPlaceholder;
     var element_content;
-    var remove_button = <button className="remove-angle" onClick={this.handleRemoveElementPost}>&times;</button>
+    var remove_button = <button className='remove-angle' onClick={this.handleRemoveElementPost}>&times;</button>
     switch (this.props.element.type) {
       case ElementTypes.text:
-        if(this.props.typePost == PostTypes.text){
-          textPlaceholder = 'Введите текст';
-        }else if(this.props.typePost == PostTypes.link || this.props.typePost == PostTypes.file){
-          textPlaceholder = 'Если хотите, добавьте описание';
-        }else{
-          textPlaceholder = '- Источник';
-        }
-
+        // if(this.props.typePost == PostTypes.text){
+        textPlaceholder = 'Введите текст';
+        // }else if(this.props.typePost == PostTypes.link || this.props.typePost == PostTypes.file){
+        //   textPlaceholder = 'Если хотите, добавьте описание';
+        // }else{
+        //   textPlaceholder = '- Источник';
+        // }
         element_content = (
           <div className = 'usual-post-text action-create-element-post'>
             {remove_button}
             <textarea
               ref='textElement'
               className='textarea-new-post textarea-sp form-control'
-              value={this.props.element.value}
+              value={this.props.element.text}
               placeholder = {textPlaceholder}
               onChange={this.handleChange}
               onLoad={this.handleAutofocus}>
@@ -48,7 +87,7 @@ var PostElement = React.createClass({
         element_content = (
             <div className = 'usual-post-photo action-create-element-post'>
               {remove_button}
-              <img src = {this.props.element.data.link} />
+              <img src = {this.props.element.url} />
             </div>
         );
         break;
@@ -62,7 +101,7 @@ var PostElement = React.createClass({
         );
         break;
       default:
-        console.log('Undefined PostText type');
+        CE('Undefined PostText type');
     }
     return element_content;
   }
@@ -71,68 +110,4 @@ var PostElement = React.createClass({
 
 
 
-var PostText = React.createClass({
-  getInitialState: function() {
-    return {
-      elements: [{
-        value: '',
-        type: ElementTypes.text
-      }]
-    };
-  },
-  getData: function(){
-    return this.state.elements;
-  },
-  addImage: function(attachement_data) {
-    var elements = this.state.elements;
-    elements.push({type: ElementTypes.image, data: attachement_data});
-    elements.push({type: ElementTypes.text, value: ''});
-    this.setState({
-      elements: elements
-    });
-  },
-  addDevider: function(){
-    var elements = this.state.elements;
-    elements.push({type: ElementTypes.divider});
-    elements.push({type: ElementTypes.text, value: ''});
-    this.setState({
-      elements: elements
-    });
-  },
-  removeElementPost: function(position) {
-    var elements = this.state.elements;
-    elements.splice(position, 1);
-    this.setState({
-      elements: elements
-    })
-  },
-  changeElementText: function(position, value_element) {
-    var elements = this.state.elements;
-    elements[position].value = value_element;
-    this.setState({
-      elements: elements
-    })
-  },
-  render: function() {
-    var elements = this.state.elements;
-    var length = elements.length;
-    rendered_elements = elements.map(function (e, position) {
-      return <PostElement element={e}
-              position={position}
-              key={position}
-              onChangeElementText={this.changeElementText}
-              typePost={this.props.typePost}
-              onRemoveElementPost={this.removeElementPost}
-              lengthElements={length}/>
-    }.bind(this));
 
-    return (
-      <div>
-        <PostTextElement
-          addImage={this.addImage}
-          addDevider={this.addDevider}/>
-        {rendered_elements}
-      </div>
-    );
-  }
-});

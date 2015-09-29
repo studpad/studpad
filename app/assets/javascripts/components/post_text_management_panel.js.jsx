@@ -1,13 +1,17 @@
-const PostTextElement = React.createClass({
-  onClickText: function() {
-    this.props.addElement('',ElementTypes.text)
+const PostTextManagmentPanel = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    addImage: React.PropTypes.func.isRequired,
+    addDivider: React.PropTypes.func.isRequired
   },
+  //END*****************************************************DECLARE
   onClickImage: function() {
+    CI('PostTextManagmentPanel::onClickImage');
     this.refs.drop.onClick();
-    //this.props.addElement('studpad',ElementTypes.image)
   },
   onClickDivider: function() {
-    this.props.addDevider();
+    CI('PostTextManagmentPanel::onClickDivider');
+    this.props.addDivider();
   },
   onDrop: function (files) {
     var data = new FormData();
@@ -20,11 +24,10 @@ const PostTextElement = React.createClass({
       contentType: false,
       dataType: 'json',
       success: function(data) {
-        this.props.addImage(data)
-        console.info('Add impage as post text', data);
+        this.props.addImage(data);
       }.bind(this),
       error: function (data) {
-        console.error("Can't add image to post text", data);
+        CE("Can't add image to post text", data);
       }
     });
   },

@@ -13,7 +13,8 @@ json.array! @posts do |n|
   json.time n.created_at.strftime('%d %b %H:%M')
   json.can_edit policy(n).update?
   json.can_remove policy(n).destroy?
-  json.attachments do
+  json.attachment_ids = n.attachment_ids
+  json.files do
     json.array! n.attachments do |a|
       json.name a.file.file.filename
       json.url a.file.to_s
@@ -21,6 +22,7 @@ json.array! @posts do |n|
   end
   json.text_elements do
     json.array! n.text_elements do |e|
+      json.id e.id
       json.type e.text_type
       json.url e.image.to_s
       json.text e.text

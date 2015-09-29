@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       case element['type']
       when 'text'
         @post.text_elements.create text_type: 'text',
-          text: element['value'],
+          text: element[:text],
           position: position
       when 'image'
         @post.text_elements.create text_type: 'image',
@@ -32,7 +32,41 @@ class PostsController < ApplicationController
 
   def update
     @post.update_attributes post_params
-    render nothing: true
+    element_ids = params[:post][:text_elements].values.map{|e| e[:id]}.compact
+    @post.text_element_ids = element_ids
+    params[:post][:text_elements].each do |position, element|
+      case element['type']
+      when 'text'
+        if element[:id]
+          @post.text_elements.find(element[:id]).update_attributes text_type: 'text',
+            text: element[:text],
+            position: position
+        else
+          @post.text_elements.create text_type: 'text',
+            text: element[:text],
+            position: position
+        end
+      when 'image'
+        if element[:id]
+          @post.text_elements.find(element[:id]).update_attributes position: position
+        else
+          @post.text_elements.create text_type: 'image',
+            image: Attachment.find(element['data']['id']).file,
+            position: position
+        end
+      when 'divider'
+        if element[:id]
+          @post.text_elements.find(element[:id]).update_attributes position: position
+        else
+          @post.text_elements.create text_type: 'divider', position: position
+        end
+      else
+        raise 'Undefined text type'
+      end
+    end
+
+    @posts = Post.all.order(created_at: :desc)
+    render :index, formats: :json
   end
 
   def index

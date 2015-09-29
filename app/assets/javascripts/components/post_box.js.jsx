@@ -1,32 +1,13 @@
 const PostBox = React.createClass({
+  //BEGIN***************************************************DECLARE
   propTypes: {
     group_id: React.PropTypes.number,
     posts_url: React.PropTypes.string.isRequired
   },
   getInitialState: function () {
     return {
-      showModal: false,
       posts: []
     };
-  },
-  initModalForm: function(type) {
-    this.setState({showModal: true, type: type})
-  },
-  hideModalForm: function() {
-    this.setState({showModal: false})
-  },
-  loadPostsFromServer: function() {
-    $.ajax({
-      url: this.props.posts_url,
-      dataType: 'json',
-      cache: false,
-      success: function(data) {
-        this.setState({posts: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
   },
   componentDidMount: function() {
     this.loadPostsFromServer();
@@ -35,27 +16,56 @@ const PostBox = React.createClass({
   componentWillUnmount: function(){
     //clearInterval(intervalID)
   },
+  //END*****************************************************DECLARE
+  //BEGIN***************************************************ACTIONS
+  newPost: function(postType) {
+    this.refs.form.newPost(postType);
+    CI('PostBox::newPost', postType);
+  },
+  updatePost: function(postData){
+    var newPosts = this.state.posts.map(function (n) {
+      if (n.id == postData.id){
+        n = postData;
+      }
+      return n;
+    });
+    this.setState({posts: newPosts});
+    CI('PostBox::updatePost', postData);
+    var attachment_ids = postData.files.map(function(f){ return f.id });
+    postData.attachment_ids = attachment_ids;
+    $.ajax({
+      url: postData.url,
+      dataType: 'json',
+      type: 'PATCH',
+      data: {
+        post : postData
+      },
+      success: function(data) {
+        this.setState({posts: data});
+      }.bind(this)
+    });
+  },
   createPost: function(postData) {
     var oldPosts = this.state.posts;
     var newPost = [{
       id: Date.now(),//random id for first
       type: postData.type,
-      text: postData.text,
       title: postData.title,
       text_elements: postData.text_elements,
       author: currentUser,
       linkdata: {},
-      attachments: []
+      files: []
     }];
     var newPosts = newPost.concat(oldPosts);
     this.setState({posts: newPosts});
-    console.info('Send post data to server', postData);
+    var attachment_ids = postData.files.map(function(f){ return f.id })
+    CI('Send post data to server', postData);
     post = {
       text: postData.text,
       group_id: this.props.group_id,
       title: postData.title,
       post_type: postData.type,
-      attachment_ids: postData.attachment_ids,
+      attachment_ids: attachment_ids,
       text_elements: postData.text_elements,
       linkdata: postData.linkdata
     };
@@ -72,36 +82,73 @@ const PostBox = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+    CI('PostBox::createPost', postData);
   },
-  removePost: function(id){
-    console.info("remove Post", id, "in PostBox")
-    var Posts = this.state.posts
-    var newPosts = $.grep(Posts, function(e){ return e.id != id; });
-    var deletedPost = $.grep(Posts, function(e){ return e.id == id; });
+  editPost: function(id) {
+    var posts = this.state.posts;
+    var editedPost = $.grep(posts, function(e){ return e.id == id; });
+    editedPost = editedPost[0];
+    this.refs.form.editPost(editedPost);
+    CI('PostBox::editPost', id);
+  },
+  removePost: function(id) {
+    var posts = this.state.posts;
+    var newPosts = $.grep(posts, function(e){ return e.id != id; });
+    var deletedPost = $.grep(posts, function(e){ return e.id == id; });
     deletedPost = deletedPost[0]
     this.setState({posts: newPosts});
     $.ajax({
       url: deletedPost.url,
       type: 'DELETE'
     });
+    CI('PostBox::removePost', id);
   },
-  editPost: function(id){
-    console.info("update Post in PostBox", id)
+  //END*****************************************************ACTIONS
+  //BEGIN***************************************************HELPERS
+  loadPostsFromServer: function() {
+    $.ajax({
+      url: this.props.posts_url,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({posts: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        CE(this.props.url, status, err.toString());
+      }.bind(this)
+    });
   },
+  //END*****************************************************HELPERS
   render: function() {
     return (
       <div>
-        <PostManagementPanel initModalForm={this.initModalForm}/>
+        <PostManagementPanel
+          newPost={this.newPost}/>
         <PostModalForm
+          ref='form'
           createPost={this.createPost}
-          show={this.state.showModal}
-          type={this.state.type}
-          hideModalForm={this.hideModalForm}/>
+          updatePost={this.updatePost}
+          />
         <PostList
-          data={this.state.posts}
+          posts={this.state.posts}
           removePost={this.removePost}
           editPost={this.editPost}/>
       </div>
     );
   }
 })
+
+
+/*
+
+  editPost: function(id){
+    console.info('update Post in PostBox', id)
+    var Posts = this.state.posts;
+    var editedPost = $.grep(Posts, function(e){ return e.id == id; });
+    editedPost = editedPost[0];
+    this.setState({
+      showModal: true,
+      type: editedPost.type
+    });
+    this.refs.post_form.editPost(editedPost);
+  },*/
