@@ -27,10 +27,12 @@ const Post = React.createClass({
           author={this.props.post.author}
           removeClick={this.removeClick}
           editClick={this.editClick}/>
-        <PostContentView
-          post={this.props.post}/>
-        <PostTextView
-          text_elements={this.props.post.text_elements}/>
+        <div className = 'post-content'>
+          <PostContentView
+            post={this.props.post}/>
+          <PostTextView
+            text_elements={this.props.post.text_elements}/>
+        </div>
       </div>
     );
   }
@@ -88,7 +90,7 @@ const PostContentView = React.createClass({
     switch (this.props.post.type) {
       case PostTypes.text:
         main_part = (
-          <div className = 'post-content'>
+          <div>
             <div className = 'clearboth'>
             </div>
             <div className = 'post-type'>
@@ -106,20 +108,18 @@ const PostContentView = React.createClass({
         break;
       case PostTypes.link:
         main_part = (
-          <div className = 'post-content'>
-            <div class = 'post-type'>
-              <a href = {this.props.post.linkdata.url}><div className = 'post-type-link extra-background'>
-                <header className = 'post-type-link-title'>
-                  {this.props.post.linkdata.title}
-                </header>
-                <div className = 'post-type-link-description'>
-                  {this.props.post.linkdata.description}
-                </div>
-                <div className = 'post-type-link-link'>
-                  <span className = 'decor-type-link-link'>{this.props.post.linkdata.domain}</span>
-                </div>
-              </div></a>
-            </div>
+          <div class = 'post-type'>
+            <a href = {this.props.post.linkdata.url}><div className = 'post-type-link extra-background'>
+              <header className = 'post-type-link-title'>
+                {this.props.post.linkdata.title}
+              </header>
+              <div className = 'post-type-link-description'>
+                {this.props.post.linkdata.description}
+              </div>
+              <div className = 'post-type-link-link'>
+                <span className = 'decor-type-link-link'>{this.props.post.linkdata.domain}</span>
+              </div>
+            </div></a>
           </div>
         );
         break;
@@ -146,7 +146,7 @@ const PostContentView = React.createClass({
         break;
       case PostTypes.quotation:
         main_part = (
-        <div className = 'post-content'>
+        <div>
           <div className = 'post-type'>
             <div className = 'post-type-cite'>
               "{this.props.post.title}"
@@ -179,10 +179,8 @@ const PostTextView = React.createClass({
       return <PostTextElementView key={i} element={e} />
     })
     return (
-      <div className='post-content'>
-        <div className='usual-post-contant'>
-          {rendered_elements}
-        </div>
+      <div className='usual-post-contant'>
+        {rendered_elements}
       </div>
     );
   }

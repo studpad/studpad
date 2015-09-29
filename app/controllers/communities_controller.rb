@@ -2,7 +2,7 @@ class CommunitiesController < ApplicationController
   before_action :find_community, except: [:create, :index, :create_ava]
 
   def posts
-    @posts = @community.posts
+    @posts = @community.posts.order(created_at: :desc)
     render 'posts/index'
   end
 
