@@ -52,9 +52,15 @@ var PostTextElement = React.createClass({
     );
   },
   componentDidMount: function() {
-    // if(this.props.position == this.props.lengthElements - 1){
-    //   this.refs.textElement.getDOMNode().focus();
-    // }
+    if(this.props.element.type == ElementTypes.text){
+      var node = this.refs.textElement.getDOMNode();
+      $(node).autoResize({
+        limit:600,
+        extraSpace:30,
+        animate:true
+      });
+      $(node).change();
+    }
   },
   render: function() {
     var textPlaceholder;
@@ -74,6 +80,7 @@ var PostTextElement = React.createClass({
             {remove_button}
             <textarea
               ref='textElement'
+              id='hhh'
               className='textarea-new-post textarea-sp form-control'
               value={this.props.element.text}
               placeholder = {textPlaceholder}
