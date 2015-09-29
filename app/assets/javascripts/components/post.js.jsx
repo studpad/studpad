@@ -1,95 +1,57 @@
 const Post = React.createClass({
-  getInitialState: function() {
-    return {
-      editable: false
-    };
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    editPost: React.PropTypes.func.isRequired,
+    removePost: React.PropTypes.func.isRequired,
+    post: React.PropTypes.shape({
+      id: React.PropTypes.number.isRequired
+    })
   },
+  //END*****************************************************DECLARE
+  //BEGIN***************************************************ACTIONS
   removeClick: function(){
-    console.info('Remove Post Click')
-    this.props.removePost(this.props.data.id);
+    var post_id = this.props.post.id;
+    CI('Post::removeClick', post_id);
+    this.props.removePost(post_id);
   },
   editClick: function(){
-    console.info('Edit Post Click')
-    this.props.editPost(this.props.data.id);
+    var post_id = this.props.post.id;
+    CI('Post::editClick', post_id);
+    this.props.editPost(post_id);
   },
-  updateClick: function(){
-    var text = React.findDOMNode(this.refs.text).value.trim();
-    if (!text) {
-      return;
-    }
-    this.setState({editable: false});
-    this.props.updatePost(this.props.data.id, text);
-  },
+  //END*****************************************************ACTIONS
   render: function() {
     return (
       <div className='post card-sp'>
-        <PostAuthor author={this.props.data.author}
+        <PostAuthorView
+          author={this.props.post.author}
           removeClick={this.removeClick}
           editClick={this.editClick}/>
-        <PostContent
-          post={this.props.data}/>
-        <PostTextView elements={this.props.data.text_elements} />
+        <PostContentView
+          post={this.props.post}/>
+        <PostTextView
+          text_elements={this.props.post.text_elements}/>
       </div>
     );
   }
-});
+})
 
-const PostTextView = React.createClass({
-  getDefaultProps: function() {
-    return {
-      elements: []
-    };
-  },
-  render: function() {
-    var rendered_elements = this.props.elements.map(function(e){
-      return <PostTextElementView element={e} />
+//Post NESTED COMPONENT############################################
+const PostAuthorView = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    editClick: React.PropTypes.func.isRequired,
+    removeClick: React.PropTypes.func.isRequired,
+    author: React.PropTypes.shape({
+      avatar: React.PropTypes.string.isRequired,
+      name: React.PropTypes.string.isRequired
     })
-    return (
-      <div className='post-content'>
-        <div className='usual-post-contant'>
-          {rendered_elements}
-        </div>
-      </div>
-    );
-  }
-})
-
-const PostTextElementView = React.createClass({
-  render: function() {
-    switch (this.props.element.type) {
-      case ElementTypes.text:
-        return (
-          <div className = 'usual-post-text action-create-element-post'>
-            {this.props.element.text}
-          </div>
-        );
-        break;
-      case ElementTypes.image:
-        return (
-            <div className = 'usual-post-photo action-create-element-post'>
-              <img src = {this.props.element.url} />
-            </div>
-        );
-        break;
-      case ElementTypes.divider:
-        return (
-            <div>
-              <div className = 'usual-post-devider create-usual-post-divider action-create-element-post'/>
-              <div className = 'clearboth' />
-            </div>
-        );
-        break;
-      default:
-        console.log('Undefined PostText type');
-    }
-  }
-})
-
-const PostAuthor = React.createClass({
+  },
+  //END*****************************************************DECLARE
   render: function() {
     return (
       <div className='post-autor'>
-        <div className="usual-avatar"
+        <div className='usual-avatar'
         style={{background: 'url(' + this.props.author.avatar + ') no-repeat',
         backgroundSize: 'cover'}}>
         </div>
@@ -98,7 +60,7 @@ const PostAuthor = React.createClass({
             {this.props.author.name}
           </div>
           <div className = 'post-autor-type'>
-            Преподаватель
+            [Преподватель/Ученик]
           </div>
         </div>
         <div className = 'action-angle post-action'>
@@ -119,35 +81,8 @@ const PostAuthor = React.createClass({
   }
 });
 
-const PostContentFiles = React.createClass({
-  render: function() {
-    return (
-      <div className = 'post-type'>
-        <div className = 'post-type-material'>
-          <div className = 'post-type-material-item'>
-            <div className = 'post-type-material-icon'>
-
-            </div>
-            <div className = 'post-type-material-text'>
-              <a>Сcылка на файл</a>
-            </div>
-          </div>
-          <div className = 'clearboth'>
-          </div>
-          <div className = 'post-type-material-item'>
-            <div className = 'post-type-material-icon'>
-
-            </div>
-            <div className = 'post-type-material-text'>
-              <a>Сыылка на файл</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-});
-const PostContent = React.createClass({
+//Post NESTED COMPONENT############################################
+const PostContentView = React.createClass({
   render: function() {
     var main_part;
     switch (this.props.post.type) {
@@ -189,7 +124,7 @@ const PostContent = React.createClass({
         );
         break;
       case PostTypes.file:
-        var files = this.props.post.attachments.map(function (f, index) {
+        var files = this.props.post.files.map(function (f, index) {
           return (
             <ModalContentFile
               key={index}
@@ -226,8 +161,68 @@ const PostContent = React.createClass({
         );
         break;
       default:
-        console.log("Undefined type");
+        CE('Undefined PostType');
     }
     return main_part;
   }
 });
+
+//Post NESTED COMPONENT############################################
+const PostTextView = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    text_elements: React.PropTypes.array.isRequired
+  },
+  //END*****************************************************DECLARE
+  render: function() {
+    var rendered_elements = this.props.text_elements.map(function(e, i){
+      return <PostTextElementView key={i} element={e} />
+    })
+    return (
+      <div className='post-content'>
+        <div className='usual-post-contant'>
+          {rendered_elements}
+        </div>
+      </div>
+    );
+  }
+})
+
+//PostTextView NESTED COMPONENT###################################
+const PostTextElementView = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    element: React.PropTypes.shape({
+      type: React.PropTypes.string.isRequired
+    })
+  },
+  //END*****************************************************DECLARE
+  render: function() {
+    switch (this.props.element.type) {
+      case ElementTypes.text:
+        return (
+          <div className = 'usual-post-text action-create-element-post'>
+            {this.props.element.text}
+          </div>
+        );
+        break;
+      case ElementTypes.image:
+        return (
+          <div className = 'usual-post-photo action-create-element-post'>
+            <img src = {this.props.element.url} />
+          </div>
+        );
+        break;
+      case ElementTypes.divider:
+        return (
+          <div>
+            <div className = 'usual-post-devider create-usual-post-divider action-create-element-post'/>
+            <div className = 'clearboth' />
+          </div>
+        );
+        break;
+      default:
+        CE('Undefined PostText type');
+    }
+  }
+})

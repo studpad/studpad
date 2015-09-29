@@ -1,16 +1,29 @@
 const PostManagementPanel = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    newPost: React.PropTypes.func
+  },
+  //END*****************************************************DECLARE
+  //BEGIN***************************************************ACTIONS
   onClickText: function() {
-    this.props.initModalForm(PostTypes.text)
+    this.props.newPost(PostTypes.text);
+    CI('PostManagementPanel::onClickText');
   },
   onClickLink: function() {
-    this.props.initModalForm(PostTypes.link)
+    this.props.newPost(PostTypes.link);
+    CI('PostManagementPanel::onClickLink');
   },
   onClickFile: function() {
-    this.props.initModalForm(PostTypes.file)
+    this.props.newPost(PostTypes.file);
+    CI('PostManagementPanel::onClickFile');
   },
   onClickQuotation: function() {
-    this.props.initModalForm(PostTypes.quotation)
+    this.props.newPost(PostTypes.quotation);
+    CI('PostManagementPanel::onClickQuotation');
   },
+  //END*****************************************************ACTIONS
+  //BEGIN***************************************************HELPERS
+  //END*****************************************************HELPERS
   render: function() {
     return (
       <div className='new-post-buttons card-sp'>
@@ -45,4 +58,4 @@ const PostManagementPanel = React.createClass({
       </div>
     );
   }
-});
+})
