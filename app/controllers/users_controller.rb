@@ -37,8 +37,12 @@ class UsersController < ApplicationController
 
   end
 
-  def show
+  def posts
     @posts = @user.posts.order(created_at: :desc)
+    render 'posts/index', formats: :json
+  end
+
+  def show
   end
 
   def create_ava

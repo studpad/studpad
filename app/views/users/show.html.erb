@@ -22,172 +22,35 @@
   </div> -->
 
   <div class = 'main-wall'>
-    <%= render "info_user" %>
-    <div class = 'post-container'>
-      <div class = 'post card-sp'>
-        <div class = 'post-autor'>
-          <div class="usual-avatar" style="background: url(
-          /uploads/teacher/avatar/1/72b150d9c5.jpg
-          ) no-repeat; background-size: cover;">
-          </div>
-          <div class = 'post-autor-info'>
-            <div class = 'post-autor-name'>
-              Никитин Макс
-            </div>
-            <div class = 'post-autor-type'>
-              Преподаватель
-            </div>
-          </div>
-        </div>
-        <div class = 'post-content'>
-          <div class = 'post-type'>
-            <div class = 'post-type-material'>
-              <div class = 'post-type-material-item'>
-                <div class = 'post-type-material-icon'>
-
-                </div>
-                <div class = 'post-type-material-text'>
-                  <a>Сcылка на файл</a>
-                </div>
-              </div>
-              <div class = 'clearboth'>
-              </div>
-              <div class = 'post-type-material-item'>
-                <div class = 'post-type-material-icon'>
-
-                </div>
-                <div class = 'post-type-material-text'>
-                  <a>Сыылка на файл</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class = 'clearboth'>
-          </div>
-          <div class = 'usual-post-contant'>
-            <div class = 'usual-post-text'>
-               Смерть, наверное, самое лучше изобретение Жизни. Она – причина перемен. Она очищает старое, чтобы открыть дорогу новому. Стив Джобс
-            </div>
-            <div class = 'usual-post-photo'>
-              <img src = 'https://cs7055.vk.me/c7002/v7002049/bed6/aWcSTQMvi7w.jpg' />
-            </div>
+    <%#= render "info_user" %>
+    <div class = 'panel-user'>
+      <div class = 'profile-info'>
+        <div class = 'action-angle'>
+          <div class = 'btn-group'>
+            <span class = 'sign-dots-menu-big' data-toggle="dropdown">•••</span>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <%= link_to edit_user_path(@user) do %>Настройки<% end if current_user == @user%>
+                <%= link_to logout_path, data: { no_turbolink: true } do %>
+                  Выход
+                <% end if current_user %>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-
-      <div class = 'post card-sp'>
-        <div class = 'post-autor'>
-          <div class="usual-avatar" style="background: url(
-          /uploads/teacher/avatar/1/72b150d9c5.jpg
-          ) no-repeat; background-size: cover;">
-          </div>
-          <div class = 'post-autor-info'>
-            <div class = 'post-autor-name'>
-              Никитин Макс
-            </div>
-            <div class = 'post-autor-type'>
-              Преподаватель
-            </div>
-          </div>
+        <div class = 'profile-info_name'><%= @user.name %> &nbsp;
+         <!-- <%= link_to edit_user_path(@user) do %>
+          <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
+          <% end if current_user == @user%>-->
         </div>
-        <div class = 'post-content'>
-          <div class = 'post-type'>
-            <a href = ''><div class = 'post-type-link extra-background'>
-              <header class = 'post-type-link-title'>
-                Ypanda
-              </header>
-              <div class = 'post-type-link-description'>
-                У каждого из нас есть своё представление о том, что должно происходить и как . Мы живем в обществе и развиваемся в обществе. Стандартные убеждения заложены в нас социумом…
-              </div>
-              <div class = 'post-type-link-link'>
-                <span class = 'decor-type-link-link'>ypanda.ru</span>
-              </div>
-            </div></a>
-          </div>
-          <div class = 'usual-post-contant'>
-            <div class = 'usual-post-text'>
-               The Natural History collection is wonderful and really beautiful, a lot of it seems to be laid out by evolutionary trait rather than geographical location or in some cases even species, so it’s pretty informative as well.
-            </div>
-            <div class = 'usual-post-photo'>
-              <img src = 'https://vk.com/doc298175408_417440475?hash=6512d0ce91f5ba1077&dl=3837ee67300bd6467c&wnd=1' />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class = 'post card-sp'>
-        <div class = 'post-autor'>
-          <div class="usual-avatar" style="background: url(
-          /uploads/teacher/avatar/1/72b150d9c5.jpg
-          ) no-repeat; background-size: cover;">
-          </div>
-          <div class = 'post-autor-info'>
-            <div class = 'post-autor-name'>
-              Никитин Макс
-            </div>
-            <div class = 'post-autor-type'>
-              Преподаватель
-            </div>
-          </div>
-        </div>
-        <div class = 'post-content'>
-          <div class = 'post-type'>
-            <div class = 'post-type-text-title'>
-              <h2><%= 'o'*36%></h2>
-            </div>
-          </div>
-          <div class = 'usual-post-contant'>
-            <div class = 'usual-post-text'>
-               The Natural History collection is wonderful and really beautiful, a lot of it seems to be laid out by evolutionary trait rather than geographical location or in some cases even species, so it’s pretty informative as well.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- цитата -->
-      <div class = 'post card-sp'>
-        <div class = 'post-autor'>
-          <div class="usual-avatar" style="background: url(
-          /uploads/teacher/avatar/1/72b150d9c5.jpg
-          ) no-repeat; background-size: cover;">
-          </div>
-          <div class = 'post-autor-info'>
-            <div class = 'post-autor-name'>
-              Никитин Макс
-            </div>
-            <div class = 'post-autor-type'>
-              Преподаватель
-            </div>
-          </div>
-        </div>
-        <div class = 'post-content'>
-          <div class = 'post-type'>
-            <div class = 'post-type-cite'>
-              "Настоящий мужик должен на всех самок лазать! Ибо не надо вот это все вот так вот"
-            </div>
-          </div>
-          <div class = 'usual-post-contant'>
-            <div class = 'usual-post-text'>
-               Михал Палыч
-            </div>
-            <div class = 'usual-post-photo'>
-              <img src = 'https://cs7055.vk.me/c7002/v7002255/ba8d/OcPxI5Ef07s.jpg' />
-            </div>
-            <div class = 'usual-post-text'>
-               The Natural History collection is wonderful and really beautiful, a lot of it seems to be laid out by evolutionary trait rather than geographical location or in some cases even species, so it’s pretty informative as well.
-            </div>
-            <div class = 'usual-post-devider'>
-            </div>
-            <div class = 'usual-post-text'>
-              The musical instruments part is pretty great, the Centenary Gallery has some neat things but it’s also kind of uneasy at times because it comes off sort of like a tribute to colonialism/just taking stuff, same with the African Worlds exhibit which also feels like they got a bunch of great stuff and didn’t know what to do with it. There’s a few other things but I ran out of time and didn’t get to see it so I can’t say.
-            </div>
-            <div class = 'usual-post-photo'>
-              <img src = 'https://pp.vk.me/c7010/v7010943/3004d/2fBtKBhXwxU.jpg' />
-            </div>
-          </div>
+        <div class = 'profile-info_school'>
+          <%= @user.school %>
         </div>
       </div>
     </div>
+    <%= react_component("PostBox",
+        posts_url: posts_user_path(@user),
+        group_id: 2) %>
   </div>
 </div>
 <%#= render "/partials/view_material" %>

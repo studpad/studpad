@@ -113,12 +113,6 @@ const PostModalContent = React.createClass({
               </div>
             </DropzoneComponent>
           </div>
-          <input
-              type='text'
-              value={this.props.post.title}
-              onChange={this.props.onChangeTitle}
-              className='input-new-post form-text-title input-sp form-control'
-              placeholder = 'Заголовок'/>
           {files}
         </div>
         );
