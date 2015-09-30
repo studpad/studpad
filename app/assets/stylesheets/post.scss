@@ -104,8 +104,7 @@
 	border-top: 1px solid #DAE1E8;
 }
 .create-usual-post-divider{
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .usual-post-photo > img{
 	width: 100%;
@@ -133,6 +132,10 @@
 	border-radius: 3px;
 	cursor: pointer !important;
 	padding: 15px;*/
+}
+.post-type-link-create{
+	margin-left: 15px;
+	margin-right: 15px;
 }
 .post-type-link-title{
 	font-size: 28px;
@@ -192,8 +195,12 @@
 
 /* form new post */
 .form-new-post{
-	padding: 15px;
 
+}
+.form-wrap-new-post-type{
+	padding-left: 15px;
+	padding-top: 8px;
+	padding-right: 15px;
 }
 .form-text-title, .form-cite-text{
 	font-size: 25px !important;
@@ -249,4 +256,44 @@
 }
 .post-action > div > span{
 
+}
+.all-remove-angle{
+	position: relative;
+	top: 22px;
+  left: 26px;
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+  background-color: #BE3636 !important;
+  border-radius: 80px;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+}
+.file-remove-angle{
+	position: relative;
+	top: 4px;
+  left: 26px;
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+  background-color: #BE3636 !important;
+  border-radius: 80px;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+}
+.devider-remove-angle{
+	position: relative;
+	bottom: 12px;
+	left: 26px;
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+  background-color: #BE3636 !important;
+  border-radius: 80px;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+}
+.post-type-material-all-wrap{
+	padding-left: 15px;
+	padding-right: 15px;
 }

@@ -93,7 +93,7 @@ const PostModalContent = React.createClass({
             </div>
           </div>
           <div className = 'post-type'>
-              <a hrefName = ''><div className = 'post-type-link extra-background'>
+              <a hrefName = ''><div className = 'post-type-link post-type-link-create extra-background'>
                 {link_title}
                 {link_description}
                 {link_domain}
@@ -164,8 +164,10 @@ const PostModalContent = React.createClass({
 //PostModalContent NESTED COMPONENT############################
 const ModalContentFile = React.createClass({
   render: function() {
+    var remove_button_file = <button className='remove-angle  file-remove-angle'>&times;</button>
     return (
-      <div>
+      <div className = 'post-type-material-all-wrap'>
+        {remove_button_file}
         <div className = 'post-type-material-item'>
           <div className = 'post-type-material-icon'>
           </div>

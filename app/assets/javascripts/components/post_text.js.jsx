@@ -56,7 +56,7 @@ var PostTextElement = React.createClass({
       var node = this.refs.textElement.getDOMNode();
       $(node).autoResize({
         limit:600,
-        extraSpace:30,
+        extraSpace:0,
         animate:true
       });
       $(node).change();
@@ -65,7 +65,8 @@ var PostTextElement = React.createClass({
   render: function() {
     var textPlaceholder;
     var element_content;
-    var remove_button = <button className='remove-angle' onClick={this.handleRemoveElementPost}>&times;</button>
+    var remove_button_all = <button className='remove-angle all-remove-angle' onClick={this.handleRemoveElementPost}>&times;</button>
+    var remove_button_devider = <button className='remove-angle devider-remove-angle' onClick={this.handleRemoveElementPost}>&times;</button>
     switch (this.props.element.type) {
       case ElementTypes.text:
         // if(this.props.typePost == PostTypes.text){
@@ -77,7 +78,7 @@ var PostTextElement = React.createClass({
         // }
         element_content = (
           <div className = 'usual-post-text action-create-element-post'>
-            {remove_button}
+            {remove_button_all}
             <textarea
               ref='textElement'
               id='hhh'
@@ -93,7 +94,7 @@ var PostTextElement = React.createClass({
       case ElementTypes.image:
         element_content = (
             <div className = 'usual-post-photo action-create-element-post'>
-              {remove_button}
+              {remove_button_all}
               <img src = {this.props.element.url} />
             </div>
         );
@@ -101,7 +102,7 @@ var PostTextElement = React.createClass({
       case ElementTypes.divider:
         element_content = (
             <div>
-              {remove_button}
+              {remove_button_devider}
               <div className = 'usual-post-devider create-usual-post-divider action-create-element-post'/>
               <div className = 'clearboth' />
             </div>
