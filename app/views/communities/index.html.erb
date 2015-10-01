@@ -31,13 +31,13 @@
                         <div class = 'profile-notice'>
                           <div class="profile-notice-background">
                             <div class="profile-notice-avatar" style="background: url(
-                           <%= c.founder.avatar %>
+                           <%= c.founder.try(:avatar) %>
                            ) no-repeat; background-size: cover;">
                             </div>
                             <div class="profile-notice-name-text">
 
                               <div class="profile-notice-name">
-                                <%= link_to c.founder.name, user_path(c.founder) %>
+                                <%= link_to c.founder.try(:name), user_path(c.founder) if c.founder%>
                               </div>
                               <div class="profile-notice-text">Основатель</div>
                             </div>
