@@ -64,8 +64,11 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
-    @materials = @user.materials.order(created_at: :desc)
     render 'show'
+  end
+
+  def communities
+
   end
 
   private

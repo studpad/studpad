@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'static_pages#main'
-
+  get 'profile' => 'users#profile'
   resources :password_resets, only: [:new, :create, :edit, :update] do
     post 'change', on: :collection
   end
@@ -34,9 +34,10 @@ Rails.application.routes.draw do
   end
 
   resources :attachments, only: [:create, :destroy]
-  resources :comments#, only: [:destroy, :update]
+  resources :comments
   resources :users do
     member do
+      get :communities
       get :posts
       post 'crop'
       post 'new_ava' => 'users#create_ava'

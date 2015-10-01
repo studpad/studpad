@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     m.has_and_belongs_to_many :communities
     m.has_and_belongs_to_many :classrooms
   end
+  has_many :own_communities, foreign_key: 'user_id', class_name: 'Community'
 
   validates :password,
     length:       {message: 'Не менее 5 символов', minimum: 5},

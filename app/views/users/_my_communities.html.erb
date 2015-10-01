@@ -1,57 +1,12 @@
-<!--<div class = ''>
-  <div class = 'user-classrooms'>
-    Классы: <a>11Б</a>
-  </div>
-  <a class = 'create-class' data-toggle = "modal" data-target = "#modal-window-create-class">Создать класс</a>
-  <div class = 'user-communities'>
-    Сообщества: <a>У Вас нет сообществ</a>
-  </div>
-  <a class = 'create-community' data-toggle = "modal" data-target = "#modal-window-create-class">Создать сообщество</a>
-</div> -->
-
 <div class = 'card-sp classes-and-communities'>
   <div class = 'block-title'>
     Сообщества
+    <%# if current_user == @user && current_user.teacher? %>
     <button class = 'action-angle' data-toggle="modal" data-target="#modal-window-create-community" >+</button>
+    <%# end %>
   </div>
   <div class = 'block-objects'>
-    <%= render collection: @user.communities, partial: 'community' %>
-
-    <!--<input type = 'button' id = 'create-community' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-community" value = 'Создать сообщество' />-->
+    <%= render collection: @user.own_communities.limit(5) + @user.communities.limit(5),
+      partial: 'community' %>
   </div>
 </div>
-<!--<div class = "classes-and-communities card-sp">
-  <div class = "card-sp-heading">
-    Сообщества:
-    <% @user.communities.each do |c| %>
-      <%= link_to c.name, community_path(c) %>
-    <% end %>
-  </div>
-  <div class = "card-sp-body">
-    <input type = 'button' id = 'create-community' class = 'btn btn-primary btn-xs btn-st' data-toggle="modal" data-target="#modal-window-create-community" value = 'Создать сообщество' />
-  </div>
-</div> -->
-<!-- <div class = "classes-and-communities card-sp margin-t15 margin-b40">
-  <div class = 'block-title'>
-    Классы
-    <% if @user.teacher? %>
-      <button class = 'action-angle' data-toggle="modal" data-target="#modal-window-create-class" >+</button>
-    <% end %>
-  </div>
-  <div class = "block-objects">
-
-    <div class="preview-object-info margin-l0">
-      <div class = 'object-name'>
-        <% if @user.teacher? %>
-          <% @user.classrooms.each do |c| %>
-            <%= link_to c.name, classroom_path(c) %>
-          <% end %>
-        <% else %>
-          <%= link_to @user.classroom.name, classroom_path(@user.classroom) if @user.classroom %>
-        <% end %>
-      </div>
-    </div>
-    </br>
-
-  </div>
-</div>-->

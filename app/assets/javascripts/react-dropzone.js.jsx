@@ -180,8 +180,7 @@ var DropzoneComponent = React.createClass({
 
     return (
       <div
-        className={className}
-        style={appliedStyle}
+        className={'drop-zone margin-b40 dz-clickable'}
         onClick={this.onClick}
         onDragEnter={this.onDragEnter}
         onDragOver={this.onDragOver}

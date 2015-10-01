@@ -87,6 +87,7 @@ var PostTextTextarea = React.createClass({
       animate:true
     });
     $(node).change();
+    $(node).focus();
   },
   componentWillUnmount: function() {
     // var node = this.refs.textElement.getDOMNode();

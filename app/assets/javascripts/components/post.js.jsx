@@ -62,7 +62,7 @@ const PostAuthorView = React.createClass({
             {this.props.author.name}
           </div>
           <div className = 'post-autor-type'>
-            [Преподватель/Ученик]
+            {this.props.author.type}
           </div>
         </div>
         <div className = 'action-angle post-action'>
@@ -109,17 +109,19 @@ const PostContentView = React.createClass({
       case PostTypes.link:
         main_part = (
           <div className='post-type'>
-            <a href = {this.props.post.linkdata.url}><div className = 'post-type-link extra-background'>
-              <header className = 'post-type-link-title'>
-                {this.props.post.linkdata.title}
-              </header>
-              <div className = 'post-type-link-description'>
-                {this.props.post.linkdata.description}
+            <a href = {this.props.post.linkdata.url} target='blank'>
+              <div className = 'post-type-link extra-background'>
+                <header className = 'post-type-link-title'>
+                  {this.props.post.linkdata.title}
+                </header>
+                <div className = 'post-type-link-description'>
+                  {this.props.post.linkdata.description}
+                </div>
+                <div className = 'post-type-link-link'>
+                  <span className = 'decor-type-link-link'>{this.props.post.linkdata.domain}</span>
+                </div>
               </div>
-              <div className = 'post-type-link-link'>
-                <span className = 'decor-type-link-link'>{this.props.post.linkdata.domain}</span>
-              </div>
-            </div></a>
+            </a>
           </div>
         );
         break;

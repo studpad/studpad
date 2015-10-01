@@ -20,7 +20,7 @@
             <%= @community.description %>
           </div>
           <div class = 'wrap-join-to-community'>
-            <% if true %>
+            <% if @community.users.exists?(current_user) %>
               <span class="dropdown">
                 <a class="dropdown-toggle you-are-participant badge" data-toggle="dropdown" href="#">
                   Вы являетесь членом этого экипажа <span class="caret"></span>

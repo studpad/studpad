@@ -24,7 +24,7 @@
                 <% elsif current_user.teacher? %>
                   <span class = 'profile-class dropdown-toggle not-button' data-toggle="dropdown">Мои классы <span class="caret"></span></span>
                     <ul class="dropdown-menu" role="menu">
-                      <% current_user.his_main_classrooms.each do |c|%>
+                      <% current_user.own_communities.each do |c|%>
                       <li><%= link_to c.name, classroom_path(c) %></li>
                       <% end %>
                     </ul>
