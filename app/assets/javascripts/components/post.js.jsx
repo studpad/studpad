@@ -108,7 +108,7 @@ const PostContentView = React.createClass({
         break;
       case PostTypes.link:
         main_part = (
-          <div class = 'post-type'>
+          <div className='post-type'>
             <a href = {this.props.post.linkdata.url}><div className = 'post-type-link extra-background'>
               <header className = 'post-type-link-title'>
                 {this.props.post.linkdata.title}
@@ -126,7 +126,7 @@ const PostContentView = React.createClass({
       case PostTypes.file:
         var files = this.props.post.files.map(function (f, index) {
           return (
-            <ModalContentFile
+            <ContentFile
               key={index}
               name={f.name}
               url={f.url} />

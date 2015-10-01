@@ -24,7 +24,7 @@ const PostModalForm = React.createClass({
         type: postType,
         author: window.currentUser,
         linkdata: {},
-        text_elements: [{type: ElementTypes.text, value: ''}],
+        text_elements: [{type: ElementTypes.text, text: ''}],
         files: []
       },
       visible: true
@@ -41,9 +41,7 @@ const PostModalForm = React.createClass({
     var postData = this.state.post;
     CI('PostModalForm::submitForm', postData);
     if (postData.id){
-      CW('B')
       this.props.updatePost(postData);
-      CW('E')
     } else {
       this.props.createPost(postData);
     }
@@ -56,6 +54,18 @@ const PostModalForm = React.createClass({
       visible: false
     });
     CI('PostModalForm::hide');
+  },
+  removeAttachment: function(attachmentId){
+    var post = this.state.post;
+    var files = post.files;
+    CI('Attacments', files);
+    files = $.grep(files, function(f){ return f.id != attachmentId });
+    CI('Attacments', files);
+    post.files = files;
+    this.setState({
+      post: post
+    });
+    CI('PostModalForm::removeAttachment', attachmentId);
   },
   addAttachment: function(attachmentData){
     var post = this.state.post;
@@ -73,12 +83,15 @@ const PostModalForm = React.createClass({
   addImage: function(attachementData) {
     var post = this.state.post;
     var elements = post.text_elements;
+    elements = $.grep(elements, function(e){
+      return (e.type != ElementTypes.text || e.value.trim());
+    });
     elements.push({
       type: ElementTypes.image,
       data: attachementData,
       url: attachementData.link
     });
-    elements.push({type: ElementTypes.text, value: ''});
+    elements.push({type: ElementTypes.text, text: ''});
     post.text_elements = elements;
     this.setState({
       post: post
@@ -87,8 +100,14 @@ const PostModalForm = React.createClass({
   addDivider: function(){
     var post = this.state.post
     var elements = post.text_elements;
+    CW('HHHHHH', elements);
+    elements = $.grep(elements, function(e){
+      return (e.type != ElementTypes.text || e.text.trim());
+    });
+    CW('HHHHHH', elements);
     elements.push({type: ElementTypes.divider});
-    elements.push({type: ElementTypes.text, value: ''});
+    elements.push({type: ElementTypes.text, text: ''});
+    CW('HHHHHH', elements);
     post.text_elements = elements;
     this.setState({
       post: post
@@ -153,6 +172,7 @@ const PostModalForm = React.createClass({
         <PostModalContent
           ref='formContent'
           onChangeTitle={this.changeTitle}
+          removeAttachment={this.removeAttachment}
           removeTextElement={this.removeTextElement}
           changeElementText={this.changeElementText}
           onChangeLink={this.onChangeLink}

@@ -3,6 +3,7 @@ const PostModalContent = React.createClass({
   propTypes: {
     onChangeLink: React.PropTypes.func.isRequired,
     addAttachment: React.PropTypes.func.isRequired,
+    removeAttachment: React.PropTypes.func.isRequired,
     addImage: React.PropTypes.func.isRequired,
     onChangeTitle: React.PropTypes.func.isRequired,
     addDivider: React.PropTypes.func.isRequired,
@@ -38,11 +39,13 @@ const PostModalContent = React.createClass({
     files = this.props.post.files.map(function (f, index) {
       return (
         <ModalContentFile
+          remove={this.props.removeAttachment}
           key={index}
+          attachment_id={f.id}
           name={f.name}
           url={f.url} />
       );
-    });
+    }.bind(this));
     switch (this.props.post.type) {
       case PostTypes.text:
         main_part = (
@@ -157,11 +160,34 @@ const PostModalContent = React.createClass({
 
 //PostModalContent NESTED COMPONENT############################
 const ModalContentFile = React.createClass({
+  onRemoveClick: function() {
+    var id = this.props.attachment_id;
+    CI('ModalContentFile::onRemoveClick', id);
+    this.props.remove(id);
+  },
   render: function() {
-    var remove_button_file = <button className='remove-angle  file-remove-angle'>&times;</button>
+    var remove_button_file = <button onClick={this.onRemoveClick} className='remove-angle  file-remove-angle'>&times;</button>
     return (
       <div className = 'post-type-material-all-wrap'>
         {remove_button_file}
+        <div className = 'post-type-material-item'>
+          <div className = 'post-type-material-icon'>
+          </div>
+          <div className = 'post-type-material-text'>
+            <a href={this.props.url}>{this.props.name}</a>
+          </div>
+        </div>
+        <div className = 'clearboth'>
+        </div>
+      </div>
+    );
+  }
+});
+
+const ContentFile = React.createClass({
+  render: function() {
+    return (
+      <div className = 'post-type-material-all-wrap'>
         <div className = 'post-type-material-item'>
           <div className = 'post-type-material-icon'>
           </div>

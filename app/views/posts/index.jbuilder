@@ -16,6 +16,7 @@ json.array! @posts do |n|
   json.attachment_ids = n.attachment_ids
   json.files do
     json.array! n.attachments do |a|
+      json.id a.id
       json.name a.file.file.filename
       json.url a.file.to_s
     end

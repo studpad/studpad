@@ -11,13 +11,41 @@ var PostText = React.createClass({
     var elements = this.props.text_elements;
     var length = elements.length;
     rendered_elements = elements.map(function (e, position) {
-      return <PostTextElement
-                key={position}
-                element={e}
-                position={position}
-                onChangeElementText={this.props.changeElementText}
-                removeTextElement={this.props.removeTextElement}
-                lengthElements={length}/>
+      switch (e.type) {
+        case ElementTypes.text:
+          return (
+            <PostTextTextarea
+              key={position}
+              text={e.text}
+              position={position}
+              onChangeElementText={this.props.changeElementText}
+              removeTextElement={this.props.removeTextElement}/>
+          );
+        case ElementTypes.image:
+          return (
+            <PostTextImage
+              key={position}
+              url={e.url}
+              position={position}
+              removeTextElement={this.props.removeTextElement}/>
+          );
+        case ElementTypes.divider:
+          return (
+            <PostTextDivider
+              key={position}
+              position={position}
+              removeTextElement={this.props.removeTextElement}/>
+            );
+        default:
+          CE('Undefined PostText type');
+      }
+      // return <PostTextElement
+      //           key={position}
+      //           element={e}
+      //           position={position}
+      //           onChangeElementText={this.props.changeElementText}
+      //           removeTextElement={this.props.removeTextElement}
+      //           lengthElements={length}/>
     }.bind(this));
 
     return (
@@ -31,14 +59,14 @@ var PostText = React.createClass({
   }
 });
 
-var PostTextElement = React.createClass({
+var PostTextTextarea = React.createClass({
   //BEGIN***************************************************DECLARE
-  propTypes: {
-    element: React.PropTypes.shape({
-      type: React.PropTypes.string.isRequired,
-      text: React.PropTypes.string
-    })
-  },
+  // propTypes: {
+  //   element: React.PropTypes.shape({
+  //     type: React.PropTypes.string.isRequired,
+  //     text: React.PropTypes.string
+  //   })
+  // },
   //END*****************************************************DECLARE
   handleChange: function(e) {
     this.props.onChangeElementText(
@@ -52,65 +80,92 @@ var PostTextElement = React.createClass({
     );
   },
   componentDidMount: function() {
-    if(this.props.element.type == ElementTypes.text){
-      var node = this.refs.textElement.getDOMNode();
-      $(node).autoResize({
-        limit:600,
-        extraSpace:0,
-        animate:true
-      });
-      $(node).change();
-    }
+    var node = this.refs.textElement.getDOMNode();
+    $(node).autoResize({
+      limit:600,
+      extraSpace:0,
+      animate:true
+    });
+    $(node).change();
+  },
+  componentWillUnmount: function() {
+    // var node = this.refs.textElement.getDOMNode();
+    // node = $(node).data('AutoResizer');
+    // if (node) {
+    //   node.destroy();
+    // }
   },
   render: function() {
-    var textPlaceholder;
-    var element_content;
-    var remove_button_all = <button className='remove-angle all-remove-angle' onClick={this.handleRemoveElementPost}>&times;</button>
-    var remove_button_devider = <button className='remove-angle devider-remove-angle' onClick={this.handleRemoveElementPost}>&times;</button>
-    switch (this.props.element.type) {
-      case ElementTypes.text:
-        // if(this.props.typePost == PostTypes.text){
-        textPlaceholder = 'Введите текст';
-        // }else if(this.props.typePost == PostTypes.link || this.props.typePost == PostTypes.file){
-        //   textPlaceholder = 'Если хотите, добавьте описание';
-        // }else{
-        //   textPlaceholder = '- Источник';
-        // }
-        element_content = (
-          <div className = 'usual-post-text action-create-element-post'>
-            {remove_button_all}
-            <textarea
-              ref='textElement'
-              id='hhh'
-              className='textarea-new-post textarea-sp form-control'
-              value={this.props.element.text}
-              placeholder = {textPlaceholder}
-              onChange={this.handleChange}
-              onLoad={this.handleAutofocus}>
-            </textarea>
-          </div>
-        );
-        break;
-      case ElementTypes.image:
-        element_content = (
-            <div className = 'usual-post-photo action-create-element-post'>
-              {remove_button_all}
-              <img src = {this.props.element.url} />
-            </div>
-        );
-        break;
-      case ElementTypes.divider:
-        element_content = (
-            <div>
-              {remove_button_devider}
-              <div className = 'usual-post-devider create-usual-post-divider action-create-element-post'/>
-              <div className = 'clearboth' />
-            </div>
-        );
-        break;
-      default:
-        CE('Undefined PostText type');
-    }
-    return element_content;
+    var textPlaceholder = 'Введите текст';
+
+    return (
+      <div className = 'usual-post-text action-create-element-post'>
+        <button
+          className='remove-angle all-remove-angle'
+          onClick={this.handleRemoveElementPost}>
+          &times;
+        </button>
+        <textarea
+          ref='textElement'
+          className='textarea-new-post textarea-sp form-control'
+          value={this.props.text}
+          placeholder = {textPlaceholder}
+          onChange={this.handleChange}
+          onLoad={this.handleAutofocus}>
+        </textarea>
+      </div>
+    );
+  }
+});
+
+var PostTextImage = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    removeTextElement: React.PropTypes.func.isRequired,
+    url: React.PropTypes.string.isRequired
+  },
+  //END*****************************************************DECLARE
+  handleRemoveElementPost: function() {
+    this.props.removeTextElement(
+      this.props.position
+    );
+  },
+  render: function() {
+    return (
+      <div className = 'usual-post-photo action-create-element-post'>
+        <button
+          className='remove-angle all-remove-angle'
+          onClick={this.handleRemoveElementPost}>
+          &times;
+        </button>
+        <img src = {this.props.url} />
+      </div>
+    );
+  }
+});
+
+var PostTextDivider = React.createClass({
+  //BEGIN***************************************************DECLARE
+  propTypes: {
+    removeTextElement: React.PropTypes.func.isRequired
+  },
+  //END*****************************************************DECLARE
+  handleRemoveElementPost: function() {
+    this.props.removeTextElement(
+      this.props.position
+    );
+  },
+  render: function() {
+    return (
+      <div>
+        <button
+          className='remove-angle devider-remove-angle'
+          onClick={this.handleRemoveElementPost}>
+          &times;
+        </button>
+        <div className = 'usual-post-devider create-usual-post-divider action-create-element-post'/>
+        <div className = 'clearboth' />
+      </div>
+    );
   }
 });
