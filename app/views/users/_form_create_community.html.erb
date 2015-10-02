@@ -8,13 +8,13 @@
       <%= form_for :community, url: communities_path do |f| %>
       <div class="modal-body">
         <div class = 'counsel-text'>
-          Тут будет текст!
+          Введите название для Вашего класса и пригласите сюда своих учеников и их родителей!
         </div>
         <%= f.text_field :name, class: 'input-sp form-control',
-          placeholder: 'Название сообщества...' %>
+          placeholder: 'Название класса...' %>
         <%= f.hidden_field :status %>
         </br>
-        </br>
+        <!--</br>
         <div>
           <span class="title-underline">
                 Выберите тип Вашего сообщества
@@ -30,7 +30,7 @@
             <div class = 'text-type-community'>Закрытое</div>
             <div class="helper-valign-m"></div>
           </div>
-        </div>
+        </div>-->
       </div>
       <div class="modal-footer">
         <button type='submit' class="btn btn-primary btn-st" id = 'btn-create-community' disabled = 'disabled'>Создать</button>
