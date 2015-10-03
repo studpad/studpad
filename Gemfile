@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.1.rc1'
+gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -26,6 +26,7 @@ gem 'better_errors'
 gem 'react-rails'
 gem 'airbrake'
 gem 'nokogiri'
+gem 'activeadmin', github: 'activeadmin'
 #gem 'acts_as_votable'
 gem 'react-bootstrap-rails'
 
