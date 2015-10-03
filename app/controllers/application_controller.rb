@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+    def authenticate_admin
+      redirect_to root_path unless current_user.try(:admin?)
+    end
+
     def not_authenticated
       flash[:warning] = 'Пожалуйста, войдите'
       redirect_to welcome_path

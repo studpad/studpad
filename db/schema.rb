@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150922181313) do
+ActiveRecord::Schema.define(version: 20151003112105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file"
@@ -215,7 +230,7 @@ ActiveRecord::Schema.define(version: 20150922181313) do
   add_index "text_elements", ["post_id"], name: "index_text_elements_on_post_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                           null: false
+    t.string   "email",                                           null: false
     t.string   "name"
     t.string   "crypted_password"
     t.string   "salt"
@@ -228,6 +243,7 @@ ActiveRecord::Schema.define(version: 20150922181313) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.boolean  "admin",                           default: false
   end
 
   add_index "users", ["classroom_id"], name: "index_users_on_classroom_id", using: :btree

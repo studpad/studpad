@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   root 'static_pages#main'
   get 'profile' => 'users#profile'
   resources :password_resets, only: [:new, :create, :edit, :update] do
