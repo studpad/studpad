@@ -111,7 +111,7 @@ const PostModalContent = React.createClass({
           <div className = 'form-wrap-new-post-type'>
             <DropzoneComponent
               onDrop={this.onDrop}>
-              <div style={{height: 200}}>
+              <div style={{'padding-top': 3}}>
               Кликните или перетащите файлы сюда.
               </div>
             </DropzoneComponent>
@@ -174,7 +174,9 @@ const ModalContentFile = React.createClass({
           <div className = 'post-type-material-icon'>
           </div>
           <div className = 'post-type-material-text'>
-            <a href={this.props.url}>{this.props.name}</a>
+            <a href={this.props.url} target='blank'>
+              {this.props.name}
+            </a>
           </div>
         </div>
         <div className = 'clearboth'>
@@ -192,7 +194,9 @@ const ContentFile = React.createClass({
           <div className = 'post-type-material-icon'>
           </div>
           <div className = 'post-type-material-text'>
-            <a href={this.props.url}>{this.props.name}</a>
+            <a href={this.props.url} target='blank'>
+              {this.props.name}
+            </a>
           </div>
         </div>
         <div className = 'clearboth'>

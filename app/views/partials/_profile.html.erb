@@ -8,12 +8,12 @@
          <%= current_user.avatar.thumb %>) no-repeat; background-size: cover;">
         </div>
         <div class="preview-object-info profile-preview-object-info">
-          <div class="object-name profile-name"><%= current_user.name %></div>
+          <div class="object-name profile-name">Мой профиль</div>
           <!--<div class="object-text">
             <span class="badge badge-sp each-class">11 А</span> <span class="badge badge-sp each-class">8 В</span> <span class="badge badge-sp each-class">1 класс</span> <span class="badge badge-sp each-class">11 А</span>
           </div>-->
           <% end %>
-          <div class = 'switcher'><img class = 'switch' src = '/images/switch9.png' width = '25' height = '25'/></div>
+          <!--<div class = 'switcher'><img class = 'switch' src = '/images/switch9.png' width = '25' height = '25'/></div>-->
           <div class = 'object-text profile-menu'>
             <div class = 'btn-group'>
               <% if current_user %>
@@ -24,7 +24,7 @@
                 <% elsif current_user.teacher? %>
                   <span class = 'profile-class dropdown-toggle not-button' data-toggle="dropdown">Мои классы <span class="caret"></span></span>
                     <ul class="dropdown-menu" role="menu">
-                      <% current_user.his_main_classrooms.each do |c|%>
+                      <% current_user.own_communities.each do |c|%>
                       <li><%= link_to c.name, classroom_path(c) %></li>
                       <% end %>
                     </ul>

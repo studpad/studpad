@@ -84,7 +84,7 @@ const PostModalForm = React.createClass({
     var post = this.state.post;
     var elements = post.text_elements;
     elements = $.grep(elements, function(e){
-      return (e.type != ElementTypes.text || e.value.trim());
+      return (e.type != ElementTypes.text || e.text.trim());
     });
     elements.push({
       type: ElementTypes.image,
@@ -215,6 +215,7 @@ const PostModalAuthor = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
     author: React.PropTypes.shape({
+      type: React.PropTypes.string.isRequired,
       name: React.PropTypes.string.isRequired,
       avatar: React.PropTypes.string.isRequired
     })
@@ -232,7 +233,7 @@ const PostModalAuthor = React.createClass({
             {this.props.author.name}
           </div>
           <div className = 'post-autor-type'>
-            [Преподаватель/Ученик]
+            {this.props.author.type}
           </div>
         </div>
       </div>

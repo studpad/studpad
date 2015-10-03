@@ -29,24 +29,53 @@
 	font-size: 13px;
 }
 .profile-avatar_img{
- height: 220px;
- width: 220px;
- border-radius: 5px;
- -webkit-border-radius: 5px;
- -moz-border-radius: 5px;
- -o-border-radius: 5px;
- border: 4px solid white;
+ width: 187px;
+ height: 187px;
+ border-radius: 3px;
+ -webkit-border-radius: 3px;
+ -moz-border-radius: 3px;
+ -o-border-radius: 3px;
  background-color: #D8EAF3 !important;
+ box-shadow: 0 0 3px #B7C0C5;
 }
 .panel-user{
  padding: 0px;
  width: 100%;
- background-color: white;
  border-radius: 3px;
+ margin-bottom: 95px;
+}
+.profile-background{
+	height: 180px;
+	background-color: rgba(255, 255, 255, 0.92);
+	border-radius: 3px;
+	border-radius: 3px;
+}
+.profile-background-overlap{
+	padding: 15px;
+	position: relative;
+	top: 0px;
+}
+.profile-info-avatar-classes > div{
+	float: left;
+}
+.profile-info-classes > .classes-and-communities{
+	margin-top: 0px !important;
+	margin-left: 15px;
+	width: 287px !important;
+	box-shadow: 0 0 3px #B7C0C5;
+}
+.profile-info-classes > .classes-and-communities > .title-page{
+	padding-top: 0px;
+	text-align: left;
+}
+.profile-list-classes{
+	background-color: white;
+	padding-bottom: 4px;
+	padding-top: 12px;
+	border-radius: 3px;
 }
 .profile-info{
-	border-bottom: 1px solid #DAE1E8;
-	padding: 15px;
+	/*border-bottom: 1px solid #DAE1E8;*/
 }
 .profile-info_name{
   font-size: 16px;
@@ -58,7 +87,7 @@
   margin-bottom: 5px;
 }
 .profile-info_school{
- margin-top: 15px;
+ margin: 9px 0;
  font-size: 14px;
 }
 .profile-info_start{

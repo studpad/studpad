@@ -11,7 +11,7 @@ class CommunitiesController < ApplicationController
   end
 
   def create
-    @community = current_user.communities.create community_params
+    @community = current_user.own_communities.create community_params
     redirect_to @community
   end
 

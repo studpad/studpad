@@ -32,6 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update_attributes post_params
+    @post.attachment_ids = params[:post][:attachment_ids]
     element_ids = params[:post][:text_elements].values.map{|e| e[:id]}.compact
     @post.text_element_ids = element_ids
     params[:post][:text_elements].each do |position, element|

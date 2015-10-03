@@ -3,16 +3,15 @@
     <%= link_to 'Экипаж', community_members_path(@community) %>
   </div>
   <div class = 'block-objects'>
-    <% @notices.each do |n| %>
+    <% @community.users.limit(5).each do |u| %>
       <div class = 'preview-object'>
           <div class = "preview-object-avatar-mini" style="background: url(
-          <%= n.user.avatar.thumb %>
+          <%= u.avatar.thumb %>
           ) no-repeat; background-size: cover;">
           </div>
           <div class="preview-object-info-mini">
             <div class = 'object-text'>
-              <%= link_to n.user.name, user_path(n.user) %>
-              <%= n.mode_rus %>
+              <%= link_to u.name, user_path(u) %>
              </div>
           </div>
       </div>
