@@ -59,7 +59,7 @@ const PostAuthorView = React.createClass({
         </div>
         <div className='post-autor-info'>
           <div className='post-autor-name'>
-            {this.props.author.name}
+            {this.props.author.name} <span className='post-autor-data'>• 2 окт.</span>
           </div>
           <div className = 'post-autor-type'>
             {this.props.author.type}

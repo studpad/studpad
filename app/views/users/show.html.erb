@@ -3,9 +3,7 @@
 	</div> -->
 
   <div class = 'left-branch'>
-    <div class = 'profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover;'>
-    </div>
-    <%= render 'my_communities' %>
+    <%= render "/partials/profile" %>
   </div>
 
 
@@ -25,27 +23,41 @@
     <%#= render "info_user" %>
     <div class = 'panel-user'>
       <div class = 'profile-info'>
-        <div class = 'action-angle'>
-          <div class = 'btn-group'>
-            <span class = 'sign-dots-menu-big' data-toggle="dropdown">•••</span>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <%= link_to edit_user_path(@user) do %>Настройки<% end if current_user == @user%>
-                <%= link_to logout_path, data: { no_turbolink: true } do %>
-                  Выход
-                <% end if current_user %>
-              </li>
-            </ul>
+        <div class = 'profile-background'>
+          <div class = 'profile-background-overlap'>
+            <div class = 'action-angle'>
+              <div class = 'btn-group'>
+                <span class = 'sign-dots-menu-big' data-toggle="dropdown">•••</span>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <%= link_to edit_user_path(@user) do %>Настройки<% end if current_user == @user%>
+                    <%= link_to logout_path, data: { no_turbolink: true } do %>
+                      Выход
+                    <% end if current_user %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class = 'profile-info-content'>
+              <div class = 'profile-info_name'><%= @user.name %> &nbsp;
+               <!-- <%= link_to edit_user_path(@user) do %>
+                <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
+                <% end if current_user == @user%>-->
+              </div>
+              <div class = 'profile-info_school'>
+                <%= @user.school %>
+              </div>
+            </div>
+            <div class = 'profile-info-avatar-classes'>
+              <div class = 'profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover;'>
+              </div>
+              <div class = 'profile-info-classes'>
+                <%= render 'my_communities' %>
+              </div>
+            </div>
           </div>
         </div>
-        <div class = 'profile-info_name'><%= @user.name %> &nbsp;
-         <!-- <%= link_to edit_user_path(@user) do %>
-          <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
-          <% end if current_user == @user%>-->
-        </div>
-        <div class = 'profile-info_school'>
-          <%= @user.school %>
-        </div>
+        
       </div>
     </div>
     <%= react_component("PostBox",

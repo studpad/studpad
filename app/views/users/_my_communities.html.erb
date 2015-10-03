@@ -1,9 +1,7 @@
 <div class = 'card-sp classes-and-communities'>
   <div class = 'block-title'>
-    Сообщества
-    <%# if current_user == @user && current_user.teacher? %>
     <button class = 'action-angle' data-toggle="modal" data-target="#modal-window-create-community" >+</button>
-    <%# end %>
+    Классы
   </div>
   <div class = 'block-objects'>
     <%= render collection: @user.own_communities.limit(5) + @user.communities.limit(5),
