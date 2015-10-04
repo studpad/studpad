@@ -7,38 +7,38 @@ Rails.application.routes.draw do
     post 'change', on: :collection
   end
 
-  resources :classrooms do
-    resources :classmates, controller: 'classrooms/classmates'
-    get 'posts', on: :member
-    member do
-      get  'join'
-      get  'new_student'
-      post 'new_student' => 'classrooms#create_student'
-    end
-  end
+  # resources :classrooms do
+  #   resources :classmates, controller: 'classrooms/classmates'
+  #   get 'posts', on: :member
+  #   member do
+  #     get  'join'
+  #     get  'new_student'
+  #     post 'new_student' => 'classrooms#create_student'
+  #   end
+  # end
 
-  resources :communities do
-    resources :members, only: :index, controller: 'communities/members'
-    resources :notices, controller: 'communities/notices'
-    get 'posts', on: :member
-    member do
-      get  'unjoin'
-      get  'join'
-      get  'notices'
-      post 'crop'
-      post 'create_ava'
-    end
-  end
+  # resources :communities do
+  #   resources :members, only: :index, controller: 'communities/members'
+  #   resources :notices, controller: 'communities/notices'
+  #   get 'posts', on: :member
+  #   member do
+  #     get  'unjoin'
+  #     get  'join'
+  #     get  'notices'
+  #     post 'crop'
+  #     post 'create_ava'
+  #   end
+  # end
 
   resources :posts do
     resources :comments
   end
 
   resources :attachments, only: [:create, :destroy]
-  resources :comments
+  #resources :comments
   resources :users do
     member do
-      get :communities
+      #get :communities
       get :posts
       post 'crop'
       post 'new_ava' => 'users#create_ava'
