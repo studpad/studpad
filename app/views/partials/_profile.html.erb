@@ -16,21 +16,6 @@
           <!--<div class = 'switcher'><img class = 'switch' src = '/images/switch9.png' width = '25' height = '25'/></div>-->
           <div class = 'object-text profile-menu'>
             <div class = 'btn-group'>
-              <% if current_user %>
-                <% if current_user.student? && current_user.classroom %>
-                  <%= link_to classroom_path(current_user.classroom) do %>
-                    <span lass = 'profile-class'>Мой класс</span>
-                  <% end %>
-                <% elsif current_user.teacher? %>
-                  <span class = 'profile-class dropdown-toggle not-button' data-toggle="dropdown">Мои классы <span class="caret"></span></span>
-                    <ul class="dropdown-menu" role="menu">
-                      <% current_user.own_communities.each do |c|%>
-                      <li><%= link_to c.name, classroom_path(c) %></li>
-                      <% end %>
-                    </ul>
-                <% end %>
-              <% end %>
-
             </div>
             <div class = 'btn-group'>
               <span class = 'sign-dots-menu' data-toggle="dropdown">•••</span>
