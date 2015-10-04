@@ -6,7 +6,6 @@
     <%= render '/partials/profile' %>
     <div class = 'profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover;'>
     </div>
-    <%#= render 'my_communities' %>
   </div>
 
 
@@ -39,10 +38,7 @@
             </ul>
           </div>
         </div>
-        <div class = 'profile-info_name'><%= @user.name %> &nbsp;
-         <!-- <%= link_to edit_user_path(@user) do %>
-          <%= image_tag "settings.png", id: 'settigns-profile', size: "20x20", 'data-toggle' => "tooltip", 'data-placement' => "top", title: "Настройки" %>
-          <% end if current_user == @user%>-->
+        <div class = 'profile-info_name'><%= @user.name %> <span class = 'profile-info_status'>• Ученик</span>
         </div>
         <div class = 'profile-info_school'>
           <%= @user.school %>

@@ -3,4 +3,4 @@ ru:
   Teacher: 'Преподаватель'
   time:
     formats:
-      default: '%H:%M'
+      default: '%e %b'

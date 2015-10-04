@@ -25,6 +25,7 @@ const Post = React.createClass({
       <div className='post card-sp'>
         <PostAuthorView
           author={this.props.post.author}
+          time={this.props.post.time}
           removeClick={this.removeClick}
           editClick={this.editClick}/>
         <div className = 'post-content'>
@@ -59,7 +60,7 @@ const PostAuthorView = React.createClass({
         </div>
         <div className='post-autor-info'>
           <div className='post-autor-name'>
-            {this.props.author.name} <span className='post-autor-data'>• 2 окт.</span>
+            {this.props.author.name} <span className='post-autor-data'>• {this.props.time}</span>
           </div>
           <div className = 'post-autor-type'>
             {this.props.author.type}

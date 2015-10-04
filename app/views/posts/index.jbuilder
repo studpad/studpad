@@ -11,7 +11,7 @@ json.array! @posts do |n|
   json.type n.post_type
   json.linkdata n.linkdata
   json.title n.title
-  json.time n.created_at.strftime('%d %b %H:%M')
+  json.time l(n.created_at)
   json.can_edit policy(n).update?
   json.can_remove policy(n).destroy?
   json.attachment_ids = n.attachment_ids
