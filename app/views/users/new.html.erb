@@ -21,6 +21,7 @@
       <%= f.input :email, label: false, input_html: { class: 'input-sp',  placeholder: 'Электронный адрес' } %>
       <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>
       <%= f.input :password_confirmation, label: false,  input_html: { class: 'input-sp',  placeholder: 'Повторите пароль' } %>
+      <div class = 'reg-licence'><input type='checkbox' /> Я принимаю правила сайта и лицензионное соглашение.</div>
       <%= f.button :submit, button_name(@user), class: 'btn-st btn-primary' %>
     <% end %>
     </div>

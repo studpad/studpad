@@ -28,7 +28,19 @@
                     <%= f.text_field :school, class: 'form-control input-sp input-edit-profile-school', placeholder: 'Ваше учебное заведение' %>
                   </div>
                   <div class = 'change-password'>
-                    <a data-toggle="modal" data-target="#modal-window-change-password">Изменить пароль</a>
+                    <div class = 'action-angle-only-font'>
+                      <div class = 'btn-group'>
+                        <span class = 'sign-dots-menu-big' data-toggle="dropdown">•••</span>
+                        <ul class="dropdown-menu" role="menu">
+                          <li>
+                            <a data-toggle="modal" data-target="#modal-window-change-password">Изменить пароль</a>
+                          </li>
+                          <li>
+                            <a data-toggle="modal" data-target="#modal-window-remove-profile">Удалить свой профиль</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                   <div class="edit-profile-footer">
                     <button type="submit" id = 'save-edit-profile' class="btn btn-primary btn-st">Сохранить</button>
@@ -45,5 +57,6 @@
 <%#= render "form_create_community" %>
 <%= render "change_avatar" %>
 <%= render "change_password" %>
+<%= render "remove_profile" %>
 
 
