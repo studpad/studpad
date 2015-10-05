@@ -1,7 +1,4 @@
 <div class ='container' id = 'main-container'>
-  <!-- <div class = 'profile-background' style = 'background: url(https://pp.vk.me/c7009/v7009943/b108/YeLmD9Meuu8.jpg); background-size: cover;'>
-  </div> -->
-
   <div class = 'left-branch'>
     <%= render '/partials/profile' %>
     <div class = 'profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover;'>
@@ -38,7 +35,8 @@
             </ul>
           </div>
         </div>
-        <div class = 'profile-info_name'><%= @user.name %> <span class = 'profile-info_status'>• Ученик</span>
+        <div class = 'profile-info_name'><%= @user.name %>
+          <span class = 'profile-info_status'>• <%= t(@user.type) %> </span>
         </div>
         <div class = 'profile-info_school'>
           <%= @user.school %>
@@ -46,8 +44,7 @@
       </div>
     </div>
     <%= react_component("PostBox",
-        posts_url: posts_user_path(@user),
-        group_id: 2) %>
+        posts_url: posts_user_path(@user) ) %>
   </div>
 </div>
 <%#= render "/partials/view_material" %>
