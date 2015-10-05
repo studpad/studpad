@@ -98,10 +98,11 @@ var PostTextTextarea = React.createClass({
   },
   render: function() {
     var textPlaceholder = 'Введите текст';
-
+    if (this.props.position != 0)
+      var remove_button = <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
     return (
       <div className = 'usual-post-text action-create-element-post'>
-        <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
+        {remove_button}
         <textarea
           ref='textElement'
           className='textarea-new-post textarea-sp form-control'

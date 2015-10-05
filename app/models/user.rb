@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
     on:           :create
   validates :email, uniqueness: { message: 'Такой email уже занят'}, presence: true
   validates :name, presence: true
+  validates :terms_of_service, acceptance: true, on: :create
 
   mount_uploader :avatar, AvatarUploader
 
