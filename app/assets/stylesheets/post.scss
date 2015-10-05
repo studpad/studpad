@@ -115,6 +115,10 @@
 	width: 100%;
 	margin-bottom: 20px;
 }
+.usual-post-photo > .remove-angle{
+	width: 30px !important;
+	margin-bottom: 0 !important;
+}
 .usual-post-text{
 	font-size: 13px;
 	margin-bottom: 20px;
@@ -265,38 +269,32 @@
 .all-remove-angle{
 	position: relative;
 	top: 22px;
-  left: 26px;
-  color: #FFFFFF !important;
+  left: 29px;
   text-shadow: none !important;
-  background-color: #BE3636 !important;
-  border-radius: 80px;
   padding-left: 5px !important;
   padding-right: 5px !important;
   padding-bottom: 5px !important;
+  width: 30px;
 }
 .file-remove-angle{
 	position: relative;
 	top: 4px;
-  left: 26px;
-  color: #FFFFFF !important;
+  left: 29px;
   text-shadow: none !important;
-  background-color: #BE3636 !important;
-  border-radius: 80px;
   padding-left: 5px !important;
   padding-right: 5px !important;
   padding-bottom: 5px !important;
+  width: 30px;
 }
 .devider-remove-angle{
 	position: relative;
-	bottom: 12px;
-	left: 26px;
-  color: #FFFFFF !important;
+	bottom: 11px;
+	left: 29px;
   text-shadow: none !important;
-  background-color: #BE3636 !important;
-  border-radius: 80px;
   padding-left: 5px !important;
   padding-right: 5px !important;
   padding-bottom: 5px !important;
+  width: 30px;
 }
 .post-type-material-all-wrap{
 	padding-left: 15px;

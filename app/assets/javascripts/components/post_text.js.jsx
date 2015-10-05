@@ -101,11 +101,7 @@ var PostTextTextarea = React.createClass({
 
     return (
       <div className = 'usual-post-text action-create-element-post'>
-        <button
-          className='remove-angle all-remove-angle'
-          onClick={this.handleRemoveElementPost}>
-          &times;
-        </button>
+        <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
         <textarea
           ref='textElement'
           className='textarea-new-post textarea-sp form-control'
@@ -134,11 +130,7 @@ var PostTextImage = React.createClass({
   render: function() {
     return (
       <div className = 'usual-post-photo action-create-element-post'>
-        <button
-          className='remove-angle all-remove-angle'
-          onClick={this.handleRemoveElementPost}>
-          &times;
-        </button>
+        <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
         <img src = {this.props.url} />
       </div>
     );
@@ -159,11 +151,7 @@ var PostTextDivider = React.createClass({
   render: function() {
     return (
       <div>
-        <button
-          className='remove-angle devider-remove-angle'
-          onClick={this.handleRemoveElementPost}>
-          &times;
-        </button>
+        <img onClick={this.handleRemoveElementPost} className='remove-angle devider-remove-angle' src = '/images/close.png' />
         <div className = 'usual-post-devider create-usual-post-divider action-create-element-post'/>
         <div className = 'clearboth' />
       </div>

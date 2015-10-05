@@ -166,7 +166,7 @@ const ModalContentFile = React.createClass({
     this.props.remove(id);
   },
   render: function() {
-    var remove_button_file = <button onClick={this.onRemoveClick} className='remove-angle  file-remove-angle'>&times;</button>
+    var remove_button_file = <img onClick={this.onRemoveClick} className='remove-angle  file-remove-angle' src = '/images/close.png' />
     return (
       <div className = 'post-type-material-all-wrap'>
         {remove_button_file}

@@ -58,5 +58,8 @@ Rails.application.routes.draw do
   get 'welcome'  => 'sessions#new'
   get 'profile' => 'users#profile'
   get 'main' => 'static_pages#main'
+  get 'terms' => 'static_pages#terms'
+  get 'licence' => 'static_pages#licence'
+  get 'privacy' => 'static_pages#privacy'
 
 end
