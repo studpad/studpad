@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post 'change', on: :collection
   end
 
+  get 'profile/edit' => 'users#edit_profile'
   # resources :classrooms do
   #   resources :classmates, controller: 'classrooms/classmates'
   #   get 'posts', on: :member

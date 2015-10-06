@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   skip_before_action :require_login, only: [ :new, :create]
 
-  before_action :find_user, except: [:new, :create, :profile]
+  before_action :find_user, except: [:new, :create, :profile, :edit_profile]
 
   def new
     @user = User.new
@@ -24,6 +24,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def edit_profile
+    @user = current_user
+    render 'edit'
   end
 
   def update

@@ -2,6 +2,7 @@ const PostBox = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
     group_id: React.PropTypes.number,
+    show_panel: React.PropTypes.boolean,
     posts_url: React.PropTypes.string.isRequired
   },
   getInitialState: function () {
@@ -120,10 +121,11 @@ const PostBox = React.createClass({
   },
   //END*****************************************************HELPERS
   render: function() {
+    if (this.props.show_panel)
+      var panel = <PostManagementPanel newPost={this.newPost}/>;
     return (
       <div>
-        <PostManagementPanel
-          newPost={this.newPost}/>
+        {panel}
         <PostModalForm
           ref='form'
           createPost={this.createPost}

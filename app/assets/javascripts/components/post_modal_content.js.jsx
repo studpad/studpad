@@ -34,6 +34,17 @@ const PostModalContent = React.createClass({
       }
     });
   },
+  componentDidMount: function() {
+    if (this.props.post.type == PostTypes.quotation) {
+      var node = this.refs.quotation.getDOMNode();
+      $(node).autoResize({
+        limit:600,
+        extraSpace:0,
+        animate:true
+      });
+      $(node).change();
+    }
+  },
   render: function() {
     var main_part;
     files = this.props.post.files.map(function (f, index) {
@@ -127,6 +138,7 @@ const PostModalContent = React.createClass({
             <textarea
               value={this.props.post.title}
               onChange={this.props.onChangeTitle}
+              ref='quotation'
               className=
               'textarea-new-post textarea-sp post-type-cite form-control form-cite'
               placeholder = 'Цитата'>

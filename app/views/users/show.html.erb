@@ -5,35 +5,22 @@
     </div>
   </div>
 
-
-
-  <!--<div class = 'profile-sidebar'>
-    <div class = 'position-profile-sidebar'>
-      <div class = 'element-of-profile-sidebar'>
-        Публикации
-        <div>
-          <span><%#= @user.posts.count %></span>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <div class = 'main-wall'>
     <%#= render "info_user" %>
     <div class = 'panel-user'>
       <div class = 'profile-info'>
         <div class = 'action-angle'>
+          <% if @user == current_user %>
           <div class = 'btn-group'>
             <span class = 'sign-dots-menu-big' data-toggle="dropdown">•••</span>
             <ul class="dropdown-menu" role="menu">
               <li>
-                <%= link_to edit_user_path(@user) do %>Мои настройки<% end if current_user == @user%>
-                <%= link_to logout_path, data: { no_turbolink: true } do %>
-                  Выход
-                <% end if current_user %>
+                <%= link_to 'Мои настройки', profile_edit_path %>
+                <%= link_to 'Выход', logout_path, data: { no_turbolink: true } %>
               </li>
             </ul>
           </div>
+          <% end %>
         </div>
         <div class = 'profile-info_name'><%= @user.name %>
           <span class = 'profile-info_status'>• <%= t(@user.type) %> </span>
@@ -44,10 +31,7 @@
       </div>
     </div>
     <%= react_component("PostBox",
-        posts_url: posts_user_path(@user) ) %>
+        posts_url: posts_user_path(@user), show_panel: (current_user == @user) ) %>
   </div>
 </div>
-<%#= render "/partials/view_material" %>
-<%#= render "materials/modal_window" %>
-<%#= render "form_create_class" %>
-<%#= render "form_create_community" %>
+
