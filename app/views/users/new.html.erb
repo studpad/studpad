@@ -22,8 +22,8 @@
       <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>
       <%= f.input :password_confirmation, label: false,  input_html: { class: 'input-sp',  placeholder: 'Повторите пароль' } %>
       <div class = 'reg-licence'>
-        <%= f.input :terms_of_service, as: :boolean, label: 'Я принимаю правила сайта и лицензионное соглашение.' %>
-        <!-- <input type='checkbox' /> Я принимаю правила сайта и лицензионное соглашение. -->
+        <%= f.input :terms_of_service, as: :boolean,
+          label: "Я принимаю #{link_to 'правила сайта', terms_path}  и #{link_to 'лицензионное соглашение', licence_path}.".html_safe %>
       </div>
       <%= f.button :submit, button_name(@user), class: 'btn-st btn-primary' %>
     <% end %>

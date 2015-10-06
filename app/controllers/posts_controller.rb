@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, except: [:create, :index]
+  skip_before_filter :require_login, :index
 
   def create
     @post = current_user.posts.create post_params
