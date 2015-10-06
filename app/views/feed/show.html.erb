@@ -18,6 +18,8 @@
               Публикации
             </div>
           </div>
+          <%= react_component("PostBox",
+        posts_url: posts_path, show_panel: (current_user.present?) ) %>
         </div>
       </div>
     </div>

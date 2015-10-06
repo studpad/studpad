@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post 'change', on: :collection
   end
 
+  get 'profile/edit' => 'users#edit_profile'
   # resources :classrooms do
   #   resources :classmates, controller: 'classrooms/classmates'
   #   get 'posts', on: :member
@@ -57,9 +58,9 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
   get 'welcome'  => 'sessions#new'
   get 'profile' => 'users#profile'
+
   get 'main' => 'static_pages#main'
   get 'terms' => 'static_pages#terms'
   get 'licence' => 'static_pages#licence'
   get 'privacy' => 'static_pages#privacy'
-
 end

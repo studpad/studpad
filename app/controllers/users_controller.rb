@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   skip_before_action :require_login, only: [ :new, :create]
 
-  before_action :find_user, except: [:new, :create, :profile]
+  before_action :find_user, except: [:new, :create, :profile, :edit_profile]
 
   def new
     @user = User.new
@@ -24,6 +24,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def edit_profile
+    @user = current_user
+    render 'edit'
   end
 
   def update
@@ -87,6 +92,6 @@ class UsersController < ApplicationController
       name = :student if params[:student]
 
       params.require(name).permit(:name, :email, :type,
-        :school, :password, :password_confirmation)
+        :school, :password, :password_confirmation, :terms_of_service)
     end
 end

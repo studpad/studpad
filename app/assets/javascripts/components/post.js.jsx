@@ -26,6 +26,8 @@ const Post = React.createClass({
         <PostAuthorView
           author={this.props.post.author}
           time={this.props.post.time}
+          can_edit={this.props.post.can_edit}
+          can_remove={this.props.post.can_remove}
           removeClick={this.removeClick}
           editClick={this.editClick}/>
         <div className = 'post-content'>
@@ -52,6 +54,20 @@ const PostAuthorView = React.createClass({
   },
   //END*****************************************************DECLARE
   render: function() {
+    if (this.props.can_edit)
+      var edit_button = <li><a onClick={this.props.editClick}>Редактировать</a></li>;
+    if (this.props.can_remove)
+      var remove_button = <li><a onClick={this.props.removeClick}>Удалить</a></li>;
+    if (edit_button || remove_button)
+      var manage_block = (
+        <div className = 'btn-group'>
+          <span className = 'sign-dots-menu' data-toggle="dropdown">•••</span>
+          <ul className="dropdown-menu" role="menu">
+            {edit_button}
+            {remove_button}
+          </ul>
+        </div>
+        );
     return (
       <div className='post-autor'>
         <div className='usual-avatar'
@@ -67,17 +83,7 @@ const PostAuthorView = React.createClass({
           </div>
         </div>
         <div className = 'action-angle post-action'>
-          <div className = 'btn-group'>
-            <span className = 'sign-dots-menu' data-toggle="dropdown">•••</span>
-            <ul className="dropdown-menu" role="menu">
-              <li>
-                <a onClick={this.props.editClick}>Редактировать</a>
-              </li>
-              <li>
-                <a onClick={this.props.removeClick}>Удалить</a>
-              </li>
-            </ul>
-          </div>
+          {manage_block}
         </div>
       </div>
     );
