@@ -13,6 +13,6 @@ class PostPolicy < Struct.new(:user, :post)
 
   private
     def is_owner?
-      user.id == post.user_id
+      user.try(:id) == post.user_id
     end
 end

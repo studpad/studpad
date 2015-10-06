@@ -14,4 +14,8 @@ class Post < ActiveRecord::Base
       user.posts.order(created_at: :desc)
     end
   end
+
+  def user
+    User.unscoped { super }
+  end
 end

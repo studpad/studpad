@@ -117,6 +117,9 @@ GEM
     colorize (0.7.7)
     connection_pool (2.2.0)
     debug_inspector (0.0.2)
+    destroyed_at (1.0.1)
+      actionpack (~> 4.1)
+      activerecord (~> 4.1)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     dropzonejs-rails (0.7.1)
@@ -344,6 +347,7 @@ DEPENDENCIES
   capistrano3-unicorn
   carrierwave
   coffee-rails (~> 4.1.0)
+  destroyed_at
   dropzonejs-rails
   guard-rails
   jbuilder (~> 2.0)

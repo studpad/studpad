@@ -29,6 +29,7 @@ gem 'nokogiri'
 gem 'activeadmin', github: 'activeadmin'
 #gem 'acts_as_votable'
 gem 'react-bootstrap-rails'
+gem 'destroyed_at'
 
 group :development, :test do
   gem 'byebug'

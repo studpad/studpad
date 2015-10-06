@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include DestroyedAt
   authenticates_with_sorcery!
   before_validation :remove_whitespaces
 

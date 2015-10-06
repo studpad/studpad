@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :require_login, only: [ :new, :create]
+  skip_before_action :require_login, only: [:new, :create]
 
   before_action :find_user, except: [:new, :create, :profile, :edit_profile]
 
@@ -72,8 +72,10 @@ class UsersController < ApplicationController
     render 'show'
   end
 
-  def communities
-
+  def destroy
+    #@user.remove_avatar!
+    @user.destroy
+    redirect_to root_path
   end
 
   private
