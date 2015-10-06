@@ -18,7 +18,7 @@ json.array! @posts do |n|
   json.files do
     json.array! n.attachments do |a|
       json.id a.id
-      json.name truncate(a.file.file.filename, length: 20)
+      json.name truncate(a.file.file.filename, length: 40)
       json.url a.file.to_s
     end
   end
