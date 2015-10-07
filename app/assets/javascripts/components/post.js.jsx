@@ -35,6 +35,8 @@ const Post = React.createClass({
             post={this.props.post}/>
           <PostTextView
             text_elements={this.props.post.text_elements}/>
+          <PostFooter
+            />
         </div>
       </div>
     );
@@ -192,6 +194,23 @@ const PostTextView = React.createClass({
     return (
       <div className='usual-post-contant'>
         {rendered_elements}
+      </div>
+    );
+  }
+})
+
+const PostFooter = React.createClass({
+  //BEGIN***************************************************DECLARE
+
+  //END*****************************************************DECLARE
+  render: function() {
+    return (
+      <div>
+        <div className='post-footer'>
+          <span className='post-like'>271</span>
+        </div>
+        <div className='clearboth'>
+        </div>
       </div>
     );
   }
