@@ -301,3 +301,29 @@
 	padding-left: 15px;
 	padding-right: 15px;
 }
+.post-footer{
+	float: right;
+	padding-right: 10px;
+}
+.post-like{
+	cursor: pointer;
+	color: #ABABAB;
+	font-size: 13px;
+	transition-duration: .2s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+  &:hover{
+    	color: #D95E40;
+    }
+}
+.post-like:after {
+		padding-left: 4px;
+		position: relative;
+		top: 2px;
+		font-size: 20px;
+    content: "\f004"; 
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
