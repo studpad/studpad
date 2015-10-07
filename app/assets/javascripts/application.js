@@ -35,7 +35,7 @@
 //= require avatar
 //= require change_password
 //= require notifications
-// require news
+//= require speech
 
 Dropzone.autoDiscover = false;
 
