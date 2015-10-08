@@ -211,14 +211,23 @@ const PostFooter = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
     likeClick: React.PropTypes.func.isRequired,
+    current_like: React.PropTypes.bool.isRequired,
     likes: React.PropTypes.number.isRequired
   },
   //END*****************************************************DECLARE
   render: function() {
+    var likes_count = this.props.likes;
+    var classname;
+    if (likes_count == 0)
+      likes_count = '';
+    if (this.props.current_like)
+      classname = 'post-like post-like-active';
+    else
+      classname = 'post-like';
     return (
       <div>
         <div className='post-footer'>
-          <span className='post-like' onClick={this.props.likeClick}>{this.props.likes}</span>
+          <span className={classname} onClick={this.props.likeClick}>{likes_count}</span>
         </div>
         <div className='clearboth'>
         </div>

@@ -17,6 +17,7 @@ json.array! @posts do |n|
   json.attachment_ids = n.attachment_ids
   json.likes n.votes_for.size
   json.like_path like_post_path(n)
+  json.current_like (current_user ? current_user.voted_for?(n) : false)
   json.files do
     json.array! n.attachments do |a|
       json.id a.id
