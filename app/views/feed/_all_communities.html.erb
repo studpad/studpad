@@ -2,79 +2,23 @@
   <div class = 'block-title'>
     <a>Публиковали сегодня</a>
   </div>
+  <% last_users = User.includes(:posts).where(posts: {created_at: 1.days.ago..Time.now}).limit(5) %>
+  <% last_users.each do |u| %>
   <div class = 'block-objects'>
       <div class = 'preview-object'>
-          <div class = "preview-object-avatar-mini" style="background: url(https://pp.vk.me/c628621/v628621124/b7e8/4f4k-zbBBKI.jpg
+          <div class = "preview-object-avatar-mini" style="background: url(
+          <%= u.avatar.thumb %>
           ) no-repeat; background-size: cover;">
           </div>
           <div class="preview-object-info-mini">
             <div class = 'object-text'>
-              <div class = 'object-maintext'><a>Никитин Макс</a></div>
-              <div class = 'object-subtext'>Преподаватель</div>
+              <div class = 'object-maintext'><%= link_to u.name, user_path(u) %></div>
+              <div class = 'object-subtext'><%= I18n.t(u.type) %></div>
             </div>
           </div>
       </div>
       <div class = 'clearboth'>
       </div>
   </div>
-  <div class = 'block-objects'>
-      <div class = 'preview-object'>
-          <div class = "preview-object-avatar-mini" style="background: url(https://pp.vk.me/c628621/v628621124/b7e8/4f4k-zbBBKI.jpg
-          ) no-repeat; background-size: cover;">
-          </div>
-          <div class="preview-object-info-mini">
-            <div class = 'object-text'>
-              <div class = 'object-maintext'><a>Никитин Макс</a></div>
-              <div class = 'object-subtext'>Преподаватель</div>
-            </div>
-          </div>
-      </div>
-      <div class = 'clearboth'>
-      </div>
-  </div>
-  <div class = 'block-objects'>
-      <div class = 'preview-object'>
-          <div class = "preview-object-avatar-mini" style="background: url(https://pp.vk.me/c628621/v628621124/b7e8/4f4k-zbBBKI.jpg
-          ) no-repeat; background-size: cover;">
-          </div>
-          <div class="preview-object-info-mini">
-            <div class = 'object-text'>
-              <div class = 'object-maintext'><a>Никитин Макс</a></div>
-              <div class = 'object-subtext'>Преподаватель</div>
-            </div>
-          </div>
-      </div>
-      <div class = 'clearboth'>
-      </div>
-  </div>
-  <div class = 'block-objects'>
-      <div class = 'preview-object'>
-          <div class = "preview-object-avatar-mini" style="background: url(https://pp.vk.me/c628621/v628621124/b7e8/4f4k-zbBBKI.jpg
-          ) no-repeat; background-size: cover;">
-          </div>
-          <div class="preview-object-info-mini">
-            <div class = 'object-text'>
-              <div class = 'object-maintext'><a>Никитин Макс</a></div>
-              <div class = 'object-subtext'>Преподаватель</div>
-            </div>
-          </div>
-      </div>
-      <div class = 'clearboth'>
-      </div>
-  </div>
-  <div class = 'block-objects'>
-      <div class = 'preview-object'>
-          <div class = "preview-object-avatar-mini" style="background: url(https://pp.vk.me/c628621/v628621124/b7e8/4f4k-zbBBKI.jpg
-          ) no-repeat; background-size: cover;">
-          </div>
-          <div class="preview-object-info-mini">
-            <div class = 'object-text'>
-              <div class = 'object-maintext'><a>Никитин Макс</a></div>
-              <div class = 'object-subtext'>Преподаватель</div>
-            </div>
-          </div>
-      </div>
-      <div class = 'clearboth'>
-      </div>
-  </div>
+  <% end %>
 </div>
