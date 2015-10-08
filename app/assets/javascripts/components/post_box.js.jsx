@@ -104,8 +104,11 @@ const PostBox = React.createClass({
       success: function(data) {
         var posts = this.state.posts;
         posts = posts.map(function(p){
-          if (p.id == id)
+          if (p.id == id){
             p.likes = data.likes;
+            p.current_like = data.current_like;
+            p.current_like_just = true;
+          }
           return p;
         })
         this.setState({posts: posts});

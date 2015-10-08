@@ -44,6 +44,8 @@ const Post = React.createClass({
           <PostFooter
             likeClick={this.likeClick}
             likes={this.props.post.likes}
+            current_like_just={this.props.post.current_like_just}
+            current_like={this.props.post.current_like}
             />
         </div>
       </div>
@@ -212,18 +214,23 @@ const PostFooter = React.createClass({
   propTypes: {
     likeClick: React.PropTypes.func.isRequired,
     current_like: React.PropTypes.bool.isRequired,
+    current_like_just: React.PropTypes.bool.isRequired,
     likes: React.PropTypes.number.isRequired
   },
   //END*****************************************************DECLARE
+
   render: function() {
     var likes_count = this.props.likes;
     var classname;
     if (likes_count == 0)
       likes_count = '';
-    if (this.props.current_like)
+    if (this.props.current_like){
       classname = 'post-like post-like-active';
-    else
+      if (this.props.current_like_just)
+        classname += ' post-like-active-animate';
+    } else
       classname = 'post-like';
+
     return (
       <div>
         <div className='post-footer'>

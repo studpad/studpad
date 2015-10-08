@@ -19,7 +19,8 @@ var PostText = React.createClass({
               text={e.text}
               position={position}
               onChangeElementText={this.props.changeElementText}
-              removeTextElement={this.props.removeTextElement}/>
+              removeTextElement={this.props.removeTextElement}
+              typePost={this.props.typePost}/>
           );
         case ElementTypes.image:
           return (
@@ -98,6 +99,8 @@ var PostTextTextarea = React.createClass({
   },
   render: function() {
     var textPlaceholder = 'Введите текст';
+    if(this.props.typePost == PostTypes.link) textPlaceholder = 'Если хотите, можете добавить описание.';
+    else if(this.props.typePost == PostTypes.quotation) textPlaceholder = 'Источник';
     if (this.props.position != 0)
       var remove_button = <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
     return (

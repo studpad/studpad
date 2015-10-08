@@ -327,3 +327,24 @@
     font-weight: normal;
     text-decoration: inherit;
 }
+.post-like-active-animate{
+		-webkit-animation: elementZoomInOut 0.8s linear 0s backwards;
+    -moz-animation: elementZoomInOut 0.8s linear 0s backwards;
+    -ms-animation: elementZoomInOut 0.8s linear 0s backwards;
+    animation: elementZoomInOut 0.8s linear 0s backwards;
+}
+.post-like-active{
+		color: #D95E40 !important;
+}
+
+@keyframes elementZoomInOut{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
