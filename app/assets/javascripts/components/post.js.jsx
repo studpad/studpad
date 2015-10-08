@@ -203,7 +203,9 @@ const PostFooter = React.createClass({
   //BEGIN***************************************************DECLARE
 
   //END*****************************************************DECLARE
+
   render: function() {
+
     return (
       <div>
         <div className='post-footer'>
