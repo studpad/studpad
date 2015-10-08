@@ -32,12 +32,13 @@ Rails.application.routes.draw do
   # end
 
   resources :posts do
+    put :like, on: :member
     resources :comments
   end
 
   resources :attachments, only: [:create, :destroy]
   #resources :comments
-  resources :users do
+  resources :users, except: :edit do
     member do
       #get :communities
       get :posts

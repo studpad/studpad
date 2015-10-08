@@ -3,6 +3,7 @@ const Post = React.createClass({
   propTypes: {
     editPost: React.PropTypes.func.isRequired,
     removePost: React.PropTypes.func.isRequired,
+    likePost: React.PropTypes.func.isRequired,
     post: React.PropTypes.shape({
       id: React.PropTypes.number.isRequired
     })
@@ -18,6 +19,11 @@ const Post = React.createClass({
     var post_id = this.props.post.id;
     CI('Post::editClick', post_id);
     this.props.editPost(post_id);
+  },
+  likeClick: function(){
+    var post_id = this.props.post.id;
+    CI('LIKE', post_id);
+    this.props.likePost(post_id);
   },
   //END*****************************************************ACTIONS
   render: function() {
@@ -36,6 +42,8 @@ const Post = React.createClass({
           <PostTextView
             text_elements={this.props.post.text_elements}/>
           <PostFooter
+            likeClick={this.likeClick}
+            likes={this.props.post.likes}
             />
         </div>
       </div>
@@ -201,7 +209,10 @@ const PostTextView = React.createClass({
 
 const PostFooter = React.createClass({
   //BEGIN***************************************************DECLARE
-
+  propTypes: {
+    likeClick: React.PropTypes.func.isRequired,
+    likes: React.PropTypes.number.isRequired
+  },
   //END*****************************************************DECLARE
 
   render: function() {
@@ -209,7 +220,7 @@ const PostFooter = React.createClass({
     return (
       <div>
         <div className='post-footer'>
-          <span className='post-like'>271</span>
+          <span className='post-like' onClick={this.props.likeClick}>{this.props.likes}</span>
         </div>
         <div className='clearboth'>
         </div>

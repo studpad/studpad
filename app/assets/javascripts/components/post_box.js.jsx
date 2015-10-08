@@ -92,6 +92,30 @@ const PostBox = React.createClass({
     this.refs.form.editPost(editedPost);
     CI('PostBox::editPost', id);
   },
+  likePost: function(id) {
+    var posts = this.state.posts;
+    var likedPost = $.grep(posts, function(e){ return e.id == id; });
+    likedPost = likedPost[0];
+    CI('PostBox::likePost', id);
+    $.ajax({
+      url: likedPost.like_path,
+      dataType: 'json',
+      type: 'PUT',
+      success: function(data) {
+        var posts = this.state.posts;
+        posts = posts.map(function(p){
+          if (p.id == id)
+            p.likes = data.likes;
+          return p;
+        })
+        this.setState({posts: posts});
+        CI(data)
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
   removePost: function(id) {
     var posts = this.state.posts;
     var newPosts = $.grep(posts, function(e){ return e.id != id; });
@@ -133,6 +157,7 @@ const PostBox = React.createClass({
           />
         <PostList
           posts={this.state.posts}
+          likePost={this.likePost}
           removePost={this.removePost}
           editPost={this.editPost}/>
       </div>

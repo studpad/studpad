@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include DestroyedAt
   authenticates_with_sorcery!
+  acts_as_voter
   before_validation :remove_whitespaces
 
   has_many :notifications
