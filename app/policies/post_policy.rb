@@ -11,6 +11,10 @@ class PostPolicy < Struct.new(:user, :post)
     is_owner?
   end
 
+  def like?
+    true
+  end
+
   private
     def is_owner?
       user.try(:id) == post.user_id

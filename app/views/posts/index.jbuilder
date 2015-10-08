@@ -15,6 +15,8 @@ json.array! @posts do |n|
   json.can_edit policy(n).update?
   json.can_remove policy(n).destroy?
   json.attachment_ids = n.attachment_ids
+  json.likes n.votes_for.size
+  json.like_path like_post_path(n)
   json.files do
     json.array! n.attachments do |a|
       json.id a.id

@@ -31,6 +31,15 @@ class PostsController < ApplicationController
     render nothing: true
   end
 
+  def like
+    if current_user.voted_for? @post
+      @post.unliked_by current_user
+    else
+      @post.liked_by current_user
+    end
+    render json: {likes: @post.votes_for.size}
+  end
+
   def update
     @post.update_attributes post_params
     @post.attachment_ids = params[:post][:attachment_ids]
