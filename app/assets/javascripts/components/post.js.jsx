@@ -209,7 +209,7 @@ const PostFooter = React.createClass({
     return (
       <div>
         <div className='post-footer'>
-          <span className='post-like post-like-active'>271</span>
+          <span className='post-like'>271</span>
         </div>
         <div className='clearboth'>
         </div>
