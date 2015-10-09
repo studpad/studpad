@@ -1,17 +1,40 @@
 ActiveAdmin.register User do
+  permit_params :name, :admin
+  menu label: 'Пользователи'
+  filter :id
+  filter :name
+  filter :email
+  filter :admin, as: :check_boxes
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
+  index do
+    id_column
+    column :name
+    column :email
+    column :created_at
+    column :admin
+    actions
+  end
 
+  show do
+    attributes_table do
+      row (:avatar) { |u| image_tag(u.avatar.thumb.to_s) }
+      row :id
+      row :name
+      row :email
+      row :created_at
+      row :updated_at
+      row :school
+      row :admin
+    end
+    active_admin_comments
+  end
 
+  form do |f|
+    f.inputs 'Редактирование пользователя' do
+      #f.input :email, as: :email
+      f.input :name
+      f.input :admin
+    end
+    f.actions
+  end
 end
