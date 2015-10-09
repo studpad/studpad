@@ -3,7 +3,7 @@ json.array! @posts do |n|
     json.type I18n.t(n.user.type)
     json.name n.user.name
     json.url user_path(n.user)
-    json.avatar n.user.avatar.to_s
+    json.avatar n.user.avatar.thumb.to_s
   end
   json.id n.id
   json.url post_path(n)

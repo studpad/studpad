@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   permit_params :name, :admin
-
+  menu label: 'Пользователи'
   filter :id
   filter :name
   filter :email
