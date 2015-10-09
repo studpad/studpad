@@ -32,12 +32,13 @@ class PostsController < ApplicationController
   end
 
   def like
-    if current_user.voted_for? @post
+    voted = current_user.voted_for? @post
+    if voted
       @post.unliked_by current_user
     else
       @post.liked_by current_user
     end
-    render json: {likes: @post.votes_for.size}
+    render json: {likes: @post.votes_for.size, current_like: !voted}
   end
 
   def update

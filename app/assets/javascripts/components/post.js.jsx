@@ -23,7 +23,8 @@ const Post = React.createClass({
   likeClick: function(){
     var post_id = this.props.post.id;
     CI('LIKE', post_id);
-    this.props.likePost(post_id);
+    if(window.currentUser)
+      this.props.likePost(post_id);
   },
   //END*****************************************************ACTIONS
   render: function() {
@@ -44,6 +45,8 @@ const Post = React.createClass({
           <PostFooter
             likeClick={this.likeClick}
             likes={this.props.post.likes}
+            current_like_just={this.props.post.current_like_just}
+            current_like={this.props.post.current_like}
             />
         </div>
       </div>
@@ -211,16 +214,28 @@ const PostFooter = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
     likeClick: React.PropTypes.func.isRequired,
+    current_like: React.PropTypes.bool.isRequired,
+    current_like_just: React.PropTypes.bool.isRequired,
     likes: React.PropTypes.number.isRequired
   },
   //END*****************************************************DECLARE
 
   render: function() {
+    var likes_count = this.props.likes;
+    var classname;
+    if (likes_count == 0)
+      likes_count = '';
+    if (this.props.current_like){
+      classname = 'post-like post-like-active';
+      if (this.props.current_like_just)
+        classname += ' post-like-active-animate';
+    } else
+      classname = 'post-like';
 
     return (
       <div>
         <div className='post-footer'>
-          <span className='post-like' onClick={this.props.likeClick}>{this.props.likes}</span>
+          <span className={classname} onClick={this.props.likeClick}>{likes_count}</span>
         </div>
         <div className='clearboth'>
         </div>
