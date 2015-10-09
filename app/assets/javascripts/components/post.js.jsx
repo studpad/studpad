@@ -23,7 +23,8 @@ const Post = React.createClass({
   likeClick: function(){
     var post_id = this.props.post.id;
     CI('LIKE', post_id);
-    this.props.likePost(post_id);
+    if(window.currentUser)
+      this.props.likePost(post_id);
   },
   //END*****************************************************ACTIONS
   render: function() {

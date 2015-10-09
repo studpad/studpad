@@ -97,22 +97,27 @@ const PostBox = React.createClass({
     var likedPost = $.grep(posts, function(e){ return e.id == id; });
     likedPost = likedPost[0];
     CI('PostBox::likePost', id);
+    posts = posts.map(function(p){
+      if (p.id == id){
+        if (p.current_like){
+          p.likes -= 1;
+          p.current_like = false;
+          p.current_like_just = false;
+        } else {
+          p.likes += 1;
+          p.current_like = true
+          p.current_like_just = true;
+        }
+      }
+      return p;
+    })
+    this.setState({posts: posts});
     $.ajax({
       url: likedPost.like_path,
       dataType: 'json',
       type: 'PUT',
       success: function(data) {
-        var posts = this.state.posts;
-        posts = posts.map(function(p){
-          if (p.id == id){
-            p.likes = data.likes;
-            p.current_like = data.current_like;
-            p.current_like_just = true;
-          }
-          return p;
-        })
-        this.setState({posts: posts});
-        CI(data)
+
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -168,17 +173,3 @@ const PostBox = React.createClass({
   }
 })
 
-
-/*
-
-  editPost: function(id){
-    console.info('update Post in PostBox', id)
-    var Posts = this.state.posts;
-    var editedPost = $.grep(Posts, function(e){ return e.id == id; });
-    editedPost = editedPost[0];
-    this.setState({
-      showModal: true,
-      type: editedPost.type
-    });
-    this.refs.post_form.editPost(editedPost);
-  },*/
