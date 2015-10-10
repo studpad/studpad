@@ -216,11 +216,17 @@
   color: white;
 }
 .preview-studpad{
-  color: #27557E;
-  margin-top: 16px;
+  a{
+    color: white !important;
+    &:hover{
+      color: #3680be !important;
+    }
+  }
+  margin-top: 35px;
   font-weight: bold;
   text-align: center;
 }
+
 .all-publication{
   
 }
