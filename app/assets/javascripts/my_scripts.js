@@ -76,11 +76,6 @@ function main(){
   $("#close-notice").click(function(){
     $(this).parent().fadeOut();
   });
-
-  $(".hide-tipt-post-add-element").click(function(){
-    alert('df');
-    $('.tipt-post-add-element').css('opacity', '0');
-  });
   
 
   /*$("#save-edit-profile").click(function(){

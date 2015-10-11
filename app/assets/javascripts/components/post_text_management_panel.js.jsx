@@ -4,14 +4,24 @@ const PostTextManagmentPanel = React.createClass({
     addImage: React.PropTypes.func.isRequired,
     addDivider: React.PropTypes.func.isRequired
   },
+  getInitialState: function () {
+      return {
+          visibility_tips: true  
+      };
+  },
   //END*****************************************************DECLARE
   onClickImage: function() {
     CI('PostTextManagmentPanel::onClickImage');
     this.refs.drop.onClick();
+    this.hideTips();
   },
   onClickDivider: function() {
     CI('PostTextManagmentPanel::onClickDivider');
     this.props.addDivider();
+    this.hideTips();
+  },
+  hideTips: function() {
+    this.setState({visibility_tips: false})
   },
   onDrop: function (files) {
     var data = new FormData();
@@ -32,6 +42,16 @@ const PostTextManagmentPanel = React.createClass({
     });
   },
   render: function() {
+    if(this.state.visibility_tips){
+      var tips = (<div className='tipt-post-add-element'>
+          <div className='glossary-post-element glossary-post-element-photo'>
+            Кликните, чтобы добавить фотографию или картинку.
+          </div>
+          <div className='glossary-post-element glossary-post-element-devider'>
+            Горизонтальная черта поможет Вам разделить главные мысли.
+          </div>
+        </div>)
+    }
     return (
       <div>
         <div className='post-add-text-element'>
@@ -43,14 +63,7 @@ const PostTextManagmentPanel = React.createClass({
             <span className='add-element-label-divider hide-tipt-post-add-element'></span>
           </div>
         </div>
-        <div className='tipt-post-add-element'>
-          <div className='glossary-post-element glossary-post-element-photo'>
-            Кликните, чтобы добавить фотографию или картинку.
-          </div>
-          <div className='glossary-post-element glossary-post-element-devider'>
-            Горизонтальная черта поможет Вам разделить главные мысли.
-          </div>
-        </div>
+        {tips}
       </div>
     );
   }
