@@ -101,7 +101,7 @@ var PostTextTextarea = React.createClass({
   },
   render: function() {
     var textPlaceholder = 'Введите текст';
-    if(this.props.typePost == PostTypes.link) textPlaceholder = 'Если хотите, можете добавить описание.';
+    if(this.props.typePost == PostTypes.link) textPlaceholder = 'Если хотите, можете добавить описание';
     else if(this.props.typePost == PostTypes.quotation) textPlaceholder = 'Укажите источник';
     else if(this.props.typePost == PostTypes.file) textPlaceholder = 'Введите название Вашей работы, описание, кому она предназначена';
     if (this.props.position != 0)
