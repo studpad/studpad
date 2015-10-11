@@ -69,7 +69,7 @@ const PostModalContent = React.createClass({
               value={this.props.post.title}
               onChange={this.props.onChangeTitle}
               className='input-new-post form-text-title input-sp form-control'
-              placeholder = 'Заголовок'/>
+              placeholder = 'Введите здесь заголовок'/>
           </div>
         </div>
         );
@@ -104,7 +104,7 @@ const PostModalContent = React.createClass({
                 type = 'text'
                 onChange={this.props.onChangeLink}
                 className = 'input-new-post form-link input-sp form-control'
-                placeholder = 'Введи URL-адрес'/>
+                placeholder = 'Введите здесь адрес интернет-ресурса'/>
             </div>
           </div>
           <div className = 'post-type'>
@@ -142,7 +142,7 @@ const PostModalContent = React.createClass({
               ref='title'
               className=
               'textarea-new-post textarea-sp post-type-cite form-control form-cite'
-              placeholder = 'Цитата'>
+              placeholder = 'Введите здесь текст цитаты'>
             </textarea>
           </div>
         </div>
