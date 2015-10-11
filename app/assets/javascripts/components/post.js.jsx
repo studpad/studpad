@@ -45,7 +45,7 @@ const Post = React.createClass({
           <PostFooter
             likeClick={this.likeClick}
             likes={this.props.post.likes}
-            current_like_just={this.props.post.current_like_just}
+            current_like_just={this.props.post.current_like_just||false}
             current_like={this.props.post.current_like}
             />
         </div>

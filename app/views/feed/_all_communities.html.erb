@@ -2,7 +2,7 @@
   <div class = 'block-title'>
     <a>Публиковали сегодня</a>
   </div>
-  <% last_users = User.includes(:posts).where(posts: {created_at: 1.days.ago..Time.now}).limit(5) %>
+  <% last_users = User.includes(:posts).where(posts: {created_at: 1.days.ago..Time.now}) %>
   <% last_users.each do |u| %>
   <div class = 'block-objects'>
       <div class = 'preview-object'>

@@ -1,6 +1,7 @@
 var PostText = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
+    focus: React.PropTypes.bool,
     addImage: React.PropTypes.func.isRequired,
     addDivider: React.PropTypes.func.isRequired,
     removeTextElement: React.PropTypes.func.isRequired,
@@ -88,7 +89,8 @@ var PostTextTextarea = React.createClass({
       animate:true
     });
     $(node).change();
-    $(node).focus();
+    if (this.props.focus)
+      $(node).focus();
   },
   componentWillUnmount: function() {
     // var node = this.refs.textElement.getDOMNode();

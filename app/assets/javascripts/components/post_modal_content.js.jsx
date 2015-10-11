@@ -35,14 +35,15 @@ const PostModalContent = React.createClass({
     });
   },
   componentDidMount: function() {
-    if (this.props.post.type == PostTypes.quotation) {
-      var node = this.refs.quotation.getDOMNode();
+    if (this.props.post.type == PostTypes.quotation || this.props.post.type == PostTypes.text) {
+      var node = this.refs.title.getDOMNode();
       $(node).autoResize({
         limit:600,
         extraSpace:0,
         animate:true
       });
       $(node).change();
+      $(node).focus();
     }
   },
   render: function() {
@@ -138,7 +139,7 @@ const PostModalContent = React.createClass({
             <textarea
               value={this.props.post.title}
               onChange={this.props.onChangeTitle}
-              ref='quotation'
+              ref='title'
               className=
               'textarea-new-post textarea-sp post-type-cite form-control form-cite'
               placeholder = 'Введите здесь текст цитаты'>

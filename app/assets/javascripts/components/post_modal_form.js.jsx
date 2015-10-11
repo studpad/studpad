@@ -23,6 +23,7 @@ const PostModalForm = React.createClass({
       post: {
         type: postType,
         author: window.currentUser,
+        title: '',
         linkdata: {},
         text_elements: [{type: ElementTypes.text, text: ''}],
         files: []
@@ -39,6 +40,32 @@ const PostModalForm = React.createClass({
   },
   submitForm: function () {
     var postData = this.state.post;
+    //Validation begin
+    if (postData.type == PostTypes.quotation && !postData.title.trim() )
+      return;
+    if (postData.type == PostTypes.link && !postData.linkdata.domain )
+      return;
+    if (postData.type == PostTypes.file && postData.files.length == 0 )
+      return;
+    if (postData.type == PostTypes.text){
+      var text_invalid = true;
+      CE(postData.text_elements);
+      for (var i = 0, len = postData.text_elements.length; i < len; ++i) {
+        var current = postData.text_elements[i];
+        debugger
+        if (current.type == ElementTypes.image ||
+            current.type == ElementTypes.text && current.text.trim() ){
+          text_invalid = false;
+          break;
+        }
+      }
+      if (postData.title.trim())
+        text_invalid = false;
+      if (text_invalid)
+        return;
+    }
+    //Validation end
+
     CI('PostModalForm::submitForm', postData);
     if (postData.id){
       this.props.updatePost(postData);
