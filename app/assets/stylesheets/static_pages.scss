@@ -118,7 +118,8 @@
   line-height: 22px;
   color: #383838;
   text-align: center;
-  font-weight: 200;
+  font-weight: 100;
+  font-family: 'PT Sans';
 }
 .logo{
   font-size: 45px !important;
@@ -216,13 +217,7 @@
   color: white;
 }
 .preview-studpad{
-  a{
-    color: white !important;
-    &:hover{
-      color: #3680be !important;
-    }
-  }
-  margin-top: 35px;
+  margin-top: 12px;
   font-weight: bold;
   text-align: center;
 }
