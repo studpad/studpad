@@ -33,13 +33,23 @@ const PostTextManagmentPanel = React.createClass({
   },
   render: function() {
     return (
-      <div className='post-add-text-element'>
-        <DropzonePure ref='drop' onDrop={this.onDrop}/>
-        <div className='post-add-text-element-label' onClick={this.onClickImage}>
-          <span className='add-element-label-photo'></span>
+      <div>
+        <div className='post-add-text-element'>
+          <DropzonePure ref='drop' onDrop={this.onDrop}/>
+          <div className='post-add-text-element-label' onClick={this.onClickImage}>
+            <span className='add-element-label-photo hide-tipt-post-add-element'></span>
+          </div>
+          <div className='post-add-text-element-label' onClick={this.onClickDivider}>
+            <span className='add-element-label-divider hide-tipt-post-add-element'></span>
+          </div>
         </div>
-        <div className='post-add-text-element-label' onClick={this.onClickDivider}>
-          <span className='add-element-label-divider'></span>
+        <div className='tipt-post-add-element'>
+          <div className='glossary-post-element glossary-post-element-photo'>
+            Кликните, чтобы добавить фотографию или картинку.
+          </div>
+          <div className='glossary-post-element glossary-post-element-devider'>
+            Горизонтальная черта поможет Вам разделить главные мысли.
+          </div>
         </div>
       </div>
     );

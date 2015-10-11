@@ -22,7 +22,6 @@ function main(){
 
     $('.right-functional').css('margin-left', '80%');
 
-
     $(".choice-class").select2({
       placeholder: "Класс"
     });
@@ -77,6 +76,12 @@ function main(){
   $("#close-notice").click(function(){
     $(this).parent().fadeOut();
   });
+
+  $(".hide-tipt-post-add-element").click(function(){
+    alert('df');
+    $('.tipt-post-add-element').css('opacity', '0');
+  });
+  
 
   /*$("#save-edit-profile").click(function(){
     $('.notice-content').html('Ваши данные успешно сохранены!');

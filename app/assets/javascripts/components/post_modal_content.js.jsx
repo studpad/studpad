@@ -133,7 +133,7 @@ const PostModalContent = React.createClass({
         break;
       case PostTypes.quotation:
         main_part = (
-        <div className='form-new-post'>
+        <div className='form-new-post usual-post-contant'>
           <div className='form-wrap-new-post-type'>
             <textarea
               value={this.props.post.title}

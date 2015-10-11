@@ -244,7 +244,7 @@
 	font-family: FontAwesome;
 	font-size: 20px;
 }
-.post-add-text-element > div{
+.post-add-text-element > .post-add-text-element-label{
 	cursor: pointer;
 	transition-duration: .3s;
   transition-timing-function: linear;
@@ -252,6 +252,43 @@
 	&:hover{
 		color: #3680be;
 	}
+}
+.tipt-post-add-element{
+	width: 200px;
+  position: relative;
+  left: -275px;
+  top: -77px;
+  font-size: 11px;
+  height: 0px;
+  opacity: 1;
+  transition-duration: .3s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+}
+.glossary-post-element{
+	background-color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  color: #768591;
+}
+.glossary-post-element-photo:after{
+	content: '';
+  position: absolute;
+  top: 22px;
+  left: 100%;
+  border-left: solid 0.9em white;
+  border-top: solid 0.4em transparent;
+  border-bottom: solid 0.4em transparent;
+}
+.glossary-post-element-devider:after{
+  content: '';
+  position: absolute;
+  top: 55px;
+  left: 100%;
+  border-left: solid 0.9em white;
+  border-top: solid 0.4em transparent;
+  border-bottom: solid 0.4em transparent;
 }
 .add-element-label-photo:before{
 	content: "\f083";
