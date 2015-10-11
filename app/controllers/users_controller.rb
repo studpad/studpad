@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   skip_before_action :require_login, only: [:new, :create]
 
   before_action :find_user, except: [:new, :create, :profile, :edit_profile]
@@ -16,7 +15,7 @@ class UsersController < ApplicationController
       flash[:success] = 'Успешная регистрация'
       #UserMailer.welcome(@user).deliver_later
 
-      redirect_to profile_path
+      redirect_to profile_edit_path
     else
       @button_name = 'Создать'
       render 'new'
