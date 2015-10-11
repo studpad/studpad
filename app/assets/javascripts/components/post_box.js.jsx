@@ -2,7 +2,7 @@ const PostBox = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
     group_id: React.PropTypes.number,
-    show_panel: React.PropTypes.boolean,
+    //show_panel: React.PropTypes.boolean,
     posts_url: React.PropTypes.string.isRequired
   },
   getInitialState: function () {

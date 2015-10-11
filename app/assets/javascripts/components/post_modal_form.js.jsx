@@ -23,6 +23,7 @@ const PostModalForm = React.createClass({
       post: {
         type: postType,
         author: window.currentUser,
+        title: '',
         linkdata: {},
         text_elements: [{type: ElementTypes.text, text: ''}],
         files: []
@@ -39,6 +40,10 @@ const PostModalForm = React.createClass({
   },
   submitForm: function () {
     var postData = this.state.post;
+    if (postData.type == PostTypes.quotation && !postData.title.trim() )
+      return;
+    if (postData.type == PostTypes.link && !postData.linkdata.domain )
+      return;
     CI('PostModalForm::submitForm', postData);
     if (postData.id){
       this.props.updatePost(postData);
