@@ -100,7 +100,7 @@ var PostTextTextarea = React.createClass({
   render: function() {
     var textPlaceholder = 'Введите текст';
     if(this.props.typePost == PostTypes.link) textPlaceholder = 'Если хотите, можете добавить описание.';
-    else if(this.props.typePost == PostTypes.quotation) textPlaceholder = 'Источник';
+    else if(this.props.typePost == PostTypes.quotation) textPlaceholder = 'Укажите источник';
     if (this.props.position != 0)
       var remove_button = <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
     return (
