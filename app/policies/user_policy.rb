@@ -8,4 +8,12 @@ class UserPolicy < ApplicationPolicy
   def edit?
     current_user.id == user.id
   end
+
+  def follow?
+    true
+  end
+
+  def unfollow?
+    true
+  end
 end

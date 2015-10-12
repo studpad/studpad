@@ -21,4 +21,12 @@ class Post < ActiveRecord::Base
   def user
     User.unscoped { super }
   end
+
+  def self.for_user(user)
+    if user
+      where(user_id: [user.id] + user.all_follows.map(&:followable_id)).order(created_at: :desc)
+    else
+      all.order(created_at: :desc)
+    end
+  end
 end

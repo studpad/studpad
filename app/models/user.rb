@@ -37,7 +37,11 @@ class User < ActiveRecord::Base
   end
 
   def self.recommended_for(user)
-    all.limit(2)
+    if user
+      where.not(id: [user.id] + user.all_follows.map(&:followable_id)).limit(2)
+    else
+      all.limit(2)
+    end
   end
 
   private

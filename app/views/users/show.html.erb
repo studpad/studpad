@@ -38,7 +38,18 @@
             <%= @user.followers_count %>
           </div>
           <div class = 'element-profile-read'>
-            <button class = 'btn btn-primary btn-st'>Читать</button>
+            <% if current_user && @user != current_user %>
+              <% if current_user.following?(@user) %>
+                <%= link_to 'Отписаться', unfollow_user_path(@user),
+                method: :post,
+                class: 'btn btn-primary btn-st' %>
+              <% else %>
+                <%= link_to 'Читать', follow_user_path(@user),
+                method: :post,
+                class: 'btn btn-primary btn-st' %>
+              <% end %>
+            <!-- <button class = 'btn btn-primary btn-st'>Читать</button> -->
+            <% end %>
           </div>
           <div class = 'clearboth'>
           </div>

@@ -22,7 +22,7 @@ class PostsController < ApplicationController
         raise 'Undefined text type'
       end
     end
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.for_user(current_user)
     render :index, formats: :json
   end
 
@@ -77,12 +77,12 @@ class PostsController < ApplicationController
       end
     end
 
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.for_user(current_user)
     render :index, formats: :json
   end
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.for_user(current_user)
     render :index, formats: :json
   end
 
