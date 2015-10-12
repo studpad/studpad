@@ -4,7 +4,7 @@ var speeches = [
 'На такой высоте я вижу полностью свой родной город.',
 'Сегодня утром я покрасил свой самолет! Блестит?',
 "Смотрите, что я нашел! Откройте ссылку <a href='https://youtu.be/h_UhKcAy6xc' \
-target='blank'>https://youtu.be/h_UhKcAy6xc</a>, коснитесь центра экрана и наслаждайтесь.",
+target='blank'>https://youtu.be/h_UhKcAy6xc</a> и коснитесь центра экрана.",
 "Вдохновляющая и очень интересная речь Курта Воннегута выпускникам. <a href='https://youtu.be/-I-abFNeSs0' \
 target='blank'>Жмите сюда!</a>",
 "Первому учителю, с любовью... <a href='https://youtu.be/VIeRRiy6wSg' \
