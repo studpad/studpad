@@ -31,11 +31,11 @@
         <div class = 'profile-followers'>
           <div class = 'element-profile-followers'>
             <p>Читаемые</p>
-            534
+            <%= @user.follow_count %>
           </div>
           <div class = 'element-profile-followers'>
             <p>Читатели</p>
-            16
+            <%= @user.followers_count %>
           </div>
           <div class = 'element-profile-read'>
             <button class = 'btn btn-primary btn-st'>Читать</button>

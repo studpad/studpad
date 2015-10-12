@@ -1,6 +1,6 @@
 class PostPolicy < Struct.new(:user, :post)
   def update?
-    is_owner?
+    is_owner? || is_admin?
   end
 
   def create?
@@ -8,7 +8,7 @@ class PostPolicy < Struct.new(:user, :post)
   end
 
   def destroy?
-    is_owner?
+    is_owner? || is_admin?
   end
 
   def like?
@@ -18,5 +18,9 @@ class PostPolicy < Struct.new(:user, :post)
   private
     def is_owner?
       user.try(:id) == post.user_id
+    end
+
+    def is_admin?
+      user.try(:admin?)
     end
 end

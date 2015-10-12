@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   #resources :comments
   resources :users, except: :edit do
     member do
-      #get :communities
+      post :follow
+      post :unfollow
       get :posts
       post 'crop'
       post 'new_ava' => 'users#create_ava'

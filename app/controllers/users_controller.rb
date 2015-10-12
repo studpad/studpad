@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :show, :posts]
 
   before_action :find_user, except: [:new, :create, :profile, :edit_profile]
 
@@ -42,11 +42,21 @@ class UsersController < ApplicationController
   end
 
   def posts
-    @posts = @user.posts.order(created_at: :desc)
+    @posts = Post.where(user_id: [@user.id] + @user.all_follows.map(&:followable_id)).order(created_at: :desc)
     render 'posts/index', formats: :json
   end
 
   def show
+  end
+
+  def follow
+    current_user.follow(@user)
+    redirect_to :back
+  end
+
+  def unfollow
+    current_user.stop_following(@user)
+    redirect_to :back
   end
 
   def create_ava

@@ -1,0 +1,49 @@
+<div class = 'row' style = 'margin-top: 80px; z-index: 150;'>
+  <div class = 'col-xs-12 wrap-follow-offer'>
+    <div class = 'card-sp'>
+      <div class = 'title-that-left'>
+        Рекомендуем читать этих людей
+      </div>
+      <div>
+        <% User.recommended_for(current_user).each do |u| %>
+        <div class = 'person-follow'>
+          <div class = 'person-follow-name'>
+              <div class="post-autor-name">
+                <span><%= link_to u.name, user_path(u) %></span>
+              </div>
+              <div class="post-autor-type">Русский язык и литература</div>
+          </div>
+          <div class = 'person-follow-stat'>
+            <div class = 'person-follow-photo' style = 'background: url(
+             <%= u.avatar %>
+            ) no-repeat; background-size: cover;'>
+            </div>
+            <div class = 'person-follow-follower'>
+              <div class = 'element-profile-followers'>
+                <p>Читаемые</p>
+                <%= u.follow_count %>
+              </div>
+              <div class = 'element-profile-followers'>
+                <p>Читатели</p>
+                <%= u.followers_count %>
+              </div>
+              <div class = 'clearboth'>
+              </div>
+              <div class = 'person-follow-wrap-btn-read'>
+                <%= link_to 'Читать', follow_user_path(u),
+                method: :post,
+                class: 'btn btn-primary btn-st' %>
+              </div>
+            </div>
+            <div class = 'clearboth'>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+        <div class = 'clearboth'>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

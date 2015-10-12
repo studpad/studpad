@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   include DestroyedAt
   authenticates_with_sorcery!
   acts_as_voter
+  acts_as_followable
+  acts_as_follower
+
   before_validation :remove_whitespaces
 
   has_many :notifications
@@ -31,6 +34,10 @@ class User < ActiveRecord::Base
 
   def student?
     is_a? Student
+  end
+
+  def self.recommended_for(user)
+    all.limit(2)
   end
 
   private

@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
   enum post_type: ['filegroup', 'link', 'text', 'quotation']
   serialize :linkdata
 
+  default_scope { includes(:user, :attachments, :text_elements) }
+
   def self.listed(group, user=nil)
     if group
       group.posts.order(created_at: :desc)

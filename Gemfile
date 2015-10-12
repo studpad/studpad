@@ -28,6 +28,7 @@ gem 'airbrake'
 gem 'nokogiri'
 gem 'activeadmin', github: 'activeadmin'
 gem 'acts_as_votable'
+gem 'acts_as_follower'
 gem 'react-bootstrap-rails'
 gem 'destroyed_at'
 
