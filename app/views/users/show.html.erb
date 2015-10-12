@@ -28,6 +28,21 @@
         <div class = 'profile-info_school'>
           <%= @user.school %>
         </div>
+        <div class = 'profile-followers'>
+          <div class = 'element-profile-followers'>
+            <p>Читаемые</p>
+            534
+          </div>
+          <div class = 'element-profile-followers'>
+            <p>Читатели</p>
+            16
+          </div>
+          <div class = 'element-profile-read'>
+            <button class = 'btn btn-primary btn-st'>Читать</button>
+          </div>
+          <div class = 'clearboth'>
+          </div>
+        </div>
       </div>
     </div>
     <%= react_component("PostBox",

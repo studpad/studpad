@@ -29,6 +29,7 @@
  *= require notification
  *= require material
  *= require post
+ *= require feed
  */
 
 @import "bootstrap-sprockets";
@@ -114,7 +115,7 @@
     }
     #hat-logo-studpad{
       font-weight: bold;
-      min-width: 120px;
+      
       font-size: 22px;
       position: absolute;
       left: 50%;
@@ -125,7 +126,7 @@
       font-family: "Helvetica Neue","HelveticaNeue",Helvetica,"PT Sans";
     }
     h1#hat-logo-studpad{
-      margin: 10px 0 10px -60px;
+      margin: 10px 0 10px 0;
     }
     .hat-logo-studpa-a{
       color: #3680be;
@@ -248,12 +249,15 @@
       }
     }
     .btn-st-red{
-      background-color: #fff;
+      background-color: #DA3539;
       outline: none !important;
       border-radius: 2px;
+      color: white;
+      border: 1px solid #B12226;
       &:hover{
-        background-color: #d43f3a;
+        background-color: #BF262A;
         color: white;
+        border: 1px solid #92171A;
       }
     }
     .del-post-modal-window{

@@ -232,3 +232,32 @@
 .choose-category-specialization:last-child{
 	margin-top: 15px;
 }
+.profile-followers{
+	height: 45px;
+	margin-top: 14px;
+}
+.element-profile-read{
+	float: left;
+	width: 22%;
+	height: 47px;
+}
+.element-profile-followers{
+	float: left;
+	width: 22%;
+	height: 47px;
+	color: #3680be;
+	font-size: 16px;
+	font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  transition: all .15s linear;
+  &:hover{
+  	border-bottom: 2px solid #3680BE;
+  }
+	p{
+		margin: 0 0 0px;
+		font-size: 12px;
+  	color: #516574;
+  	font-weight: normal;
+	}
+}

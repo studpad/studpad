@@ -1,0 +1,40 @@
+
+.wrap-follow-offer > .person-follow{
+	width: 48%;
+	padding: 8px;
+	float: left;
+}
+.person-follow:first-child{
+	margin-right: 3.7%;
+}
+.person-follow-stat{
+	height: 86px;
+}
+.person-follow-photo{
+	float: left;
+	width: 86px;
+	border-radius: 3px;
+	height: 86px;
+}
+.person-follow-follower{
+	float: left;
+	margin-left: 7px;
+	width: 135px;
+}
+.person-follow-name{
+	margin-bottom: 7px;
+	font-size: 13px;
+	font-weight: bold;
+	.profile-info_status{
+		font-size: 12px;
+	}
+	.post-autor-type{
+		font-weight: normal;
+	}
+}
+.person-follow-follower > .element-profile-followers{
+	width: 50%;
+}
+.person-follow-wrap-btn-read{
+	margin-top: 5px;
+}
