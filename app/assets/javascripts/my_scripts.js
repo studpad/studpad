@@ -146,6 +146,15 @@ function main(){
         $(this).children('.wrap-autor-material').children().fadeOut(400);
   });
 
+  $(".btn-follow").mouseover(function(){
+      $(this).removeClass('btn-follow-on').removeClass('btn-primary').addClass('btn-st-red');
+      $(this).html('Отмена');
+  });
+  $(".btn-follow").mouseout(function(){
+      $(this).addClass('btn-follow-on').addClass('btn-primary').removeClass('btn-st-red');
+      $(this).html('Читаю');
+  });
+
   $('.switch').click(function(){
     if($(this).attr('src') == '/images/switch9.png'){
       $(this).attr('src', '/images/switch13.png');

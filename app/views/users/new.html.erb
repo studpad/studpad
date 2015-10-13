@@ -8,40 +8,42 @@
 
     <%= simple_form_for(@user, url: users_path, html: { class: 'form-vertical' }) do |f| %>
       <div class = 'row'>
-          <div class="wrap-radio align-c col-xs-4">
-            <%= f.radio_button :type, "Teacher", class: 'input-radio-sp', required: true %>
-            <label for = 'user_type_teacher'>Преподаватель</label>
-          </div>
-          <div class="wrap-radio align-c col-xs-4">
-            <%= f.radio_button :type, "Student", class: 'input-radio-sp', required: true %>
-            <label for = 'user_type_student'>Ученик</label>
-          </div>
+        <div class="wrap-radio align-c col-xs-4">
+          <%= f.radio_button :type, "Teacher", class: 'input-radio-sp', required: true %>
+          <label for = 'user_type_teacher'>Преподаватель</label>
+        </div>
+        <div class="wrap-radio align-c col-xs-4">
+          <%= f.radio_button :type, "Student", class: 'input-radio-sp', required: true %>
+          <label for = 'user_type_student'>Ученик</label>
+        </div>
       </div>
       <div class = 'row'>
-        <div class = 'choose-category-specialization'>
-          <p>Выберите категорию</p>
-          <select class="form-control">
-            <option>Воспитатель</option>
-            <option>Педагог начальной школы</option>
-            <option>Педагог средней школы</option>
-            <option>Педагог дополнительно образования</option>
-          </select>
-        </div>
-        <div class = 'choose-category-specialization'>
-          <p>Выберите специализацию</p>
-          <select class="form-control">
-            <option>Русский язык и литература</option>
-            <option>История</option>
-            <option>Обществознание</option>
-            <option>Математика</option>
-            <option>Физика</option>
-            <option>Информатика и ИКТ</option>
-            <option>Программирование</option>
-            <option>Химия</option>
-            <option>Биология</option>
-            <option>География</option>
-            <option>Технология</option>
-          </select>
+        <div class = 'col-xs-12'>
+          <div class = 'choose-category-specialization'>
+            <p>Выберите категорию</p>
+            <select class="form-control">
+              <option>Воспитатель</option>
+              <option>Педагог начальной школы</option>
+              <option>Педагог средней школы</option>
+              <option>Педагог дополнительно образования</option>
+            </select>
+          </div>
+          <div class = 'choose-category-specialization'>
+            <p>Выберите специализацию</p>
+            <select class="form-control">
+              <option>Русский язык и литература</option>
+              <option>История</option>
+              <option>Обществознание</option>
+              <option>Математика</option>
+              <option>Физика</option>
+              <option>Информатика и ИКТ</option>
+              <option>Программирование</option>
+              <option>Химия</option>
+              <option>Биология</option>
+              <option>География</option>
+              <option>Технология</option>
+            </select>
+          </div>
         </div>
       </div>
       <%= f.input :name, label: false, input_html: { class: 'input-sp', placeholder: 'ФИО' } %>

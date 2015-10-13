@@ -40,9 +40,9 @@
           <div class = 'element-profile-read'>
             <% if current_user && @user != current_user %>
               <% if current_user.following?(@user) %>
-                <%= link_to 'Отписаться', unfollow_user_path(@user),
+                <%= link_to 'Читаю', unfollow_user_path(@user),
                 method: :post,
-                class: 'btn btn-primary btn-st' %>
+                class: 'btn btn-primary btn-st btn-follow btn-follow-on' %>
               <% else %>
                 <%= link_to 'Читать', follow_user_path(@user),
                 method: :post,
