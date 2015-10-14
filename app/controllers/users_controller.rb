@@ -104,6 +104,7 @@ class UsersController < ApplicationController
       name = :student if params[:student]
 
       params.require(name).permit(:name, :email, :type,
+        :teacher_category_id, :teacher_specialization_id,
         :school, :password, :password_confirmation, :terms_of_service)
     end
 end

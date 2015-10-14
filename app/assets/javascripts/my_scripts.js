@@ -1,6 +1,30 @@
 function main(){
+    //users form begin
+    $('#teacher_category').hide();
+    $('#teacher_specialization').hide();
+    $('#user_type_teacher').click(function(){
+      $('#teacher_category').show();
+    });
+    $('#user_type_student').click(function(){
+      $('#teacher_category').hide();
+      $('#teacher_specialization').hide();
+    });
+    $('#teacher_category').change(function(e){
+      if (e.target.value == 3)
+        $('#teacher_specialization').show();
+    });
 
-    
+
+    if ($('#teacher-category-edit').val() != 3)
+      $('#teacher-specialization-edit').hide();
+
+    $('#teacher-category-edit').change(function(e){
+      if (e.target.value == 3)
+        $('#teacher-specialization-edit').show();
+      else
+        $('#teacher-specialization-edit').hide();
+    });
+    //users form end
 
     $('textarea').autoResize({
       limit:300,
@@ -9,7 +33,7 @@ function main(){
     });
     /*$('textarea.description-add-material').autoResize({
       limit:600,
-      extraSpace:30, 
+      extraSpace:30,
       animate:true
     });*/
 
@@ -76,7 +100,7 @@ function main(){
   $("#close-notice").click(function(){
     $(this).parent().fadeOut();
   });
-  
+
 
   /*$("#save-edit-profile").click(function(){
     $('.notice-content').html('Ваши данные успешно сохранены!');

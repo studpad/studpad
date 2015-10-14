@@ -6,75 +6,65 @@
   <div class = 'main-wall'>
     <div class = 'card-sp'>
 
-            <div class="title-background-border title-without-border">
-              <div class="title-page">
-                Настройки профиля
+        <div class="title-background-border title-without-border">
+          <div class="title-page">
+            Настройки профиля
+          </div>
+        </div>
+        <div class = 'community-heading edit-community-heading'>
+            <div class = 'edit-community-avatar'>
+              <div class = 'current-edit-profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover;'>
+              </div>
+              <div class = 'align-c margin-t10'>
+                <a class = 'edit-profile-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фотографию</a>
               </div>
             </div>
-            <div class = 'community-heading edit-community-heading'>
-                <div class = 'edit-community-avatar'>
-                  <div class = 'current-edit-profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover;'>
-                  </div>
-                  <div class = 'align-c margin-t10'>
-                    <a class = 'edit-profile-avatar' data-toggle="modal" data-target="#modal-change-avatar">Сменить фотографию</a>
+            <div class = 'info-community'>
+              <%= form_for @user, url: user_path(@user) do |f| %>
+              <div class = 'edit-profile edit-profile-name'>
+                <%= f.text_field :name, class: 'form-control input-sp input-edit-profile-name', placeholder: 'Ваше имя' %>
+              </div>
+              <div class = 'edit-profile edit-profile-school'>
+                <%= f.text_field :school, class: 'form-control input-sp input-edit-profile-school', placeholder: 'Ваше учебное заведение' %>
+              </div>
+              <% if @user.teacher? %>
+                <div class = 'edit-choose-category-specialization'>
+                  <p>Выберите категорию</p>
+                  <%= f.select :teacher_category_id,
+                    TeacherCategory.all.collect { |p| [ p.name, p.id ] },
+                    {}, {class: 'form-control', id: 'teacher-category-edit'} %>
+                </div>
+                <div id='teacher-specialization-edit' class = 'edit-choose-category-specialization'>
+                  <p>Выберите специализацию</p>
+                  <%= f.select :teacher_specialization_id,
+                    TeacherSpecialization.all.collect { |p| [ p.name, p.id ] },
+                    {}, {class: 'form-control'} %>
+                </div>
+              <% end %>
+              <div class = 'change-password'>
+                <div class = 'action-angle-only-font'>
+                  <div class = 'btn-group'>
+                    <span class = 'sign-dots-menu-big' data-toggle="dropdown">•••</span>
+                    <ul class="dropdown-menu" role="menu">
+                      <li>
+                        <a data-toggle="modal" data-target="#modal-window-change-password">Изменить пароль</a>
+                      </li>
+                      <li>
+                        <a data-toggle="modal" data-target="#modal-window-remove-profile">Удалить свой профиль</a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div class = 'info-community'>
-                  <%= form_for @user, url: user_path(@user) do |f| %>
-                  <div class = 'edit-profile edit-profile-name'>
-                    <%= f.text_field :name, class: 'form-control input-sp input-edit-profile-name', placeholder: 'Ваше имя' %>
-                  </div>
-                  <div class = 'edit-profile edit-profile-school'>
-                    <%= f.text_field :school, class: 'form-control input-sp input-edit-profile-school', placeholder: 'Ваше учебное заведение' %>
-                  </div>
-                  <div class = 'edit-choose-category-specialization'>
-                    <p>Выберите категорию</p>
-                    <select class="form-control">
-                      <option>Воспитатель</option>
-                      <option>Педагог начальной школы</option>
-                      <option>Педагог средней школы</option>
-                      <option>Педагог дополнительно образования</option>
-                    </select>
-                  </div>
-                  <div class = 'edit-choose-category-specialization'>
-                    <p>Выберите специализацию</p>
-                    <select class="form-control">
-                      <option>Русский язык и литература</option>
-                      <option>История</option>
-                      <option>Обществознание</option>
-                      <option>Математика</option>
-                      <option>Физика</option>
-                      <option>Информатика и ИКТ</option>
-                      <option>Программирование</option>
-                      <option>Химия</option>
-                      <option>Биология</option>
-                      <option>География</option>
-                      <option>Технология</option>
-                    </select>
-                  </div>
-                  <div class = 'change-password'>
-                    <div class = 'action-angle-only-font'>
-                      <div class = 'btn-group'>
-                        <span class = 'sign-dots-menu-big' data-toggle="dropdown">•••</span>
-                        <ul class="dropdown-menu" role="menu">
-                          <li>
-                            <a data-toggle="modal" data-target="#modal-window-change-password">Изменить пароль</a>
-                          </li>
-                          <li>
-                            <a data-toggle="modal" data-target="#modal-window-remove-profile">Удалить свой профиль</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="edit-profile-footer">
-                    <button type="submit" id = 'save-edit-profile' class="btn btn-primary btn-st">Сохранить</button>
-                  </div>
-                  <% end %>
-                </div>
-                <div class = 'clearboth'>
-                </div>
+              </div>
+              <div class="edit-profile-footer">
+                <button type="submit" id = 'save-edit-profile' class="btn btn-primary btn-st">Сохранить</button>
+              </div>
+              <% end %>
             </div>
+            <div class = 'clearboth'>
+            </div>
+        </div>
+
     </div>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012190705) do
+ActiveRecord::Schema.define(version: 20151013201744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,6 +230,18 @@ ActiveRecord::Schema.define(version: 20151012190705) do
   add_index "subjects_teachers", ["subject_id"], name: "index_subjects_teachers_on_subject_id", using: :btree
   add_index "subjects_teachers", ["teacher_id"], name: "index_subjects_teachers_on_teacher_id", using: :btree
 
+  create_table "teacher_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teacher_specializations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "text_elements", force: :cascade do |t|
     t.string   "text"
     t.integer  "text_type",  default: 0
@@ -259,6 +271,8 @@ ActiveRecord::Schema.define(version: 20151012190705) do
     t.boolean  "admin",                           default: false
     t.datetime "destroyed_at"
     t.integer  "teacher_type",                    default: 0
+    t.integer  "teacher_category_id"
+    t.integer  "teacher_specialization_id"
   end
 
   add_index "users", ["classroom_id"], name: "index_users_on_classroom_id", using: :btree

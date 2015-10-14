@@ -19,30 +19,13 @@
       </div>
       <div class = 'row'>
         <div class = 'col-xs-12'>
-          <div class = 'choose-category-specialization'>
+          <div id='teacher_category' class = 'choose-category-specialization'>
             <p>Выберите категорию</p>
-            <select class="form-control">
-              <option>Воспитатель</option>
-              <option>Педагог начальной школы</option>
-              <option>Педагог средней школы</option>
-              <option>Педагог дополнительно образования</option>
-            </select>
+            <%= f.association :teacher_category, label: false %>
           </div>
-          <div class = 'choose-category-specialization'>
+          <div id='teacher_specialization' class = 'choose-category-specialization'>
             <p>Выберите специализацию</p>
-            <select class="form-control">
-              <option>Русский язык и литература</option>
-              <option>История</option>
-              <option>Обществознание</option>
-              <option>Математика</option>
-              <option>Физика</option>
-              <option>Информатика и ИКТ</option>
-              <option>Программирование</option>
-              <option>Химия</option>
-              <option>Биология</option>
-              <option>География</option>
-              <option>Технология</option>
-            </select>
+            <%= f.association :teacher_specialization, label: false %>
           </div>
         </div>
       </div>

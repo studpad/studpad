@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :notifications
   has_many :posts
 
+  belongs_to :teacher_category
+  belongs_to :teacher_specialization
+
   with_options association_foreign_key: 'group_id', join_table: 'groups_users' do |m|
     m.has_and_belongs_to_many :groups
     m.has_and_belongs_to_many :communities
