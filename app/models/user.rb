@@ -41,7 +41,8 @@ class User < ActiveRecord::Base
 
   def self.recommended_for(user)
     if user
-      where.not(id: [user.id] + user.all_follows.map(&:followable_id)).limit(2)
+      where.not(id: [user.id] + user.all_follows.map(&:followable_id)).
+        joins(:posts).group('users.id').order('COUNT(posts.id)').limit(2)
     else
       all.limit(2)
     end
