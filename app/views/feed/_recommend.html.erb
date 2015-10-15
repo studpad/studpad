@@ -8,17 +8,21 @@
         <% User.recommended_for(current_user).each do |u| %>
         <div class = 'person-follow'>
           <div class = 'person-follow-stat'>
+            <%= link_to user_path(u) do %>
             <div class = 'person-follow-photo' style = 'background: url(
                 <%= u.avatar %>
               ) no-repeat; background-size: cover;'>
             </div>
+            <% end %>
             <div class = 'person-follow-name'>
+              <%= link_to user_path(u) do %>
               <div class="post-autor-name">
-                <span><%= link_to u.name, user_path(u) %></span>
+                <span><%= u.name %></span>
               </div>
               <div class="post-autor-type">
                 <%= u.description %>
               </div>
+              <% end %>
               <div class = 'clearboth'>
               </div>
               <div class = 'person-follow-wrap-btn-read'>
