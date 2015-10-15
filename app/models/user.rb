@@ -39,6 +39,14 @@ class User < ActiveRecord::Base
     is_a? Student
   end
 
+  def description
+    if teacher?
+      teacher_specialization.try(:name) || teacher_category.try(:name)
+    else
+      'Ученик'
+    end
+  end
+
   def self.recommended_for(user)
     if user
       where.not(id: [user.id] + user.all_follows.map(&:followable_id)).
