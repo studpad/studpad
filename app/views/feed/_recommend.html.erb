@@ -11,11 +11,9 @@
               <div class="post-autor-name">
                 <span><%= link_to u.name, user_path(u) %></span>
               </div>
-              <% if u.teacher? %>
-                <div class="post-autor-type">
-                  <%= u.teacher_specialization.try(:name) || u.teacher_category.try(:name) %>
-                </div>
-              <% end %>
+              <div class="post-autor-type">
+                <%= u.description %>
+              </div>
           </div>
           <div class = 'person-follow-stat'>
             <div class = 'person-follow-photo' style = 'background: url(
