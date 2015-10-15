@@ -29,14 +29,18 @@
           <%= @user.school %>
         </div>
         <div class = 'profile-followers'>
-          <div class = 'element-profile-followers'>
-            <p>Читаемые</p>
-            <%= @user.follow_count %>
-          </div>
-          <div class = 'element-profile-followers'>
-            <p>Читатели</p>
-            <%= @user.followers_count %>
-          </div>
+          <% if @user.follow_count != 0 %>
+            <div class = 'element-profile-followers'>
+              <p>Читаемые</p>
+              <%= @user.follow_count %>
+            </div>
+          <% end %>
+          <% if @user.followers_count != 0 %>
+            <div class = 'element-profile-followers'>
+              <p>Читатели</p>
+              <%= @user.followers_count %>
+            </div>
+          <% end %>
           <div class = 'element-profile-read'>
             <% if current_user && @user != current_user %>
               <% if current_user.following?(@user) %>
