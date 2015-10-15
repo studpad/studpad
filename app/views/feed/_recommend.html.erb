@@ -21,18 +21,18 @@
               ) no-repeat; background-size: cover;'>
             </div>
             <div class = 'person-follow-follower'>
-              <div class = 'element-profile-followers'>
-                <% if u.follow_count != 0 %>
+              <% if u.follow_count != 0 %>
+                <div class = 'element-profile-followers'>
                   <p>Читаемые</p>
                   <%= u.follow_count %>
-                <% end %>
-              </div>
-              <div class = 'element-profile-followers'>
-                <% if u.followers_count != 0 %>
+                </div>
+              <% end %>
+              <% if u.followers_count != 0 %>
+                <div class = 'element-profile-followers'>
                   <p>Читатели</p>
                   <%= u.followers_count %>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
               <div class = 'clearboth'>
               </div>
               <div class = 'person-follow-wrap-btn-read'>
