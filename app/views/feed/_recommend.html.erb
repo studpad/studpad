@@ -7,38 +7,24 @@
       <div class = 'list-persons-follow'>
         <% User.recommended_for(current_user).each do |u| %>
         <div class = 'person-follow'>
-          <div class = 'person-follow-name'>
+          <div class = 'person-follow-stat'>
+            <div class = 'person-follow-photo' style = 'background: url(
+                <%= u.avatar %>
+              ) no-repeat; background-size: cover;'>
+            </div>
+            <div class = 'person-follow-name'>
               <div class="post-autor-name">
                 <span><%= link_to u.name, user_path(u) %></span>
               </div>
               <div class="post-autor-type">
                 <%= u.description %>
               </div>
-          </div>
-          <div class = 'person-follow-stat'>
-            <div class = 'person-follow-photo' style = 'background: url(
-                <%= u.avatar %>
-              ) no-repeat; background-size: cover;'>
-            </div>
-            <div class = 'person-follow-follower'>
-              <% if u.follow_count != 0 %>
-                <div class = 'element-profile-followers'>
-                  <p>Читаемые</p>
-                  <%= u.follow_count %>
-                </div>
-              <% end %>
-              <% if u.followers_count != 0 %>
-                <div class = 'element-profile-followers'>
-                  <p>Читатели</p>
-                  <%= u.followers_count %>
-                </div>
-              <% end %>
               <div class = 'clearboth'>
               </div>
               <div class = 'person-follow-wrap-btn-read'>
                 <%= link_to 'Читать', follow_user_path(u),
                 method: :post,
-                class: 'btn btn-primary btn-st' %>
+                class: 'btn btn-primary btn-st btn-sm' %>
               </div>
             </div>
             <div class = 'clearboth'>

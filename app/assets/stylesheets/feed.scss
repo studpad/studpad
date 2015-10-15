@@ -14,28 +14,28 @@
 }
 .person-follow-photo{
 	float: left;
-	width: 86px;
+	width: 71px;
 	border-radius: 3px;
-	height: 86px;
+	height: 71px;
 }
 .person-follow-follower{
-	float: left;
-	margin-left: 8px;
-	width: 135px;
+	
+	
+	
 }
 .person-follow-name{
 	margin-bottom: 8px;
+	margin-left: 8px;
+	width: 150px;
 	font-size: 13px;
 	font-weight: bold;
+	float: left;
 	.profile-info_status{
 		font-size: 12px;
 	}
 	.post-autor-type{
 		font-weight: normal;
 	}
-}
-.person-follow-follower > .element-profile-followers{
-	width: 50%;
 }
 .person-follow-wrap-btn-read{
 	margin-top: 5px;
