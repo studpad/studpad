@@ -4,7 +4,7 @@
       <div class = 'title-that-left'>
         Рекомендуем читать этих людей
       </div>
-      <div>
+      <div class = 'list-persons-follow'>
         <% User.recommended_for(current_user).each do |u| %>
         <div class = 'person-follow'>
           <div class = 'person-follow-name'>
