@@ -41,7 +41,11 @@ class User < ActiveRecord::Base
 
   def description
     if teacher?
-      teacher_specialization.try(:name) || teacher_category.try(:name)
+      if self.teacher_specialization_id == 3
+        teacher_specialization.try(:name)
+      else
+        teacher_category.try(:name)
+      end
     else
       'Ученик'
     end
