@@ -1,6 +1,6 @@
 json.array! @posts do |n|
   json.author do
-    json.type I18n.t(n.user.type)
+    json.type n.user.description
     json.name n.user.name
     json.url user_path(n.user)
     json.avatar n.user.avatar.thumb.to_s
