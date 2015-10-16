@@ -31,13 +31,13 @@
         <div class = 'profile-followers'>
           <% if @user.follow_count != 0 %>
             <div class = 'element-profile-followers'>
-              <p>Читаемые</p>
+              <p>Я читаю</p>
               <%= @user.follow_count %>
             </div>
           <% end %>
           <% if @user.followers_count != 0 %>
             <div class = 'element-profile-followers'>
-              <p>Читатели</p>
+              <p>Меня читают</p>
               <%= @user.followers_count %>
             </div>
           <% end %>
