@@ -198,6 +198,7 @@
 .input-edit-profile-name{
 	font-size: 20px !important;
 	height: 100% !important;
+
 }
 .input-edit-profile-school{
 	font-size: 16px !important;
@@ -213,8 +214,16 @@
 .profile-class{
 	cursor: pointer;
 }
+.profile-menu{
+	margin-top: 5px;
+	margin-left: 4px;
+}
 .profile-menu>div{
-
+	float: left;
+	margin-right: 6px;
+}
+.profile-menu-icons > img{
+	width: 20px;
 }
 .switcher{
 	cursor: pointer;
@@ -268,4 +277,7 @@
   	color: #516574;
   	font-weight: normal;
 	}
+}
+.profile-preview-object-info{
+	float: left;
 }
