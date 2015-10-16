@@ -54,11 +54,13 @@
               <% if current_user.following?(@user) %>
                 <%= link_to 'Читаю', unfollow_user_path(@user),
                 method: :post,
-                class: 'btn btn-primary btn-st btn-follow btn-follow-on' %>
+                class: 'btn btn-primary btn-st btn-follow btn-follow-on',
+                data: { toggle: 'tooltip', placement: 'bottom' } %>
               <% else %>
                 <%= link_to 'Читать', follow_user_path(@user),
                 method: :post,
-                class: 'btn btn-primary btn-st' %>
+                class: 'btn btn-primary btn-st',
+                data: { toggle: 'tooltip', placement: 'bottom' } %>
               <% end %>
             <!-- <button class = 'btn btn-primary btn-st'>Читать</button> -->
             <% end %>

@@ -29,7 +29,9 @@
                 <div class = 'person-follow-wrap-btn-read'>
                   <%= link_to 'Читать', follow_user_path(u),
                   method: :post,
-                  class: 'btn btn-primary btn-st btn-sm' %>
+                  class: 'btn btn-primary btn-st btn-sm',
+                  title: 'Хочу получать новости от этого человека',
+                  data: { :toggle => 'tooltip', :placement => 'bottom' } %>
                 </div>
               </div>
               <div class = 'clearboth'>

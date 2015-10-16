@@ -91,6 +91,7 @@ function main(){
   });
 
   $('#settigns-profile').tooltip();
+  $('.btn').tooltip();
 
   $(".type-of-community").click(function(){
     $(".type-of-community").removeClass('active-type-of-community');
