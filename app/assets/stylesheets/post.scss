@@ -340,8 +340,45 @@
 	padding-right: 15px;
 }
 .post-footer{
-	float: right;
 	padding-right: 10px;
+
+	div{
+		float: left;
+	}
+	.wrap-write-comment-post-footer{
+		width: 88%;
+	}
+	.wrap-like-post-footer{
+		width: 12%;
+		span{
+			float: right;
+		}
+	}
+}
+.unit-post-comments .post-autor-data{
+	font-size: 10px;
+}
+.unit-post-comments .preview-object-info-mini{
+	width: 85%;
+}
+.unit-post-comments .status-user-line{
+	color: #516574;
+	font-size: 11px;
+} 
+.text-unit-post-comments{
+  padding: 10px;
+  background-color: #F9F7F3;
+  border-radius: 2px;
+  border: 1px solid #D1D8E0;
+}
+.post-comments{
+	margin-top: 15px;
+	background-color: #F5F5F5;
+	padding: 8px;
+	border-radius: 3px;
+}
+.post-comments .object-maintext{
+	font-weight: normal;
 }
 .post-like{
 	cursor: pointer;

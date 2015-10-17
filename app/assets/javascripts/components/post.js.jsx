@@ -231,13 +231,58 @@ const PostFooter = React.createClass({
         classname += ' post-like-active-animate';
     } else
       classname = 'post-like';
-
+    var style = {
+        background: 'url(https://pp.vk.me/c543101/v543101167/c00a/yQ46OXCi8kA.jpg) no-repeat', 
+        backgroundSize: 'cover'
+    };
     return (
       <div>
-        <div className='post-footer'>
-          <span className={classname} onClick={this.props.likeClick}>{likes_count}</span>
+        <div>
+          <div className='post-footer'>
+            <div className='wrap-write-comment-post-footer'>
+              <textarea className="textarea-sp form-control textarea-form-control-comment" placeholder="Введите комментарий"></textarea>
+            </div>
+            <div className='wrap-like-post-footer'>
+              <span className={classname} onClick={this.props.likeClick}>{likes_count}</span>
+            </div>
+          </div>
+          <div className='clearboth'>
+          </div>
         </div>
-        <div className='clearboth'>
+        <div className='post-comments'>
+          <div className='unit-post-comments'>
+            <div class="preview-object">
+              <div className="preview-object-avatar-mini" style={style}>
+              </div>
+              <div className="preview-object-info-mini">
+                <div className="object-text">
+                  <div className="object-maintext"><a href="/users/1">Никитин Максим</a> <span className='status-user-line'><span>• </span> <span>Ученик</span></span> <span className="post-autor-data"><span >• </span><span>16 окт.</span></span></div>
+                  <div className='text-unit-post-comments'>
+                    Спасибо Вам огромное! Использую этот материал на своих уроках)
+                  </div>
+                </div>
+              </div>
+              <div className='clearboth'>
+              </div>
+            </div>
+          </div>
+
+          <div className='unit-post-comments'>
+            <div class="preview-object">
+              <div className="preview-object-avatar-mini" style={style}>
+              </div>
+              <div className="preview-object-info-mini">
+                <div className="object-text">
+                  <div className="object-maintext"><a href="/users/1">Никитин Максим</a> <span className='status-user-line'><span>• </span> <span>Ученик</span></span> <span className="post-autor-data"><span >• </span><span>16 окт.</span></span></div>
+                  <div className='text-unit-post-comments'>
+                    Исключительно для подписчиков паблика Do4a.com, а также студентов города Санкт-Петербург действует специальная скидка на годовой абонемент, 18тр за год
+                  </div>
+                </div>
+              </div>
+              <div className='clearboth'>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
