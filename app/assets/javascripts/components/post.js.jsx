@@ -237,9 +237,6 @@ const PostFooter = React.createClass({
     };
     return (
       <div>
-        <div>
-
-        </div>
         <div className='wrap-post-comments'>
           <div className='post-footer'>
             <div className='wrap-write-comment-post-footer'>
