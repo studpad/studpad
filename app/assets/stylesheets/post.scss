@@ -340,8 +340,7 @@
 	padding-right: 15px;
 }
 .post-footer{
-	padding-right: 10px;
-
+	padding: 10px;
 	div{
 		float: left;
 	}
@@ -365,20 +364,49 @@
 	color: #516574;
 	font-size: 11px;
 } 
+.unit-post-comments .sign-dots-menu{
+	float: right;
+	font-size: 14px;
+}
+.unit-post-comments .dropdown-menu{
+	top: 17px;
+  left: 97% !important;
+} 
 .text-unit-post-comments{
   padding: 10px;
-  background-color: #F9F7F3;
+  margin-top: 3px;
+  background-color: #EAEFF3;
   border-radius: 2px;
-  border: 1px solid #D1D8E0;
+  border: 1px solid #BDC5D0;
+  color: #383838;
 }
 .post-comments{
 	margin-top: 15px;
-	background-color: #F5F5F5;
 	padding: 8px;
+}
+.wrap-post-comments{
+	background-color: #F5F5F5;
 	border-radius: 3px;
 }
+.show-all-comments{
+	padding-bottom: 10px;
+	text-align: center;
+	font-size: 12px;
+	color: #3680be;
+	span{
+		cursor: pointer;
+	}
+}
 .post-comments .object-maintext{
-	font-weight: normal;
+	font-weight: 500;
+}
+.textarea-form-control-comment{
+  height: 30px !important;
+  font-size: 12px !important;
+  box-shadow: none !important;
+  border-radius: 0px;
+  border: 1px solid #BDC5D0;
+  padding: 5px;
 }
 .post-like{
 	cursor: pointer;
