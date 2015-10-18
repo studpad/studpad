@@ -11,7 +11,7 @@ class AjaxController < ApplicationController
       description: page.css('meta[name=description]')
       .first.try(:attributes).try(:[], 'content').try(:value)
     }
-    pp data
+    #pp data
     render json: data
   rescue Exception => e
     render nothing: true, status: :no_content

@@ -92,6 +92,31 @@ const PostBox = React.createClass({
     this.refs.form.editPost(editedPost);
     CI('PostBox::editPost', id);
   },
+  createComment: function(post_id, text){
+    CI('PostBox::createComment', post_id, text);
+    var newPosts = this.state.posts.map(function (n) {
+      if (n.id == post_id){
+        n.comments.unshift({
+          text: text,
+          author: currentUser
+        })
+      }
+      return n;
+    });
+    this.setState({posts: newPosts});
+  },
+  removeComment: function(post_id, comment_id){
+    CI('PostBox::removeComment', post_id, comment_id);
+    var newPosts = this.state.posts.map(function (n) {
+      if (n.id == post_id){
+        n.comments = n.comments.filter(function(c){
+          c.id != comment_id;
+        });
+      }
+      return n;
+    });
+    this.setState({posts: newPosts});
+  },
   likePost: function(id) {
     var posts = this.state.posts;
     var likedPost = $.grep(posts, function(e){ return e.id == id; });
@@ -166,6 +191,8 @@ const PostBox = React.createClass({
         <PostList
           posts={this.state.posts}
           likePost={this.likePost}
+          createComment={this.createComment}
+          removeComment={this.removeComment}
           removePost={this.removePost}
           editPost={this.editPost}/>
       </div>

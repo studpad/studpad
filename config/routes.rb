@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   end
 
   resources :attachments, only: [:create, :destroy]
-  #resources :comments
+  resources :comments
   resources :users, except: :edit do
     member do
       post :follow

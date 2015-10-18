@@ -3,6 +3,8 @@ const PostList = React.createClass({
   propTypes: {
     editPost: React.PropTypes.func.isRequired,
     likePost: React.PropTypes.func.isRequired,
+    createComment: React.PropTypes.func.isRequired,
+    removeComment: React.PropTypes.func.isRequired,
     removePost: React.PropTypes.func.isRequired,
     data: React.PropTypes.shape({
       id: React.PropTypes.number.isRequired
@@ -17,6 +19,8 @@ const PostList = React.createClass({
           post={post}
           likePost={this.props.likePost}
           removePost={this.props.removePost}
+          createComment={this.props.createComment}
+          removeComment={this.props.removeComment}
           editPost={this.props.editPost}/>
       );
     }.bind(this));
