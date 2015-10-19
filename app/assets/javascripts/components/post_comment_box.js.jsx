@@ -13,7 +13,7 @@ const PostCommentBox = React.createClass({
     var node = this.refs.commentText.getDOMNode();
     $(node).autoResize({
       limit:600,
-      extraSpace:0,
+      extraSpace:13,
       animate:true
     });
     $(node).on('keydown', this.handleKeyDown);

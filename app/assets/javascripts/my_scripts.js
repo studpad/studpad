@@ -45,6 +45,7 @@ function main(){
     });*/
 
     $('.right-functional').css('margin-left', '80%');
+    $('.textarea-form-control-comment').css('height', '30px');
 
     $(".choice-class").select2({
       placeholder: "Класс"

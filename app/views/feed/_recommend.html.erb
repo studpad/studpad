@@ -3,7 +3,7 @@
     <% if current_user %>
       <div class = 'card-sp'>
         <div class = 'title-that-left'>
-          Рекомендуем читать этих людей
+          Читайте больше людей
         </div>
         <div class = 'list-persons-follow'>
           <% User.recommended_for(current_user).each do |u| %>

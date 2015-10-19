@@ -12,9 +12,31 @@ var CommentList = React.createClass({
           comment={c}/>
       );
     }.bind(this));
+    var style = {
+        background: 'url(/uploads/student/avatar/1/thumb_aa0ce8f989.jpg) no-repeat',
+        backgroundSize: 'cover'
+    };
     return(
       <div className='post-comments'>
         {comments}
+        <div className="unit-post-comments">
+          <div className="preview-object">
+            <div className="preview-object-avatar-mini" style={style}>
+            </div>
+            <div className="preview-object-info-mini">
+              <div className="object-text">
+                <div className="object-maintext">
+                  <a href="/users/1">Никитин Максим</a>
+                  <span className="status-user-line">
+                    <span> • </span><span> </span><span>Ученик</span></span><span className="post-autor-data"><span> • </span><span>19 окт.</span></span>
+                </div>
+                <textarea className="form-control textarea-form-control-comment" placeholder="Введите комментарий">fds</textarea>
+              </div>
+            </div>
+            <div className="clearboth">
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
@@ -110,14 +132,14 @@ var CommentList = React.createClass({
     // });
     // return (
     //   <div>
-    //     <div className='form-send-comment-of-news'>
-    //       <div className='menu-of-form-send-comment-of-news'>
-    //         <span className='date-news'>{this.props.time}</span>&nbsp;&nbsp;
-    //         <span className='give-comment' onClick={this.toggleCommentable}>Комментировать</span>
+    //     <div classNameName='form-send-comment-of-news'>
+    //       <div classNameName='menu-of-form-send-comment-of-news'>
+    //         <span classNameName='date-news'>{this.props.time}</span>&nbsp;&nbsp;
+    //         <span classNameName='give-comment' onClick={this.toggleCommentable}>Комментировать</span>
     //       </div>
     //     </div>
     //     <CommentForm visible={this.state.commentable} sendComment={this.sendComment}/>
-    //     <div className = 'each-comment-of-the-news'>
+    //     <div classNameName = 'each-comment-of-the-news'>
     //       {comments}
     //     </div>
     //   </div>
