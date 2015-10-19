@@ -97,6 +97,7 @@ const PostBox = React.createClass({
     var newPosts = this.state.posts.map(function (n) {
       if (n.id == post_id){
         n.comments.unshift({
+          id: Date.now(),
           text: text,
           author: currentUser
         })
@@ -104,18 +105,42 @@ const PostBox = React.createClass({
       return n;
     });
     this.setState({posts: newPosts});
+    $.ajax({
+      url: '/comments',
+      type: 'POST',
+      data: {
+        comment: {
+          text: text,
+          commentable_id: post_id,
+          commentable_type: 'Post'
+        }
+      },
+      success: function(data) {
+        this.loadPostsFromServer();
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
   },
   removeComment: function(post_id, comment_id){
     CI('PostBox::removeComment', post_id, comment_id);
+    var delete_url;
     var newPosts = this.state.posts.map(function (n) {
       if (n.id == post_id){
         n.comments = n.comments.filter(function(c){
-          c.id != comment_id;
+          if (c.id == comment_id)
+            delete_url = c.url;
+          return c.id != comment_id;
         });
       }
       return n;
     });
     this.setState({posts: newPosts});
+    $.ajax({
+      url: delete_url,
+      type: 'DELETE'
+    });
   },
   likePost: function(id) {
     var posts = this.state.posts;

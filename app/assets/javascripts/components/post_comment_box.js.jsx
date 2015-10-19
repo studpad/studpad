@@ -26,6 +26,7 @@ const PostCommentBox = React.createClass({
   handleKeyDown: function(e) {
     var ENTER = 13;
     if( e.keyCode == ENTER ) {
+      e.preventDefault();
       var node = this.refs.commentText.getDOMNode();
       this.props.createComment(node.value);
       $(node).val('');

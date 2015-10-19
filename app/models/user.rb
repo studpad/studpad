@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :notifications
   has_many :posts
+  has_many :comments
 
   belongs_to :teacher_category
   belongs_to :teacher_specialization
