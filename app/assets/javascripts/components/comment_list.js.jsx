@@ -1,41 +1,42 @@
 var CommentList = React.createClass({
+  getInitialState() {
+    return {
+      show_all: false
+    };
+  },
   showMoreClick: function(){
-
+    this.setState({show_all: true});
+  },
+  hideMoreClick: function(){
+    this.setState({show_all: false});
   },
   render: function () {
     var comments = this.props.comments;
+    if (!this.state.show_all){
+      comments = comments.slice(0, 3);
+    }
     comments = comments.map(function (c) {
       return (
         <Comment
           key={c.id}
+          updateComment={this.props.updateComment}
           removeComment={this.props.removeComment}
           comment={c}/>
       );
     }.bind(this));
-    var style = {
-        background: 'url(/uploads/student/avatar/1/thumb_aa0ce8f989.jpg) no-repeat',
-        backgroundSize: 'cover'
-    };
+    var button;
+    if (this.state.show_all){
+      button = <span onClick={this.hideMoreClick}>Скрыть комментарии</span>;
+    } else {
+      button = <span onClick={this.showMoreClick}>Показать все комментарии</span>;
+    }
     return(
-      <div className='post-comments'>
-        {comments}
-        <div className="unit-post-comments">
-          <div className="preview-object">
-            <div className="preview-object-avatar-mini" style={style}>
-            </div>
-            <div className="preview-object-info-mini">
-              <div className="object-text">
-                <div className="object-maintext">
-                  <a href="/users/1">Никитин Максим</a>
-                  <span className="status-user-line">
-                    <span> • </span><span> </span><span>Ученик</span></span><span className="post-autor-data"><span> • </span><span>19 окт.</span></span>
-                </div>
-                <textarea className="form-control textarea-form-control-comment" placeholder="Введите комментарий">fds</textarea>
-              </div>
-            </div>
-            <div className="clearboth">
-            </div>
-          </div>
+      <div>
+        <div className='post-comments'>
+          {comments}
+        </div>
+        <div className='show-all-comments'>
+          {button}
         </div>
       </div>
     )

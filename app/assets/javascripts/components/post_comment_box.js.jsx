@@ -67,11 +67,9 @@ const PostCommentBox = React.createClass({
           <div className='clearboth'>
           </div>
           <CommentList
+            updateComment={this.props.updateComment}
             removeComment={this.props.removeComment}
             comments={this.props.comments}/>
-          <div className='show-all-comments'>
-            <span>Показать все комментарии</span>
-          </div>
         </div>
       </div>
     );

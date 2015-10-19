@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment.update_attributes comment_params
+    render nothing: true
   end
 
   def destroy

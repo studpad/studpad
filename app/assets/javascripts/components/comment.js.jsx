@@ -1,40 +1,82 @@
 var Comment = React.createClass({
+  getInitialState: function() {
+    return {
+      editable: false
+    };
+  },
   removeClick: function(){
     this.props.removeComment(this.props.comment.id)
   },
   editClick: function(){
-    CW('Comment::EditClick - Unreleased feature')
+    this.setState({
+      editable: true
+    });
+    CI('Comment::EditClick');
+  },
+  updateComment: function(text){
+    CI('Comment::updateComment', text);
+    this.setState({
+      editable: false
+    });
+    this.props.updateComment(this.props.comment.id, text);
   },
   render: function(){
     var style = {
-        background: 'url(' + this.props.comment.author.avatar + ') no-repeat',
-        backgroundSize: 'cover'
+      background: 'url(' + this.props.comment.author.avatar + ') no-repeat',
+      backgroundSize: 'cover'
     };
+    var main_part;
+    if (this.state.editable){
+      main_part = (
+        <div className="object-text">
+          <div className="object-maintext">
+            <a href={this.props.comment.author.url}>{this.props.comment.author.name}</a>
+            <span className="status-user-line">
+              <span> • </span>
+              <span> </span>
+              <span>{this.props.comment.author.type}</span>
+            </span>
+            <span className="post-autor-data">
+              <span> • </span>
+              <span>{this.props.comment.time}</span>
+            </span>
+          </div>
+          <CommentText
+            updateComment={this.updateComment}
+            text={this.props.comment.text}/>
+        </div>
+      );
+    } else {
+      main_part = (
+        <div className='object-text'>
+          <div className='object-maintext'>
+            <a href={this.props.comment.author.url}>{this.props.comment.author.name}</a>
+            <span className='status-user-line'><span> • </span> <span>{this.props.comment.author.type}</span></span>
+            <span className="post-autor-data"><span > • </span>
+              <span>
+              {this.props.comment.time}
+              </span>
+            </span>
+            <span className = 'sign-dots-menu action-angle' data-toggle="dropdown">•••</span>
+            <ul className="dropdown-menu" role="menu">
+              <li><a onClick={this.editClick}>Редактировать</a></li>
+              <li><a onClick={this.removeClick}>Удалить</a></li>
+            </ul>
+          </div>
+          <div className='text-unit-post-comments'>
+            {this.props.comment.text}
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className='unit-post-comments'>
         <div className='preview-object'>
           <div className='preview-object-avatar-mini' style={style}>
           </div>
           <div className='preview-object-info-mini'>
-            <div className='object-text'>
-              <div className='object-maintext'>
-                <a href={this.props.comment.author.url}>{this.props.comment.author.name}</a>
-                <span className='status-user-line'><span> • </span> <span>{this.props.comment.author.type}</span></span>
-                <span className="post-autor-data"><span > • </span>
-                  <span>
-                  {this.props.comment.time}
-                  </span>
-                </span>
-                <span className = 'sign-dots-menu action-angle' data-toggle="dropdown">•••</span>
-                <ul className="dropdown-menu" role="menu">
-                  <li><a onClick={this.editClick}>Редактировать</a></li>
-                  <li><a onClick={this.removeClick}>Удалить</a></li>
-                </ul>
-              </div>
-              <div className='text-unit-post-comments'>
-                {this.props.comment.text}
-              </div>
-            </div>
+            {main_part}
           </div>
           <div className='clearboth'>
           </div>
@@ -43,6 +85,54 @@ var Comment = React.createClass({
     )
   }
 })
+
+var CommentText = React.createClass({
+  componentDidMount: function() {
+    var node = this.refs.text.getDOMNode();
+    $(node).autoResize({
+      limit: 600,
+      extraSpace: 13,
+      animate: true
+    });
+    $(node).on('keydown', this.handleKeyDown);
+    $(node).change();
+  },
+  componentWillUnmount: function() {
+    var node = this.refs.text.getDOMNode();
+    $(node).off('keydown', this.handleKeyDown);
+    // $(node).unbind('.autoResize');
+  },
+  handleKeyDown: function(e){
+    var ENTER = 13;
+    if( e.keyCode == ENTER ) {
+      e.preventDefault();
+      var node = this.refs.text.getDOMNode();
+      this.props.updateComment(node.value);
+    }
+  },
+  render: function() {
+    return (
+      <div>
+      <textarea
+        ref='text'
+        className="form-control textarea-form-control-comment"
+        placeholder='Введите комментарий'
+        defaultValue={this.props.text}/>
+      </div>
+    );
+  }
+});
+  // <div className="unit-post-comments">
+  //   <div className="preview-object">
+  //     <div className="preview-object-avatar-mini" style={style}>
+  //     </div>
+  //     <div className="preview-object-info-mini">
+
+  //     </div>
+  //     <div className="clearboth">
+  //     </div>
+  //   </div>
+  // </div>
 //   removeClick: function(){
 //     this.props.remove(this.props.data.id)
 //   },

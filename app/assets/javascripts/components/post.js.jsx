@@ -38,6 +38,11 @@ const Post = React.createClass({
     post_id = this.props.post.id;
     this.props.removeComment(post_id, id);
   },
+  updateComment: function(id, text){
+    CW("Post::updateComment", id);
+    post_id = this.props.post.id;
+    this.props.updateComment(post_id, id, text);
+  },
   //END*****************************************************ACTIONS
   render: function() {
     return (
@@ -58,6 +63,7 @@ const Post = React.createClass({
             likeClick={this.likeClick}
             createComment={this.createComment}
             removeComment={this.removeComment}
+            updateComment={this.updateComment}
             comments={this.props.post.comments}
             likes={this.props.post.likes}
             current_like_just={this.props.post.current_like_just||false}

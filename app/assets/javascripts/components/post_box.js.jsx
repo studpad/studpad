@@ -55,7 +55,8 @@ const PostBox = React.createClass({
       text_elements: postData.text_elements,
       author: currentUser,
       linkdata: {},
-      files: []
+      files: [],
+      comments: []
     }];
     var newPosts = newPost.concat(oldPosts);
     this.setState({posts: newPosts});
@@ -142,6 +143,32 @@ const PostBox = React.createClass({
       type: 'DELETE'
     });
   },
+  updateComment: function(post_id, comment_id, text){
+    CI('PostBox::removeComment', post_id, comment_id, text);
+    var comment_url;
+    var newPosts = this.state.posts.map(function (n) {
+      if (n.id == post_id){
+        n.comments = n.comments.map(function(c){
+          if (c.id == comment_id){
+            comment_url = c.url;
+            c.text = text;
+          }
+          return c;
+        });
+      }
+      return n;
+    });
+    this.setState({posts: newPosts});
+    $.ajax({
+      url: comment_url,
+      type: 'PATCH',
+      data: {
+        comment : {
+          text: text
+        }
+      },
+    });
+  },
   likePost: function(id) {
     var posts = this.state.posts;
     var likedPost = $.grep(posts, function(e){ return e.id == id; });
@@ -218,6 +245,7 @@ const PostBox = React.createClass({
           likePost={this.likePost}
           createComment={this.createComment}
           removeComment={this.removeComment}
+          updateComment={this.updateComment}
           removePost={this.removePost}
           editPost={this.editPost}/>
       </div>
