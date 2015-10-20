@@ -47,6 +47,24 @@ var Comment = React.createClass({
         </div>
       );
     } else {
+      var edit_button, remove_button, menu;
+      if (this.props.comment.can_edit){
+        edit_button = <li><a onClick={this.editClick}>Редактировать</a></li>
+      }
+      if (this.props.comment.can_remove){
+        remove_button = <li><a onClick={this.removeClick}>Удалить</a></li>
+      }
+      if (remove_button || edit_button){
+        menu = (
+          <span>
+            <span className = 'sign-dots-menu action-angle' data-toggle="dropdown">•••</span>
+            <ul className="dropdown-menu" role="menu">
+              {edit_button}
+              {remove_button}
+            </ul>
+          </span>
+        );
+      }
       main_part = (
         <div className='object-text'>
           <div className='object-maintext'>
@@ -57,11 +75,7 @@ var Comment = React.createClass({
               {this.props.comment.time}
               </span>
             </span>
-            <span className = 'sign-dots-menu action-angle' data-toggle="dropdown">•••</span>
-            <ul className="dropdown-menu" role="menu">
-              <li><a onClick={this.editClick}>Редактировать</a></li>
-              <li><a onClick={this.removeClick}>Удалить</a></li>
-            </ul>
+            {menu}
           </div>
           <div className='text-unit-post-comments'>
             {this.props.comment.text}

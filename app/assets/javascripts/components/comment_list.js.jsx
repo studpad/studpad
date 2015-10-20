@@ -25,19 +25,27 @@ var CommentList = React.createClass({
       );
     }.bind(this));
     var button;
-    if (this.state.show_all){
-      button = <span onClick={this.hideMoreClick}>Скрыть комментарии</span>;
-    } else {
-      button = <span onClick={this.showMoreClick}>Показать все комментарии</span>;
+    if (this.props.comments.length > 3){
+      if (this.state.show_all){
+        button = (
+          <div className='show-all-comments'>
+            <span onClick={this.hideMoreClick}>Скрыть комментарии</span>;
+          </div>
+        );
+      } else {
+        button =(
+          <div className='show-all-comments'>
+            <span onClick={this.showMoreClick}>Показать все комментарии</span>;
+          </div>
+        );
+      }
     }
     return(
       <div>
         <div className='post-comments'>
           {comments}
         </div>
-        <div className='show-all-comments'>
-          {button}
-        </div>
+        {button}
       </div>
     )
   }
