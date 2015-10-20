@@ -28,7 +28,8 @@ const PostCommentBox = React.createClass({
     if( e.keyCode == ENTER ) {
       e.preventDefault();
       var node = this.refs.commentText.getDOMNode();
-      this.props.createComment(node.value);
+      if (currentUser)
+        this.props.createComment(node.value);
       $(node).val('');
     }
   },
