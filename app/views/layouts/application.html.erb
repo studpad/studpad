@@ -63,7 +63,24 @@
     <div class = 'container-fluid'>
       <div class = 'row'>
           <div class = 'col-xs-12 align-c' id = 'hat-studpad-title'>
-
+            <div class = 'hat-menu'>
+              <% if current_user %>
+                <%= link_to root_path do %>
+                  <div class = 'hat-menu-icons'>
+                    <img src = '/images/home.png' /> <span>Главная</span>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to main_path do %>
+                  <div class = 'hat-menu-icons'>
+                    <img src = '/images/home.png' /> <span>Главная</span>
+                  </div>
+                <% end %>
+              <% end %>
+              <!--<div class = 'hat-menu-icons'>
+                <img src = '/images/compass.png' /> <span>Полный обзор</span>
+              </div> -->
+            </div>
             <h1 id = 'hat-logo-studpad'>
               <% if current_user %>
                 <%= link_to "Studpad", root_path, class: 'hat-logo-studpa-a'%>
