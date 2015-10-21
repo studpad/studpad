@@ -4,6 +4,8 @@ ActiveAdmin.register User do
   filter :id
   filter :name
   filter :email
+  filter :teacher_category
+  filter :teacher_specialization
   filter :admin, as: :check_boxes
 
   index do
