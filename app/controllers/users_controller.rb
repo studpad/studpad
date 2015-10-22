@@ -12,6 +12,9 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       auto_login @user
+      @user.recommended_users.each do |u|
+        @user.follow(u)
+      end
       flash[:success] = 'Успешная регистрация'
       #UserMailer.welcome(@user).deliver_later
 

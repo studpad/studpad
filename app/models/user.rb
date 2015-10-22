@@ -52,6 +52,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def recommended_users
+    if teacher?
+      if self.teacher_category_id == 3
+        User.where(teacher_category_id: teacher_category_id)
+        .where(teacher_specialization_id: teacher_specialization_id)
+      else
+        User.where(teacher_category_id: teacher_category_id)
+      end
+    else
+      User.none
+    end
+  end
+
   def self.recommended_for(user)
     #return limit(2)
     if user
