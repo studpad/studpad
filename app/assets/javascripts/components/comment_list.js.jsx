@@ -29,13 +29,13 @@ var CommentList = React.createClass({
       if (this.state.show_all){
         button = (
           <div className='show-all-comments'>
-            <span onClick={this.hideMoreClick}>Скрыть комментарии</span>;
+            <span onClick={this.hideMoreClick}>Скрыть комментарии</span>
           </div>
         );
       } else {
         button =(
           <div className='show-all-comments'>
-            <span onClick={this.showMoreClick}>Показать все комментарии</span>;
+            <span onClick={this.showMoreClick}>Показать все комментарии</span>
           </div>
         );
       }
