@@ -52,11 +52,24 @@ class User < ActiveRecord::Base
     end
   end
 
+  def recommended_users
+    if teacher?
+      if self.teacher_category_id == 3
+        User.where(teacher_category_id: teacher_category_id)
+        .where(teacher_specialization_id: teacher_specialization_id)
+      else
+        User.where(teacher_category_id: teacher_category_id)
+      end
+    else
+      User.none
+    end
+  end
+
   def self.recommended_for(user)
     #return limit(2)
     if user
       where.not(id: [user.id] + user.all_follows.map(&:followable_id)).
-        joins(:posts).group('users.id').order('COUNT(posts.id) desc').limit(2)
+        joins(:posts).group('users.id').order('RANDOM()').limit(2)
     else
       all.limit(2)
     end
