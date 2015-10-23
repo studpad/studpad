@@ -7,14 +7,25 @@ const PostBox = React.createClass({
   },
   getInitialState: function () {
     return {
+      limit_detected: false,
+      posts_count: 10,
       posts: []
     };
   },
   componentDidMount: function() {
     this.loadPostsFromServer();
+    $(window).scroll(function() {
+      var scroll_part = $(window).scrollTop()/$(document).height();
+      if (scroll_part > 0.8 && !this.state.limit_detected ){
+        this.setState({posts_count: this.state.posts_count + 10});
+        this.loadPostsFromServer();
+        CI("scrolling", scroll_part);
+      }
+    }.bind(this));
     //intervalID = setInterval(this.loadNewsItemsFromServer, this.props.pollInterval);
   },
   componentWillUnmount: function(){
+    $(window).unbind('scroll');
     //clearInterval(intervalID)
   },
   //END*****************************************************DECLARE
@@ -219,9 +230,16 @@ const PostBox = React.createClass({
     $.ajax({
       url: this.props.posts_url,
       dataType: 'json',
+      data: {
+        count: this.state.posts_count
+      },
       cache: false,
       success: function(data) {
-        this.setState({posts: data});
+        var limit_detected = (data.length < this.state.posts_count);
+        this.setState({
+          posts: data,
+          limit_detected: limit_detected
+        });
       }.bind(this),
       error: function(xhr, status, err) {
         CE(this.props.url, status, err.toString());

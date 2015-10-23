@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def posts
     #Post.where(user_id: [@user.id] + @user.all_follows.map(&:followable_id))
-    @posts = @user.posts.order(created_at: :desc)
+    @posts = @user.posts.order(created_at: :desc).limit(params[:count])
     render 'posts/index', formats: :json
   end
 
