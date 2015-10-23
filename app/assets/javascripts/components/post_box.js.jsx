@@ -8,6 +8,7 @@ const PostBox = React.createClass({
   getInitialState: function () {
     return {
       limit_detected: false,
+      wait_posts: false,
       posts_count: 10,
       posts: []
     };
@@ -16,8 +17,11 @@ const PostBox = React.createClass({
     this.loadPostsFromServer();
     $(window).scroll(function() {
       var scroll_part = $(window).scrollTop()/$(document).height();
-      if (scroll_part > 0.8 && !this.state.limit_detected ){
-        this.setState({posts_count: this.state.posts_count + 10});
+      if (scroll_part > 0.8 && !this.state.limit_detected && !this.state.wait_posts ){
+        this.setState({
+          posts_count: this.state.posts_count + 10,
+          wait_posts: true
+        });
         this.loadPostsFromServer();
         CI("scrolling", scroll_part);
       }
@@ -239,6 +243,9 @@ const PostBox = React.createClass({
         this.setState({
           posts: data,
           limit_detected: limit_detected
+        });
+        this.setState({
+          wait_posts: false
         });
       }.bind(this),
       error: function(xhr, status, err) {
