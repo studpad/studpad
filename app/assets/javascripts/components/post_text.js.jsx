@@ -88,6 +88,13 @@ var PostTextTextarea = React.createClass({
       extraSpace:0,
       animate:true
     });
+    //for copy/paste
+    $(node).bind('paste', function () {
+        var $textarea = $(this);
+        setTimeout(function () {
+          $textarea.trigger("change.dynSiz");
+        }, 250);
+    });
     $(node).change();
     if (this.props.focus)
       $(node).focus();

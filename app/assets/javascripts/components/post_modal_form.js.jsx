@@ -52,7 +52,7 @@ const PostModalForm = React.createClass({
       CE(postData.text_elements);
       for (var i = 0, len = postData.text_elements.length; i < len; ++i) {
         var current = postData.text_elements[i];
-        debugger
+        //debugger
         if (current.type == ElementTypes.image ||
             current.type == ElementTypes.text && current.text.trim() ){
           text_invalid = false;
