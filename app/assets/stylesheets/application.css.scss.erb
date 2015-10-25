@@ -115,12 +115,17 @@
     }
     #hat-logo-studpad{
       font-weight: bold;
-      
       font-size: 22px;
       position: absolute;
       left: 50%;
       top: 0px;
       font-family: "Helvetica Neue","HelveticaNeue",Helvetica,"PT Sans";
+    }
+    #hat-studpad-title{
+      width: 950px;
+      margin: auto;
+      position: relative;
+      padding: 0 12px;
     }
     .font-helvetica{
       font-family: "Helvetica Neue","HelveticaNeue",Helvetica,"PT Sans";
@@ -1614,7 +1619,7 @@ textarea.form-control{
 }
 .my-setting-modal-dialog{
   position: relative;
-  right: 25px;
+  left: 30px;
 }
 #profile_user{
   padding-top: 10px;
@@ -2175,13 +2180,11 @@ button.action-angle,  button.remove-angle, img.remove-angle{
   border-bottom: 1px solid #DAE1E8;
 }
 .hat-menu{
-  margin-left: 4px;
-  position: absolute;
-  left: 50%;
-  top: 10px;
-  margin-left: -450px;
+  margin-top: 10px;
+  float: left;
+  margin-left: 3px;
 }
-.hat-menu > div{
+.hat-menu .hat-menu-icon{
   float: left;
   margin-right: 20px;
   font-size: 13px;
@@ -2193,7 +2196,10 @@ button.action-angle,  button.remove-angle, img.remove-angle{
     color: #3680BE;
   }
 }
-.hat-menu-icons > img{
+.hat-menu-icon > img{
   width: 30px;
 }
-
+.hat-menu-right{
+  float: right !important;
+  margin-left: 0;
+}

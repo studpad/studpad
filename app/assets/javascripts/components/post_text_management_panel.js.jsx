@@ -45,7 +45,7 @@ const PostTextManagmentPanel = React.createClass({
     if(this.state.visibility_tips){
       var tips = (<div className='tipt-post-add-element'>
           <div className='glossary-post-element glossary-post-element-photo'>
-            Кликните, чтобы добавить фотографию или картинку.
+            Картинка или фотография украсят публикацию и сделают её заметнее.
           </div>
           <div className='glossary-post-element glossary-post-element-devider'>
             Горизонтальная черта поможет Вам разделить главные мысли.

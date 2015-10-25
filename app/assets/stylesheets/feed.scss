@@ -45,3 +45,113 @@
 .person-follow-wrap-btn-read{
 	margin-top: 5px;
 }
+.dark-background-for-how-does-it-work{
+	position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+	z-index: 1000;
+	display: none;
+}
+.panel-actions-how-does-it-work{
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+}
+.description-hdiw{
+	position: absolute;
+	background: linear-gradient(to top, #E6EBEF, #FFFFFF);
+	border-radius: 2px;
+	border: 1px solid #BAC3C7;
+	padding: 10px;
+	color: #454A50;
+  font-size: 14px;
+  box-shadow: 0 0 40px white;
+  display: none;
+}
+.description-hdiw-mike-speach{
+	top: 180px;
+  left: 493px;
+  width: 400px;
+}
+.description-hdiw-mike-speach:before{
+  content: '';
+  position: absolute;
+  top: -27px;
+  left: 80%;
+  border-bottom: solid 2em white;
+  border-left: solid 1.6em transparent;
+  border-right: solid 1.6em transparent;
+}
+.description-hdiw-publications{
+	top: 290px;
+  left: 493px;
+  width: 400px;
+}
+.description-hdiw-publications:before{
+	content: '';
+  position: absolute;
+  top: 118px;
+  left: 80%;
+  border-top: solid 2em #E6EBEF;
+  border-left: solid 1.6em transparent;
+  border-right: solid 1.6em transparent;
+}
+.description-hdiw-me{
+	top: 61px;
+  left: 540px;
+  width: 400px;
+}
+.description-hdiw-me:before{
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: -22px;
+  border-right: solid 1.7em #EFF1F4;
+  border-top: solid 1.4em transparent;
+  border-bottom: solid 1.4em transparent;
+}
+.description-hdiw-last-publicators{
+	top: 150px;
+  left: 540px;
+  width: 400px;
+}
+.description-hdiw-last-publicators:before{
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: -25px;
+  border-right: solid 2em #EFF2F5;
+  border-top: solid 1.6em transparent;
+  border-bottom: solid 1.6em transparent;
+}
+.description-hdiw-recommend-people{
+	top: 355px;
+  left: 493px;
+  width: 400px;
+}
+.description-hdiw-recommend-people:before{
+	content: '';
+  position: absolute;
+  top: -27px;
+  left: 80%;
+  border-bottom: solid 2em white;
+  border-left: solid 1.6em transparent;
+  border-right: solid 1.6em transparent;
+}
+.description-hdiw-panel-publications{
+	top: 150px;
+  left: 493px;
+  width: 400px;
+}
+.description-hdiw-panel-publications:before{
+	content: '';
+  position: absolute;
+  top: 100px;
+  left: 80%;
+  border-top: solid 2em #E6EBEF;
+  border-left: solid 1.6em transparent;
+  border-right: solid 1.6em transparent;
+}
