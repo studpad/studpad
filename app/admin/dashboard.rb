@@ -4,7 +4,7 @@ ActiveAdmin.register_page "Dashboard" do
 
   content title: proc{ I18n.t("active_admin.dashboard") } do
     columns do
-       column do
+      column do
         panel "Статистика" do
           yandex_link = <<-LINK
             <!-- Yandex.Metrika informer -->
@@ -35,6 +35,32 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+
+    columns do
+      column do
+        panel "Типы пользователей" do
+          TeacherCategory.all.each do |tc|
+            h3 do
+              span tc.name
+              span tc.users.count
+            end
+          end
+
+        end
+      end
+      secondary_school = TeacherCategory.find_by(id: 3)
+      column do
+        panel 'Педагоги средней школы подробно' do
+          TeacherSpecialization.all.each do |ts|
+            h5 do
+              span ts.name
+              span ts.users.count
+            end
+          end
+        end
+      end
+    end
+
   end # content
 
 end
