@@ -79,11 +79,13 @@
                 <img src = '/images/compass.png' /> <span>Полный обзор</span>
               </div>-->
             </div>
-            <div class = 'hat-menu hat-menu-right'>
-               <div class = 'hat-menu-icon start-how-does-it-work'>
+            <% if current_user && @how_does_it_work %>
+              <div class = 'hat-menu hat-menu-right'>
+                <div class = 'hat-menu-icon start-how-does-it-work'>
                   <img src = '/images/flame.png' /> <span>Как это работает?</span>
                 </div>
-            </div>
+              </div>
+            <% end %>
             <h1 id = 'hat-logo-studpad'>
               <% if current_user %>
                 <%= link_to "Studpad", root_path, class: 'hat-logo-studpa-a'%>
