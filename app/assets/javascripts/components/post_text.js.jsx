@@ -18,6 +18,7 @@ var PostText = React.createClass({
             <PostTextTextarea
               key={position}
               text={e.text}
+              focus={e.focus}
               position={position}
               onChangeElementText={this.props.changeElementText}
               removeTextElement={this.props.removeTextElement}
@@ -88,16 +89,24 @@ var PostTextTextarea = React.createClass({
       extraSpace:0,
       animate:true
     });
+    CW('text DidMount');
+    //for copy/paste
+    $(node).bind('paste', function () {
+        var $textarea = $(this);
+        setTimeout(function () {
+          $textarea.trigger("change.dynSiz");
+        }, 250);
+    });
     $(node).change();
     if (this.props.focus)
       $(node).focus();
   },
   componentWillUnmount: function() {
-    // var node = this.refs.textElement.getDOMNode();
+    var node = this.refs.textElement.getDOMNode();
     // node = $(node).data('AutoResizer');
-    // if (node) {
-    //   node.destroy();
-    // }
+    if (node) {
+      $(node).unbind('paste');
+    }
   },
   render: function() {
     var textPlaceholder = 'Введите текст';

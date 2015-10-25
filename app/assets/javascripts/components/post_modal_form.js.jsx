@@ -52,7 +52,7 @@ const PostModalForm = React.createClass({
       CE(postData.text_elements);
       for (var i = 0, len = postData.text_elements.length; i < len; ++i) {
         var current = postData.text_elements[i];
-        debugger
+        //debugger
         if (current.type == ElementTypes.image ||
             current.type == ElementTypes.text && current.text.trim() ){
           text_invalid = false;
@@ -118,7 +118,11 @@ const PostModalForm = React.createClass({
       data: attachementData,
       url: attachementData.link
     });
-    elements.push({type: ElementTypes.text, text: ''});
+    elements.push({
+      type: ElementTypes.text,
+      text: '',
+      focus: true
+    });
     post.text_elements = elements;
     this.setState({
       post: post
@@ -133,7 +137,11 @@ const PostModalForm = React.createClass({
     });
     CW('HHHHHH', elements);
     elements.push({type: ElementTypes.divider});
-    elements.push({type: ElementTypes.text, text: ''});
+    elements.push({
+      type: ElementTypes.text,
+      focus: true,
+      text: ''
+    });
     CW('HHHHHH', elements);
     post.text_elements = elements;
     this.setState({
