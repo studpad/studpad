@@ -15,10 +15,16 @@
           <% end %>
           <!--<div class = 'switcher'><img class = 'switch' src = '/images/switch9.png' width = '25' height = '25'/></div>-->
           <div class = 'object-text profile-menu'>
-            <div class = 'btn-group'>
+            <div>
+              <%= link_to 'Настройки', profile_edit_path %>
             </div>
-            <div class = 'btn-group'>
-              <span class = 'sign-dots-menu' data-toggle="dropdown">•••</span>
+            <div>• 
+              <%= link_to logout_path, data: { no_turbolink: true } do %>
+                Выход
+              <% end if current_user %>
+            </div>
+            <!--<div class = 'btn-group'>
+              <span class = 'sign-dots-menu sign-dots-profile-menu' data-toggle="dropdown">•••</span>
               <ul class="dropdown-menu" role="menu">
                 <li>
                   <%= link_to logout_path, data: { no_turbolink: true } do %>
@@ -26,7 +32,7 @@
                   <% end if current_user %>
                 </li>
               </ul>
-            </div>
+            </div>-->
           </div>
         </div>
         <div class = 'clearer'></div>

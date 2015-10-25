@@ -215,7 +215,7 @@
 	cursor: pointer;
 }
 .profile-menu{
-	/*margin-top: 5px;*/
+	margin-top: 3px;
 	margin-left: 4px;
 }
 .profile-menu>div{
@@ -280,4 +280,9 @@
 }
 .profile-preview-object-info{
 	float: left;
+}
+.sign-dots-profile-menu{
+	position: relative;
+  bottom: 3px;
+  left: 4px;
 }
