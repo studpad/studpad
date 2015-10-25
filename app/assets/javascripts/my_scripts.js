@@ -233,7 +233,7 @@ function main(){
     }
 
     if(nextStation == 'me'){
-      var description = "Здесь все просто! Это ссылка на Ваш профиль.";
+      var description = "Здесь все просто! Это ссылка на Ваш микроблог.";
       $('.post-container').css('z-index', '999').css('position', 'static');
       $('#profile_user').css('z-index', '2000').css('position', 'relative');
       $('.description-hdiw').removeClass('description-hdiw-publications').addClass('description-hdiw-' + nextStation).html(description);
