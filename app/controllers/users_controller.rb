@@ -14,11 +14,12 @@ class UsersController < ApplicationController
       auto_login @user
       @user.recommended_users.each do |u|
         @user.follow(u)
+        u.follow(@user)
       end
       flash[:success] = 'Успешная регистрация'
       #UserMailer.welcome(@user).deliver_later
 
-      redirect_to profile_edit_path
+      redirect_to root_path
     else
       @button_name = 'Создать'
       render 'new'
