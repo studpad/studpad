@@ -42,10 +42,10 @@ var CommentList = React.createClass({
     }
     return(
       <div>
+        {button}
         <div className='post-comments'>
           {comments}
         </div>
-        {button}
       </div>
     )
   }
