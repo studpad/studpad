@@ -389,10 +389,15 @@
 	padding: 10px;
 }
 .show-all-comments{
-	padding-bottom: 10px;
-	text-align: center;
-	font-size: 12px;
-	color: #3680be;
+	border-radius: 2px;
+	width: 92%;
+	margin-top: 6px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: #3680be;
+  background-color: #E5E9EC;
 	span{
 		cursor: pointer;
 	}
