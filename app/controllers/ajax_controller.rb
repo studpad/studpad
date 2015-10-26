@@ -4,13 +4,23 @@ class AjaxController < ApplicationController
     url = URI.parse(url_string)
     url = URI.parse('http://' + url_string) unless url.scheme
     page = Nokogiri::HTML(open(url))
-    data = {
-      url: url.to_s,
-      domain: url.host,
-      title: page.css('title').try(:text),
-      description: page.css('meta[name=description]')
-      .first.try(:attributes).try(:[], 'content').try(:value)
-    }
+    sites = ['www.youtube.com', 'youtube.com']
+    if sites.include?(url.host)
+      data = {
+        url: url.to_s,
+        domain: url.host,
+        title: 'Видео Youtube',
+        description: ''
+      }
+    else
+      data = {
+        url: url.to_s,
+        domain: url.host,
+        title: page.css('title').try(:text),
+        description: page.css('meta[name=description]')
+        .first.try(:attributes).try(:[], 'content').try(:value)
+      }
+    end
     #pp data
     render json: data
   rescue Exception => e
