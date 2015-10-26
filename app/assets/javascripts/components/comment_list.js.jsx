@@ -13,7 +13,7 @@ var CommentList = React.createClass({
   render: function () {
     var comments = this.props.comments;
     if (!this.state.show_all){
-      comments = comments.slice(0, 3);
+      comments = comments.slice(-3);
     }
     comments = comments.map(function (c) {
       return (
