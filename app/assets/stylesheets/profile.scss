@@ -286,3 +286,38 @@
   bottom: 3px;
   left: 4px;
 }
+.share-microblog{
+	text-align: center;
+	padding: 5px;
+	cursor: pointer;
+	&:hover > p{
+		color: #3680be;
+	}
+
+	p{
+		font-size: 11px;
+		color: #516574;
+		margin-bottom: 0;
+	}
+}
+.modal-share-nets > div{
+	float: left;
+	width: 50%;
+	text-align: center;
+	cursor: pointer
+	img{
+		width: 150px;
+	}
+}
+.wrap-logo-ok{
+	background: linear-gradient(to bottom,#f59944 0,#ff6e03 100%);
+	border-radius: 5px;
+	width: 40% !important;
+	img{
+		width: 135px !important;
+	}
+}
+.dropdown-menu-share{
+	left: 124% !important;
+	padding-left: 6px !important; 
+}

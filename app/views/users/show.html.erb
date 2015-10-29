@@ -29,10 +29,10 @@
           <%= @user.school %>
         </div>
         <div class = 'profile-followers'>
-           <!--<div class = 'element-profile-followers'>
+           <div class = 'element-profile-followers'>
             <p>Публикации</p>
             422
-          </div>-->
+          </div>
           <% if @user.followers_count != 0 %>
             <div class = 'element-profile-followers'>
               <% if @user != current_user %>
@@ -76,6 +76,21 @@
     </div>
     <%= react_component("PostBox",
         posts_url: posts_user_path(@user), show_panel: (current_user == @user) ) %>
+  </div>
+  <div class = 'right-branch'>
+    <div class = 'btn-group'>
+      <div class = 'share-microblog card-sp' data-toggle="dropdown">
+        <img src = '/images/megaphone.png' width='30'>
+        <p>Рассказать о микроблоге</p>
+      </div>
+      <ul class="dropdown-menu dropdown-menu-share" role="menu">
+        <li>
+          <script type="text/javascript">
+            document.write(VK.Share.button(false,{type: "round_nocount", text: "Рассказать о микроблоге"}));
+          </script>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
