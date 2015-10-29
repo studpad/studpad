@@ -29,10 +29,10 @@
           <%= @user.school %>
         </div>
         <div class = 'profile-followers'>
-           <div class = 'element-profile-followers'>
+           <!--<div class = 'element-profile-followers'>
             <p>Публикации</p>
             422
-          </div>
+          </div>-->
           <% if @user.followers_count != 0 %>
             <div class = 'element-profile-followers'>
               <% if @user != current_user %>
@@ -86,7 +86,9 @@
       <ul class="dropdown-menu dropdown-menu-share" role="menu">
         <li>
           <script type="text/javascript">
-            document.write(VK.Share.button(false,{type: "round_nocount", text: "Рассказать о микроблоге"}));
+            <script type="text/javascript">
+              document.write(VK.Share.button(false,{type: "round_nocount", text: "Рассказать о микроблоге"}));
+            </script>
           </script>
         </li>
       </ul>
