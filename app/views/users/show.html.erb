@@ -84,14 +84,23 @@
         <p>Рассказать о микроблоге</p>
       </div>
       <ul class="dropdown-menu dropdown-menu-share" role="menu">
-        <li>
-          <script type="text/javascript">
-              <!--document.write(VK.Share.button(false,{type: "round_nocount", text: "Рассказать о микроблоге"}));-->
-          </script>
-          </script>
+        <li id='vk_share_button'>
+          
         </li>
       </ul>
     </div>
   </div>
 </div>
-
+<script type="text/javascript">
+  document.getElementById('vk_share_button').innerHTML = VK.Share.button({
+    url: 'http://studpad.ru/profile',
+    title: 'Мой микроблог',
+    description: 'Это мой собственный сайт, я его очень долго делал',
+    image: 'http://studpad.ru/images/img-prospect.png',
+    noparse: true
+  },
+  {
+    type: 'link',
+    text: 'Вконтакте'
+  });
+</script>
