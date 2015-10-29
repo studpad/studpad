@@ -93,7 +93,7 @@
 </div>
 <script type="text/javascript">
   document.getElementById('vk_share_button').innerHTML = VK.Share.button({
-    url: 'http://studpad.ru/profile',
+    url: '<%= user_url(@user) %>',
     title: 'Мой микроблог',
     description: 'Это мой микроблог',
     image: 'http://studpad.ru/images/img-prospect.png',
