@@ -58,7 +58,6 @@ function main(){
     $(".choice-theme-material").next().children().children().addClass('my-setting-select2-selection');
 
     $(".type-profiles").click(function(){
-
       the_id = $(this).attr('id');
 
       if (the_id == 'all-students'){
@@ -70,7 +69,6 @@ function main(){
         $('#each-teachers').css('display', 'block');
       }
     });
-
 
 
 

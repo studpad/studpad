@@ -33,6 +33,15 @@ const PostCommentBox = React.createClass({
       $(node).val('');
     }
   },
+  getInitialState: function() {
+    return {html: "", show_emotions: false}
+  },
+  handleChange: function(event){
+      this.setState({html: event.target.value});
+  },
+  handleClick: function(event){
+      this.setState({show_emotions: true});
+  },
   //END*****************************************************DECLARE
   render: function() {
     var likes_count = this.props.likes;
@@ -45,17 +54,30 @@ const PostCommentBox = React.createClass({
         classname += ' post-like-active-animate';
     } else
       classname = 'post-like';
+    var httext = this.state.html;
 
+    if(this.state.show_emotions){
+      var emotions_list = (<div className='emotions-write-comment'>
+        <img className='emotion' src='/smiles/smile1.png' />
+        <img className='emotion' src='/smiles/smile7.png' />
+        <img className='emotion' src='/smiles/smile4.png' />
+        <img className='emotion' src='/smiles/smile9.png' />
+        <img className='emotion' src='/smiles/smile2.png' />
+        <img className='emotion' src='/smiles/smile6.png' />
+        <img className='emotion' src='/smiles/smile5.png' />
+        <img className='emotion' src='/smiles/smile8.png' />
+      </div>);
+    }
     return (
       <div>
         <div className='wrap-post-comments'>
           <div className='post-footer'>
             <div className='wrap-write-comment-post-footer'>
-              <textarea
-                ref='commentText'
-                className='form-control textarea-form-control-comment'
-                placeholder='Введите комментарий'>
-              </textarea>
+              
+              <div contentEditable='true' className='textarea-form-control-comment' onChange={this.handleChange} onClick={this.handleClick}>
+               {httext}
+              </div>
+              {emotions_list}
             </div>
             <div className='wrap-like-post-footer'>
               <span

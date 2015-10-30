@@ -78,7 +78,7 @@ var Comment = React.createClass({
             {menu}
           </div>
           <div className='text-unit-post-comments'>
-            {this.props.comment.text}
+            {this.props.comment.text} 
           </div>
         </div>
       );
