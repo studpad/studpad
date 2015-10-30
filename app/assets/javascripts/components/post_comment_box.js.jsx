@@ -74,7 +74,7 @@ const PostCommentBox = React.createClass({
           <div className='post-footer'>
             <div className='wrap-write-comment-post-footer'>
               
-              <div contentEditable='true' className='textarea-form-control-comment' onChange={this.handleChange} onClick={this.handleClick}>
+              <div contentEditable='true' placeholder="Введите комментарий" className='textarea-form-control-comment' onChange={this.handleChange} onClick={this.handleClick}>
                {httext}
               </div>
               {emotions_list}

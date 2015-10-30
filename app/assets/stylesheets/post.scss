@@ -435,6 +435,10 @@
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+.textarea-form-control-comment[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #ADADAD; 
+}
 .post-like{
 	cursor: pointer;
 	color: #DCB7AE;
