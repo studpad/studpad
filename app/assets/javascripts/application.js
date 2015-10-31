@@ -17,6 +17,7 @@
 //= require react_ujs
 //= require react_bootstrap
 //= require react-dropzone
+//= require sanitizer_base
 //= require components
 //= require bootstrap-sprockets
 //= require jquery.fancybox

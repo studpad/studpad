@@ -10,18 +10,18 @@ const PostCommentBox = React.createClass({
     likes: React.PropTypes.number.isRequired
   },
   componentDidMount: function() {
-    var node = this.refs.commentText.getDOMNode();
-    $(node).autoResize({
-      limit:600,
-      extraSpace:13,
-      animate:true
-    });
-    $(node).on('keydown', this.handleKeyDown);
-    $(node).change();
+    // var node = this.refs.commentText.getDOMNode();
+    // $(node).autoResize({
+    //   limit:600,
+    //   extraSpace:13,
+    //   animate:true
+    // });
+    // $(node).on('keydown', this.handleKeyDown);
+    // $(node).change();
   },
   componentWillUnmount: function() {
-    var node = this.refs.commentText.getDOMNode();
-    $(node).off('keydown', this.handleKeyDown);
+    // var node = this.refs.commentText.getDOMNode();
+    // $(node).off('keydown', this.handleKeyDown);
   },
   handleKeyDown: function(e) {
     var ENTER = 13;
@@ -34,13 +34,23 @@ const PostCommentBox = React.createClass({
     }
   },
   getInitialState: function() {
-    return {html: "", show_emotions: false}
+    return {
+      new_comment: "<img class='emotion' src='/smiles/smile1.png' />",
+      show_emotions: false
+    }
   },
   handleChange: function(event){
-      this.setState({html: event.target.value});
+    CL('change text');
+    this.setState({new_comment: event.target.value});
   },
   handleClick: function(event){
-      this.setState({show_emotions: true});
+    this.setState({show_emotions: true});
+  },
+  addSmile: function(smile_id){
+    var current_text = this.state.new_comment;
+    current_text = current_text + "<img class='emotion' src='/smiles/smile7.png' />";
+    this.setState({new_comment: current_text});
+    this.refs.ceditable.focus();
   },
   //END*****************************************************DECLARE
   render: function() {
@@ -54,29 +64,31 @@ const PostCommentBox = React.createClass({
         classname += ' post-like-active-animate';
     } else
       classname = 'post-like';
-    var httext = this.state.html;
 
     if(this.state.show_emotions){
-      var emotions_list = (<div className='emotions-write-comment'>
-        <img className='emotion' src='/smiles/smile1.png' />
-        <img className='emotion' src='/smiles/smile7.png' />
-        <img className='emotion' src='/smiles/smile4.png' />
-        <img className='emotion' src='/smiles/smile9.png' />
-        <img className='emotion' src='/smiles/smile2.png' />
-        <img className='emotion' src='/smiles/smile6.png' />
-        <img className='emotion' src='/smiles/smile5.png' />
-        <img className='emotion' src='/smiles/smile8.png' />
-      </div>);
+      var emotions_list = (
+        <div className='emotions-write-comment'>
+          <img onClick={this.addSmile} className='emotion' src='/smiles/smile1.png' />
+          <img className='emotion' src='/smiles/smile7.png' />
+          <img className='emotion' src='/smiles/smile4.png' />
+          <img className='emotion' src='/smiles/smile9.png' />
+          <img className='emotion' src='/smiles/smile2.png' />
+          <img className='emotion' src='/smiles/smile6.png' />
+          <img className='emotion' src='/smiles/smile5.png' />
+          <img className='emotion' src='/smiles/smile8.png' />
+        </div>
+      );
     }
     return (
       <div>
         <div className='wrap-post-comments'>
           <div className='post-footer'>
             <div className='wrap-write-comment-post-footer'>
-              
-              <div contentEditable='true' placeholder="Введите комментарий" className='textarea-form-control-comment' onChange={this.handleChange} onClick={this.handleClick}>
-               {httext}
-              </div>
+              <ContentEditable
+                ref='ceditable'
+                handleClick={this.handleClick}
+                html={this.state.new_comment}
+                onChange={this.handleChange} />
               {emotions_list}
             </div>
             <div className='wrap-like-post-footer'>
@@ -98,3 +110,69 @@ const PostCommentBox = React.createClass({
     );
   }
 })
+
+$.fn.setCursorPosition = function(pos) {
+  this.each(function(index, elem) {
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(pos, pos);
+    } else if (elem.createTextRange) {
+      var range = elem.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  });
+  return this;
+};
+
+var ContentEditable = React.createClass({
+    render: function(){
+      return <div
+        ref='text'
+        onInput={this.emitChange}
+        onBlur={this.emitChange}
+        onClick={this.handleClick}
+        placeholder="Введите комментарий"
+        className='textarea-form-control-comment'
+        contentEditable
+        dangerouslySetInnerHTML={{__html: this.props.html}}></div>;
+    },
+    shouldComponentUpdate: function(nextProps){
+      return nextProps.html !== this.getDOMNode().innerHTML;
+    },
+    focus: function(){
+      var node = this.refs.text.getDOMNode();
+      $(node).focus();
+      //var l = $(node).html().length;
+      //CI('end', l);
+      //var r = node.createTextRange();
+      // r.moveStart("character", l);
+      //r.moveEnd("character", l);
+      // r.select();
+      //window.getSelection().setPosition(3);
+      //$(node).setCursorPosition(3);
+    },
+    handleClick: function(){
+      this.props.handleClick();
+    },
+    emitChange: function(){
+      var html = this.getDOMNode().innerHTML;
+      if (this.props.onChange && html !== this.lastHtml) {
+        this.props.onChange({
+          target: {
+            value: html
+          }
+        });
+      }
+      this.lastHtml = html;
+    }
+});
+// <div
+//   contentEditable='true'
+//   placeholder="Введите комментарий"
+//   className='textarea-form-control-comment'
+//   onChange={this.handleChange}
+//   onClick={this.handleClick}
+//   dangerouslySetInnerHTML={{__html: this.state.new_comment}}>
+// </div>
