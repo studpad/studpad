@@ -79,7 +79,7 @@ var Comment = React.createClass({
       var final_text = this.props.comment.text;
       for (var key in emojis) {
         if (emojis.hasOwnProperty(key)) {
-          final_text = final_text.replace(key, createIcon(key));
+          final_text = final_text.replace(new RegExp(key, 'g'), createIcon(key));
         }
       }
       main_part = (
