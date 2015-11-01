@@ -48,7 +48,7 @@ const PostCommentBox = React.createClass({
   },
   addSmile: function(smile_id){
     var current_text = this.state.new_comment;
-    current_text = current_text + "<img class='emotion' src='/smiles/smile7.png' />";
+    current_text = current_text + ":D";
     this.setState({new_comment: current_text});
     this.refs.ceditable.focus();
   },
@@ -138,12 +138,20 @@ var ContentEditable = React.createClass({
         contentEditable
         dangerouslySetInnerHTML={{__html: this.props.html}}></div>;
     },
+    componentDidMount: function(){
+        var node = this.refs.text.getDOMNode();
+        $(node).emojiarea({
+          buttonLabel: '&#9786;',
+          buttonPosition: 'before',
+        });
+    },
     shouldComponentUpdate: function(nextProps){
       return nextProps.html !== this.getDOMNode().innerHTML;
     },
     focus: function(){
       var node = this.refs.text.getDOMNode();
       $(node).focus();
+      setCaretToPos(node, 5);
       //var l = $(node).html().length;
       //CI('end', l);
       //var r = node.createTextRange();

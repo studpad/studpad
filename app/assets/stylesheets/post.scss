@@ -415,7 +415,7 @@
 .post-comments .object-maintext{
 	font-weight: 500;
 }
-.textarea-form-control-comment{
+.textarea-form-control-comment, .emoji-wysiwyg-editor{
 	display: block;
   width: 100%;
   font-size: 12px !important;
@@ -423,6 +423,7 @@
   border-radius: 2px;
   border: 1px solid #BDC5D0;
   padding: 5px;
+  padding-right: 26px;
   cursor: text;
   line-height: 1.42857143;
   color: #555555;
@@ -434,6 +435,24 @@
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.emoji-wysiwyg-editor img{
+	margin-left: 2px !important;
+	margin-right: 2px !important;
+	width: 28px !important;
+	height: 28px !important;
+}
+.emoji-button{
+	float: right;
+	font-size: 22px;
+  color: #AAABAC;
+  outline: none;
+  height: 0px;
+  transition-duration: .3s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+  position: relative;
+  right: 5px;
 }
 .textarea-form-control-comment[placeholder]:empty:before {
     content: attr(placeholder);

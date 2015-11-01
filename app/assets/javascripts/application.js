@@ -18,6 +18,7 @@
 //= require react_bootstrap
 //= require react-dropzone
 //= require sanitizer_base
+//= require emotions
 //= require components
 //= require bootstrap-sprockets
 //= require jquery.fancybox
