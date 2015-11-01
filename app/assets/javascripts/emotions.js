@@ -409,7 +409,7 @@ $(document).on("page:load ready", function() {
     for (var key in options) {
       if (options.hasOwnProperty(key)) {
         var filename = options[key];
-        html.push('<a href="javascript:void(0)" title="' + util.htmlEntities(key) + '">' + EmojiArea.createIcon(key) + '<span class="label">' + util.htmlEntities(key) + '</span></a>');
+        html.push('<a href="javascript:void(0)">' + EmojiArea.createIcon(key) + '<span class="label">' + util.htmlEntities(key) + '</span></a>');
       }
     }
 
