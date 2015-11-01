@@ -71,7 +71,7 @@ function main(){
     });
 
 
-  $.emojiarea.path = '';
+  $.emojiarea.path = '/';
   $.emojiarea.icons = {
       ':smiley:'         : 'smile1.png',
       ':blush:'          : 'smile2.png',
@@ -220,7 +220,7 @@ function main(){
 
     $('.dark-background-for-how-does-it-work, .description-hdiw').css('display', 'none');
     $('.wrap-mike, .post-container, #profile_user, .first-left-block, .follow-offer, .title-background, .new-post-buttons').css('z-index', '999');
-    
+
     var newAttrData = 'publications';
     $('.next-episode-how-does-it-work').data('episode', newAttrData).attr('data-episode', newAttrData);
     $('.next-episode-how-does-it-work').css('display', 'inline');
@@ -228,7 +228,7 @@ function main(){
     var description = "Знакомьтесь, это Михал Палыч. Веселее, дружелюбнее и щедрее летчика мы еще не видели! Он будет с вами делиться историями, ссылками, музыкой и даже видеороликами.";
     $('.description-hdiw').addClass('description-hdiw-mike-speach').removeClass('description-hdiw-publications').removeClass('description-hdiw-me').removeClass('description-hdiw-last-publicators').removeClass('description-hdiw-recommend-people').removeClass('description-hdiw-panel-publications').html(description);
   });
-  
+
   //сменить эпизод КАК ЭТО РАБОТАЕТ
   $('.next-episode-how-does-it-work').click(function(){
     var nextStation = $(this).data('episode');
