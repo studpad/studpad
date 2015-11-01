@@ -71,22 +71,6 @@ function main(){
     });
 
 
-  $.emojiarea.path = '/';
-  $.emojiarea.icons = {
-      ':smiley:'         : 'smile1.png',
-      ':blush:'          : 'smile2.png',
-      ':wink:'           : 'smile4.png',
-      ':yum:'            : 'smile9.png',
-      ':relieved:'       : 'smile8.png',
-      ':laughing:'       : 'smile7.png',
-      ':sunglasses:'     : 'smile5.png',
-      ':grin:'           : 'smile6.png',
-      ':thumbsup:'       : 'thumbsup.png',
-      ':clap:'        : 'applause.png',
-
-  };
-
-
   $(".fancybox-thumb").fancybox({
     parent: 'body',
     prevEffect  : 'none',
@@ -283,5 +267,20 @@ function main(){
     }
   });
 }
+
+$.emojiarea.path = '/';
+  $.emojiarea.icons = {
+      ':smiley:'         : 'smile1.png',
+      ':blush:'          : 'smile2.png',
+      ':wink:'           : 'smile4.png',
+      ':yum:'            : 'smile9.png',
+      ':relieved:'       : 'smile8.png',
+      ':laughing:'       : 'smile7.png',
+      ':sunglasses:'     : 'smile5.png',
+      ':grin:'           : 'smile6.png',
+      ':thumbsup:'       : 'thumbsup.png',
+      ':clap:'           : 'applause.png',
+
+  };
 
 $(document).on("page:load ready", main)
