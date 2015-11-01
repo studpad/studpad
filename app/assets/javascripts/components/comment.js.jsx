@@ -4,6 +4,16 @@ var Comment = React.createClass({
       editable: false
     };
   },
+  ////$(node).emojiarea({wysiwyg: true})
+  componentDidMount: function() {
+    if (this.refs.ceditable) {
+      var node = this.refs.ceditable.getDOMNode();
+      $(node).emojiarea({
+        button: false,
+        wysiwyg: false
+      });
+    };
+  },
   removeClick: function(){
     this.props.removeComment(this.props.comment.id)
   },
@@ -65,6 +75,13 @@ var Comment = React.createClass({
           </span>
         );
       }
+      var emojis = $.emojiarea.icons;
+      var final_text = this.props.comment.text;
+      for (var key in emojis) {
+        if (emojis.hasOwnProperty(key)) {
+          final_text = final_text.replace(key, createIcon(key));
+        }
+      }
       main_part = (
         <div className='object-text'>
           <div className='object-maintext'>
@@ -77,9 +94,8 @@ var Comment = React.createClass({
             </span>
             {menu}
           </div>
-          <div className='text-unit-post-comments'>
-            {this.props.comment.text} 
-          </div>
+          <div className='text-unit-post-comments emoji-wysiwyg-editor' ref='ceditable'
+          dangerouslySetInnerHTML={{__html: final_text}}/>
         </div>
       );
     }
@@ -108,6 +124,7 @@ var CommentText = React.createClass({
       extraSpace: 13,
       animate: true
     });
+    //$(node).emojiarea({wysiwyg: true})
     $(node).on('keydown', this.handleKeyDown);
     $(node).change();
   },
@@ -136,6 +153,16 @@ var CommentText = React.createClass({
     );
   }
 });
+
+createIcon = function(emoji) {
+  var filename = $.emojiarea.icons[emoji];
+  var path = $.emojiarea.path || '';
+  if (path.length && path.charAt(path.length - 1) !== '/') {
+    path += '/';
+  }
+  return '<img src="' + path + filename + '">';
+};
+
   // <div className="unit-post-comments">
   //   <div className="preview-object">
   //     <div className="preview-object-avatar-mini" style={style}>

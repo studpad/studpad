@@ -10,6 +10,12 @@ const PostCommentBox = React.createClass({
     likes: React.PropTypes.number.isRequired
   },
   componentDidMount: function() {
+    var node = this.refs.ceditable.getDOMNode();
+      $(node).emojiarea({
+        buttonLabel: '&#9786;',
+        buttonPosition: 'before',
+      });
+      $(node).next().next().on('keydown', this.handleKeyDown);
     // var node = this.refs.commentText.getDOMNode();
     // $(node).autoResize({
     //   limit:600,
@@ -24,33 +30,19 @@ const PostCommentBox = React.createClass({
     // $(node).off('keydown', this.handleKeyDown);
   },
   handleKeyDown: function(e) {
+    CI('keydown');
     var ENTER = 13;
     if( e.keyCode == ENTER ) {
       e.preventDefault();
-      var node = this.refs.commentText.getDOMNode();
+      var node = this.refs.ceditable.getDOMNode();
       if (currentUser)
         this.props.createComment(node.value);
       $(node).val('');
-    }
-  },
-  getInitialState: function() {
-    return {
-      new_comment: "<img class='emotion' src='/smiles/smile1.png' />",
-      show_emotions: false
+      $(node).next().next().html('');
     }
   },
   handleChange: function(event){
-    CL('change text');
     this.setState({new_comment: event.target.value});
-  },
-  handleClick: function(event){
-    this.setState({show_emotions: true});
-  },
-  addSmile: function(smile_id){
-    var current_text = this.state.new_comment;
-    current_text = current_text + ":D";
-    this.setState({new_comment: current_text});
-    this.refs.ceditable.focus();
   },
   //END*****************************************************DECLARE
   render: function() {
@@ -64,32 +56,14 @@ const PostCommentBox = React.createClass({
         classname += ' post-like-active-animate';
     } else
       classname = 'post-like';
-
-    if(this.state.show_emotions){
-      var emotions_list = (
-        <div className='emotions-write-comment'>
-          <img onClick={this.addSmile} className='emotion' src='/smiles/smile1.png' />
-          <img className='emotion' src='/smiles/smile7.png' />
-          <img className='emotion' src='/smiles/smile4.png' />
-          <img className='emotion' src='/smiles/smile9.png' />
-          <img className='emotion' src='/smiles/smile2.png' />
-          <img className='emotion' src='/smiles/smile6.png' />
-          <img className='emotion' src='/smiles/smile5.png' />
-          <img className='emotion' src='/smiles/smile8.png' />
-        </div>
-      );
-    }
     return (
       <div>
         <div className='wrap-post-comments'>
           <div className='post-footer'>
             <div className='wrap-write-comment-post-footer'>
-              <ContentEditable
+              <textarea
                 ref='ceditable'
-                handleClick={this.handleClick}
-                html={this.state.new_comment}
                 onChange={this.handleChange} />
-              {emotions_list}
             </div>
             <div className='wrap-like-post-footer'>
               <span
@@ -111,71 +85,42 @@ const PostCommentBox = React.createClass({
   }
 })
 
-$.fn.setCursorPosition = function(pos) {
-  this.each(function(index, elem) {
-    if (elem.setSelectionRange) {
-      elem.setSelectionRange(pos, pos);
-    } else if (elem.createTextRange) {
-      var range = elem.createTextRange();
-      range.collapse(true);
-      range.moveEnd('character', pos);
-      range.moveStart('character', pos);
-      range.select();
-    }
-  });
-  return this;
-};
-
-var ContentEditable = React.createClass({
-    render: function(){
-      return <div
-        ref='text'
-        onInput={this.emitChange}
-        onBlur={this.emitChange}
-        onClick={this.handleClick}
-        placeholder="Введите комментарий"
-        className='textarea-form-control-comment'
-        contentEditable
-        dangerouslySetInnerHTML={{__html: this.props.html}}></div>;
-    },
-    componentDidMount: function(){
-        var node = this.refs.text.getDOMNode();
-        $(node).emojiarea({
-          buttonLabel: '&#9786;',
-          buttonPosition: 'before',
-        });
-    },
-    shouldComponentUpdate: function(nextProps){
-      return nextProps.html !== this.getDOMNode().innerHTML;
-    },
-    focus: function(){
-      var node = this.refs.text.getDOMNode();
-      $(node).focus();
-      setCaretToPos(node, 5);
-      //var l = $(node).html().length;
-      //CI('end', l);
-      //var r = node.createTextRange();
-      // r.moveStart("character", l);
-      //r.moveEnd("character", l);
-      // r.select();
-      //window.getSelection().setPosition(3);
-      //$(node).setCursorPosition(3);
-    },
-    handleClick: function(){
-      this.props.handleClick();
-    },
-    emitChange: function(){
-      var html = this.getDOMNode().innerHTML;
-      if (this.props.onChange && html !== this.lastHtml) {
-        this.props.onChange({
-          target: {
-            value: html
-          }
-        });
-      }
-      this.lastHtml = html;
-    }
-});
+// var ContentEditable = React.createClass({
+//     render: function(){
+//       return <div
+//         ref='text'
+//         onInput={this.emitChange}
+//         onBlur={this.emitChange}
+//         placeholder="Введите комментарий"
+//         className='textarea-form-control-comment'
+//         contentEditable
+//         dangerouslySetInnerHTML={{__html: this.props.html}}></div>;
+//     },
+//     componentDidMount: function(){
+//       var node = this.refs.text.getDOMNode();
+//       $(node).emojiarea({
+//         buttonLabel: '&#9786;',
+//         buttonPosition: 'before',
+//       });
+//     },
+//     shouldComponentUpdate: function(nextProps){
+//       return nextProps.html !== this.getDOMNode().innerHTML;
+//     },
+//     // handleClick: function(){
+//     //   this.props.handleClick();
+//     // },
+//     emitChange: function(){
+//       var html = this.getDOMNode().innerHTML;
+//       if (this.props.onChange && html !== this.lastHtml) {
+//         this.props.onChange({
+//           target: {
+//             value: html
+//           }
+//         });
+//       }
+//       this.lastHtml = html;
+//     }
+// });
 // <div
 //   contentEditable='true'
 //   placeholder="Введите комментарий"
