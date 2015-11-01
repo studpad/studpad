@@ -52,6 +52,7 @@ var Comment = React.createClass({
             </span>
           </div>
           <CommentText
+            key='textarea'
             updateComment={this.updateComment}
             text={this.props.comment.text}/>
         </div>
@@ -119,18 +120,22 @@ var Comment = React.createClass({
 var CommentText = React.createClass({
   componentDidMount: function() {
     var node = this.refs.text.getDOMNode();
-    $(node).autoResize({
-      limit: 600,
-      extraSpace: 13,
-      animate: true
+    // $(node).autoResize({
+    //   limit: 600,
+    //   extraSpace: 13,
+    //   animate: true
+    // });
+    $(node).emojiarea({
+      buttonLabel: '&#9786;',
+      buttonPosition: 'before',
     });
     //$(node).emojiarea({wysiwyg: true})
-    $(node).on('keydown', this.handleKeyDown);
-    $(node).change();
+    $(node).next().next().on('keydown', this.handleKeyDown);
+    //$(node).change();
   },
   componentWillUnmount: function() {
     var node = this.refs.text.getDOMNode();
-    $(node).off('keydown', this.handleKeyDown);
+    $(node).next().next().off('keydown', this.handleKeyDown);
     // $(node).unbind('.autoResize');
   },
   handleKeyDown: function(e){

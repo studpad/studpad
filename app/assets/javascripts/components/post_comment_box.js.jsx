@@ -15,7 +15,8 @@ const PostCommentBox = React.createClass({
         buttonLabel: '&#9786;',
         buttonPosition: 'before',
       });
-      $(node).next().next().on('keydown', this.handleKeyDown);
+      $(node).next().next().on('keydown', this.handleKeyDown)
+      $(node).next().next().attr("placeholder", "Ваш комментарий");
     // var node = this.refs.commentText.getDOMNode();
     // $(node).autoResize({
     //   limit:600,

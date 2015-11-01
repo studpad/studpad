@@ -123,7 +123,7 @@
 	font-size: 13px;
 	margin-bottom: 20px;
 	margin-top: 8px;
-	white-space: pre-line; 
+	white-space: pre-line;
 }
 /* типы постов */
 /* цитата */
@@ -364,7 +364,7 @@
 	color: #AAABAC;
 	font-size: 11px;
 	font-weight: normal;
-} 
+}
 .unit-post-comments .sign-dots-menu{
 	float: right;
 	font-size: 14px;
@@ -372,7 +372,7 @@
 .unit-post-comments .dropdown-menu{
 	top: 17px;
   left: 97% !important;
-} 
+}
 .text-unit-post-comments{
   padding: 10px;
   margin-top: 3px;
@@ -456,7 +456,7 @@
 }
 .textarea-form-control-comment[placeholder]:empty:before {
     content: attr(placeholder);
-    color: #ADADAD; 
+    color: #ADADAD;
 }
 .post-like{
 	cursor: pointer;
@@ -474,7 +474,7 @@
 		position: relative;
 		top: 2px;
 		font-size: 20px;
-    content: "\f004"; 
+    content: "\f004";
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
@@ -500,4 +500,9 @@
     100%{
         transform: scale(1);
     }
+}
+
+.emoji-wysiwyg-editor[placeholder]:empty:before {
+  content: attr(placeholder);
+  color: #ADADAD;
 }
