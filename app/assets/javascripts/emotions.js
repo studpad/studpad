@@ -1,14 +1,476 @@
-/*! jquery.emojiarea.js | https://github.com/diy/jquery-emojiarea | Apache License (v2) */
-(function(d,i,e){var p=["p","div","pre","form"];d.emojiarea={path:"",icons:{},defaults:{button:null,buttonLabel:"Emojis",buttonPosition:"after"}};d.fn.emojiarea=function(a){a=d.extend({},d.emojiarea.defaults,a);return this.each(function(){var b=d(this);"contentEditable"in e.body&&!1!==a.wysiwyg?new l(b,a):new m(b,a)})};var g={},k;k=i.getSelection?function(a){var b=i.getSelection();b.removeAllRanges();for(var c=0,f=a.length;c<f;++c)b.addRange(a[c])}:e.selection&&e.selection.createRange?function(a){a&&
-a.select()}:void 0;g.restoreSelection=k;k=i.getSelection?function(){var a=i.getSelection(),b=[];if(a.rangeCount)for(var c=0,f=a.rangeCount;c<f;++c)b.push(a.getRangeAt(c));return b}:e.selection&&e.selection.createRange?function(){var a=e.selection;return"none"!==a.type.toLowerCase()?a.createRange():null}:void 0;g.saveSelection=k;k=i.getSelection?function(a){var b,c=i.getSelection(),f="string"===typeof a?e.createTextNode(a):a;c.getRangeAt&&c.rangeCount&&(b=c.getRangeAt(0),b.deleteContents(),b.insertNode(e.createTextNode(" ")),
-b.insertNode(f),b.setStart(f,0),i.setTimeout(function(){b=e.createRange();b.setStartAfter(f);b.collapse(!0);c.removeAllRanges();c.addRange(b)},0))}:e.selection&&e.selection.createRange?function(a){var b=e.selection.createRange();"string"===typeof a?b.text=a:b.pasteHTML(a.outerHTML)}:void 0;g.replaceSelection=k;g.insertAtCursor=function(a,b){var a=" "+a,c=b.value,f;"undefined"!=typeof b.selectionStart&&"undefined"!=typeof b.selectionEnd?(f=b.selectionStart,b.value=c.substring(0,f)+a+c.substring(b.selectionEnd),
-b.selectionStart=b.selectionEnd=f+a.length):"undefined"!=typeof e.selection&&"undefined"!=typeof e.selection.createRange&&(b.focus(),c=e.selection.createRange(),c.text=a,c.select())};g.extend=function(a,b){if("undefined"===typeof a||!a)a={};if("object"===typeof b)for(var c in b)b.hasOwnProperty(c)&&(a[c]=b[c]);return a};g.escapeRegex=function(a){return(a+"").replace(/([.?*+^$[\]\\(){}|-])/g,"\\$1")};g.htmlEntities=function(a){return String(a).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,
-"&gt;").replace(/"/g,"&quot;")};var j=function(){};j.prototype.setup=function(){var a=this;this.$editor.on("focus",function(){a.hasFocus=!0});this.$editor.on("blur",function(){a.hasFocus=!1});this.setupButton()};j.prototype.setupButton=function(){var a=this,b;this.options.button?b=d(this.options.button):!1!==this.options.button?(b=d('<a href="javascript:void(0)">'),b.html(this.options.buttonLabel),b.addClass("emoji-button"),b.attr({title:this.options.buttonLabel}),this.$editor[this.options.buttonPosition](b)):
-b=d("");b.on("click",function(b){h.show(a);b.stopPropagation()});this.$button=b};j.createIcon=function(a){var b=d.emojiarea.icons[a],c=d.emojiarea.path||"";c.length&&"/"!==c.charAt(c.length-1)&&(c+="/");return'<img src="'+c+b+'" alt="'+g.htmlEntities(a)+'">'};var m=function(a,b){this.options=b;this.$editor=this.$textarea=a;this.setup()};m.prototype.insert=function(a){d.emojiarea.icons.hasOwnProperty(a)&&(g.insertAtCursor(a,this.$textarea[0]),this.$textarea.trigger("change"))};m.prototype.val=function(){return this.$textarea.val()};
-g.extend(m.prototype,j.prototype);var l=function(a,b){var c=this;this.options=b;this.$textarea=a;this.$editor=d("<div>").addClass("emoji-wysiwyg-editor");this.$editor.text(a.val());this.$editor.attr({contenteditable:"true"});this.$editor.on("blur keyup paste",function(){return c.onChange.apply(c,arguments)});this.$editor.on("mousedown focus",function(){e.execCommand("enableObjectResizing",!1,!1)});this.$editor.on("blur",function(){e.execCommand("enableObjectResizing",!0,!0)});var f=this.$editor.text(),
-i=d.emojiarea.icons,h;for(h in i)i.hasOwnProperty(h)&&(f=f.replace(RegExp(g.escapeRegex(h),"g"),j.createIcon(h)));this.$editor.html(f);a.hide().after(this.$editor);this.setup();this.$button.on("mousedown",function(){c.hasFocus&&(c.selection=g.saveSelection())})};l.prototype.onChange=function(){this.$textarea.val(this.val()).trigger("change")};l.prototype.insert=function(a){a=d(j.createIcon(a));a[0].attachEvent&&a[0].attachEvent("onresizestart",function(a){a.returnValue=!1},!1);this.$editor.trigger("focus");
-this.selection&&g.restoreSelection(this.selection);try{g.replaceSelection(a[0])}catch(b){}this.onChange()};l.prototype.val=function(){for(var a=[],b=[],c=function(){a.push(b.join(""));b=[]},f=function(a){if(3===a.nodeType)b.push(a.nodeValue);else if(1===a.nodeType){var d=a.tagName.toLowerCase(),e=-1!==p.indexOf(d);e&&b.length&&c();if("img"===d)(e=a.getAttribute("alt")||"")&&b.push(e);else{"br"===d&&c();a=a.childNodes;for(d=0;d<a.length;d++)f(a[d]);e&&b.length&&c()}}},d=this.$editor[0].childNodes,
-e=0;e<d.length;e++)f(d[e]);b.length&&c();return a.join("\n")};g.extend(l.prototype,j.prototype);var h=function(){var a=this,b=d(e.body),c=d(i);this.visible=!1;this.emojiarea=null;this.$menu=d("<div>");this.$menu.addClass("emoji-menu");this.$menu.hide();this.$items=d("<div>").appendTo(this.$menu);b.append(this.$menu);b.on("keydown",function(b){(27===b.keyCode||9===b.keyCode)&&a.hide()});b.on("mouseup",function(){a.hide()});c.on("resize",function(){a.visible&&a.reposition()});this.$menu.on("mouseup",
-"a",function(a){a.stopPropagation();return!1});this.$menu.on("click","a",function(b){var c=d(".label",d(this)).text();i.setTimeout(function(){a.onItemSelected.apply(a,[c])},0);b.stopPropagation();return!1});this.load()};h.prototype.onItemSelected=function(a){this.emojiarea.insert(a);this.hide()};h.prototype.load=function(){var a=[],b=d.emojiarea.icons,c=d.emojiarea.path;c.length&&c.charAt(c.length-1);for(var e in b)b.hasOwnProperty(e)&&a.push('<a href="javascript:void(0)" title="'+g.htmlEntities(e)+
-'">'+j.createIcon(e)+'<span class="label">'+g.htmlEntities(e)+"</span></a>");this.$items.html(a.join(""))};h.prototype.reposition=function(){var a=this.emojiarea.$button,b=a.offset();b.top+=a.outerHeight();b.left+=Math.round(a.outerWidth()/2);this.$menu.css({top:b.top,left:b.left})};h.prototype.hide=function(){this.emojiarea&&(this.emojiarea.menu=null,this.emojiarea.$button.removeClass("on"),this.emojiarea=null);this.visible=!1;this.$menu.hide()};h.prototype.show=function(a){this.emojiarea&&this.emojiarea===
-a||(this.emojiarea=a,this.emojiarea.menu=this,this.reposition(),this.$menu.show(),this.visible=!0)};var n=null;h.show=function(a){n=n||new h;n.show(a)}})(jQuery,window,document);
+/**
+ * emojiarea - A rich textarea control that supports emojis, WYSIWYG-style.
+ * Copyright (c) 2012 DIY Co
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ *
+ * @author Brian Reavis <brian@diy.org>
+ */
+$(document).on("page:load ready", function() {
+
+(function($, window, document) {
+
+  var ELEMENT_NODE = 1;
+  var TEXT_NODE = 3;
+  var TAGS_BLOCK = ['p', 'div', 'pre', 'form'];
+  var KEY_ESC = 27;
+  var KEY_TAB = 9;
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  $.emojiarea = {
+    path: '',
+    icons: {},
+    defaults: {
+      button: null,
+      buttonLabel: 'Emojis',
+      buttonPosition: 'after'
+    }
+  };
+
+  $.fn.emojiarea = function(options) {
+    options = $.extend({}, $.emojiarea.defaults, options);
+    return this.each(function() {
+      var $textarea = $(this);
+      if ('contentEditable' in document.body && options.wysiwyg !== false) {
+        new EmojiArea_WYSIWYG($textarea, options);
+      } else {
+        new EmojiArea_Plain($textarea, options);
+      }
+    });
+  };
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  var util = {};
+
+  util.restoreSelection = (function() {
+    if (window.getSelection) {
+      return function(savedSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        for (var i = 0, len = savedSelection.length; i < len; ++i) {
+          sel.addRange(savedSelection[i]);
+        }
+      };
+    } else if (document.selection && document.selection.createRange) {
+      return function(savedSelection) {
+        if (savedSelection) {
+          savedSelection.select();
+        }
+      };
+    }
+  })();
+
+  util.saveSelection = (function() {
+    if (window.getSelection) {
+      return function() {
+        var sel = window.getSelection(), ranges = [];
+        if (sel.rangeCount) {
+          for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+            ranges.push(sel.getRangeAt(i));
+          }
+        }
+        return ranges;
+      };
+    } else if (document.selection && document.selection.createRange) {
+      return function() {
+        var sel = document.selection;
+        return (sel.type.toLowerCase() !== 'none') ? sel.createRange() : null;
+      };
+    }
+  })();
+
+  util.replaceSelection = (function() {
+    if (window.getSelection) {
+      return function(content) {
+        var range, sel = window.getSelection();
+        var node = typeof content === 'string' ? document.createTextNode(content) : content;
+        if (sel.getRangeAt && sel.rangeCount) {
+          range = sel.getRangeAt(0);
+          range.deleteContents();
+          range.insertNode(document.createTextNode(' '));
+          range.insertNode(node);
+          range.setStart(node, 0);
+
+          window.setTimeout(function() {
+            range = document.createRange();
+            range.setStartAfter(node);
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }, 0);
+        }
+      }
+    } else if (document.selection && document.selection.createRange) {
+      return function(content) {
+        var range = document.selection.createRange();
+        if (typeof content === 'string') {
+          range.text = content;
+        } else {
+          range.pasteHTML(content.outerHTML);
+        }
+      }
+    }
+  })();
+
+  util.insertAtCursor = function(text, el) {
+    text = ' ' + text;
+    var val = el.value, endIndex, startIndex, range;
+    if (typeof el.selectionStart != 'undefined' && typeof el.selectionEnd != 'undefined') {
+      startIndex = el.selectionStart;
+      endIndex = el.selectionEnd;
+      el.value = val.substring(0, startIndex) + text + val.substring(el.selectionEnd);
+      el.selectionStart = el.selectionEnd = startIndex + text.length;
+    } else if (typeof document.selection != 'undefined' && typeof document.selection.createRange != 'undefined') {
+      el.focus();
+      range = document.selection.createRange();
+      range.text = text;
+      range.select();
+    }
+  };
+
+  util.extend = function(a, b) {
+    if (typeof a === 'undefined' || !a) { a = {}; }
+    if (typeof b === 'object') {
+      for (var key in b) {
+        if (b.hasOwnProperty(key)) {
+          a[key] = b[key];
+        }
+      }
+    }
+    return a;
+  };
+
+  util.escapeRegex = function(str) {
+    return (str + '').replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+  };
+
+  util.htmlEntities = function(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  };
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  var EmojiArea = function() {};
+
+  EmojiArea.prototype.setup = function() {
+    var self = this;
+
+    this.$editor.on('focus', function() { self.hasFocus = true; });
+    this.$editor.on('blur', function() { self.hasFocus = false; });
+
+    this.setupButton();
+  };
+
+  EmojiArea.prototype.setupButton = function() {
+    var self = this;
+    var $button;
+
+    if (this.options.button) {
+      $button = $(this.options.button);
+    } else if (this.options.button !== false) {
+      $button = $('<a>');
+      $button.html(this.options.buttonLabel);
+      $button.addClass('emoji-button');
+      $button.attr({title: this.options.buttonLabel});
+      this.$editor[this.options.buttonPosition]($button);
+    } else {
+      $button = $('');
+    }
+
+    $button.on('click', function(e) {
+      EmojiMenu.show(self);
+      e.stopPropagation();
+    });
+
+    this.$button = $button;
+  };
+
+  EmojiArea.createIcon = function(emoji) {
+    var filename = $.emojiarea.icons[emoji];
+    var path = $.emojiarea.path || '';
+    if (path.length && path.charAt(path.length - 1) !== '/') {
+      path += '/';
+    }
+    return '<img src="' + path + filename + '" alt="' + util.htmlEntities(emoji) + '">';
+  };
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  /**
+   * Editor (plain-text)
+   *
+   * @constructor
+   * @param {object} $textarea
+   * @param {object} options
+   */
+
+  var EmojiArea_Plain = function($textarea, options) {
+    this.options = options;
+    this.$textarea = $textarea;
+    this.$editor = $textarea;
+    this.setup();
+  };
+
+  EmojiArea_Plain.prototype.insert = function(emoji) {
+    if (!$.emojiarea.icons.hasOwnProperty(emoji)) return;
+    util.insertAtCursor(emoji, this.$textarea[0]);
+    this.$textarea.trigger('change');
+  };
+
+  EmojiArea_Plain.prototype.val = function() {
+    return this.$textarea.val();
+  };
+
+  util.extend(EmojiArea_Plain.prototype, EmojiArea.prototype);
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  /**
+   * Editor (rich)
+   *
+   * @constructor
+   * @param {object} $textarea
+   * @param {object} options
+   */
+
+  var EmojiArea_WYSIWYG = function($textarea, options) {
+    var self = this;
+
+    this.options = options;
+    this.$textarea = $textarea;
+    this.$editor = $('<div>').addClass('emoji-wysiwyg-editor');
+    this.$editor.text($textarea.val());
+    this.$editor.attr({contenteditable: 'true'});
+    this.$editor.on('blur keyup paste', function() { return self.onChange.apply(self, arguments); });
+    this.$editor.on('mousedown focus', function() { document.execCommand('enableObjectResizing', false, false); });
+    this.$editor.on('blur', function() { document.execCommand('enableObjectResizing', true, true); });
+
+    var html = this.$editor.text();
+    var emojis = $.emojiarea.icons;
+    for (var key in emojis) {
+      if (emojis.hasOwnProperty(key)) {
+        html = html.replace(new RegExp(util.escapeRegex(key), 'g'), EmojiArea.createIcon(key));
+      }
+    }
+    this.$editor.html(html);
+
+    $textarea.hide().after(this.$editor);
+
+    this.setup();
+
+    this.$button.on('mousedown', function() {
+      if (self.hasFocus) {
+        self.selection = util.saveSelection();
+      }
+    });
+  };
+
+  EmojiArea_WYSIWYG.prototype.onChange = function() {
+    this.$textarea.val(this.val()).trigger('change');
+  };
+
+  EmojiArea_WYSIWYG.prototype.insert = function(emoji) {
+    var content;
+    var $img = $(EmojiArea.createIcon(emoji));
+    if ($img[0].attachEvent) {
+      $img[0].attachEvent('onresizestart', function(e) { e.returnValue = false; }, false);
+    }
+
+    this.$editor.trigger('focus');
+    if (this.selection) {
+      util.restoreSelection(this.selection);
+    }
+    try { util.replaceSelection($img[0]); } catch (e) {}
+    this.onChange();
+  };
+
+  EmojiArea_WYSIWYG.prototype.val = function() {
+    var lines = [];
+    var line  = [];
+
+    var flush = function() {
+      lines.push(line.join(''));
+      line = [];
+    };
+
+    var sanitizeNode = function(node) {
+      if (node.nodeType === TEXT_NODE) {
+        line.push(node.nodeValue);
+      } else if (node.nodeType === ELEMENT_NODE) {
+        var tagName = node.tagName.toLowerCase();
+        var isBlock = TAGS_BLOCK.indexOf(tagName) !== -1;
+
+        if (isBlock && line.length) flush();
+
+        if (tagName === 'img') {
+          var alt = node.getAttribute('alt') || '';
+          if (alt) line.push(alt);
+          return;
+        } else if (tagName === 'br') {
+          flush();
+        }
+
+        var children = node.childNodes;
+        for (var i = 0; i < children.length; i++) {
+          sanitizeNode(children[i]);
+        }
+
+        if (isBlock && line.length) flush();
+      }
+    };
+
+    var children = this.$editor[0].childNodes;
+    for (var i = 0; i < children.length; i++) {
+      sanitizeNode(children[i]);
+    }
+
+    if (line.length) flush();
+
+    return lines.join('\n');
+  };
+
+  util.extend(EmojiArea_WYSIWYG.prototype, EmojiArea.prototype);
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  /**
+   * Emoji Dropdown Menu
+   *
+   * @constructor
+   * @param {object} emojiarea
+   */
+  var EmojiMenu = function() {
+    var self = this;
+    var $body = $(document.body);
+    var $window = $(window);
+
+    this.visible = false;
+    this.emojiarea = null;
+    this.$menu = $('<div>');
+    this.$menu.addClass('emoji-menu');
+    this.$menu.hide();
+    this.$items = $('<div>').appendTo(this.$menu);
+
+    $body.append(this.$menu);
+
+    $body.on('keydown', function(e) {
+      if (e.keyCode === KEY_ESC || e.keyCode === KEY_TAB) {
+        self.hide();
+      }
+    });
+
+    $body.on('mouseup', function() {
+      self.hide();
+    });
+
+    $window.on('resize', function() {
+      if (self.visible) self.reposition();
+    });
+
+    this.$menu.on('mouseup', 'a', function(e) {
+      e.stopPropagation();
+      return false;
+    });
+
+    this.$menu.on('click', 'a', function(e) {
+      var emoji = $('.label', $(this)).text();
+      window.setTimeout(function() {
+        self.onItemSelected.apply(self, [emoji]);
+      }, 0);
+      e.stopPropagation();
+      return false;
+    });
+
+    this.load();
+  };
+
+  EmojiMenu.prototype.onItemSelected = function(emoji) {
+    this.emojiarea.insert(emoji);
+    this.hide();
+  };
+
+  EmojiMenu.prototype.load = function() {
+    var html = [];
+    var options = $.emojiarea.icons;
+    var path = $.emojiarea.path;
+    if (path.length && path.charAt(path.length - 1) !== '/') {
+      path += '/';
+    }
+
+    for (var key in options) {
+      if (options.hasOwnProperty(key)) {
+        var filename = options[key];
+        html.push('<a href="javascript:void(0)">' + EmojiArea.createIcon(key) + '<span class="label">' + util.htmlEntities(key) + '</span></a>');
+      }
+    }
+
+    this.$items.html(html.join(''));
+  };
+
+  EmojiMenu.prototype.reposition = function() {
+    var $button = this.emojiarea.$button;
+    var offset = $button.offset();
+    offset.top += $button.outerHeight();
+    offset.left += Math.round($button.outerWidth() / 2);
+
+    this.$menu.css({
+      top: offset.top,
+      left: offset.left
+    });
+  };
+
+  EmojiMenu.prototype.hide = function(callback) {
+    if (this.emojiarea) {
+      this.emojiarea.menu = null;
+      this.emojiarea.$button.removeClass('on');
+      this.emojiarea = null;
+    }
+    this.visible = false;
+    this.$menu.hide();
+  };
+
+  EmojiMenu.prototype.show = function(emojiarea) {
+    if (this.emojiarea && this.emojiarea === emojiarea) return;
+    this.emojiarea = emojiarea;
+    this.emojiarea.menu = this;
+
+    this.reposition();
+    this.$menu.show();
+    this.visible = true;
+  };
+
+  EmojiMenu.show = (function() {
+    var menu = null;
+    return function(emojiarea) {
+      menu = menu || new EmojiMenu();
+      menu.show(emojiarea);
+    };
+  })();
+
+})(jQuery, window, document);
+
+$.emojiarea.path = '/';
+  $.emojiarea.icons = {
+      ':smiley:'         : 'smile1.png',
+      ':blush:'          : 'smile2.png',
+      ':wink:'           : 'smile4.png',
+      ':yum:'            : 'smile9.png',
+      ':relieved:'       : 'smile8.png',
+      ':laughing:'       : 'smile7.png',
+      ':sunglasses:'     : 'smile5.png',
+      ':grin:'           : 'smile6.png',
+      ':thumbsup:'       : 'thumbsup.png',
+      ':clap:'           : 'applause.png',
+
+  };
+
+});

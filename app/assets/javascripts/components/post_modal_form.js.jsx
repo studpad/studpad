@@ -38,16 +38,14 @@ const PostModalForm = React.createClass({
       visible: true
     })
   },
-  submitForm: function () {
-    var postData = this.state.post;
-    //Validation begin
+  validate: function(postData){
     if (postData.type == PostTypes.quotation && !postData.title.trim() )
-      return;
+      return false;
     if (postData.type == PostTypes.link && !postData.linkdata.domain )
-      return;
+      return false;
     if (postData.type == PostTypes.file && postData.files.length == 0 )
-      return;
-    if (postData.type == PostTypes.text){
+      return false;
+    if (postData.type == PostTypes.text || postData.type == PostTypes.file){
       var text_invalid = true;
       CE(postData.text_elements);
       for (var i = 0, len = postData.text_elements.length; i < len; ++i) {
@@ -59,13 +57,17 @@ const PostModalForm = React.createClass({
           break;
         }
       }
-      if (postData.title.trim())
+      if (postData.title && postData.title.trim())
         text_invalid = false;
       if (text_invalid)
-        return;
+        return false;
     }
-    //Validation end
-
+    return true;
+  },
+  submitForm: function () {
+    var postData = this.state.post;
+    if(!this.validate(postData))
+      return;
     CI('PostModalForm::submitForm', postData);
     if (postData.id){
       this.props.updatePost(postData);
@@ -216,6 +218,7 @@ const PostModalForm = React.createClass({
           addDivider={this.addDivider}
           post={this.state.post}/>
         <PostModalFooter
+          valid={this.validate(this.state.post)}
           close={this.hide}
           submit={this.submitForm}/>
       </div>
@@ -237,6 +240,7 @@ const PostModalFooter = React.createClass({
         <button
           onClick={this.props.submit}
           type='button'
+          disabled={!this.props.valid}
           className='btn btn-primary btn-st'
           data-loading-text = 'Подождите...'>
           Опубликовать
