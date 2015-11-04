@@ -1,4 +1,4 @@
-const PostTypes = {text: 'text', file: 'filegroup', link: 'link', quotation: 'quotation'}
+const PostTypes = {text: 'text', photo: 'photo', file: 'filegroup', link: 'link', quotation: 'quotation'}
 const ElementTypes = {text: 'text', image: 'image', divider: 'divider'}
 
 CI = function(){

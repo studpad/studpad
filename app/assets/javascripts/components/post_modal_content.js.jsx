@@ -74,6 +74,20 @@ const PostModalContent = React.createClass({
         </div>
         );
         break;
+      case PostTypes.photo:
+        main_part = (
+        <div className='form-new-post usual-post-contant'>
+          <div className='form-wrap-new-post-type'>
+            <div className='split-cells-choose-photo'>
+              <div className='split-cell'>
+              </div>
+              <div className='split-cell'>
+              </div>
+            </div>
+          </div>
+        </div>
+        );
+        break;
       case PostTypes.link:
         var link_title, link_domain, link_description;
         if (this.props.post.linkdata.title) {

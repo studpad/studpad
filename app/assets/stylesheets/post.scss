@@ -6,6 +6,7 @@
 }
 .new-post-wrap{
 	width: 330px;
+	/*width: 410px;*/
 	margin: auto;
 	text-align: center;
 }
@@ -287,6 +288,9 @@
   border-top: solid 0.4em transparent;
   border-bottom: solid 0.4em transparent;
 }
+.action-create-element-post{
+	white-space: normal !important;
+}
 .glossary-post-element-devider:after{
   content: '';
   position: absolute;
@@ -314,6 +318,16 @@
 	position: relative;
 	top: 22px;
   left: 29px;
+  text-shadow: none !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+  width: 30px;
+}
+.photo-remove-angle{
+  position: relative;
+  top: 28px;
+  left: 14px;
   text-shadow: none !important;
   padding-left: 5px !important;
   padding-right: 5px !important;
@@ -510,3 +524,66 @@
   content: attr(placeholder);
   color: #ADADAD;
 }
+
+.top-space-none{
+	margin-top: 0px !important;
+	.form-wrap-new-post-type{
+		padding-top: 0px !important;
+	}
+}
+.split-cells-choose-photo{
+	margin: 0 -15px;
+	height: 180px;
+	text-align: center;
+	background-color: #F5F5F5;
+	font-weight: 300;
+	color: #9A9A9A;
+	div{
+		float: left;
+		width: 50%;
+		padding: 20px;
+		height: 100%;
+		padding-top: 50px;
+		cursor: pointer;
+		img{
+			width: 40px;
+		}
+	}
+	div:last-child{
+		border-left: 1px solid #DADADA;
+	}
+}
+.wrap-write-link-to-photo{
+}
+.write-link-to-photo{
+	cursor: text;
+	outline: none;
+	padding-top: 60px;
+	padding-bottom: 70px;
+}
+.add-photo-link-yet, .add-photo-device-yet{
+	background-color: #F5F5F5;
+	text-align: center;
+	height: 34px;
+	padding-top: 6px;
+	color: #9A9A9A;
+	margin: 0 -15px;
+	cursor: pointer;
+	font-weight: 300;
+	.type-of-add-photo{
+		width: 18px;
+	}
+}
+.write-link-to-photo[placeholder]:empty:before{
+  content: attr(placeholder);
+  color: #ADADAD;
+}
+
+/*
+<div className='new-post-label' onClick={this.onClickPhoto}>
+	<div className='icon-post-photo icon-post'>
+	  <img src = '/images/photo.png'/>
+	</div>
+	<span className='new-post-label-name'>Фото</span>
+</div>
+*/
