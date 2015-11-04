@@ -36,6 +36,7 @@ const PostCommentBox = React.createClass({
     if( e.keyCode == ENTER ) {
       e.preventDefault();
       var node = this.refs.ceditable.getDOMNode();
+      if (!node.value.trim()) return;
       if (currentUser)
         this.props.createComment(node.value);
       $(node).val('');
