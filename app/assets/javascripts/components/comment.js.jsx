@@ -25,6 +25,7 @@ var Comment = React.createClass({
   },
   updateComment: function(text){
     CI('Comment::updateComment', text);
+    if (!text.trim()) return;
     this.setState({
       editable: false
     });
