@@ -38,6 +38,7 @@
 //= require change_password
 //= require notifications
 //= require speech
+//= require statistics
 
 Dropzone.autoDiscover = false;
 
