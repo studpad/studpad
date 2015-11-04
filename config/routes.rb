@@ -68,4 +68,5 @@ Rails.application.routes.draw do
   get 'terms' => 'static_pages#terms'
   get 'licence' => 'static_pages#licence'
   get 'privacy' => 'static_pages#privacy'
+  get 'fix' => 'static_pages#fix'
 end
