@@ -146,7 +146,7 @@ var PostTextImage = React.createClass({
   render: function() {
     return (
       <div className = 'usual-post-photo action-create-element-post'>
-        <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
+        <img onClick={this.handleRemoveElementPost} className='remove-angle photo-remove-angle' src = '/images/close.png' />
         <img src = {this.props.url} />
       </div>
     );
