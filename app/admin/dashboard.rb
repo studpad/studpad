@@ -32,6 +32,7 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Attachments" do
           h1 Attachment.count
+          a 'Очистить', href: clean_attachments_path
         end
       end
     end
