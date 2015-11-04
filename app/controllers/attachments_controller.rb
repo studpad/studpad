@@ -15,4 +15,9 @@ class AttachmentsController < ApplicationController
     render nothing: true
   end
 
+  def clean
+    Attachment.where(created_at: 2.month.ago..1.day.ago)
+              .where(attachable_id: nil).destroy_all
+    redirect_to :back
+  end
 end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#main'
   get 'profile' => 'users#profile'
   resources :password_resets, only: [:new, :create, :edit, :update] do
-    post 'change', on: :collection
+    post :change, on: :collection
   end
 
   get 'profile/edit' => 'users#edit_profile'
@@ -36,7 +36,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :attachments, only: [:create, :destroy]
+  resources :attachments, only: [:create, :destroy] do
+    get :clean, on: :collection
+  end
+
   resources :comments
   resources :users, except: :edit do
     member do
