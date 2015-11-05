@@ -118,14 +118,15 @@ var PostTextTextarea = React.createClass({
     return (
       <div className = 'usual-post-text action-create-element-post'>
         {remove_button}
-        <textarea
+        <div
           ref='textElement'
-          className='textarea-new-post textarea-sp form-control'
+          contentEditable='true'
+          className='text-new-post'
           value={this.props.text}
           placeholder = {textPlaceholder}
           onChange={this.handleChange}
           onLoad={this.handleAutofocus}>
-        </textarea>
+        </div>
       </div>
     );
   }

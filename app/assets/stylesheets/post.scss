@@ -231,6 +231,15 @@
 	border: none !important;
 	resize: none;
 }
+.text-new-post{
+	min-height: 34px;
+	outline: none;
+	white-space: pre-line;
+}
+.text-new-post[placeholder]:empty:before{
+	content: attr(placeholder);
+  color: #ADADAD;
+}
 .modal-dialog-new-post{
 	width: 500px !important;
 	margin-top: 59px !important;
