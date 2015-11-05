@@ -111,9 +111,6 @@ const PostTextElementView = React.createClass({
             <div className = 'usual-post-text-text'>
               {this.props.element.text}
             </div>
-            <div className = 'usual-post-text-expand'>
-              <span className = 'usual-post-text-expand-span'>Показать полностью</span>
-            </div>
           </div>
         );
         break;
