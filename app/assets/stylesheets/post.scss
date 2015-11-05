@@ -130,6 +130,18 @@
 	margin-top: 8px;
 	white-space: pre-line;
 }
+.usual-post-text-text{
+	max-height: 506px;
+  overflow-y: hidden;
+}
+.usual-post-text-expand{
+	font-weight: bold;
+  color: #546776;
+  margin-top: 6px;
+  span{
+  	cursor: pointer;
+  }
+}
 /* типы постов */
 /* цитата */
 .post-type-cite{
