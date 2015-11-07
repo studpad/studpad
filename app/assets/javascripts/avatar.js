@@ -31,7 +31,7 @@ $(document).on("page:load ready", function(){
       img.Jcrop( {
         onChange: update_crop,
         onSelect: update_crop,
-        setSelect: [0, 0, 50, 50],
+        setSelect: [0, 0, 1000, 1000],
         aspectRatio: 1
       });
     }
