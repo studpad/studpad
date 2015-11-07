@@ -82,32 +82,42 @@ var PostTextTextarea = React.createClass({
       this.props.position
     );
   },
-  componentDidMount: function() {
-    var node = this.refs.textElement.getDOMNode();
-    $(node).autoResize({
-      limit:600,
-      extraSpace:0,
-      animate:true
-    });
-    CW('text DidMount');
-    //for copy/paste
-    $(node).bind('paste', function () {
-        var $textarea = $(this);
-        setTimeout(function () {
-          $textarea.trigger("change.dynSiz");
-        }, 250);
-    });
-    $(node).change();
-    if (this.props.focus)
-      $(node).focus();
-  },
-  componentWillUnmount: function() {
-    var node = this.refs.textElement.getDOMNode();
-    // node = $(node).data('AutoResizer');
-    if (node) {
-      $(node).unbind('paste');
-    }
-  },
+  // componentDidMount: function() {
+  //   var node = this.refs.textElement.getDOMNode();
+  //   $(node).autoResize({
+  //     limit:600,
+  //     extraSpace:0,
+  //     animate:true
+  //   });
+  //   CW('text DidMount');
+  //   //for copy/paste
+  //   $(node).bind('paste', function () {
+  //       var $textarea = $(this);
+  //       setTimeout(function () {
+  //         $textarea.trigger("change.dynSiz");
+  //       }, 250);
+  //   });
+  //   $(node).change();
+  //   if (this.props.focus)
+  //     $(node).focus();
+  // },
+  // componentWillUnmount: function() {
+  //   var node = this.refs.textElement.getDOMNode();
+  //   // node = $(node).data('AutoResizer');
+  //   if (node) {
+  //     $(node).unbind('paste');
+  //   }
+  // },
+
+  // <div
+  //   ref='textElement'
+  //   contentEditable='true'
+  //   className='text-new-post'
+  //   value={this.props.text}
+  //   placeholder = {textPlaceholder}
+  //   onChange={this.handleChange}
+  //   onLoad={this.handleAutofocus}>
+  // </div>
   render: function() {
     var textPlaceholder = 'Введите текст';
     if(this.props.typePost == PostTypes.link) textPlaceholder = 'Если хотите, можете добавить описание';
@@ -118,15 +128,12 @@ var PostTextTextarea = React.createClass({
     return (
       <div className = 'usual-post-text action-create-element-post'>
         {remove_button}
-        <div
-          ref='textElement'
-          contentEditable='true'
-          className='text-new-post'
-          value={this.props.text}
-          placeholder = {textPlaceholder}
+        <ContentEditableDiv
           onChange={this.handleChange}
-          onLoad={this.handleAutofocus}>
-        </div>
+          placeholder={textPlaceholder}
+          focus={this.props.focus}
+          cssClass='text-new-post'
+          html={this.props.text}/>
       </div>
     );
   }
