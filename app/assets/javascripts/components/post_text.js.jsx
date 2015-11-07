@@ -118,14 +118,15 @@ var PostTextTextarea = React.createClass({
     return (
       <div className = 'usual-post-text action-create-element-post'>
         {remove_button}
-        <textarea
+        <div
           ref='textElement'
-          className='textarea-new-post textarea-sp form-control'
+          contentEditable='true'
+          className='text-new-post'
           value={this.props.text}
           placeholder = {textPlaceholder}
           onChange={this.handleChange}
           onLoad={this.handleAutofocus}>
-        </textarea>
+        </div>
       </div>
     );
   }
@@ -146,7 +147,7 @@ var PostTextImage = React.createClass({
   render: function() {
     return (
       <div className = 'usual-post-photo action-create-element-post'>
-        <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
+        <img onClick={this.handleRemoveElementPost} className='remove-angle photo-remove-angle' src = '/images/close.png' />
         <img src = {this.props.url} />
       </div>
     );
