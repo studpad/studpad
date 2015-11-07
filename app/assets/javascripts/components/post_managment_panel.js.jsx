@@ -9,6 +9,10 @@ const PostManagementPanel = React.createClass({
     this.props.newPost(PostTypes.text);
     CI('PostManagementPanel::onClickText');
   },
+  onClickPhoto: function() {
+    //this.props.newPost(PostTypes.text);
+    CI('PostManagementPanel::onClickPhoto');
+  },
   onClickLink: function() {
     this.props.newPost(PostTypes.link);
     CI('PostManagementPanel::onClickLink');
@@ -33,6 +37,12 @@ const PostManagementPanel = React.createClass({
               <img src = '/images/text.png'/>
             </div>
             <span className='new-post-label-name'>Текст</span>
+          </div>
+          <div className='new-post-label' onClick={this.onClickPhoto}>
+            <div className='icon-post-photo icon-post'>
+              <img src = '/images/photo.png'/>
+            </div>
+            <span className='new-post-label-name'>Фото</span>
           </div>
           <div className='new-post-label' onClick={this.onClickFile}>
             <div className='icon-post-material icon-post'>
