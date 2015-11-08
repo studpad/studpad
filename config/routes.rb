@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments
+  resources :photos
   resources :users, except: :edit do
     member do
       post :follow

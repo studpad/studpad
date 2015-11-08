@@ -26,7 +26,8 @@ const PostModalForm = React.createClass({
         title: '',
         linkdata: {},
         text_elements: [{type: ElementTypes.text, text: ''}],
-        files: []
+        files: [],
+        photos: []
       },
       visible: true
     });

@@ -10,7 +10,7 @@ const PostManagementPanel = React.createClass({
     CI('PostManagementPanel::onClickText');
   },
   onClickPhoto: function() {
-    this.props.newPost(PostTypes.text);
+    this.props.newPost(PostTypes.photo);
     CI('PostManagementPanel::onClickPhoto');
   },
   onClickLink: function() {
