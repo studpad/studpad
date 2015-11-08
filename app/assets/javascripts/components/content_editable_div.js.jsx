@@ -4,11 +4,22 @@ var ContentEditableDiv = React.createClass({
   },
   componentDidMount: function() {
     var node = this.refs.textdiv.getDOMNode();
+    // $(node).live('keyup', function() {
+    //   $(this).children('div').each(function(index) {
+    //     $(this).attr('id', 'element-'+index);
+    //   });
+    // });
     if (this.props.focus)
       $(node).focus();
   },
   emitChange: function(){
-    var html = this.getDOMNode().innerHTML;
+    var html = this.refs.textdiv.getDOMNode().innerHTML;
+    // CW('ceditbale ',html);
+    // html = sanitizeHtml(html);
+    // CW('ceditbale ',html);
+    // html = html.replace(new RegExp('<br>', 'g'), "\n");
+    // html = html.replace(new RegExp('<div>', 'g'), "");
+    // html = html.replace(new RegExp('<div/>', 'g'), "");
     if (this.props.onChange && html !== this.lastHtml) {
       this.props.onChange({
         target: {
@@ -18,6 +29,7 @@ var ContentEditableDiv = React.createClass({
     }
     this.lastHtml = html;
   },
+  //
   render: function(){
     return <div
       ref='textdiv'

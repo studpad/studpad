@@ -106,11 +106,13 @@ const PostTextElementView = React.createClass({
   render: function() {
     switch (this.props.element.type) {
       case ElementTypes.text:
+        var text = sanitizeHtml(this.props.element.text, {allowedTags: ['div', 'br']});
+        //CW('sanitzed', text);
         return (
           <div className = 'usual-post-text action-create-element-post'>
-            <div className = 'usual-post-text-text'>
-              {this.props.element.text}
-            </div>
+            <div
+              className = 'usual-post-text-text'
+              dangerouslySetInnerHTML={{__html: text}}/>
           </div>
         );
         break;
