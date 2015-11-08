@@ -28,6 +28,7 @@ const PostModalForm = React.createClass({
         text_elements: [{type: ElementTypes.text, text: ''}],
         files: []
       },
+      showTips: true,
       visible: true
     });
     CI('PostModalForm::newPost', postType);
@@ -35,6 +36,7 @@ const PostModalForm = React.createClass({
   editPost: function(postData) {
     this.setState({
       post: postData,
+      showTips: false,
       visible: true
     })
   },
@@ -213,6 +215,7 @@ const PostModalForm = React.createClass({
           removeTextElement={this.removeTextElement}
           changeElementText={this.changeElementText}
           onChangeLink={this.onChangeLink}
+          showTips={this.state.showTips}
           addAttachment={this.addAttachment}
           addImage={this.addImage}
           addDivider={this.addDivider}

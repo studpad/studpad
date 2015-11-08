@@ -1,13 +1,14 @@
 const PostTextManagmentPanel = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
+    showTips: React.PropTypes.bool,
     addImage: React.PropTypes.func.isRequired,
     addDivider: React.PropTypes.func.isRequired
   },
   getInitialState: function () {
-      return {
-          visibility_tips: true  
-      };
+    return {
+      visibility_tips: this.props.showTips
+    };
   },
   //END*****************************************************DECLARE
   onClickImage: function() {
