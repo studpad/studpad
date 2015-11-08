@@ -87,47 +87,4 @@ const PostCommentBox = React.createClass({
   }
 })
 
-// var ContentEditable = React.createClass({
-//     render: function(){
-//       return <div
-//         ref='text'
-//         onInput={this.emitChange}
-//         onBlur={this.emitChange}
-//         placeholder="Введите комментарий"
-//         className='textarea-form-control-comment'
-//         contentEditable
-//         dangerouslySetInnerHTML={{__html: this.props.html}}></div>;
-//     },
-//     componentDidMount: function(){
-//       var node = this.refs.text.getDOMNode();
-//       $(node).emojiarea({
-//         buttonLabel: '&#9786;',
-//         buttonPosition: 'before',
-//       });
-//     },
-//     shouldComponentUpdate: function(nextProps){
-//       return nextProps.html !== this.getDOMNode().innerHTML;
-//     },
-//     // handleClick: function(){
-//     //   this.props.handleClick();
-//     // },
-//     emitChange: function(){
-//       var html = this.getDOMNode().innerHTML;
-//       if (this.props.onChange && html !== this.lastHtml) {
-//         this.props.onChange({
-//           target: {
-//             value: html
-//           }
-//         });
-//       }
-//       this.lastHtml = html;
-//     }
-// });
-// <div
-//   contentEditable='true'
-//   placeholder="Введите комментарий"
-//   className='textarea-form-control-comment'
-//   onChange={this.handleChange}
-//   onClick={this.handleClick}
-//   dangerouslySetInnerHTML={{__html: this.state.new_comment}}>
-// </div>
+

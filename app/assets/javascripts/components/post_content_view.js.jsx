@@ -14,7 +14,9 @@ const PostContentView = React.createClass({
             </div>
             <div className = 'usual-post-content'>
               <div className = 'usual-post-text'>
-                {this.props.post.text}
+                <div className = 'usual-post-text-text'>
+                  {this.props.post.text}
+                </div>
               </div>
             </div>
           </div>

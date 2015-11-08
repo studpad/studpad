@@ -130,6 +130,18 @@
 	margin-top: 8px;
 	white-space: pre-line;
 }
+/*.usual-post-text-text{
+	max-height: 506px;
+  overflow-y: hidden;
+}*/
+.usual-post-text-expand{
+	font-weight: bold;
+  color: #546776;
+  margin-top: 6px;
+  span{
+  	cursor: pointer;
+  }
+}
 /* типы постов */
 /* цитата */
 .post-type-cite{
@@ -230,6 +242,15 @@
 .input-new-post, .textarea-new-post{
 	border: none !important;
 	resize: none;
+}
+.text-new-post{
+	min-height: 34px;
+	outline: none;
+	white-space: pre-line;
+}
+.text-new-post[placeholder]:empty:before{
+	content: attr(placeholder);
+  color: #ADADAD;
 }
 .modal-dialog-new-post{
 	width: 500px !important;
@@ -576,11 +597,3 @@
   color: #ADADAD;
 }
 
-/*
-<div className='new-post-label' onClick={this.onClickPhoto}>
-	<div className='icon-post-photo icon-post'>
-	  <img src = '/images/photo.png'/>
-	</div>
-	<span className='new-post-label-name'>Фото</span>
-</div>
-*/

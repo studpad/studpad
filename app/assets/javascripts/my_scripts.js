@@ -24,6 +24,11 @@ function main(){
       else
         $('#teacher-specialization-edit').hide();
     });
+
+    
+    $('.usual-post-text-expand-span').click(function(){
+      alert('sf');
+    });
     //users form end
 
     $('textarea').autoResize({

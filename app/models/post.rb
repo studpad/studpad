@@ -2,13 +2,13 @@ class Post < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
   belongs_to :group
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, inverse_of: :commentable
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :text_elements, -> { order(:position) }, dependent: :destroy
   enum post_type: ['filegroup', 'link', 'text', 'quotation']
   serialize :linkdata
 
-  default_scope { includes(:user, :attachments, :text_elements, :comments) }
+  #default_scope { includes(:user, :attachments, :text_elements, :comments) }
 
   def self.listed(group, user=nil)
     if group

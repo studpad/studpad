@@ -47,7 +47,7 @@ const PostModalForm = React.createClass({
       return false;
     if (postData.type == PostTypes.text || postData.type == PostTypes.file){
       var text_invalid = true;
-      CE(postData.text_elements);
+      //CE(postData.text_elements);
       for (var i = 0, len = postData.text_elements.length; i < len; ++i) {
         var current = postData.text_elements[i];
         //debugger

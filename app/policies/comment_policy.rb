@@ -8,7 +8,7 @@ class CommentPolicy < Struct.new(:user, :comment)
   end
 
   def destroy?
-    is_owner? || is_admin?
+    is_post_owner? || is_owner? || is_admin?
   end
 
   def like?
@@ -18,6 +18,10 @@ class CommentPolicy < Struct.new(:user, :comment)
   private
     def is_owner?
       user.try(:id) == comment.user_id
+    end
+
+    def is_post_owner?
+      comment.commentable.user_id == user.try(:id)
     end
 
     def is_admin?
