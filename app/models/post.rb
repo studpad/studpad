@@ -5,7 +5,9 @@ class Post < ActiveRecord::Base
   has_many :comments, as: :commentable, inverse_of: :commentable
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :text_elements, -> { order(:position) }, dependent: :destroy
-  enum post_type: ['filegroup', 'link', 'text', 'quotation']
+  enum post_type: [
+    'filegroup', 'link', 'text', 'quotation', 'photo'
+  ]
   serialize :linkdata
 
   #default_scope { includes(:user, :attachments, :text_elements, :comments) }
