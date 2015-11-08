@@ -173,6 +173,7 @@ const PostModalContent = React.createClass({
           </div>
           <PostText
             ref='post_text'
+            showTips={this.props.showTips}
             removeTextElement={this.props.removeTextElement}
             addImage={this.props.addImage}
             changeElementText={this.props.changeElementText}

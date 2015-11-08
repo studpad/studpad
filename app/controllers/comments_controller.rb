@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
 
   def destroy
     logger.debug @comment.destroy
+    render nothing: true
   end
 
   private

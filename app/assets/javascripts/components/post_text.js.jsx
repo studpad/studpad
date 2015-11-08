@@ -54,6 +54,7 @@ var PostText = React.createClass({
     return (
       <div>
         <PostTextManagmentPanel
+          showTips={this.props.showTips}
           addImage={this.props.addImage}
           addDivider={this.props.addDivider}/>
         {rendered_elements}
