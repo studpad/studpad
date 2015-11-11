@@ -7,6 +7,8 @@ const PostModalContent = React.createClass({
     addImage: React.PropTypes.func.isRequired,
     onChangeTitle: React.PropTypes.func.isRequired,
     addDivider: React.PropTypes.func.isRequired,
+    addPhoto: React.PropTypes.func.isRequired,
+    removePhoto: React.PropTypes.func.isRequired,
     changeElementText: React.PropTypes.func.isRequired,
     removeTextElement: React.PropTypes.func.isRequired,
     post: React.PropTypes.shape({
@@ -61,31 +63,27 @@ const PostModalContent = React.createClass({
     switch (this.props.post.type) {
       case PostTypes.text:
         main_part = (
-        <div className='form-new-post usual-post-contant'>
-          <div className='form-wrap-new-post-type'>
-            <input
-              ref='title'
-              type='text'
-              value={this.props.post.title}
-              onChange={this.props.onChangeTitle}
-              className='input-new-post form-text-title input-sp form-control'
-              placeholder = 'Введите здесь заголовок'/>
+        <div className='row'>
+          <div className='form-new-post usual-post-contant'>
+            <div className='form-wrap-new-post-type'>
+              <input
+                ref='title'
+                type='text'
+                value={this.props.post.title}
+                onChange={this.props.onChangeTitle}
+                className='input-new-post form-text-title input-sp form-control'
+                placeholder = 'Введите здесь заголовок'/>
+            </div>
           </div>
         </div>
         );
         break;
       case PostTypes.photo:
         main_part = (
-        <div className='form-new-post usual-post-contant'>
-          <div className='form-wrap-new-post-type'>
-            <div className='split-cells-choose-photo'>
-              <div className='split-cell'>
-              </div>
-              <div className='split-cell'>
-              </div>
-            </div>
-          </div>
-        </div>
+          <PhotosBox
+            addPhoto={this.props.addPhoto}
+            removePhoto={this.props.removePhoto}
+            photos={this.props.post.photos}/>
         );
         break;
       case PostTypes.link:
@@ -110,54 +108,60 @@ const PostModalContent = React.createClass({
         }
 
         main_part = (
-        <div className = 'form-new-post'>
-          <div className = 'form-wrap-new-post-type'>
-            <div className = 'extra-background'>
-              <input
-                ref='title'
-                type = 'text'
-                onChange={this.props.onChangeLink}
-                className = 'input-new-post form-link input-sp form-control'
-                placeholder = 'Введите здесь адрес интернет-ресурса'/>
+        <div className='row'>
+          <div className = 'form-new-post'>
+            <div className = 'form-wrap-new-post-type'>
+              <div className = 'extra-background'>
+                <input
+                  ref='title'
+                  type = 'text'
+                  onChange={this.props.onChangeLink}
+                  className = 'input-new-post form-link input-sp form-control'
+                  placeholder = 'Введите здесь адрес интернет-ресурса'/>
+              </div>
             </div>
-          </div>
-          <div className = 'post-type'>
-              <a hrefName = ''><div className = 'post-type-link post-type-link-create extra-background'>
-                {link_title}
-                {link_description}
-                {link_domain}
-              </div></a>
+            <div className = 'post-type'>
+                <a hrefName = ''><div className = 'post-type-link post-type-link-create extra-background'>
+                  {link_title}
+                  {link_description}
+                  {link_domain}
+                </div></a>
+            </div>
           </div>
         </div>
         );
         break;
       case PostTypes.file:
         main_part = (
-        <div className = 'form-new-post'>
-          <div className = 'form-wrap-new-post-type'>
-            <DropzoneComponent
-              onDrop={this.onDrop}>
-              <div style={{'padding-top': 3}}>
-              Кликните или перетащите файлы сюда.
-              </div>
-            </DropzoneComponent>
+        <div className='row'>
+          <div className = 'form-new-post'>
+            <div className = 'form-wrap-new-post-type'>
+              <DropzoneComponent
+                onDrop={this.onDrop}>
+                <div style={{'padding-top': 3}}>
+                Кликните или перетащите файлы сюда.
+                </div>
+              </DropzoneComponent>
+            </div>
+            {files}
           </div>
-          {files}
         </div>
         );
         break;
       case PostTypes.quotation:
         main_part = (
-        <div className='form-new-post usual-post-contant'>
-          <div className='form-wrap-new-post-type'>
-            <textarea
-              value={this.props.post.title}
-              onChange={this.props.onChangeTitle}
-              ref='title'
-              className=
-              'textarea-new-post textarea-sp post-type-cite form-control form-cite'
-              placeholder = 'Введите здесь текст цитаты'>
-            </textarea>
+        <div className='row'>
+          <div className='form-new-post usual-post-contant'>
+            <div className='form-wrap-new-post-type'>
+              <textarea
+                value={this.props.post.title}
+                onChange={this.props.onChangeTitle}
+                ref='title'
+                className=
+                'textarea-new-post textarea-sp post-type-cite form-control form-cite'
+                placeholder = 'Введите здесь текст цитаты'>
+              </textarea>
+            </div>
           </div>
         </div>
         );
@@ -168,9 +172,7 @@ const PostModalContent = React.createClass({
     return (
       <div className = "modal-body my-setting-modal-body">
         <div className = 'container-fluid'>
-          <div className = 'row'>
-            {main_part}
-          </div>
+          {main_part}
           <PostText
             ref='post_text'
             showTips={this.props.showTips}

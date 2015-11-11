@@ -48,7 +48,8 @@ const PostBox = React.createClass({
     this.setState({posts: newPosts});
     CI('PostBox::updatePost', postData);
     var attachment_ids = postData.files.map(function(f){ return f.id });
-    postData.attachment_ids = attachment_ids;
+    var photo_ids = postData.photos.map(function(p){ return p.id })
+    postData.photo_ids = photo_ids;
     $.ajax({
       url: postData.url,
       dataType: 'json',
@@ -69,6 +70,7 @@ const PostBox = React.createClass({
       title: postData.title,
       text_elements: postData.text_elements,
       author: currentUser,
+      photos: postData.photos,
       linkdata: {},
       files: [],
       comments: []
@@ -76,6 +78,7 @@ const PostBox = React.createClass({
     var newPosts = newPost.concat(oldPosts);
     this.setState({posts: newPosts});
     var attachment_ids = postData.files.map(function(f){ return f.id })
+    var photo_ids = postData.photos.map(function(p){ return p.id })
     CI('Send post data to server', postData);
     post = {
       text: postData.text,
@@ -83,6 +86,7 @@ const PostBox = React.createClass({
       title: postData.title,
       post_type: postData.type,
       attachment_ids: attachment_ids,
+      photo_ids: photo_ids,
       text_elements: postData.text_elements,
       linkdata: postData.linkdata
     };

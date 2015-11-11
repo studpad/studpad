@@ -11,24 +11,12 @@ const PostCommentBox = React.createClass({
   },
   componentDidMount: function() {
     var node = this.refs.ceditable.getDOMNode();
-      $(node).emojiarea({
-        buttonLabel: '&#9786;',
-        buttonPosition: 'before',
-      });
-      $(node).next().next().on('keydown', this.handleKeyDown)
-      $(node).next().next().attr("placeholder", "Ваш комментарий");
-    // var node = this.refs.commentText.getDOMNode();
-    // $(node).autoResize({
-    //   limit:600,
-    //   extraSpace:13,
-    //   animate:true
-    // });
-    // $(node).on('keydown', this.handleKeyDown);
-    // $(node).change();
-  },
-  componentWillUnmount: function() {
-    // var node = this.refs.commentText.getDOMNode();
-    // $(node).off('keydown', this.handleKeyDown);
+    $(node).emojiarea({
+      buttonLabel: '&#9786;',
+      buttonPosition: 'before',
+    });
+    $(node).next().next().on('keydown', this.handleKeyDown)
+    $(node).next().next().attr("placeholder", "Ваш комментарий");
   },
   handleKeyDown: function(e) {
     CI('keydown');

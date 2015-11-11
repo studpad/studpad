@@ -91,6 +91,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(
         :title, :post_type, :group_id, :attachment_ids,
+        photo_ids: [],
         linkdata: [:title, :domain, :description, :url])
     end
 
