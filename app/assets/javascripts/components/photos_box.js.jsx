@@ -61,6 +61,10 @@ var PhotosBox = React.createClass({
 
     }
   },
+  componentDidUpdate: function() {
+    var node = this.refs.input.getDOMNode();
+    if (node) $(node).focus();
+  },
   render: function(){
     photos = this.props.photos;
     photos = photos.map(function (p, index) {
@@ -130,7 +134,10 @@ var PhotosBox = React.createClass({
             className='remove-angle all-remove-angle'
             src = '/images/close.png' />
           <div className='write-link-to-photo'>
-            <input placeholder='Вставьте URL-адрес' onChange={this.onChange}/>
+            <input
+              ref='input'
+              placeholder='Вставьте URL-адрес'
+              onChange={this.onChange}/>
           </div>
         </div>
       );
