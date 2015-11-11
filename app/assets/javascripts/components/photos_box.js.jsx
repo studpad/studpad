@@ -32,11 +32,18 @@ var PhotosBox = React.createClass({
       show_input: false
     };
   },
+  hideInput: function(){
+    CI('PhotosBox::hideInput');
+    this.setState({show_input: false});
+  },
   onChange: function(e){
     CI(e.target.value);
     e_url = e.target.value.trim();
-    if (e_url.endsWith('.jpg')){
-      CI('ends with .jpg');
+    if (e_url.endsWith('.jpg')  ||
+        e_url.endsWith('.jpeg') ||
+        e_url.endsWith('.png')  ||
+        e_url.endsWith('.gif')) {
+
       $.ajax({
         url: '/photos',
         type: 'POST',
@@ -44,13 +51,14 @@ var PhotosBox = React.createClass({
         dataType: 'json',
         success: function(data) {
           this.props.addPhoto(data);
+          this.setState({show_input: false});
           CI('PhotosBox::Uploaded', data);
         }.bind(this),
         error: function (data) {
           CE("PostModalContent::onDrop Can't create attachment", data);
         }
       });
-      this.setState({show_input: false});
+
     }
   },
   render: function(){
@@ -67,7 +75,7 @@ var PhotosBox = React.createClass({
       );
     }.bind(this));
 
-    if (photos.length > 0){
+    if (photos.length > 0 && !this.state.show_input){
       var bottom_button_group = (
         <div>
           <div
@@ -86,7 +94,8 @@ var PhotosBox = React.createClass({
           </div>
         </div>
       );
-    } else {
+    }
+    if (photos.length == 0 && !this.state.show_input) {
       var top_button_group = (
         <div className='row'>
           <div className='form-new-post usual-post-contant'>
@@ -116,7 +125,10 @@ var PhotosBox = React.createClass({
     if (this.state.show_input) {
       var url_input = (
         <div className='wrap-write-link-to-photo'>
-          <img className='remove-angle all-remove-angle' src = '/images/close.png' />
+          <img
+            onClick={this.hideInput}
+            className='remove-angle all-remove-angle'
+            src = '/images/close.png' />
           <div className='write-link-to-photo'>
             <input placeholder='Вставьте URL-адрес' onChange={this.onChange}/>
           </div>
