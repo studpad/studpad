@@ -26,7 +26,8 @@ const PostModalForm = React.createClass({
         title: '',
         linkdata: {},
         text_elements: [{type: ElementTypes.text, text: ''}],
-        files: []
+        files: [],
+        photos: []
       },
       showTips: true,
       visible: true
@@ -133,21 +134,34 @@ const PostModalForm = React.createClass({
     });
   },
   addDivider: function(){
-    var post = this.state.post
+    var post = this.state.post;
     var elements = post.text_elements;
-    CW('HHHHHH', elements);
     elements = $.grep(elements, function(e){
       return (e.type != ElementTypes.text || e.text.trim());
     });
-    CW('HHHHHH', elements);
     elements.push({type: ElementTypes.divider});
     elements.push({
       type: ElementTypes.text,
       focus: true,
       text: ''
     });
-    CW('HHHHHH', elements);
     post.text_elements = elements;
+    this.setState({
+      post: post
+    });
+  },
+  addPhoto: function(data){
+    CI('PostModalForm::addPhoto', data);
+    var post = this.state.post;
+    post.photos.push(data);
+    this.setState({
+      post: post
+    });
+  },
+  removePhoto: function(id){
+    CI('PostModalForm::removePhoto', id);
+    var post = this.state.post;
+    post.photos = post.photos.filter(function(p){return p.id != id});
     this.setState({
       post: post
     });
@@ -218,6 +232,8 @@ const PostModalForm = React.createClass({
           showTips={this.state.showTips}
           addAttachment={this.addAttachment}
           addImage={this.addImage}
+          addPhoto={this.addPhoto}
+          removePhoto={this.removePhoto}
           addDivider={this.addDivider}
           post={this.state.post}/>
         <PostModalFooter

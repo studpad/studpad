@@ -29,10 +29,6 @@
           <%= @user.school %>
         </div>
         <div class = 'profile-followers'>
-           <!--<div class = 'element-profile-followers'>
-            <p>Публикации</p>
-            422
-          </div>-->
           <% if @user.followers_count != 0 %>
             <div class = 'element-profile-followers'>
               <% if @user != current_user %>

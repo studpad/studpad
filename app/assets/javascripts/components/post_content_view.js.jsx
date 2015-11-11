@@ -78,8 +78,23 @@ const PostContentView = React.createClass({
         </div>
         );
         break;
+      case PostTypes.photo:
+        photos = this.props.post.photos;
+        photos = photos.map(function (p, index) {
+          return (
+            <div key={index} className="usual-post-photo action-create-element-post">
+              <img src={p.url} />
+            </div>
+          );
+        });
+        main_part = (
+          <div>
+            {photos}
+          </div>
+        )
+        break
       default:
-        CE('Undefined PostType');
+        CE('Undefined PostType', this.props.post.type);
     }
     return main_part;
   }
