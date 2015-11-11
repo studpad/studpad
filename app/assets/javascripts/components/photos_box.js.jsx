@@ -19,7 +19,9 @@ var PhotosBox = React.createClass({
       contentType: false,
       dataType: 'json',
       success: function(data) {
+        this.setState({url_text: '', show_input: false});
         this.props.addPhoto(data);
+        this.props.setFocus();
         CI('PhotosBox::Uploaded', data);
       }.bind(this),
       error: function (data) {
@@ -29,6 +31,7 @@ var PhotosBox = React.createClass({
   },
   getInitialState: function(){
     return {
+      url_text: '',
       show_input: false
     };
   },
@@ -37,8 +40,9 @@ var PhotosBox = React.createClass({
     this.setState({show_input: false});
   },
   onChange: function(e){
-    CI(e.target.value);
-    e_url = e.target.value.trim();
+    var text = e.target.value;
+    this.setState({url_text: text});
+    e_url = text.trim();
     if (e_url.endsWith('.jpg')  ||
         e_url.endsWith('.jpeg') ||
         e_url.endsWith('.png')  ||
@@ -51,7 +55,8 @@ var PhotosBox = React.createClass({
         dataType: 'json',
         success: function(data) {
           this.props.addPhoto(data);
-          this.setState({show_input: false});
+          this.props.setFocus();
+          this.setState({show_input: false, url_text: ''});
           CI('PhotosBox::Uploaded', data);
         }.bind(this),
         error: function (data) {
@@ -62,8 +67,8 @@ var PhotosBox = React.createClass({
     }
   },
   componentDidUpdate: function() {
-    var node = this.refs.input.getDOMNode();
-    if (node) $(node).focus();
+    var node = this.refs.input;
+    if (node) $(node.getDOMNode()).focus();
   },
   render: function(){
     photos = this.props.photos;
@@ -82,21 +87,26 @@ var PhotosBox = React.createClass({
     if (photos.length > 0 && !this.state.show_input){
       var bottom_button_group = (
         <div>
-          <div
-            className='add-photo-link-yet'
-            onClick={this.addFromInternetClick}>
-            <img
-              className='type-of-add-photo'
-              src = '/images/add_photo_from_internet.png' /> Добавить еще
+          <div className='add-photo-yet'>
+            <div
+              className='add-photo-device-yet'
+              onClick={this.addFromComputerClick}>
+              <img
+                className='type-of-add-photo'
+                src = '/images/add_photo_from_device.png' /> Добавить с компьютера
+            </div>
+            <div
+              className='add-photo-link-yet'
+              onClick={this.addFromInternetClick}>
+              <img
+                className='type-of-add-photo'
+                src = '/images/add_photo_from_internet.png' /> Добавить из Интернета
+            </div>
           </div>
-          <div
-            className='add-photo-device-yet'
-            onClick={this.addFromComputerClick}>
-            <img
-              className='type-of-add-photo'
-              src = '/images/add_photo_from_device.png' /> Добавить еще
+          <div className='clearboth'>
           </div>
         </div>
+
       );
     }
     if (photos.length == 0 && !this.state.show_input) {
@@ -127,15 +137,25 @@ var PhotosBox = React.createClass({
     }
 
     if (this.state.show_input) {
+      var imgClassname, divClassname;
+      if (this.props.photos.length){
+        imgClassname = 'remove-angle write-link-to-photo-remove-angle-slim'
+        divClassname = 'write-link-to-photo-slim'
+      } else {
+        imgClassname = 'remove-angle all-remove-angle'
+        divClassname = 'write-link-to-photo'
+      }
       var url_input = (
         <div className='wrap-write-link-to-photo'>
           <img
             onClick={this.hideInput}
-            className='remove-angle all-remove-angle'
+            className={imgClassname}
             src = '/images/close.png' />
-          <div className='write-link-to-photo'>
+          <div className={divClassname}>
             <input
               ref='input'
+              value={this.state.url_text}
+              className='input-new-post form-link input-sp form-control'
               placeholder='Вставьте URL-адрес'
               onChange={this.onChange}/>
           </div>

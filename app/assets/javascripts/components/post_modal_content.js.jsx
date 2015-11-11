@@ -81,6 +81,7 @@ const PostModalContent = React.createClass({
       case PostTypes.photo:
         main_part = (
           <PhotosBox
+            setFocus={this.props.setFocus}
             addPhoto={this.props.addPhoto}
             removePhoto={this.props.removePhoto}
             photos={this.props.post.photos}/>

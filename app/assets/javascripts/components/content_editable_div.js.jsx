@@ -4,11 +4,12 @@ var ContentEditableDiv = React.createClass({
   },
   componentDidMount: function() {
     var node = this.refs.textdiv.getDOMNode();
-    // $(node).live('keyup', function() {
-    //   $(this).children('div').each(function(index) {
-    //     $(this).attr('id', 'element-'+index);
-    //   });
-    // });
+    if (this.props.focus)
+      $(node).focus();
+  },
+  componentDidUpdate: function() {
+    CI('contentEditable div updated', this.props.focus);
+    var node = this.refs.textdiv.getDOMNode();
     if (this.props.focus)
       $(node).focus();
   },

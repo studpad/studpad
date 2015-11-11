@@ -168,6 +168,14 @@ const PostModalForm = React.createClass({
       post: post
     });
   },
+  focusTextElement: function() {
+    var post = this.state.post;
+    var elements = post.text_elements;
+    post.text_elements.forEach(function(e){e.focus = true});
+    this.setState({
+      post: post
+    });
+  },
   removeTextElement: function(position) {
     var post = this.state.post;
     var elements = post.text_elements;
@@ -226,6 +234,7 @@ const PostModalForm = React.createClass({
           author={this.state.post.author}/>
         <PostModalContent
           ref='formContent'
+          setFocus={this.focusTextElement}
           onChangeTitle={this.changeTitle}
           removeAttachment={this.removeAttachment}
           removeTextElement={this.removeTextElement}
