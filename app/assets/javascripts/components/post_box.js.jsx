@@ -70,6 +70,7 @@ const PostBox = React.createClass({
       title: postData.title,
       text_elements: postData.text_elements,
       author: currentUser,
+      photos: postData.photos,
       linkdata: {},
       files: [],
       comments: []

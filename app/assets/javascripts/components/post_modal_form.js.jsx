@@ -42,6 +42,8 @@ const PostModalForm = React.createClass({
   validate: function(postData){
     if (postData.type == PostTypes.quotation && !postData.title.trim() )
       return false;
+    if (postData.type == PostTypes.photo && !postData.photos.length )
+      return false;
     if (postData.type == PostTypes.link && !postData.linkdata.domain )
       return false;
     if (postData.type == PostTypes.file && postData.files.length == 0 )
