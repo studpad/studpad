@@ -8,6 +8,7 @@ const PostModalContent = React.createClass({
     onChangeTitle: React.PropTypes.func.isRequired,
     addDivider: React.PropTypes.func.isRequired,
     addPhoto: React.PropTypes.func.isRequired,
+    removePhoto: React.PropTypes.func.isRequired,
     changeElementText: React.PropTypes.func.isRequired,
     removeTextElement: React.PropTypes.func.isRequired,
     post: React.PropTypes.shape({
@@ -81,6 +82,7 @@ const PostModalContent = React.createClass({
         main_part = (
           <PhotosBox
             addPhoto={this.props.addPhoto}
+            removePhoto={this.props.removePhoto}
             photos={this.props.post.photos}/>
         );
         break;

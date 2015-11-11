@@ -33,6 +33,12 @@ json.array! @posts do |p|
       json.text e.text
     end
   end
+  json.photos do
+    json.array! p.photos do |p|
+      json.id p.id
+      json.url p.url
+    end
+  end
   json.comments do
     json.array! p.comments do |c|
       json.url comment_path(c)

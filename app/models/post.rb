@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
   belongs_to :group
+  has_many :photos
   has_many :comments, as: :commentable, inverse_of: :commentable
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :text_elements, -> { order(:position) }, dependent: :destroy

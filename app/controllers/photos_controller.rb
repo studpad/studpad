@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
     if @photo.save
       render json: {id: @photo.id, url: @photo.url}
     else
-      render json: {error: 'save error'}
+      render json: {error: 'save photo error'}
     end
   end
   # def destroy
