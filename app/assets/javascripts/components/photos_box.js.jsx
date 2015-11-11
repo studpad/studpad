@@ -78,21 +78,26 @@ var PhotosBox = React.createClass({
     if (photos.length > 0 && !this.state.show_input){
       var bottom_button_group = (
         <div>
-          <div
-            className='add-photo-link-yet'
-            onClick={this.addFromInternetClick}>
-            <img
-              className='type-of-add-photo'
-              src = '/images/add_photo_from_internet.png' /> Добавить еще
+          <div className='add-photo-yet'>
+            <div
+              className='add-photo-device-yet'
+              onClick={this.addFromComputerClick}>
+              <img
+                className='type-of-add-photo'
+                src = '/images/add_photo_from_device.png' /> Добавить с компьютера
+            </div>
+            <div
+              className='add-photo-link-yet'
+              onClick={this.addFromInternetClick}>
+              <img
+                className='type-of-add-photo'
+                src = '/images/add_photo_from_internet.png' /> Добавить из Интернета
+            </div>
           </div>
-          <div
-            className='add-photo-device-yet'
-            onClick={this.addFromComputerClick}>
-            <img
-              className='type-of-add-photo'
-              src = '/images/add_photo_from_device.png' /> Добавить еще
+          <div className='clearboth'>
           </div>
         </div>
+
       );
     }
     if (photos.length == 0 && !this.state.show_input) {
@@ -127,10 +132,10 @@ var PhotosBox = React.createClass({
         <div className='wrap-write-link-to-photo'>
           <img
             onClick={this.hideInput}
-            className='remove-angle all-remove-angle'
+            className='remove-angle write-link-to-photo-remove-angle-slim'
             src = '/images/close.png' />
-          <div className='write-link-to-photo'>
-            <input placeholder='Вставьте URL-адрес' onChange={this.onChange}/>
+          <div className='write-link-to-photo-slim'>
+            <input className='input-new-post form-link input-sp form-control' placeholder='Вставьте URL-адрес' onChange={this.onChange}/>
           </div>
         </div>
       );

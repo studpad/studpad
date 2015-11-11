@@ -5,8 +5,8 @@
 	padding-bottom: 6px !important;
 }
 .new-post-wrap{
-	width: 330px;
-	/*width: 410px;*/
+	/*width: 330px;*/
+	width: 410px;
 	margin: auto;
 	text-align: center;
 }
@@ -342,6 +342,16 @@
   padding-bottom: 5px !important;
   width: 30px;
 }
+.write-link-to-photo-remove-angle-slim{
+	position: relative;
+	top: 0px;
+  left: 29px;
+  text-shadow: none !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+  width: 30px;
+}
 .photo-remove-angle{
   position: relative;
   top: 28px;
@@ -576,21 +586,42 @@
 .write-link-to-photo{
 	cursor: text;
 	outline: none;
-	padding-top: 60px;
-	padding-bottom: 70px;
+  padding-top: 76px;
+  padding-bottom: 98px;
+}
+.write-link-to-photo-slim{
+	cursor: text;
+	outline: none;
+	height: 34px;
+	background-color: #F5F5F5;
+	padding: 0 15px;
+	margin: 0 -15px;
+	input{
+		width: 93%;
+	}
+}
+.add-photo-yet{
+	margin: 0 -15px;
+	div{
+		float: left;
+		width: 50%;
+		background-color: #F5F5F5;
+		text-align: center;
+		height: 34px;
+		padding-top: 6px;
+		color: #9A9A9A;
+		cursor: pointer;
+		font-weight: 300;
+		.type-of-add-photo{
+			width: 18px;
+		}
+	}
+	div:last-child{
+		border-left: 1px solid #DADADA;
+	}
 }
 .add-photo-link-yet, .add-photo-device-yet{
-	background-color: #F5F5F5;
-	text-align: center;
-	height: 34px;
-	padding-top: 6px;
-	color: #9A9A9A;
-	margin: 0 -15px;
-	cursor: pointer;
-	font-weight: 300;
-	.type-of-add-photo{
-		width: 18px;
-	}
+	
 }
 .write-link-to-photo[placeholder]:empty:before{
   content: attr(placeholder);
