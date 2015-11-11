@@ -62,6 +62,12 @@ const PostManagementPanel = React.createClass({
             </div>
             <span className='new-post-label-name'>Цитата</span>
           </div>
+          <div className='new-post-label'>
+            <div className='icon-post-cite icon-post'>
+              <img src = '/images/video.png' />
+            </div>
+            <span className='new-post-label-name'>Видео</span>
+          </div>
         </div>
         <div className='clearboth'>
         </div>

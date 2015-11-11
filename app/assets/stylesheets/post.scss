@@ -6,7 +6,7 @@
 }
 .new-post-wrap{
 	/*width: 330px;*/
-	width: 410px;
+	width: 480px;
 	margin: auto;
 	text-align: center;
 }
@@ -247,6 +247,7 @@
 	min-height: 34px;
 	outline: none;
 	white-space: pre-line;
+	cursor: text;
 }
 .text-new-post[placeholder]:empty:before{
 	content: attr(placeholder);
