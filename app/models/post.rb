@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :text_elements, -> { order(:position) }, dependent: :destroy
   enum post_type: [
-    'filegroup', 'link', 'text', 'quotation', 'photo'
+    'filegroup', 'link', 'text', 'quotation', 'photo', 'video'
   ]
   serialize :linkdata
 

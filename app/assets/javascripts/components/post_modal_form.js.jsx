@@ -24,9 +24,11 @@ const PostModalForm = React.createClass({
         type: postType,
         author: window.currentUser,
         title: '',
+        youtube_id: '',
         linkdata: {},
         text_elements: [{type: ElementTypes.text, text: ''}],
         files: [],
+        youtube_id: '',
         photos: []
       },
       showTips: true,
@@ -201,6 +203,13 @@ const PostModalForm = React.createClass({
       post: post
     });
   },
+  changeVideo: function(youtube_id){
+    var post = this.state.post;
+    post.youtube_id = youtube_id;
+    this.setState({
+      post: post
+    });
+  },
   onChangeLink: function(event) {
     url = event.target.value;
     CL(url);
@@ -234,6 +243,7 @@ const PostModalForm = React.createClass({
           author={this.state.post.author}/>
         <PostModalContent
           ref='formContent'
+          changeVideo={this.changeVideo}
           setFocus={this.focusTextElement}
           onChangeTitle={this.changeTitle}
           removeAttachment={this.removeAttachment}

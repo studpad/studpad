@@ -149,6 +149,13 @@ const PostModalContent = React.createClass({
         </div>
         );
         break;
+      case PostTypes.video:
+        main_part = (
+          <VideoBox
+            changeVideo={this.props.changeVideo}
+            youtube_id={this.props.post.youtube_id}/>
+        );
+        break;
       case PostTypes.quotation:
         main_part = (
         <div className='row'>

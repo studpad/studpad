@@ -25,6 +25,10 @@ const PostManagementPanel = React.createClass({
     this.props.newPost(PostTypes.quotation);
     CI('PostManagementPanel::onClickQuotation');
   },
+  onClickVideo: function() {
+    this.props.newPost(PostTypes.video);
+    CI('PostManagementPanel::onClickVideo');
+  },
   //END*****************************************************ACTIONS
   //BEGIN***************************************************HELPERS
   //END*****************************************************HELPERS
@@ -62,7 +66,7 @@ const PostManagementPanel = React.createClass({
             </div>
             <span className='new-post-label-name'>Цитата</span>
           </div>
-          <div className='new-post-label'>
+          <div className='new-post-label' onClick={this.onClickVideo}>
             <div className='icon-post-cite icon-post'>
               <img src = '/images/video.png' />
             </div>

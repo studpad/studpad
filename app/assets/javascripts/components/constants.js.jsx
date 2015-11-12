@@ -3,7 +3,8 @@ const PostTypes = {
   photo:     'photo',
   file:      'filegroup',
   link:      'link',
-  quotation: 'quotation'
+  quotation: 'quotation',
+  video:     'video'
 };
 
 const ElementTypes = {

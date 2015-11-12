@@ -62,6 +62,13 @@ const PostContentView = React.createClass({
         </div>
         );
         break;
+      case PostTypes.video:
+        main_part = (
+          <iframe width='100%' height='100%'
+            src={"http://www.youtube.com/embed/" + this.props.post.youtube_id}>
+          </iframe>
+        )
+        break;
       case PostTypes.quotation:
         main_part = (
         <div>
