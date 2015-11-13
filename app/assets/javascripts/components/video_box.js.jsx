@@ -13,13 +13,24 @@ var VideoBox = React.createClass({
       show_input: true
     };
   },
+  componentDidMount: function() {
+    var ref = this.refs.input;
+    if (ref){
+      $(ref.getDOMNode()).focus();
+    }
+  },
+  handleClick: function(){
+    this.setState({show_input: true});
+    this.props.changeVideo('');
+  },
   render: function(){
     var main_part;
     if (this.state.show_input){
       main_part = (
         <div className = 'write-link-to-photo'>
-          <input 
-            className='input-new-post form-link input-sp form-control' 
+          <input
+            ref='input'
+            className='input-new-post form-link input-sp form-control'
             onChange={this.onChange}
             placeholder = 'Введите URL-адрес видео из YouTube'/>
         </div>
@@ -28,6 +39,7 @@ var VideoBox = React.createClass({
       main_part = (
         <div>
           <img
+            onClick={this.handleClick}
             className='remove-angle video-remove-angle'
             src = '/images/close.png' />
           <iframe width='100%' height='100%'
