@@ -8,6 +8,7 @@ json.array! @posts do |p|
   json.id p.id
   json.url post_path(p)
   json.text p.text
+  json.youtube_id p.youtube_id
   json.type p.post_type
   json.linkdata p.linkdata
   json.title p.title

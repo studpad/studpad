@@ -17,13 +17,23 @@ var VideoBox = React.createClass({
     var main_part;
     if (this.state.show_input){
       main_part = (
-        <input onChange={this.onChange}/>
+        <div className = 'write-link-to-photo'>
+          <input 
+            className='input-new-post form-link input-sp form-control' 
+            onChange={this.onChange}
+            placeholder = 'Введите URL-адрес видео из YouTube'/>
+        </div>
       );
     } else {
       main_part = (
-        <iframe width='100%' height='100%'
-          src={"http://www.youtube.com/embed/" + this.props.youtube_id}>
-        </iframe>
+        <div>
+          <img
+            className='remove-angle video-remove-angle'
+            src = '/images/close.png' />
+          <iframe width='100%' height='100%'
+            src={"http://www.youtube.com/embed/" + this.props.youtube_id}>
+          </iframe>
+        </div>
       );
     }
     return (

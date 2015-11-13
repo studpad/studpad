@@ -205,6 +205,7 @@ const PostModalForm = React.createClass({
   },
   changeVideo: function(youtube_id){
     var post = this.state.post;
+    CE(youtube_id)
     post.youtube_id = youtube_id;
     this.setState({
       post: post

@@ -124,6 +124,7 @@ var PostTextTextarea = React.createClass({
     if(this.props.typePost == PostTypes.link) textPlaceholder = 'Если хотите, можете добавить описание';
     else if(this.props.typePost == PostTypes.quotation) textPlaceholder = 'Укажите источник';
     else if(this.props.typePost == PostTypes.file) textPlaceholder = 'Обязательно введите название Вашей работы, описание, кому она предназначена';
+    else if(this.props.typePost == PostTypes.video) textPlaceholder = 'Если хотите, можете ввести описание видеоролика';
     if (this.props.position != 0)
       var remove_button = <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
     return (
