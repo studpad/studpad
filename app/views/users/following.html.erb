@@ -53,7 +53,7 @@
                       <div class="object-maintext">
                         <%= link_to u.name, user_path(u)%>
                       </div>
-                      <div class="object-subtext"><%= @user.description %></div>
+                      <div class="object-subtext"><%= u.description %></div>
                     </div>
                   </div>
               </div>
@@ -61,10 +61,10 @@
               </div>
             </div>
             <div class = 'follower-button'>
-              <%= link_to 'Читаю', unfollow_user_path(u),
+              <%= link_to 'Не читать', unfollow_user_path(u),
                   method: :post,
-                  class: 'btn btn-primary btn-st btn-follow btn-follow-on',
-                  data: { toggle: 'tooltip', placement: 'bottom' } %>
+                  class: 'btn btn-primary btn-st btn-reject-follow',
+                  data: { toggle: 'tooltip', placement: 'bottom' } if current_user == @user %>
             </div>
           </div>
           <div class="clearboth">
