@@ -64,7 +64,7 @@
               <%= link_to 'Не читать', unfollow_user_path(u),
                   method: :post,
                   class: 'btn btn-primary btn-st btn-reject-follow',
-                  data: { toggle: 'tooltip', placement: 'bottom' } %>
+                  data: { toggle: 'tooltip', placement: 'bottom' } if current_user == @user %>
             </div>
           </div>
           <div class="clearboth">
