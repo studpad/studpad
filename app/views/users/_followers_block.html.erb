@@ -1,0 +1,44 @@
+<div class = 'profile-followers'>
+  <% if @user.followers_count != 0 %>
+    <%= link_to followers_user_path(@user) do %>
+      <div class = 'element-profile-followers'>
+        <% if @user != current_user %>
+          <p>Читатели</p>
+        <% else %>
+          <p>Меня читают</p>
+        <% end %>
+        <%= @user.followers_count %>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @user.follow_count != 0 %>
+    <%= link_to following_user_path(@user) do %>
+      <div class = 'element-profile-followers'>
+        <% if @user != current_user %>
+          <p>Читает</p>
+        <% else %>
+          <p>Я читаю</p>
+        <% end %>
+        <%= @user.follow_count %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class = 'element-profile-read'>
+    <% if current_user && @user != current_user %>
+      <% if current_user.following?(@user) %>
+        <%= link_to 'Читаю', unfollow_user_path(@user),
+        method: :post,
+        class: 'btn btn-primary btn-st btn-follow btn-follow-on',
+        data: { toggle: 'tooltip', placement: 'bottom' } %>
+      <% else %>
+        <%= link_to 'Читать', follow_user_path(@user),
+        method: :post,
+        class: 'btn btn-primary btn-st',
+        data: { toggle: 'tooltip', placement: 'bottom' } %>
+      <% end %>
+    <!-- <button class = 'btn btn-primary btn-st'>Читать</button> -->
+    <% end %>
+  </div>
+  <div class = 'clearboth'>
+  </div>
+</div>

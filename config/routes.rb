@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   resources :photos
   resources :users, except: :edit do
     get :followers, on: :member
+    get :following, on: :member
     member do
       post :follow
       post :unfollow
