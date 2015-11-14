@@ -1,7 +1,7 @@
 .follower{
 	padding: 15px;
 }
-.background-follower{
+.follower:nth-child(2n){
 	background-color: #F5F5F5;
 }
 .btn-reject-follow{
