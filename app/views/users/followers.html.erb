@@ -28,46 +28,7 @@
         <div class = 'profile-info_school'>
           <%= @user.school %>
         </div>
-        <div class = 'profile-followers'>
-          <% if @user.followers_count != 0 %>
-            <div class = 'element-profile-followers'>
-              <% if @user != current_user %>
-                <p>Читатели</p>
-              <% else %>
-                <p>Меня читают</p>
-              <% end %>
-              <%= @user.followers_count %>
-            </div>
-          <% end %>
-          <% if @user.follow_count != 0 %>
-            <div class = 'element-profile-followers'>
-              <% if @user != current_user %>
-                <p>Читает</p>
-              <% else %>
-                <p>Я читаю</p>
-              <% end %>
-              <%= @user.follow_count %>
-            </div>
-          <% end %>
-          <div class = 'element-profile-read'>
-            <% if current_user && @user != current_user %>
-              <% if current_user.following?(@user) %>
-                <%= link_to 'Читаю', unfollow_user_path(@user),
-                method: :post,
-                class: 'btn btn-primary btn-st btn-follow btn-follow-on',
-                data: { toggle: 'tooltip', placement: 'bottom' } %>
-              <% else %>
-                <%= link_to 'Читать', follow_user_path(@user),
-                method: :post,
-                class: 'btn btn-primary btn-st',
-                data: { toggle: 'tooltip', placement: 'bottom' } %>
-              <% end %>
-            <!-- <button class = 'btn btn-primary btn-st'>Читать</button> -->
-            <% end %>
-          </div>
-          <div class = 'clearboth'>
-          </div>
-        </div>
+        <%= render partial: 'followers_block' %>
       </div>
     </div>
     <div class="title-background">
@@ -75,88 +36,39 @@
       Читатели
       </div>
     </div>
-  	<div class="usual-list border-b-radius">
-  		<div class = 'followers'>
+    <div class="usual-list border-b-radius">
+      <div class = 'followers'>
+        <% @user.followers.each do |u|%>
+        <div class = 'follower'>
+          <div class="follower-user-button">
+            <div class='follower-user'>
+              <div class="preview-object">
+                  <div class="preview-object-avatar" style="background: url(
+                  <%= u.avatar.thumb %>
+                  ) no-repeat; background-size: cover;">
+                  </div>
+                  <div class="preview-object-info">
+                    <div class="object-text">
+                      <div class="object-maintext">
+                        <%= link_to u.name, user_path(u)%>
+                      </div>
+                      <div class="object-subtext"><%= @user.description %></div>
+                    </div>
+                  </div>
+              </div>
+              <div class="clearboth">
+              </div>
+            </div>
+            <div class = 'follower-button'>
+              <!-- <a class="btn btn-st btn-reject-follow btn-primary" data-toggle="tooltip" data-placement="bottom">Не читать</a> -->
+            </div>
+          </div>
+          <div class="clearboth">
+          </div>
+        </div>
+        <% end %>
 
-  			<div class = 'follower'>
-  				<div class="follower-user-button">
-  					<div class='follower-user'>
-				      <div class="preview-object">
-				          <div class="preview-object-avatar" style="background: url(
-				          https://pp.vk.me/c628621/v628621124/b7f9/xy-bLm3tTfo.jpg
-				          ) no-repeat; background-size: cover;">
-				          </div>
-				          <div class="preview-object-info">
-				            <div class="object-text">
-				              <div class="object-maintext"><a href="/users/516">Солдатенко Наталья Анатольевна</a></div>
-				              <div class="object-subtext">География</div>
-				            </div>
-				          </div>
-				      </div>
-				      <div class="clearboth">
-				      </div>
-			    	</div>
-			    	<div class = 'follower-button'>
-			    		<a class="btn btn-st btn-reject-follow btn-primary" data-toggle="tooltip" data-placement="bottom">Не читать</a>
-			    	</div>
-				  </div>
-				  <div class="clearboth">
-				  </div>
-  			</div>
-
-  			<div class = 'follower'>
-  				<div class="follower-user-button">
-  					<div class='follower-user'>
-				      <div class="preview-object">
-				          <div class="preview-object-avatar" style="background: url(
-				          https://pp.vk.me/c628329/v628329048/174d5/ty0m9HLBOmo.jpg
-				          ) no-repeat; background-size: cover;">
-				          </div>
-				          <div class="preview-object-info">
-				            <div class="object-text">
-				              <div class="object-maintext"><a href="/users/516">Стрельников Светлана Станиславовна</a></div>
-				              <div class="object-subtext">Информатика</div>
-				            </div>
-				          </div>
-				      </div>
-				      <div class="clearboth">
-				      </div>
-			    	</div>
-			    	<div class = 'follower-button'>
-			    		<a class="btn btn-st btn-reject-follow btn-primary" data-toggle="tooltip" data-placement="bottom">Не читать</a>
-			    	</div>
-				  </div>
-				  <div class="clearboth">
-				  </div>
-  			</div>
-
-  			<div class = 'follower'>
-  				<div class="follower-user-button">
-  					<div class='follower-user'>
-				      <div class="preview-object">
-				          <div class="preview-object-avatar" style="background: url(
-				          https://pp.vk.me/c628621/v628621124/b7f9/xy-bLm3tTfo.jpg
-				          ) no-repeat; background-size: cover;">
-				          </div>
-				          <div class="preview-object-info">
-				            <div class="object-text">
-				              <div class="object-maintext"><a href="/users/516">Солдатенко Наталья Анатольевна</a></div>
-				              <div class="object-subtext">География</div>
-				            </div>
-				          </div>
-				      </div>
-				      <div class="clearboth">
-				      </div>
-			    	</div>
-			    	<div class = 'follower-button'>
-			    		<a class="btn btn-st btn-reject-follow btn-primary" data-toggle="tooltip" data-placement="bottom">Не читать</a>
-			    	</div>
-				  </div>
-				  <div class="clearboth">
-				  </div>
-  			</div>
-
-  		</div>
-  	</div>
+      </div>
+    </div>
   </div>
 </div>
