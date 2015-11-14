@@ -3,6 +3,8 @@
 }
 .new-post-buttons{
 	padding-bottom: 6px !important;
+	border-top-left-radius: 0 !important;
+ border-top-right-radius: 0 !important;
 }
 .new-post-wrap{
 	/*width: 330px;*/
@@ -65,7 +67,7 @@
 
 
 .post-container{
-	margin-top: 16px;
+	margin-top: 15px;
 	margin-bottom: 20px;
 }
 .post{

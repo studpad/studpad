@@ -30,6 +30,7 @@
 *= require material
 *= require post
 *= require feed
+*= require follow
 *= require emotions
 */
 
@@ -847,12 +848,15 @@
      .card-sp{
       /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);*/
       background-color: white;
-      border-radius: 3px;
-      padding-bottom: 3px;
+      border-radius: 2px;
+      padding-bottom: 2px;
       /*&:hover{
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.32);
       }*/
      }
+     .usual-list{
+        background-color: white;
+      }
      .card-sp-heading{
         padding: 10px;
         padding-bottom: 6px;
@@ -1676,6 +1680,10 @@ textarea.form-control{
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
+.border-b-radius{
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
 
 
 
@@ -1913,8 +1921,12 @@ input[type=radio] {
 .all-notices > div{
   margin-bottom: 20px;
 }
-.all-notices > div > .preview-object-info{
+.all-notices .preview-object-info{
   width: 80%;
+}
+.preview-object-info{
+  width: 80%;
+  font-size: 12px;
 }
 .badge-sp{
   color: #FFFFFF;
