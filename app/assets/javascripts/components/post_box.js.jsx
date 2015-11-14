@@ -58,7 +58,7 @@ const PostBox = React.createClass({
         post : postData
       },
       success: function(data) {
-        this.setState({posts: data});
+        this.loadPostsFromServer();
       }.bind(this)
     });
   },
@@ -98,8 +98,7 @@ const PostBox = React.createClass({
       type: 'POST',
       data: {post: post},
       success: function(data) {
-        this.setState({posts: data});
-        console.log(data)
+        this.loadPostsFromServer();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
