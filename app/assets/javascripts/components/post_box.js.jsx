@@ -52,7 +52,7 @@ const PostBox = React.createClass({
     postData.photo_ids = photo_ids;
     $.ajax({
       url: postData.url,
-      dataType: 'json',
+      //dataType: 'json',
       type: 'PATCH',
       data: {
         post : postData
@@ -94,7 +94,7 @@ const PostBox = React.createClass({
     };
     $.ajax({
       url: '/posts',
-      dataType: 'json',
+      //dataType: 'json',
       type: 'POST',
       data: {post: post},
       success: function(data) {
