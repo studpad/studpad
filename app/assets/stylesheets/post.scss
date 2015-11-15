@@ -404,12 +404,16 @@
 		float: left;
 	}
 	.wrap-write-comment-post-footer{
-		width: 88%;
+		width: 78%;
 	}
 	.wrap-like-post-footer{
-		width: 12%;
-		span{
-			float: right;
+		width: 22%;
+		div{
+			float: left;
+			span{
+				float: left;
+				margin-left: 10px;
+			}
 		}
 	}
 }
@@ -527,6 +531,28 @@
   &:hover{
     	color: #D95E40;
     }
+}
+.post-box{
+	cursor: pointer;
+	color: #B3CADC;
+	font-size: 13px;
+	transition-duration: .2s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+  &:hover{
+    	color: #3680be;
+    }
+}
+.post-box:after{
+	padding-left: 4px;
+	position: relative;
+	top: 3px;
+	font-size: 20px;
+  content: "\f0b1";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
 }
 .post-like:after {
 		padding-left: 4px;

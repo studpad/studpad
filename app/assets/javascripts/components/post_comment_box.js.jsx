@@ -56,11 +56,16 @@ const PostCommentBox = React.createClass({
                 onChange={this.handleChange} />
             </div>
             <div className='wrap-like-post-footer'>
-              <span
-                className={classname}
-                onClick={this.props.likeClick}>
-                {likes_count}
-              </span>
+              <div>
+                <span className='post-box'>
+                  12
+                </span>
+                <span
+                  className={classname}
+                  onClick={this.props.likeClick}>
+                  {likes_count}
+                </span>
+              </div>
             </div>
           </div>
           <div className='clearboth'>
