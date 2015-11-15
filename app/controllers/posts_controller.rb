@@ -22,8 +22,8 @@ class PostsController < ApplicationController
         raise 'Undefined text type'
       end
     end
-    @posts = Post.for_user(current_user)
-    render :index, formats: :json
+
+    render nothing: true
   end
 
   def destroy
@@ -77,8 +77,7 @@ class PostsController < ApplicationController
       end
     end
 
-    @posts = Post.for_user(current_user)
-    render :index, formats: :json
+    render nothing: true
   end
 
   def index

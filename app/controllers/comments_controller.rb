@@ -18,11 +18,6 @@ class CommentsController < ApplicationController
   end
 
   private
-    # def render
-    #   @comments = @comment.commentable.comments.includes(:user)
-    #   super 'index'
-    # end
-
     def comment_params
       params.require(:comment).permit(:text, :commentable_id, :commentable_type)
     end

@@ -52,13 +52,13 @@ const PostBox = React.createClass({
     postData.photo_ids = photo_ids;
     $.ajax({
       url: postData.url,
-      dataType: 'json',
+      //dataType: 'json',
       type: 'PATCH',
       data: {
         post : postData
       },
       success: function(data) {
-        this.setState({posts: data});
+        this.loadPostsFromServer();
       }.bind(this)
     });
   },
@@ -94,12 +94,11 @@ const PostBox = React.createClass({
     };
     $.ajax({
       url: '/posts',
-      dataType: 'json',
+      //dataType: 'json',
       type: 'POST',
       data: {post: post},
       success: function(data) {
-        this.setState({posts: data});
-        console.log(data)
+        this.loadPostsFromServer();
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
