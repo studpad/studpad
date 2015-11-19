@@ -404,15 +404,15 @@
 		float: left;
 	}
 	.wrap-write-comment-post-footer{
-		width: 78%;
+		width: 80%;
 	}
 	.wrap-like-post-footer{
-		width: 22%;
+		width: 20%;
 		div{
 			float: left;
 			span{
-				float: left;
-				margin-left: 10px;
+				font-size: 12px;
+				margin-left: 5px;
 			}
 		}
 	}
@@ -523,28 +523,40 @@
 }
 .post-like{
 	cursor: pointer;
-	color: #DCB7AE;
+	color: #D95E40;
 	font-size: 13px;
 	transition-duration: .2s;
   transition-timing-function: linear;
   transition-delay: 0;
-  &:hover{
-    	color: #D95E40;
-    }
+  img{
+  	width: 21px;
+  	position: relative;
+    top: 3px;
+  }
+  span{
+  	position: relative;
+    top: 5px;
+  }
 }
 .post-box{
 	cursor: pointer;
-	color: #B3CADC;
+	color: #3680be;
 	font-size: 13px;
 	transition-duration: .2s;
   transition-timing-function: linear;
   transition-delay: 0;
-  &:hover{
-    	color: #3680be;
-    }
+  img{
+  	width: 21px;
+  	position: relative;
+    top: 3px;
+  }
+  span{
+  	position: relative;
+    top: 5px;
+  }
 }
-.post-box:after{
-	padding-left: 4px;
+/*.post-box:before{
+	padding-right: 4px;
 	position: relative;
 	top: 3px;
 	font-size: 20px;
@@ -554,8 +566,8 @@
   font-weight: normal;
   text-decoration: inherit;
 }
-.post-like:after {
-		padding-left: 4px;
+.post-like:before {
+		padding-right: 4px;
 		position: relative;
 		top: 2px;
 		font-size: 20px;
@@ -564,12 +576,12 @@
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
-}
+}*/
 .post-like-active-animate{
-		-webkit-animation: elementZoomInOut 0.6s linear 0s backwards;
-    -moz-animation: elementZoomInOut 0.6s linear 0s backwards;
-    -ms-animation: elementZoomInOut 0.6s linear 0s backwards;
-    animation: elementZoomInOut 0.6s linear 0s backwards;
+		-webkit-animation: elementZoomInOut 0.35s linear 0s backwards;
+    -moz-animation: elementZoomInOut 0.35s linear 0s backwards;
+    -ms-animation: elementZoomInOut 0.35s linear 0s backwards;
+    animation: elementZoomInOut 0.35s linear 0s backwards;
 }
 .post-like-active{
 		color: #D95E40 !important;
@@ -580,7 +592,7 @@
         transform: scale(1);
     }
     50%{
-        transform: scale(1.8);
+        transform: scale(1.4);
     }
     100%{
         transform: scale(1);

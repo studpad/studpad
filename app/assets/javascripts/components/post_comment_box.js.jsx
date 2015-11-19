@@ -58,12 +58,18 @@ const PostCommentBox = React.createClass({
             <div className='wrap-like-post-footer'>
               <div>
                 <span className='post-box'>
-                  12
+                  <img src='/images/box.png' />
+                  <span>
+                    2
+                  </span>
                 </span>
                 <span
                   className={classname}
                   onClick={this.props.likeClick}>
-                  {likes_count}
+                  <img src='/images/like.png' />
+                  <span>
+                    {likes_count}
+                  </span>
                 </span>
               </div>
             </div>
