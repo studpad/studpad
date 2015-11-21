@@ -38,7 +38,12 @@ class PostsController < ApplicationController
     else
       @post.liked_by current_user
     end
-    render json: {likes: @post.votes_for.size, current_like: !voted}
+    render nothing: true
+  end
+
+  def basket
+    current_user.get_basket.toggle_add(@post)
+    render nothing: true
   end
 
   def update

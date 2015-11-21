@@ -32,7 +32,10 @@ Rails.application.routes.draw do
   # end
 
   resources :posts do
-    put :like, on: :member
+    member do
+      put :like
+      put :basket
+    end
     resources :comments
   end
 

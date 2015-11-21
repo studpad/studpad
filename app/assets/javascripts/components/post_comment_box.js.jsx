@@ -37,9 +37,12 @@ const PostCommentBox = React.createClass({
   //END*****************************************************DECLARE
   render: function() {
     var likes_count = this.props.likes;
+    var baskets_count = this.props.baskets_count;
     var classname, classname_img;
     if (likes_count == 0)
       likes_count = '';
+    if (baskets_count == 0)
+      baskets_count = '';
     if (this.props.current_like){
       classname = 'post-like post-like-active';
       if (this.props.current_like_just)
@@ -57,10 +60,12 @@ const PostCommentBox = React.createClass({
             </div>
             <div className='wrap-like-post-footer'>
               <div>
-                <span className='post-box'>
+                <span
+                  onClick={this.props.basketClick}
+                  className='post-box'>
                   <img src='/images/dessert4.png' />
                   <span>
-                    7
+                    {baskets_count}
                   </span>
                 </span>
                 <span
