@@ -211,11 +211,33 @@ const PostBox = React.createClass({
     this.setState({posts: posts});
     $.ajax({
       url: likedPost.like_path,
-      dataType: 'json',
       type: 'PUT',
-      success: function(data) {
-
-      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  addPostToBasket: function(id) {
+    var posts = this.state.posts;
+    var thisPost = $.grep(posts, function(e){ return e.id == id; });
+    thisPost = thisPost[0];
+    CI('PostBox::addPostToBasket', id);
+    posts = posts.map(function(p){
+      if (p.id == id){
+        if (p.current_basket){
+          p.baskets_count -= 1;
+          p.current_basket = false;
+        } else {
+          p.baskets_count += 1;
+          p.current_basket = true;
+        }
+      }
+      return p;
+    })
+    this.setState({posts: posts});
+    $.ajax({
+      url: thisPost.basket_path,
+      type: 'PUT',
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
@@ -273,6 +295,7 @@ const PostBox = React.createClass({
         <PostList
           posts={this.state.posts}
           likePost={this.likePost}
+          addPostToBasket={this.addPostToBasket}
           createComment={this.createComment}
           removeComment={this.removeComment}
           updateComment={this.updateComment}

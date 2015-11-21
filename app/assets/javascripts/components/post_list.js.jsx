@@ -19,6 +19,7 @@ const PostList = React.createClass({
           key={post.id}
           post={post}
           likePost={this.props.likePost}
+          addPostToBasket={this.props.addPostToBasket}
           removePost={this.props.removePost}
           createComment={this.props.createComment}
           updateComment={this.props.updateComment}

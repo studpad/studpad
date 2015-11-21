@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :notifications
   has_many :posts
   has_many :comments
+  has_one  :basket
 
   belongs_to :teacher_category
   belongs_to :teacher_specialization
@@ -40,6 +41,14 @@ class User < ActiveRecord::Base
     is_a? Student
   end
 
+  def get_basket
+    if basket
+      basket
+    else
+      create_basket!
+    end
+  end
+
   def description
     if teacher?
       if self.teacher_category_id == 3
@@ -66,7 +75,6 @@ class User < ActiveRecord::Base
   end
 
   def self.recommended_for(user)
-    #return limit(2)
     if user
       where.not(id: [user.id] + user.all_follows.map(&:followable_id)).
         joins(:posts).group('users.id').order('RANDOM()').limit(2)

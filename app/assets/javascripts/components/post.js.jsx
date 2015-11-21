@@ -28,6 +28,12 @@ const Post = React.createClass({
     if(window.currentUser)
       this.props.likePost(post_id);
   },
+  basketClick: function(){
+    var post_id = this.props.post.id;
+    CI('Post::basketClick', post_id);
+    if(window.currentUser)
+      this.props.addPostToBasket(post_id);
+  },
   createComment: function(text){
     CW("Post::createComment", text);
     post_id = this.props.post.id;
@@ -61,11 +67,13 @@ const Post = React.createClass({
             text_elements={this.props.post.text_elements}/>
           <PostCommentBox
             likeClick={this.likeClick}
+            basketClick={this.basketClick}
             createComment={this.createComment}
             removeComment={this.removeComment}
             updateComment={this.updateComment}
             comments={this.props.post.comments}
             likes={this.props.post.likes}
+            baskets_count={this.props.post.baskets_count}
             current_like_just={this.props.post.current_like_just||false}
             current_like={this.props.post.current_like}
             />
