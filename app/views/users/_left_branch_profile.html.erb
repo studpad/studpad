@@ -2,11 +2,15 @@
 </div>
 <div class = 'bar-profile card-sp'>
   <div>
-    <span class="badge pull-right">42</span>
-    <img src='/images/publication.png' /> Публикации
+    <%= link_to user_path(@user) do %>
+      <span class="badge pull-right"><%= @user.posts.count %></span>
+      <img src='/images/publication.png' /> Публикации
+    <% end %>
   </div>
   <div>
-    <span class="badge pull-right">42</span>
-    <img src='/images/dessert4.png' /> Самое вкусное
+    <%= link_to basket_user_path(@user) do %>
+      <span class="badge pull-right"><%= @user.get_basket.posts.count %></span>
+      <img src='/images/dessert4.png' /> Самое вкусное
+    <% end %>
   </div>
 </div>

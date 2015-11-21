@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create, :show, :posts]
+  skip_before_action :require_login,
+    only: [:new, :create, :show, :basket_posts, :posts]
 
   before_action :find_user, except: [:new, :create, :profile, :edit_profile]
 
@@ -42,7 +43,6 @@ class UsersController < ApplicationController
       @button_name = 'Сохранить'
       render 'edit'
     end
-
   end
 
   def posts
@@ -52,6 +52,11 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def basket_posts
+    @posts = @user.get_basket.posts.order(created_at: :desc).limit(params[:count])
+    render 'posts/index', formats: :json
   end
 
   def follow

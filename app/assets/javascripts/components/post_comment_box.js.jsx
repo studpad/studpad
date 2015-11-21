@@ -39,16 +39,27 @@ const PostCommentBox = React.createClass({
     var likes_count = this.props.likes;
     var baskets_count = this.props.baskets_count;
     var classname, classname_img;
+    var like_image_path, basket_image_path;
+
     if (likes_count == 0)
       likes_count = '';
     if (baskets_count == 0)
       baskets_count = '';
+
+    if (this.props.current_basket){
+      basket_image_path = '/images/delicious_active.png';
+    } else {
+      basket_image_path = '/images/delicious.png';
+    }
     if (this.props.current_like){
+      like_image_path = '/images/like_active.png';
       classname = 'post-like post-like-active';
       if (this.props.current_like_just)
         classname_img += ' post-like-active-animate';
-    } else
+    } else {
+      like_image_path = '/images/like.png';
       classname = 'post-like';
+    }
     return (
       <div>
         <div className='wrap-post-comments'>
@@ -63,7 +74,7 @@ const PostCommentBox = React.createClass({
                 <span
                   onClick={this.props.basketClick}
                   className='post-box'>
-                  <img src='/images/dessert4.png' />
+                  <img src={basket_image_path} />
                   <span>
                     {baskets_count}
                   </span>
@@ -71,7 +82,9 @@ const PostCommentBox = React.createClass({
                 <span
                   className={classname}
                   onClick={this.props.likeClick}>
-                  <img src='/images/like_active.png' className={classname_img}/>
+                  <img
+                    src={like_image_path}
+                    className={classname_img}/>
                   <span>
                     {likes_count}
                   </span>

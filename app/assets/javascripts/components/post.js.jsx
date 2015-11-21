@@ -75,6 +75,7 @@ const Post = React.createClass({
             likes={this.props.post.likes}
             baskets_count={this.props.post.baskets_count}
             current_like_just={this.props.post.current_like_just||false}
+            current_basket={this.props.post.current_basket}
             current_like={this.props.post.current_like}
             />
         </div>
