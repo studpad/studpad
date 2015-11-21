@@ -13,11 +13,10 @@ role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class = 'form-new-post'>
                   <div class = 'form-wrap-usual-text'>
                     <textarea
-                      required
+                      class='textarea-new-post textarea-sp form-control'
                       id = 'feedback_message'
                       name='feedback[message]'
-                      placeholder="Введите текст письма">
-                    </textarea>
+                      placeholder="Введите текст письма"></textarea>
                       <!-- <div placeholder="Введите текст письма" class="text-new-post" contenteditable="true"></div> -->
                   </div>
                 </div>
@@ -27,7 +26,7 @@ role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
           <div class="modal-footer">
             <button class="btn btn-default btn-st-inert" data-dismiss="modal">Закрыть</button>
-            <%= f.submit 'Отправить', class: "btn btn-primary btn-st", id: "send-material" %>
+            <%= f.submit 'Отправить', class: "btn btn-primary btn-st"%>
             <!-- <input type="submit" id = "send-material" class="btn btn-primary btn-st" data-loading-text = "Подождите..." data-dismiss="modal"> --><!-- Отправить</input> -->
           </div>
         </div>
