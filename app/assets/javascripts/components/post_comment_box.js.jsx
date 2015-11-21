@@ -17,6 +17,10 @@ const PostCommentBox = React.createClass({
     });
     $(node).next().next().on('keydown', this.handleKeyDown)
     $(node).next().next().attr("placeholder", "Ваш комментарий");
+
+    var delicious_tooltip = this.refs.delicious_tooltip.getDOMNode();
+    $(delicious_tooltip).tooltip();
+
   },
   handleKeyDown: function(e) {
     CI('keydown');
@@ -74,7 +78,7 @@ const PostCommentBox = React.createClass({
                 <span
                   onClick={this.props.basketClick}
                   className='post-box'>
-                  <img src={basket_image_path} />
+                  <img ref='delicious_tooltip' title='Сохранить себе' data-toggle="tooltip" data-placement="top" src={basket_image_path} />
                   <span>
                     {baskets_count}
                   </span>
