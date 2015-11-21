@@ -322,3 +322,21 @@
 	left: 124% !important;
 	padding-left: 6px !important; 
 }
+.bar-profile{
+	margin-top: 15px;
+	padding: 10px !important;
+	div{
+		padding-top: 3px;
+		padding-bottom: 3px;
+		cursor: pointer;
+		border-radius: 2px;
+		font-size: 13px;
+    color: #516574;
+		&:hover{
+			background-color: #F5F5F5;
+		}
+	}
+	img{
+		width: 20px;
+	}
+}

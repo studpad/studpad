@@ -147,8 +147,8 @@
 /* типы постов */
 /* цитата */
 .post-type-cite{
-	font-family: 'Barkentina';
-	font-size: 25px !important;
+	font-family: 'Noto Serif';
+	font-size: 23px !important;
 	white-space: pre-line;
 }
 /* тектс */
@@ -404,15 +404,16 @@
 		float: left;
 	}
 	.wrap-write-comment-post-footer{
-		width: 80%;
+		width: 77%;
 	}
 	.wrap-like-post-footer{
-		width: 20%;
+		width: 23%;
+		padding-left: 3px;
 		div{
 			float: left;
 			span{
-				font-size: 12px;
-				margin-left: 5px;
+				font-size: 11px;
+				margin-left: 4px;
 			}
 		}
 	}
@@ -529,7 +530,7 @@
   transition-timing-function: linear;
   transition-delay: 0;
   img{
-  	width: 21px;
+  	width: 24px;
   	position: relative;
     top: 3px;
   }
@@ -546,7 +547,7 @@
   transition-timing-function: linear;
   transition-delay: 0;
   img{
-  	width: 21px;
+  	width: 24px;
   	position: relative;
     top: 3px;
   }
@@ -592,7 +593,7 @@
         transform: scale(1);
     }
     50%{
-        transform: scale(1.4);
+        transform: scale(1.5);
     }
     100%{
         transform: scale(1);

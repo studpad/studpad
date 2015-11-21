@@ -37,13 +37,13 @@ const PostCommentBox = React.createClass({
   //END*****************************************************DECLARE
   render: function() {
     var likes_count = this.props.likes;
-    var classname;
+    var classname, classname_img;
     if (likes_count == 0)
       likes_count = '';
     if (this.props.current_like){
       classname = 'post-like post-like-active';
       if (this.props.current_like_just)
-        classname += ' post-like-active-animate';
+        classname_img += ' post-like-active-animate';
     } else
       classname = 'post-like';
     return (
@@ -58,15 +58,15 @@ const PostCommentBox = React.createClass({
             <div className='wrap-like-post-footer'>
               <div>
                 <span className='post-box'>
-                  <img src='/images/box.png' />
+                  <img src='/images/dessert4.png' />
                   <span>
-                    2
+                    7
                   </span>
                 </span>
                 <span
                   className={classname}
                   onClick={this.props.likeClick}>
-                  <img src='/images/like.png' />
+                  <img src='/images/like_active.png' className={classname_img}/>
                   <span>
                     {likes_count}
                   </span>
