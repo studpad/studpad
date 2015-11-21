@@ -1,26 +1,36 @@
-<div class="modal fade" id="modal-send-mail-to-us" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-send-mail-to-us" tabindex="-1"
+role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content modal-content-white">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Напишите нам :)</h4>
-        </div>
-        <div class = "modal-body">
-          <div class = 'container-fluid'>
-            <div class = 'row'>
-              <div class = 'form-new-post'>
-                <div class = 'form-wrap-usual-text'>
-                    <div placeholder="Введите текст письма" class="text-new-post" contenteditable="true"></div>
+      <%= form_for(:feedback, url: feedbacks_path) do |f| %>
+        <div class="modal-content modal-content-white">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Напишите нам :)</h4>
+          </div>
+          <div class = "modal-body">
+            <div class = 'container-fluid'>
+              <div class = 'row'>
+                <div class = 'form-new-post'>
+                  <div class = 'form-wrap-usual-text'>
+                    <textarea
+                      required
+                      id = 'feedback_message'
+                      name='feedback[message]'
+                      placeholder="Введите текст письма">
+                    </textarea>
+                      <!-- <div placeholder="Введите текст письма" class="text-new-post" contenteditable="true"></div> -->
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-st-inert" data-dismiss="modal">Закрыть</button>
-          <button id = "send-material" type="button" class="btn btn-primary btn-st" data-loading-text = "Подождите..." data-dismiss="modal">Отправить</button>
+          <div class="modal-footer">
+            <button class="btn btn-default btn-st-inert" data-dismiss="modal">Закрыть</button>
+            <%= f.submit 'Отправить', class: "btn btn-primary btn-st", id: "send-material" %>
+            <!-- <input type="submit" id = "send-material" class="btn btn-primary btn-st" data-loading-text = "Подождите..." data-dismiss="modal"> --><!-- Отправить</input> -->
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>

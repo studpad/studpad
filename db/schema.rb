@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119173921) do
+ActiveRecord::Schema.define(version: 20151121200520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,15 @@ ActiveRecord::Schema.define(version: 20151119173921) do
 
   add_index "communities_users", ["community_id"], name: "index_communities_users_on_community_id", using: :btree
   add_index "communities_users", ["user_id"], name: "index_communities_users_on_user_id", using: :btree
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
 
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false

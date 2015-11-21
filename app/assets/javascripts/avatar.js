@@ -1,5 +1,11 @@
 var avatar_crop;
 $(document).on("page:load ready", function(){
+
+  $('textarea#feedback_message').autoResize({
+    limit:600,
+    extraSpace:30,
+    animate:true
+  });
   function update_crop(coords) {
     $('#crop_x').val(coords.x);
     $('#crop_y').val(coords.y);

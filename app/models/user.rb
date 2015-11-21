@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :notifications
   has_many :posts
   has_many :comments
+  has_many :feedbacks
   has_one  :basket
 
   belongs_to :teacher_category

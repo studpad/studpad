@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-
+  resources :feedbacks, only: :create
   resources :attachments, only: [:create, :destroy] do
     get :clean, on: :collection
   end
