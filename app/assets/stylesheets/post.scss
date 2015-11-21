@@ -679,4 +679,10 @@
   content: attr(placeholder);
   color: #ADADAD;
 }
+.glued-first-post{
+	.post-container{
+		margin-top: 0px;
+		border-top: 1px solid #DAE1E8;;
+	}
+}
 

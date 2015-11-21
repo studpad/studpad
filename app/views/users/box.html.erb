@@ -1,0 +1,18 @@
+<div class ='container' id = 'main-container'>
+  <div class = 'left-branch'>
+    <%= render '/partials/profile' %>
+    <%= render 'left_branch_profile' %>
+  </div>
+
+  <div class = 'main-wall'>
+    <div class="title-background border-radius-top">
+      <div class="title-page">
+        Самое вкусное
+      </div>
+    </div>
+    <div class = 'glued-first-post'>
+    <%= react_component("PostBox",
+        posts_url: posts_user_path(@user), show_panel: false ) %>
+    </div>
+  </div>
+</div>

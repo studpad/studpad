@@ -167,7 +167,7 @@ const PostModalContent = React.createClass({
                 ref='title'
                 className=
                 'textarea-new-post textarea-sp post-type-cite form-control form-cite'
-                placeholder = 'Введите здесь текст цитаты'>
+                placeholder = 'Здесь введите текст цитаты'>
               </textarea>
             </div>
           </div>
