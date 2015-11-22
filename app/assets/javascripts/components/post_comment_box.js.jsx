@@ -16,7 +16,7 @@ const PostCommentBox = React.createClass({
       buttonPosition: 'before',
     });
     $(node).next().next().on('keydown', this.handleKeyDown)
-    $(node).next().next().attr("placeholder", "Ваш комментарий");
+    $(node).next().next().attr("placeholder", "Введите комментарий и нажмите Enter");
 
     var delicious_tooltip = this.refs.delicious_tooltip.getDOMNode();
     $(delicious_tooltip).tooltip();
