@@ -13,7 +13,7 @@ var CommentForm = React.createClass({
       return (
         <div>
           <textarea ref="text" className='form-control textHW_comment my-setting-form-control'
-            placeholder="Ваш комментарий..." />
+            placeholder="Введите комментарий и нажмите Enter" />
           <button className="btn btn-primary btn-xs btn-st" onClick={this.sendComment}>
             Отправить
           </button>
