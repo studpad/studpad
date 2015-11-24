@@ -197,16 +197,12 @@ function main(){
       $(this).html('Читаю');
   });
 
-  $('.switch').click(function(){
-      alert('fsd');
-      $('body').addClass('night').removeClass('day');
-      $('.mike-speach').html('Упс! Мы с Вами выключили свет)');
-  });
+
 
   //открыть КАК ЭТО РАБОТАЕТ
   $('.start-how-does-it-work').click(function(){
     $('#hat-studpad').css('z-index', '900');
-
+    
     $('.dark-background-for-how-does-it-work, .description-hdiw').css('display', 'block');
     $('.wrap-mike').css('z-index', '2000');
     $('.description-hdiw').css('z-index', '1050');
