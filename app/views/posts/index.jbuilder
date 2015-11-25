@@ -32,6 +32,8 @@ json.array! @posts do |p|
       json.url a.file.to_s
     end
   end
+  json.attachment_ids p.attachments.map(&:id)
+
   json.text_elements do
     json.array! p.text_elements do |e|
       json.id e.id
