@@ -202,7 +202,7 @@ function main(){
   //открыть КАК ЭТО РАБОТАЕТ
   $('.start-how-does-it-work').click(function(){
     $('#hat-studpad').css('z-index', '900');
-    
+    window.location = '#';
     $('.dark-background-for-how-does-it-work, .description-hdiw').css('display', 'block');
     $('.wrap-mike').css('z-index', '2000');
     $('.description-hdiw').css('z-index', '1050');
