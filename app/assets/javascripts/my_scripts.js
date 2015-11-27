@@ -269,7 +269,7 @@ function main(){
     }
 
     if(nextStation == 'panel-publications'){
-      var description = "А теперь настало время что-нибудь опубликовать! Это очень просто. Кликните на один из 4 видов публикации и создайте её! Вы можете публиковать все, что угодно, ведь это Ваш микроблог.";
+      var description = "А теперь настало время что-нибудь опубликовать! Это очень просто. Кликните на один из видов публикации и создайте её! Вы можете публиковать все, что угодно, ведь это Ваш микроблог.";
       $('.follow-offer').css('z-index', '999').css('position', 'static');
       $('.title-background, .new-post-buttons').css('z-index', '1000').css('position', 'relative');
       $('.description-hdiw').removeClass('description-hdiw-recommend-people').addClass('description-hdiw-' + nextStation).html(description);
