@@ -29,7 +29,8 @@ const PostModalForm = React.createClass({
         text_elements: [{type: ElementTypes.text, text: ''}],
         files: [],
         youtube_id: '',
-        photos: []
+        photos: [],
+        attachment_ids: []
       },
       showTips: true,
       visible: true
@@ -99,6 +100,8 @@ const PostModalForm = React.createClass({
     CI('Attacments', files);
     files = $.grep(files, function(f){ return f.id != attachmentId });
     CI('Attacments', files);
+    //post.attachment_ids |= [];
+    post.attachment_ids = $.grep(post.attachment_ids, function(id){ return id != attachmentId });
     post.files = files;
     this.setState({
       post: post
@@ -113,6 +116,8 @@ const PostModalForm = React.createClass({
       name: attachmentData.name,
       url: attachmentData.link
     });
+    //post.attachment_ids |= [];
+    post.attachment_ids.push(attachmentData.id)
     post.files = files;
     this.setState({
       post: post
