@@ -71,19 +71,48 @@
   <div id = 'hat-studpad'>
           <div class = 'align-c' id = 'hat-studpad-title'>
             <div class = 'hat-menu'>
+              <div class = 'hat-menu-icon wrap-profile-hat-menu-icon dropdown'>
+                <img data-toggle="dropdown" class = 'profile-hat-menu-icon' src = '<%= current_user.avatar.thumb %>' />
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li>
+                    <span class="badge pull-right">17</span>
+                    <img src="/images/publication.png"> Публикации
+                  </li>
+                  <li>
+                    <span class="badge pull-right">11</span>
+                    <img src='/images/delicious_active.png' /> Самое вкусное
+                  </li>
+                  <li>
+                    <img src='/empty.png' /> Я читаю
+                  </li>
+                  <li>
+                    <img src='/images/followers.png' /> Я читаю
+                  </li>
+                  <li role="presentation" class="divider"></li>
+                  <li>
+                    Настройки
+                  </li>
+                  <li>
+                    Выход
+                  </li>
+                </ul>
+              </div>
               <% if current_user %>
                 <%= link_to root_path do %>
                   <div class = 'hat-menu-icon'>
-                    <img src = '/images/home.png' /> <span>Главная</span>
+                    <img src = '/images/home7.png' />
                   </div>
                 <% end %>
               <% else %>
                 <%= link_to main_path do %>
                   <div class = 'hat-menu-icon'>
-                    <img src = '/images/home.png' /> <span>Главная</span>
+                    <img src = '/images/home7.png' />
                   </div>
                 <% end %>
               <% end %>
+              <div class = 'hat-menu-icon'>
+                <img src = '/images/bell.png' />
+              </div>
               <!--<div class = 'hat-menu-icon'>
                 <img src = '/images/compass.png' /> <span>Полный обзор</span>
               </div>-->
