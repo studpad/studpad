@@ -16,8 +16,8 @@ class AjaxController < ApplicationController
       data = {
         url: url.to_s,
         domain: url.host,
-        title: page.css('title').try(:text),
-        description: page.css('meta[name=description]')
+        title: page.css('head title').try(:text),
+        description: page.css('head meta[name=description]')
         .first.try(:attributes).try(:[], 'content').try(:value)
       }
     end
