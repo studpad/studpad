@@ -80,19 +80,38 @@
               <% if current_user %>
                 <%= link_to root_path do %>
                   <div class = 'hat-menu-icon'>
-                    <img src = '/images/home7.png' />
+                    <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='main-hat-menu-icon' src = '/images/home7.png' />
+                  </div>
+                  <div class = 'amount-menu-icon amount-of-posts'>
+                    17
                   </div>
                 <% end %>
               <% else %>
                 <%= link_to main_path do %>
                   <div class = 'hat-menu-icon'>
-                    <img src = '/images/home7.png' />
+                    <img title='Главная' data-toggle='tooltip' data-placement='bottom'  class='main-hat-menu-icon' src = '/images/home7.png' />
+                  </div>
+                  <div class = 'amount-menu-icon amount-of-posts'>
+                    17
                   </div>
                 <% end %>
               <% end %>
-              <div class = 'hat-menu-icon'>
-                <img src = '/images/bell.png' />
-              </div>
+              <!--<div class = 'hat-menu-icon wrap-alert-hat-menu-icon dropdown'>
+                <img data-toggle="dropdown" src = '/images/bell.png' />
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li>
+                  </li>
+                </ul>
+              </div>-->
+              <%= link_to notices_user_path(current_user) do %>
+                <div class = 'hat-menu-icon'>
+                    <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='notices-hat-menu-icon' src = '/images/bell.png' />
+
+                </div>
+                <div class = 'amount-menu-icon amount-of-notices'>
+                  4
+                </div>
+              <% end %>
               <!--<div class = 'hat-menu-icon'>
                 <img src = '/images/compass.png' /> <span>Полный обзор</span>
               </div>-->

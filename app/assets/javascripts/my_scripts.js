@@ -109,6 +109,8 @@ function main(){
 
   $('#settigns-profile').tooltip();
   $('.btn').tooltip();
+  $('.notices-hat-menu-icon').tooltip();
+  $('.main-hat-menu-icon').tooltip();
 
   $(".type-of-community").click(function(){
     $(".type-of-community").removeClass('active-type-of-community');

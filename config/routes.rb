@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   resources :users, except: :edit do
     get :followers, on: :member
     get :following, on: :member
+    get :notices, on: :member
 
     get :basket, on: :member
     get :basket_posts, on: :member

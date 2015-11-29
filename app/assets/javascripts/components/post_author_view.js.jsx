@@ -17,7 +17,7 @@ const PostAuthorView = React.createClass({
     var manage_block = (
       <div className = 'btn-group'>
         <span className = 'sign-dots-menu' data-toggle="dropdown">•••</span>
-        <ul className="dropdown-menu" role="menu">
+        <ul className="dropdown-menu blue-background-dropdown-menu" role="menu">
           {edit_button}
           {remove_button}
           <li><a onClick={this.props.removeClick}>Пожаловаться</a></li>

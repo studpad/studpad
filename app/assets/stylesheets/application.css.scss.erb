@@ -133,7 +133,7 @@
       font-family: "Helvetica Neue","HelveticaNeue",Helvetica,"PT Sans";
     }
     h1#hat-logo-studpad{
-      margin: 10px 0 10px 0;
+      margin: 10px 0 10px -13px;
     }
     .hat-logo-studpa-a{
       color: #3680be;
@@ -754,9 +754,11 @@
     .dropdown-menu .divider{
       background:none;
      }
-    .dropdown-menu>li>a{
+     .dropdown-menu>li>a{
       color:#f5f5f5;
       font-size: 11px;
+     }
+    .blue-background-dropdown-menu>li>a{
       &:hover{
         color: white !important;
         background-color: #3680be !important;
@@ -1976,6 +1978,7 @@ input[type=radio] {
   left: 50%;
   margin-left: -556px;*/
   width: 220px;
+  min-height: 1px;
 }
 .right-branch{
   width: 100px;
@@ -2211,7 +2214,7 @@ button.action-angle,  button.remove-angle, img.remove-angle{
 }
 .hat-menu .hat-menu-icon{
   float: left;
-  margin-right: 12px;
+  margin-right: 10px;
   font-size: 13px;
   cursor: pointer;
   span{
@@ -2221,6 +2224,7 @@ button.action-angle,  button.remove-angle, img.remove-angle{
     color: #3680BE;
   }
 }
+
 .hat-menu-icon > img{
   width: 22px;
   margin-top: 3px;

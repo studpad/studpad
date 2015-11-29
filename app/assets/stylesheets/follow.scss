@@ -1,5 +1,5 @@
 .follower{
-	padding: 15px;
+	padding: 10px 15px;
 }
 .follower:nth-child(2n){
 	background-color: #F5F5F5;
@@ -16,4 +16,8 @@
 }
 .follower-button{
 	float: right;
+	text-align: center;
+	img{
+		width: 24px;
+	}
 }
