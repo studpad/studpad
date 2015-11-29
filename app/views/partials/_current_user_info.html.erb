@@ -1,0 +1,8 @@
+<!-- #Current User Store unsensetive data -->
+  <%= javascript_tag do %>
+    window.currentUser = {};
+    window.currentUser.name = '<%= j current_user.name %>';
+    window.currentUser.type = '<%= j I18n.t(current_user.type) %>';
+    window.currentUser.avatar = '<%= j current_user.avatar.thumb.to_s %>';
+    window.currentUser.url = '<%= j user_path(current_user) %>';
+  <% end if current_user %>

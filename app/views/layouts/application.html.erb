@@ -1,46 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Studpad | Микроблоги креативных педагогов</title>
-  <meta name="description" content="Микроблоги креативных педагогов. Создавать микроблоги и публиковать в них проще простого. Публикуйте то, что Вам интересно, ведь это Ваш блог!"/>
-  <meta name="keywords" content="блог учителя, творческая группа учителей, сообщество учителей, педагогическое сообщество, микроблоги, учебно методические материалы, бесплатный блог, создать блог учителя бесплатно"/>
-
-  <meta property="vk:title" content="Мой микроблог |  studpad.ru" />
-  <meta property="vk:description" content="Studpad - семейство микроблогов для преподавателей и обучающихся. Публиковать проще простого!" />
-  <meta property="vk:url" content="http://studpad.ru" />
-  <meta property="vk:image" content="http://studpad.ru/images/img-prospect.png" />
-  <meta property="vk:type" content="website"/>
   <meta charset="UTF-8">
-
-
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-      (function (d, w, c) {
-          (w[c] = w[c] || []).push(function() {
-              try {
-                  w.yaCounter32955634 = new Ya.Metrika({
-                      id:32955634,
-                      clickmap:true,
-                      trackLinks:true,
-                      accurateTrackBounce:true
-                  });
-              } catch(e) { }
-          });
-
-          var n = d.getElementsByTagName("script")[0],
-              s = d.createElement("script"),
-              f = function () { n.parentNode.insertBefore(s, n); };
-          s.type = "text/javascript";
-          s.async = true;
-          s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-          if (w.opera == "[object Opera]") {
-              d.addEventListener("DOMContentLoaded", f, false);
-          } else { f(); }
-      })(document, window, "yandex_metrika_callbacks");
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/32955634" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
+  <title>Studpad | Микроблоги креативных педагогов</title>
+  <%= render "partials/meta" %>
+  <%= render "partials/metrika" %>
 
   <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
 
@@ -57,14 +21,7 @@
   <link href="http://webfonts.ru/import/merriweather.css" rel="stylesheet" type="text/css" />
   <link href="http://webfonts.ru/import/notoserif.css" rel="stylesheet" type="text/css" />
   <%= csrf_meta_tags %>
-  <!-- #Current User Store unsensetive data -->
-  <%= javascript_tag do %>
-    window.currentUser = {};
-    window.currentUser.name = '<%= j current_user.name %>';
-    window.currentUser.type = '<%= j I18n.t(current_user.type) %>';
-    window.currentUser.avatar = '<%= j current_user.avatar.thumb.to_s %>';
-    window.currentUser.url = '<%= j user_path(current_user) %>';
-  <% end if current_user %>
+  <%= render "partials/current_user_info" %>
 </head>
 <body class = 'day'>
   <div class = 'clouds'>
@@ -74,30 +31,51 @@
           <div class = 'align-c' id = 'hat-studpad-title'>
             <div class = 'hat-menu'>
               <div class = 'hat-menu-icon wrap-profile-hat-menu-icon dropdown'>
-                <img data-toggle="dropdown" class = 'profile-hat-menu-icon' src = '<%= current_user.avatar.thumb %>' />
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li>
-                    <span class="badge pull-right">17</span>
-                    <img src="/images/publication.png"> Публикации
-                  </li>
-                  <li>
-                    <span class="badge pull-right">11</span>
-                    <img src='/images/delicious_active.png' /> Самое вкусное
-                  </li>
-                  <li>
-                    <img src='/empty.png' /> Я читаю
-                  </li>
-                  <li>
-                    <img src='/images/followers.png' /> Я читаю
-                  </li>
-                  <li role="presentation" class="divider"></li>
-                  <li>
-                    Настройки
-                  </li>
-                  <li>
-                    Выход
-                  </li>
-                </ul>
+                <% if current_user %>
+                  <img data-toggle="dropdown" class = 'profile-hat-menu-icon'
+                    src = '<%= current_user.avatar.thumb %>' />
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                      <%= link_to user_path(current_user) do %>
+                        <span class="badge pull-right">
+                          <%= current_user.posts.count %>
+                        </span>
+                        <img src="/images/publication.png">
+                        Публикации
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to basket_user_path(current_user) do %>
+                        <span class="badge pull-right">
+                          <%= current_user.get_basket.posts.count %>
+                        </span>
+                        <img src='/images/delicious_active.png' />
+                        Самое вкусное
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to following_user_path(current_user) do %>
+                        <img src='/empty.png' /> Я читаю
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to followers_user_path(current_user) do %>
+                        <img src='/images/followers.png' /> Меня читают
+                      <% end %>
+                    </li>
+                    <li role="presentation" class="divider"></li>
+                    <li>
+                      <%= link_to profile_edit_path do %>
+                        Настройки
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to logout_path do %>
+                        Выход
+                      <% end %>
+                    </li>
+                  </ul>
+                <% end %>
               </div>
               <% if current_user %>
                 <%= link_to root_path do %>
