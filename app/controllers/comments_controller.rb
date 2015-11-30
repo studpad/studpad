@@ -3,7 +3,12 @@ class CommentsController < ApplicationController
   before_action :build_comment, only: :create
 
   def create
-    current_user.comments.create!(comment_params)
+    comment = current_user.comments.create!(comment_params)
+    post = @comment.commentable
+    Notification.comment.create!(
+      who: current_user,
+      user: post.user,
+      post: post )
     render nothing: true
   end
 
@@ -13,7 +18,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    logger.debug @comment.destroy
+    post = @comment.commentable
+    Notification.comment.where(
+      who: current_user,
+      user: post.user,
+      post: post).destroy_all
+    @comment.destroy
     render nothing: true
   end
 

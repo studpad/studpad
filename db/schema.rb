@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121200520) do
+ActiveRecord::Schema.define(version: 20151130195924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -208,15 +208,14 @@ ActiveRecord::Schema.define(version: 20151121200520) do
   create_table "notifications", force: :cascade do |t|
     t.integer  "mode"
     t.string   "text"
-    t.boolean  "public",       default: true
+    t.boolean  "public",     default: true
     t.integer  "user_id"
-    t.integer  "notable_id"
-    t.string   "notable_type"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "post_id"
+    t.integer  "who_id"
   end
 
-  add_index "notifications", ["notable_type", "notable_id"], name: "index_notifications_on_notable_type_and_notable_id", using: :btree
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "photos", force: :cascade do |t|

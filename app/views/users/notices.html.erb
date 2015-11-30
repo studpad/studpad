@@ -10,8 +10,49 @@
     </div>
     <div class="usual-list border-b-radius">
       <div class = 'followers'>
+        <% @user.notifications.each do |n| %>
+          <div class = 'follower'>
+            <div class='follower-user-button'>
+              <div class='follower-user'>
+                <div class="preview-object">
+                    <div class="preview-object-avatar" style="background: url(
+                    <%= n.who.avatar.thumb %>
+                    ) no-repeat; background-size: cover;">
+                    </div>
+                    <div class="preview-object-info">
+                      <div class="object-text">
+                        <div class="object-maintext">
+                          <%= link_to n.who.name, user_path(n.who) %>
+                          <% if n.comment? %>
+                          <span>прокоментировал(а)</span> <a>эту</a> <span>публикацию</span>
+                          <% elsif n.like? %>
+                          <span>понравилась</span> <a>эта</a> <span>публикация</span>
+                          <% elsif n.basket? %>
+                          <span>добавил(а)</span>
+                          <a>эту</a> <span>публикацию в "Самое вкусное"</span>
+                          <% else %>
+                          <span>начал(а) читать Вас</span>
+                          <% end %>
 
-        <div class = 'follower'>
+                        </div>
+                        <div class="object-subtext-data">
+                          <%= l n.created_at %>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="clearboth">
+                </div>
+              </div>
+              <div class = 'follower-button'>
+                <img src = '<%= n.image_path %>' />
+              </div>
+            </div>
+            <div class="clearboth">
+            </div>
+          </div>
+        <% end %>
+        <!-- <div class = 'follower'>
           <div class="follower-user-button">
             <div class='follower-user'>
               <div class="preview-object">
@@ -122,7 +163,7 @@
           </div>
           <div class="clearboth">
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>

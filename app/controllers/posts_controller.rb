@@ -35,8 +35,16 @@ class PostsController < ApplicationController
     voted = current_user.voted_for? @post
     if voted
       @post.unliked_by current_user
+      Notification.like.where(
+        who: current_user,
+        user: @post.user,
+        post: @post).destroy_all
     else
       @post.liked_by current_user
+      Notification.like.create!(
+        who: current_user,
+        user: @post.user,
+        post: @post)
     end
     render nothing: true
   end

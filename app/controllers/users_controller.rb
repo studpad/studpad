@@ -61,11 +61,15 @@ class UsersController < ApplicationController
 
   def follow
     current_user.follow(@user)
+    Notification.follow.find_or_create!(user: @user, who: current_user)
     redirect_to :back
   end
 
   def unfollow
     current_user.stop_following(@user)
+    Notification.follow.where(
+      user: @user,
+      who: current_user).destroy_all
     redirect_to :back
   end
 

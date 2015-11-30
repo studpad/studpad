@@ -16,7 +16,6 @@ class ClassroomsController < ApplicationController
     else
       render 'edit'
     end
-
   end
 
   def join
