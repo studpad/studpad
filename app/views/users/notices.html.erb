@@ -10,7 +10,7 @@
     </div>
     <div class="usual-list border-b-radius">
       <div class = 'followers'>
-        <% @user.notifications.each do |n| %>
+        <% @user.notifications.where(viewed: false).each do |n| %>
           <div class = 'follower'>
             <div class='follower-user-button'>
               <div class='follower-user'>
@@ -57,6 +57,7 @@
             </div>
           </div>
         <% end %>
+        <% @user.notifications.where(viewed: false).update_all(viewed: true) %>
         <!-- <div class = 'follower'>
           <div class="follower-user-button">
             <div class='follower-user'>

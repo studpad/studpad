@@ -109,7 +109,8 @@
 
                 </div>
                 <div class = 'amount-menu-icon amount-of-notices'>
-                  <%= current_user.notifications.count %>
+                  <% notifications_count =  current_user.notifications.where(viewed: false).count %>
+                  <%= notifications_count unless notifications_count.zero? %>
                 </div>
               <% end %>
               <!--<div class = 'hat-menu-icon'>
