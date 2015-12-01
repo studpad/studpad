@@ -24,12 +24,17 @@
                         <div class="object-maintext">
                           <%= link_to n.who.name, user_path(n.who) %>
                           <% if n.comment? %>
-                          <span>прокоментировал(а)</span> <a>эту</a> <span>публикацию</span>
+                          <span>прокоментировал(а)</span>
+                          <%= link_to 'эту', post_path(n.post) %>
+                          <span>публикацию</span>
                           <% elsif n.like? %>
-                          <span>понравилась</span> <a>эта</a> <span>публикация</span>
+                          <span>понравилась</span>
+                          <%= link_to 'эта', post_path(n.post) %>
+                           <span>публикация</span>
                           <% elsif n.basket? %>
                           <span>добавил(а)</span>
-                          <a>эту</a> <span>публикацию в "Самое вкусное"</span>
+                          <%= link_to 'эту', post_path(n.post) %>
+                           <span>публикацию в "Самое вкусное"</span>
                           <% else %>
                           <span>начал(а) читать Вас</span>
                           <% end %>

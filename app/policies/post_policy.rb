@@ -7,6 +7,10 @@ class PostPolicy < Struct.new(:user, :post)
     true
   end
 
+  def show?
+    true
+  end
+
   def destroy?
     is_owner? || is_admin?
   end

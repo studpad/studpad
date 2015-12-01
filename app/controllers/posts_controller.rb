@@ -26,6 +26,17 @@ class PostsController < ApplicationController
     render nothing: true
   end
 
+  def show
+    respond_to do |format|
+      format.html { }
+      format.json {
+        @posts = [@post]
+        render 'posts/index'
+      }
+    end
+
+  end
+
   def destroy
     @post.destroy
     render nothing: true

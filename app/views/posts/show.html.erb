@@ -1,65 +1,23 @@
-<div id="news<%= @news.id %>" class = 'the-news row'>
-  <div class = 'col-xs-1 wrap-avatar-news'>
-    <%= image_tag n.user.avatar.thumb, class: 'img-avatar' %>
-  </div>
-  <div class = 'col-xs-11'>
-    <div class = 'content-the-news'>
-      <% if current_user.id == @news.user_id %>
-      <div class = 'sign-sp close-news'>
-        <span class="glyphicon glyphicon-pencil pencil-news"></span>
-        &nbsp;&nbsp;
-        <%= link_to news_path(@news), method:'delete', remote: true do %>
-        <span class="glyphicon glyphicon-remove"></span>
-        <% end %>
-      </div>
-      <% end %>
-      <div class = 'news-username'>
-        <%= link_to @news.user.name, user_path(@news.user) %>
-      </div>
-      <div class = 'main-text-news'>
-        <span class = 'span-main-text-news'><%= @news.text %></span>
-      </div>
-      <div class = 'textarea-update-news'>
-        <%= form_tag news_path(@news), method: 'patch' do %>
-        <%= text_area_tag(:text, nil, class: 'form-control textHW-update') %>
-        <div class = 'wrap-send-button'>
-          <button type="submit" class="btn btn-primary btn-xs btn-st change-news">Сохранить</button>
-        </div>
-        <% end %>
-      </div>
-      <div class = 'wrap-img-in-page'>
-        <div class="row">
-          <% @news.attachments.each do |a| %>
-            <% if a.image? %>
-            <div class = 'col-xs-6'>
-              <img src = '<%= a.file.url %>' />
-            </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <div class = 'files-this-post-news'>
-        <% @news.attachments.each do |a| %>
-          <% unless a.image? %>
-            <div class="this-material">
-              <div class="files-image-mini type-document">
-              </div>
-              <div class="name-files-mini">
-                <%= link_to truncate(a.file.file.filename, length: 20), a.file.url %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+<div class ='container' id = 'main-container'>
+    <div class = 'left-branch'>
+        <%= render "/partials/profile" %>
+        <%= render "/feed/all_communities" %>
+        <%= render "/partials/administration_data" %>
+    </div>
+    <div class = 'main-wall'>
 
+      <div class = 'wrap-mike'>
+        <div class = 'mike-speach'>
+
+        </div>
+      </div>
+
+      <%= render 'feed/recommend' %>
+      <div class = 'row' style = 'margin-top: 15px; z-index: 150;'>
+        <div class = 'col-xs-12'>
+          <%= react_component("PostBox",
+        posts_url: post_path(@post), show_panel: false ) %>
+        </div>
       </div>
     </div>
-    <div class = 'form-send-comment-of-news'>
-      <div class = 'menu-of-form-send-comment-of-news'>
-        <span class = 'date-news'><%= @news.created_at.strftime("%d %b %H:%M") %></span>
-        <span class = 'give-comment'>Комментировать</span>
-      </div>
-      <div class = 'textarea-form-send-comment-of-news'>
-      </div>
-    </div>
-  </div>
 </div>
