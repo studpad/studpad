@@ -10,7 +10,7 @@
     </div>
     <div class="usual-list border-b-radius">
       <div class = 'followers'>
-        <% @user.notifications.where(viewed: false).each do |n| %>
+        <% @user.notifications.order(created_at: :desc).limit(30).each do |n| %>
           <div class = 'follower'>
             <div class='follower-user-button'>
               <div class='follower-user'>
