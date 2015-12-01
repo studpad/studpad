@@ -112,7 +112,7 @@
                   <% notifications_count =  current_user.notifications.where(viewed: false).count %>
                   <%= notifications_count unless notifications_count.zero? %>
                 </div>
-              <% end %>
+              <% end if current_user %>
               <!--<div class = 'hat-menu-icon'>
                 <img src = '/images/compass.png' /> <span>Полный обзор</span>
               </div>-->
