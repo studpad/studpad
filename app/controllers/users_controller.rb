@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   def follow
     current_user.follow(@user)
-    Notification.follow.find_or_create!(user: @user, who: current_user)
+    Notification.follow.find_or_create_by!(user: @user, who: current_user)
     redirect_to :back
   end
 

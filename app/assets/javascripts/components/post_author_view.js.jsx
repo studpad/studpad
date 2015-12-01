@@ -20,7 +20,7 @@ const PostAuthorView = React.createClass({
         <ul className="dropdown-menu blue-background-dropdown-menu" role="menu">
           {edit_button}
           {remove_button}
-          <li><a onClick={this.props.removeClick}>Пожаловаться</a></li>
+          <li><a>Пожаловаться</a></li>
         </ul>
       </div>
       );

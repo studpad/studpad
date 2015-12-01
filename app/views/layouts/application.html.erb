@@ -82,18 +82,18 @@
                   <div class = 'hat-menu-icon'>
                     <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='main-hat-menu-icon' src = '/images/home7.png' />
                   </div>
-                  <div class = 'amount-menu-icon amount-of-posts'>
+                  <!--<div class = 'amount-menu-icon amount-of-posts'>
                     17
-                  </div>
+                  </div>-->
                 <% end %>
               <% else %>
                 <%= link_to main_path do %>
                   <div class = 'hat-menu-icon'>
                     <img title='Главная' data-toggle='tooltip' data-placement='bottom'  class='main-hat-menu-icon' src = '/images/home7.png' />
                   </div>
-                  <div class = 'amount-menu-icon amount-of-posts'>
+                  <!--<div class = 'amount-menu-icon amount-of-posts'>
                     17
-                  </div>
+                  </div>-->
                 <% end %>
               <% end %>
               <!--<div class = 'hat-menu-icon wrap-alert-hat-menu-icon dropdown'>
@@ -109,7 +109,7 @@
 
                 </div>
                 <div class = 'amount-menu-icon amount-of-notices'>
-                  4
+                  <%= current_user.notifications.count %>
                 </div>
               <% end %>
               <!--<div class = 'hat-menu-icon'>
