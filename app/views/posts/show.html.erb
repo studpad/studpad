@@ -1,22 +1,11 @@
 <div class ='container' id = 'main-container'>
-    <div class = 'left-branch'>
-        <%= render "/partials/profile" %>
-        <%= render "/feed/all_communities" %>
-        <%= render "/partials/administration_data" %>
-    </div>
-    <div class = 'main-wall'>
-
-      <div class = 'wrap-mike'>
-        <div class = 'mike-speach'>
-
-        </div>
-      </div>
-
-      <%= render 'feed/recommend' %>
-      <div class = 'row' style = 'margin-top: 15px; z-index: 150;'>
+    <div class = 'main-wall-wide'>
+      <div class = 'row' style = 'z-index: 150;'>
         <div class = 'col-xs-12'>
-          <%= react_component("PostBox",
-        posts_url: post_path(@post), show_panel: false ) %>
+          <div class = 'one-post'>
+            <%= react_component("PostBox",
+          posts_url: post_path(@post), show_panel: false ) %>
+          </div>
         </div>
       </div>
     </div>

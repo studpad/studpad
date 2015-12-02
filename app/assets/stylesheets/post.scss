@@ -682,7 +682,12 @@
 .glued-first-post{
 	.post-container{
 		margin-top: 0px;
-		border-top: 1px solid #DAE1E8;;
+		border-top: 1px solid #DAE1E8;
+	}
+}
+.one-post{
+	.post-container{
+		margin-top: 0px;
 	}
 }
 
