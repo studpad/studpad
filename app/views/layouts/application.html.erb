@@ -103,9 +103,11 @@
                   </li>
                 </ul>
               </div>-->
+              <%= link_to explore_path() do %>
               <div class = 'hat-menu-icon'>
                 <img title='Прогулка' data-toggle='tooltip' data-placement='bottom' class='notices-hat-menu-icon' src = '/images/compass.png' />
               </div>
+              <% end %>
               <%= link_to notices_user_path(current_user) do %>
                 <div class = 'hat-menu-icon'>
                     <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='notices-hat-menu-icon' src = '/images/bell.png' />

@@ -29,7 +29,9 @@
 
 .grid-gallery figcaption h3 {
 	margin: 0;
-	padding: 0 0 0.5em;
+	padding-top: 6px;
+	padding-bottom: 0px;
+	font-size: 17px;
 }
 
 .grid-gallery figcaption p {
@@ -59,7 +61,7 @@
 .grid li {
 	width: 25%;
 	float: left;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 
 .grid figure {
@@ -69,9 +71,9 @@
 	border-radius: 2px;
 }
 
-.grid li:hover figure {
+/*.grid li:hover figure {
 	opacity: 0.8;
-}
+}*/
 
 .grid figcaption {
 	background: white;
@@ -83,7 +85,7 @@
 			width: 12px;
 		}
 	}
-	p, footer{
+	p, footer, h3{
 		padding-left: 10px;
 		padding-right: 10px;
 	}

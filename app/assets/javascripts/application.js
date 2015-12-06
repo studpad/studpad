@@ -39,7 +39,6 @@
 //= require notifications
 //= require speech
 //= require statistics
-//= require wookmark
 //= require explore
 //= require imagesloaded.pkgd.min
 //= require masonry.pkgd.min

@@ -70,7 +70,7 @@
 		// items total
 		this.itemsCount = this.gridItems.length;
 		// slideshow grid
-		this.slideshow = this.el.querySelector( 'section.slideshow > ul' );
+		/*this.slideshow = this.el.querySelector( 'section.slideshow > ul' );
 		// slideshow grid items
 		this.slideshowItems = [].slice.call( this.slideshow.children );
 		// index of current slideshow item
@@ -78,7 +78,7 @@
 		// slideshow control buttons
 		this.ctrlPrev = this.el.querySelector( 'section.slideshow > nav > span.nav-prev' );
 		this.ctrlNext = this.el.querySelector( 'section.slideshow > nav > span.nav-next' );
-		this.ctrlClose = this.el.querySelector( 'section.slideshow > nav > span.nav-close' );
+		this.ctrlClose = this.el.querySelector( 'section.slideshow > nav > span.nav-close' );*/
 		// init masonry grid
 		this._initMasonry();
 		// init events
@@ -94,7 +94,7 @@
 			});
 		});
 	};
-
+/*
 	CBPGridGallery.prototype._initEvents = function() {
 		var self = this;
 
@@ -149,7 +149,7 @@
 
 		classie.addClass( this.el, 'slideshow-open' );
 
-		/* position slideshow items */
+		// position slideshow items
 
 		// set viewport items (current, next and previous)
 		this._setViewportItems();
@@ -356,7 +356,7 @@
 				setTransform( this.nextItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
 			}
 		}
-	}
+	}*/
 
 	// add to global namespace
 	window.CBPGridGallery = CBPGridGallery;
