@@ -39,6 +39,14 @@
 //= require notifications
 //= require speech
 //= require statistics
+//= require wookmark
+//= require explore
+//= require imagesloaded.pkgd.min
+//= require masonry.pkgd.min
+//= require classie
+//= require cbpGridGallery
+//= require modernizr.custom
+
 
 Dropzone.autoDiscover = false;
 

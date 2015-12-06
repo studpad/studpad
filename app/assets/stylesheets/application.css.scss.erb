@@ -32,6 +32,7 @@
 *= require feed
 *= require follow
 *= require emotions
+*= require explore
 */
 
 @import "bootstrap-sprockets";
@@ -74,6 +75,7 @@
       opacity: 0.8;
       position: fixed;
       width: 100%;
+      display: none;
     }
     @keyframes cloud-1 {
       from {margin-left: -151px;}
@@ -378,6 +380,13 @@
     #main-container{
       margin: auto;
       width: 950px;
+      margin-top: 60px;
+      position: relative;
+      margin-bottom: 30px;
+    }
+    #explore-container{
+      margin: auto;
+      width: 90%;
       margin-top: 60px;
       position: relative;
       margin-bottom: 30px;
@@ -2263,4 +2272,7 @@ iframe{
 }
 .switch{
   cursor: pointer;
+}
+.tags-sp{
+  color: #969DA2;
 }

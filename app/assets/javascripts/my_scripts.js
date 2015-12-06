@@ -279,6 +279,7 @@ function main(){
       $('.its-all-hdiw').css('display', 'inline');
     }
   });
+
 }
 
 $(document).on("page:load ready", main)

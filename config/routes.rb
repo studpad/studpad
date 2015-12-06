@@ -70,6 +70,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   get 'trouble' => 'materials#edit'
   get 'feed' => 'feed#show'
+  get 'explore' => 'feed#explore'
   get 'signup'  => 'users#new'
   get 'welcome'  => 'sessions#new'
   get 'profile' => 'users#profile'
