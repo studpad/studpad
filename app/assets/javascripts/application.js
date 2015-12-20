@@ -17,7 +17,7 @@
 //= require react_ujs
 //= require react_bootstrap
 //= require react-dropzone
-// require sanitizer_base
+//= require npm_packages
 //= require emotions
 //= require components
 //= require bootstrap-sprockets
@@ -43,8 +43,6 @@
 //= require classie
 //= require cbpGridGallery
 // require modernizr.custom
-
-sanitizeHtml = require('sanitize-html');
 
 Dropzone.autoDiscover = false;
 
