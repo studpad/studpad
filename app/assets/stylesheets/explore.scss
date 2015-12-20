@@ -44,6 +44,10 @@
 		font-weight: 200;
 		span{
 			margin-right: 3px;
+			cursor: pointer;
+			&:hover{
+				color: #757A7D;
+			}
 		}
 	}
 }
@@ -61,6 +65,9 @@
 .grid li {
 	width: 25%;
 	float: left;
+	&:hover .delicious-like > div:first-child{
+ 		display: block;
+ 	}
 	/*cursor: pointer;*/
 }
 
@@ -99,13 +106,24 @@
 .grid footer{
 	border-top: 1px solid #DAE1E8;
 	min-height: 43px;
-	div{
-		float: left;
-	}
  	.delicious-like{
- 		width: 30%;
- 		div{
+ 		div:first-child{
+			float: left;
+			color: #23527c;
+			font-size: 12px;
+			cursor: pointer;
+			display: none;
+			&:hover{
+				color: #3680be;
+			}
+			span{
+				font-size: 11px;
+				color: #969DA2;
+			}
+		}
+ 		div:last-child{
 			float: right;
+			display: block;
 			span{
 				font-size: 11px;
 				margin-left: 3px;
@@ -114,12 +132,14 @@
 				span{
 					position: relative;
 					top: 1px;
+					color: #516574;
 				}
 			}
 		}
  		img{
  			width: 16px;
  			float: left;
+ 			cursor: pointer;
  		}
  	}
 }
@@ -368,14 +388,15 @@ span.nav-close:before {
 }
 
 .autor-explore{
-	min-height: 30px;
-	width: 70%;
-	div{
+	background-color: white;
+	padding: 10px;
+	height: 52px;
+	.avatar, .info{
 		float: left;
 	}
 	.avatar{
-		width: 20px;
-	  height: 20px;
+		width: 32px;
+	  height: 32px;
 	  border-radius: 2px;
 	  -webkit-border-radius: 2px;
 	}
@@ -384,8 +405,18 @@ span.nav-close:before {
 		bottom: 3px;
 		float: left;
 		margin-left: 5px;
-		font-size: 11px;
-		font-weight: 400;
-		width: 120px;
+		font-size: 12px;
+		.name{
+			font-weight: 500;
+		}
+		.follow{
+			font-weight: 400;
+			color: #3680be;
+			font-size: 12px;
+			cursor: pointer;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
 	}
 }

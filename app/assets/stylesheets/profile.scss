@@ -340,43 +340,6 @@
 		width: 20px;
 	}
 }
-.wrap-profile-hat-menu-icon > .dropdown-menu, .wrap-alert-hat-menu-icon > .dropdown-menu{
-	width: 250px !important;
-}
-.wrap-profile-hat-menu-icon > .dropdown-menu{
-	li{
-		padding-top: 3px;
-		padding-bottom: 3px;
-		padding-left: 5px;
-		padding-right: 5px;
-		cursor: pointer;
-		border-radius: 2px;
-		font-size: 13px;
-    color: #516574;
-		&:hover{
-			background-color: #F5F5F5;
-		}
-		.divider{
-			padding-top: 0px !important;
-    	padding-bottom: 0px !important;
-		}
-		img{
-			width: 20px;
-			position: relative;
-			top: -2px;
-		}
-		.badge{
-			background-color: transparent;
-			color: #3680be;
-		}
-	}
-}
-.wrap-profile-hat-menu-icon>.dropdown-menu>li>a{
-  font-size: inherit !important;
-  &:hover{
-    background-color: #F5F5F5 !important;
-  }
- }
  .wrap-alert-hat-menu-icon{
   img{
   	padding-bottom: 9px;

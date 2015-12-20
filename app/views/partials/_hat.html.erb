@@ -1,0 +1,259 @@
+<section class = 'hat-studpad'>
+  <div class='contant-wrap'>
+    <div class='logo'>
+      <h1>
+        <% if current_user %>
+          <%= link_to "Studpad", root_path, class: 'hat-logo-studpa-a'%>
+        <% else %>
+          <%= link_to "Studpad", main_path, class: 'hat-logo-studpa-a'%>
+        <% end %>
+      </h1>
+    </div>
+    <div class='search'>
+      <div class="input-group">
+        <input type="text" class="form-control">
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle dont-hide" data-toggle="dropdown"><span class='choose-category'></span></button>
+          <div class="dropdown-menu main-categories" role="menu">
+            <div class='pole'>
+              <p>Популярное</p>
+              <p>Новое</p>
+              <p>Фото</p>
+              <p>GIF</p>
+              <p>Цитаты</p>
+              <p>Видео</p>
+              <p>Женская мода</p>
+              <p>Мужская мода</p>
+              <p>Путешествия</p>
+              <p>Обучение</p>
+              <p>Дети</p>
+              <p>Красота и прически</p>
+            </div>
+            <div class='pole'>
+              <p>Животные</p>
+              <p>История</p>
+              <p>Здоровье и фитнес</p>
+              <p>Еда и напитки</p>
+              <p>Сделай сам</p>
+              <p>Кино, музыка, книги</p>
+              <p>Уютный дом</p>
+              <p>Спорт</p>
+              <p>Подарки</p>
+              <p>Татуировки</p>
+              <p>SWAG</p>
+              <p>Юмор</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='profile'>
+      <div class='menu-wrap'>
+
+        <% if current_user %>
+          <div>
+            <img data-toggle="dropdown" class = 'profile-icon'
+              src = '<%= current_user.avatar.thumb %>' />
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li>
+                <%= link_to user_path(current_user) do %>
+                  <span class="badge pull-right">
+                    <%= current_user.posts.count %>
+                  </span>
+                  <img src="/images/publication.png">
+                  Мой микроблог
+                <% end %>
+              </li>
+              <li>
+                <%= link_to basket_user_path(current_user) do %>
+                  <span class="badge pull-right">
+                    <%= current_user.get_basket.posts.count %>
+                  </span>
+                  <img src='/images/delicious_active.png' />
+                  Самое вкусное
+                <% end %>
+              </li>
+              <li>
+                <%= link_to following_user_path(current_user) do %>
+                  <img src='/empty.png' /> Я читаю
+                <% end %>
+              </li>
+              <li>
+                <%= link_to followers_user_path(current_user) do %>
+                  <img src='/images/followers.png' /> Меня читают
+                <% end %>
+              </li>
+              <li role="presentation" class="divider"></li>
+              <li>
+                <%= link_to profile_edit_path do %>
+                  Настройки
+                <% end %>
+              </li>
+              <li>
+                <%= link_to logout_path do %>
+                  Выход
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+        <% if current_user %>
+          <%= link_to root_path do %>
+            <div>
+              <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/home7.png' />
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to main_path do %>
+            <div>
+              <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/home7.png' />
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to notices_user_path(current_user) do %>
+            <div>
+                <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/bell.png' />
+
+            </div>
+            <div class = 'amount-menu-icon amount-of-notices'>
+              <% notifications_count =  current_user.notifications.where(viewed: false).count %>
+              <%= notifications_count unless notifications_count.zero? %>
+            </div>
+        <% end if current_user %>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class='post-categories'>
+</section>
+
+
+
+<!--<div class = 'align-c' id = 'hat-studpad-title'>
+    <div class = 'hat-menu'>
+      <div class = 'hat-menu-icon wrap-profile-hat-menu-icon dropdown'>
+        <% if current_user %>
+          <img data-toggle="dropdown" class = 'profile-hat-menu-icon'
+            src = '<%= current_user.avatar.thumb %>' />
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li>
+              <%= link_to user_path(current_user) do %>
+                <span class="badge pull-right">
+                  <%= current_user.posts.count %>
+                </span>
+                <img src="/images/publication.png">
+                Мой микроблог
+              <% end %>
+            </li>
+            <li>
+              <%= link_to basket_user_path(current_user) do %>
+                <span class="badge pull-right">
+                  <%= current_user.get_basket.posts.count %>
+                </span>
+                <img src='/images/delicious_active.png' />
+                Самое вкусное
+              <% end %>
+            </li>
+            <li>
+              <%= link_to following_user_path(current_user) do %>
+                <img src='/empty.png' /> Я читаю
+              <% end %>
+            </li>
+            <li>
+              <%= link_to followers_user_path(current_user) do %>
+                <img src='/images/followers.png' /> Меня читают
+              <% end %>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li>
+              <%= link_to profile_edit_path do %>
+                Настройки
+              <% end %>
+            </li>
+            <li>
+              <%= link_to logout_path do %>
+                Выход
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <% if current_user %>
+        <%= link_to root_path do %>
+          <div class = 'hat-menu-icon'>
+            <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='main-hat-menu-icon' src = '/images/home7.png' />
+          </div>-->
+          <!--<div class = 'amount-menu-icon amount-of-posts'>
+            17
+          </div>-->
+        <!--<% end %>
+      <% else %>
+        <%= link_to main_path do %>
+          <div class = 'hat-menu-icon'>
+            <img title='Главная' data-toggle='tooltip' data-placement='bottom'  class='main-hat-menu-icon' src = '/images/home7.png' />
+          </div>-->
+          <!--<div class = 'amount-menu-icon amount-of-posts'>
+            17
+          </div>-->
+        <!--<% end %>
+      <% end %>-->
+      <!--<div class = 'hat-menu-icon wrap-alert-hat-menu-icon dropdown'>
+        <img data-toggle="dropdown" src = '/images/bell.png' />
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          <li>
+          </li>
+        </ul>
+      </div>-->
+      <!--<%= link_to explore_path() do %>
+      <div class = 'hat-menu-icon'>
+        <img title='Прогулка' data-toggle='tooltip' data-placement='bottom' class='notices-hat-menu-icon' src = '/images/compass.png' />
+      </div>
+      <% end %>
+      <%= link_to notices_user_path(current_user) do %>
+        <div class = 'hat-menu-icon'>
+            <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='notices-hat-menu-icon' src = '/images/bell.png' />
+
+        </div>
+        <div class = 'amount-menu-icon amount-of-notices'>
+          <% notifications_count =  current_user.notifications.where(viewed: false).count %>
+          <%= notifications_count unless notifications_count.zero? %>
+        </div>
+      <% end if current_user %>
+      
+    </div>
+    <% if current_user && @how_does_it_work %>
+      <div class = 'hat-menu hat-menu-right'>
+        <div class = 'hat-menu-icon start-how-does-it-work'>
+          <img src = '/images/flame.png' /> <span>Как это работает?</span>
+        </div>
+      </div>
+    <% end %>
+    <h1 id = 'hat-logo-studpad'>
+      <% if current_user %>
+        <%= link_to "Studpad", root_path, class: 'hat-logo-studpa-a'%>
+      <% else %>
+        <%= link_to "Studpad", main_path, class: 'hat-logo-studpa-a'%>
+      <% end %>
+    </h1>
+    <div class = 'global-menu'>
+      <nav class = "global-actions">
+      </nav>
+    </div>
+  </div>-->
+  <!--<div id = 'menu-on-hat'>
+    <div class = 'col-lg-1 col-md-1 col-xs-1'>
+      <%# if current_user %>
+        <%#= link_to profile_path do %>
+        <%#= image_tag current_user.avatar.url || "http://localhost:3000/uploads/teacher/avatar/1/thumb_7_______.jpg", style: 'border: 1px solid #BBC3C7; border-radius: 200px; margin-top: 6px;', size: "35x35" %>
+        <%# end %>
+      <%# end %>
+    </div>
+    <div class = 'col-lg-2 col-md-2 col-xs-2 item-of-hat-menu'>
+      <%# if current_user && current_user.student? %>
+        <%#= link_to classroom_path(current_user.classroom) do %>
+          <%#= image_tag "myclass.png", style: 'margin-top: 6px;', size: "35x35" %><span class = 'name-action-of-hat-menu'> Мой класс</span>
+        <%# end %>
+      <%# end %>
+    </div>
+  </div> -->
