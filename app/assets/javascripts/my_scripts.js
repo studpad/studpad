@@ -25,7 +25,7 @@ function main(){
         $('#teacher-specialization-edit').hide();
     });
 
-    
+
     $('.usual-post-text-expand-span').click(function(){
       alert('sf');
     });
@@ -90,22 +90,6 @@ function main(){
       ':clap:'           : 'applause.png',
 
   };
-
-
-  $(".fancybox-thumb").fancybox({
-    parent: 'body',
-    prevEffect  : 'none',
-    nextEffect  : 'none',
-    helpers  : {
-      title : {
-        type: 'outside'
-      },
-      thumbs   : {
-        width : 50,
-        height   : 50
-      }
-    }
-  });
 
   $('#settigns-profile').tooltip();
   $('.btn').tooltip();
