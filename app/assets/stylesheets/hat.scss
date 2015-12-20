@@ -1,0 +1,144 @@
+
+.hat-studpad{
+  background: white;
+  height: 48px;
+  border-bottom: 1px solid rgb(226, 226, 226);
+  width: 100%;
+  z-index: 900;
+  position: fixed;
+  top: 0px;
+  .contant-wrap{
+    width: 90%;
+    margin: auto;
+    padding: 7px 1em;
+    .logo{
+      width: 10%;
+      h1{
+        color: #3680be;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: "Helvetica Neue","HelveticaNeue",Helvetica,"PT Sans";
+        font-size: 22px;
+        position: relative;
+        bottom: 16px;
+        right: 10px;
+        float: right;
+      }
+    }
+    .search{
+      width: 60%;
+      .input-group{
+        input{
+          background-color: #F3F3F3;
+        }
+        .choose-category:before{
+          content: "\f00b"; 
+          font-family: FontAwesome;
+          color: #454545;
+        }
+      }
+    }
+    .profile{
+      width: 30%;
+      .menu-wrap{
+        width: 140px;
+        float: right;
+      }
+      div{
+        float: left;
+        margin-right: 16px;
+        .menu-icon{
+          width: 24px;
+          position: relative;
+          top: 3px;
+        }
+        .profile-icon{
+          width: 34px;
+          border-radius: 200px;
+        }
+        .dropdown-menu{
+          left: 80%;
+          li{
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            padding-right: 5px;
+            cursor: pointer;
+            border-radius: 2px;
+            font-size: 13px;
+            color: #516574;
+            &:hover{
+              background-color: #F5F5F5;
+            }
+            .divider{
+              padding-top: 0px !important;
+              padding-bottom: 0px !important;
+            }
+            img{
+              width: 20px;
+              position: relative;
+              top: -2px;
+            }
+            .badge{
+              background-color: transparent;
+              color: #3680be;
+            }
+          }
+        }
+        .dropdown-menu > li > a{
+          font-size: inherit !important;
+          &:hover{
+            background-color: #F5F5F5 !important;
+          }
+        }
+        .dropdown-menu{
+          width: 250px !important;
+        }
+      }
+    }
+  } 
+  .contant-wrap > div{
+    float: left;
+  }
+}
+.main-categories{
+  width: 400px !important;
+  top: 40px !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  cursor: pointer;
+  .pole{
+    float: left;
+    width: 190px;
+    padding: 15px 35px !important;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    p{
+      color: #626262;
+      &:hover{
+        color: #3680be;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .hat-studpad{
+    .contant-wrap{
+      .logo{
+        display: none;
+      }
+      .search{
+        width: 50%;
+      }
+      .profile{
+        width: 50%;
+        div{
+          .dropdown-menu{
+            left: 62%;
+          }
+        }
+      }
+    }
+  }
+}

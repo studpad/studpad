@@ -120,22 +120,26 @@ var PostTextTextarea = React.createClass({
   //   onLoad={this.handleAutofocus}>
   // </div>
   render: function() {
-    var textPlaceholder = 'Введите текст';
-    if(this.props.typePost == PostTypes.link) textPlaceholder = 'Если хотите, можете добавить описание';
+    var textPlaceholder = 'Если хотите, можете добавить описание';
+    var textTags = '#Теги';
+    /*if(this.props.typePost == PostTypes.link) textPlaceholder = 'Если хотите, можете добавить описание';
     else if(this.props.typePost == PostTypes.quotation) textPlaceholder = 'Здесь укажите источник';
     else if(this.props.typePost == PostTypes.file) textPlaceholder = 'Обязательно введите название Вашей работы, описание, кому она предназначена';
     else if(this.props.typePost == PostTypes.video) textPlaceholder = 'Если хотите, можете добавить описание видеоролика';
+    else if(this.props.typePost == PostTypes.photo) textPlaceholder = 'Если хотите, можете добавить описание';*/
     if (this.props.position != 0)
       var remove_button = <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
     return (
-      <div className = 'usual-post-text action-create-element-post'>
-        {remove_button}
-        <ContentEditableDiv
-          onChange={this.handleChange}
-          placeholder={textPlaceholder}
-          focus={this.props.focus}
-          cssClass='text-new-post'
-          html={this.props.text}/>
+      <div>
+        <div className = 'usual-post-text-create action-create-element-post'>
+          {remove_button}
+          <ContentEditableDiv
+            onChange={this.handleChange}
+            placeholder={textPlaceholder}
+            focus={this.props.focus}
+            cssClass='text-new-post'
+            html={this.props.text}/>
+        </div>
       </div>
     );
   }

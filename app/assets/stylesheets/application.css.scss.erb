@@ -32,10 +32,12 @@
 *= require follow
 *= require emotions
 *= require explore
+*= require hat
 */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "http://webfonts.ru/import/osans.css";
 
 /*body{
       color: #383838;
@@ -114,46 +116,6 @@
       &:hover{
         color: #3680be;
       }
-    }
-    #hat-logo-studpad{
-      font-weight: bold;
-      font-size: 22px;
-      position: absolute;
-      left: 50%;
-      top: 0px;
-      font-family: "Helvetica Neue","HelveticaNeue",Helvetica,"PT Sans";
-    }
-    #hat-studpad-title{
-      width: 950px;
-      margin: auto;
-      position: relative;
-      padding: 0 12px;
-    }
-    .font-helvetica{
-      font-family: "Helvetica Neue","HelveticaNeue",Helvetica,"PT Sans";
-    }
-    h1#hat-logo-studpad{
-      margin: 10px 0 10px -13px;
-    }
-    .hat-logo-studpa-a{
-      color: #3680be;
-      &:hover{
-        color: #3680be;
-      }
-    }
-    #hat-studpad{
-      background: white;
-      height: 48px;
-      border-bottom: 1px solid rgb(226, 226, 226);
-      width: 100%;
-      z-index: 900;
-      position: fixed;
-      top: 0px;
-    }
-    #hat-main-studpad{
-      color: #3680be;
-      text-decoration: none;
-      font-weight: bold;
     }
 
     .profile-main-wall{
@@ -597,7 +559,7 @@
     .close-news{
       text-align: right;
     }
-
+    
     .glyphicon:hover{
       color: #3680be;
       cursor: pointer;
@@ -2098,9 +2060,9 @@ input[type=radio] {
     box-shadow:  none !important;
 }
 .extra-background{
-    background-color: #F2F4F5;
+    background-color: #F9F9F9;
     border-radius: 3px;
-    padding: 15px;
+    padding: 15px 0;
 }
 button.action-angle,  button.remove-angle, img.remove-angle{
     padding: 0;
@@ -2218,44 +2180,6 @@ button.action-angle,  button.remove-angle, img.remove-angle{
   padding-left: 15px;
   border-bottom: 1px solid #DAE1E8;
 }
-.hat-menu{
-  margin-top: 10px;
-  float: left;
-  margin-left: 3px;
-}
-.hat-menu .hat-menu-icon{
-  float: left;
-  margin-right: 10px;
-  font-size: 13px;
-  cursor: pointer;
-  span{
-    margin-left: 4px;
-  }
-  &:hover{
-    color: #3680BE;
-  }
-}
-
-.hat-menu-icon > img{
-  width: 22px;
-  margin-top: 3px;
-  border-radius: 2px;
-}
-.wrap-profile-hat-menu-icon{
-  margin-right: 25px !important;
-}
-.hat-menu-icon .dropdown-menu{
-  left: 150%;
-}
-.profile-hat-menu-icon{
-  width: 40px !important;
-  margin-top: -6px !important;
-  border-radius: 200px !important;
-}
-.hat-menu-right{
-  float: right !important;
-  margin-left: 0;
-}
 iframe{
   height: 292px;
   width: 520px;
@@ -2273,4 +2197,7 @@ iframe{
 }
 .tags-sp{
   color: #969DA2;
+}
+.dont-hide-menu{
+  display: block !important;
 }

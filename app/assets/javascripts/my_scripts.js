@@ -25,7 +25,7 @@ function main(){
         $('#teacher-specialization-edit').hide();
     });
 
-
+    
     $('.usual-post-text-expand-span').click(function(){
       alert('sf');
     });
@@ -90,6 +90,30 @@ function main(){
       ':clap:'           : 'applause.png',
 
   };
+
+  $('.dont-hide').click(function(){
+    $('.main-categories').addClass('dont-hide-menu');
+  });
+  $(document).click( function(event){
+    if($(event.target).closest(".main-categories").length) return;
+    $(".main-categories").removeClass("dont-hide-menu");
+    event.stopPropagation();
+  });
+
+  /*$(".fancybox-thumb").fancybox({
+    parent: 'body',
+    prevEffect  : 'none',
+    nextEffect  : 'none',
+    helpers  : {
+      title : {
+        type: 'outside'
+      },
+      thumbs   : {
+        width : 50,
+        height   : 50
+      }
+    }
+  });*/
 
   $('#settigns-profile').tooltip();
   $('.btn').tooltip();
