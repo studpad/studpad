@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :require_login, except: [:destroy]
 
-  def development
-  end
-
   def new
     build_sign_in
   end

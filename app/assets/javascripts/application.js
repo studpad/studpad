@@ -17,23 +17,17 @@
 //= require react_ujs
 //= require react_bootstrap
 //= require react-dropzone
-// require sanitizer_base
+//= require npm_packages
+//= require modernizr.custom
 //= require emotions
 //= require components
 //= require bootstrap-sprockets
-//= require jquery.fancybox
 //= require jquery.Jcrop.min
 //= require jquery.form
 //= require dropzone
 //= require my_scripts
-//= require materials
-//= require homeworks
 //= require selectize
-//= require share_materials
 //= require autoresize.jquery.min
-//= require communities
-//= require jquery.jplayer.min
-//= require player
 //= require avatar
 //= require change_password
 //= require notifications
@@ -44,9 +38,7 @@
 //= require masonry.pkgd.min
 //= require classie
 //= require cbpGridGallery
-// require modernizr.custom
 
-sanitizeHtml = require('sanitize-html');
 
 Dropzone.autoDiscover = false;
 
