@@ -8,28 +8,6 @@ Rails.application.routes.draw do
   end
 
   get 'profile/edit' => 'users#edit_profile'
-  # resources :classrooms do
-  #   resources :classmates, controller: 'classrooms/classmates'
-  #   get 'posts', on: :member
-  #   member do
-  #     get  'join'
-  #     get  'new_student'
-  #     post 'new_student' => 'classrooms#create_student'
-  #   end
-  # end
-
-  # resources :communities do
-  #   resources :members, only: :index, controller: 'communities/members'
-  #   resources :notices, controller: 'communities/notices'
-  #   get 'posts', on: :member
-  #   member do
-  #     get  'unjoin'
-  #     get  'join'
-  #     get  'notices'
-  #     post 'crop'
-  #     post 'create_ava'
-  #   end
-  # end
 
   resources :posts do
     member do
@@ -65,7 +43,6 @@ Rails.application.routes.draw do
   namespace :ajax do
     get 'page_description'
   end
-  get 'development' => 'static_pages#example' #на время разработки
 
   get 'logout' => 'sessions#destroy'
   get 'trouble' => 'materials#edit'
@@ -79,5 +56,4 @@ Rails.application.routes.draw do
   get 'terms' => 'static_pages#terms'
   get 'licence' => 'static_pages#licence'
   get 'privacy' => 'static_pages#privacy'
-  get 'fix' => 'static_pages#fix'
 end

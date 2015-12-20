@@ -18,6 +18,7 @@
 //= require react_bootstrap
 //= require react-dropzone
 //= require npm_packages
+//= require modernizr.custom
 //= require emotions
 //= require components
 //= require bootstrap-sprockets
@@ -25,13 +26,8 @@
 //= require jquery.form
 //= require dropzone
 //= require my_scripts
-//= require homeworks
 //= require selectize
-//= require share_materials
 //= require autoresize.jquery.min
-//= require communities
-//= require jquery.jplayer.min
-//= require player
 //= require avatar
 //= require change_password
 //= require notifications
@@ -42,7 +38,7 @@
 //= require masonry.pkgd.min
 //= require classie
 //= require cbpGridGallery
-// require modernizr.custom
+
 
 Dropzone.autoDiscover = false;
 
