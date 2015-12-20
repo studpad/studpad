@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   has_many :photos
   has_many :comments, as: :commentable, inverse_of: :commentable
   has_many :attachments, as: :attachable, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   has_many :text_elements, -> { order(:position) }, dependent: :destroy
   enum post_type: [
     'filegroup', 'link', 'text', 'quotation', 'photo', 'video'
