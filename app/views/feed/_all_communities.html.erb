@@ -1,6 +1,6 @@
 <div class = 'card-sp first-left-block'>
   <div class = 'block-title'>
-    <a>Публиковали сегодня</a>
+    <a>Рекомендуем</a>
   </div>
   <% last_users = User.includes(:posts).where(posts: {created_at: 36.hours.ago..Time.now}) %>
   <% last_users.each do |u| %>
@@ -13,7 +13,13 @@
           <div class="preview-object-info-mini">
             <div class = 'object-text'>
               <div class = 'object-maintext'><%= link_to u.name, user_path(u) %></div>
-              <div class = 'object-subtext'><%= u.description %></div>
+              <div class = 'object-subtext'>
+                <%= link_to 'Читать', follow_user_path(u),
+                  method: :post,
+                  class: 'btn btn-default btn-st-sm',
+                  title: 'Хочу получать новости от этого человека',
+                  data: { :toggle => 'tooltip', :placement => 'bottom' } %>
+              </div>
             </div>
           </div>
       </div>
