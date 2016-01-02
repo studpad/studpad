@@ -69,8 +69,8 @@
                   <span class="badge pull-right">
                     <%= current_user.get_basket.posts.count %>
                   </span>
-                  <img src='/images/delicious_active.png' />
-                  Самое вкусное
+                  <img src='/images/like_active.png' />
+                  Нравится
                 <% end %>
               </li>
               <li>
@@ -109,6 +109,11 @@
               <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/home7.png' />
             </div>
           <% end %>
+        <% end %>
+        <%= link_to explore_path do %>
+          <div class = 'is-hidden-if-sm-screen'>
+              <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/compass.png' />
+          </div>
         <% end %>
         <%= link_to notices_user_path(current_user) do %>
             <div>

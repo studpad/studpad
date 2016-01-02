@@ -114,7 +114,9 @@ const PostModalContent = React.createClass({
             </div>
           );
         } else  {
-          link_images = images;
+          if(images && images.length){
+            link_images = <div className='choose-img'>{images}</div>
+          }
         }
         var link_title, link_domain, link_description;
         if (this.props.post.linkdata.title) {
@@ -152,13 +154,8 @@ const PostModalContent = React.createClass({
             <div className = 'post-type'>
                 <a hrefName = ''><div className = 'post-type-link post-type-link-create extra-background'>
                   <div className='post-type-link-img'>
-                    <div className='choose-img'>
-                      {link_images}
-                      <div className='clearboth'>
-                      </div>
-                      {loaded_image}
-                    </div>
-
+                    {link_images}
+                    {loaded_image}
                   </div>
                   {link_title}
                   {link_description}

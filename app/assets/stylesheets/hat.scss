@@ -41,12 +41,13 @@
     .profile{
       width: 30%;
       .menu-wrap{
-        width: 140px;
+        width: 180px;
         float: right;
       }
       div{
         float: left;
         margin-right: 16px;
+        cursor: pointer;
         .menu-icon{
           width: 24px;
           position: relative;
@@ -134,6 +135,11 @@
       }
       .profile{
         width: 50%;
+        .menu-wrap{
+          .is-hidden-if-sm-screen{
+            display: none;
+          }
+        }
         div{
           .dropdown-menu{
             left: 62%;
