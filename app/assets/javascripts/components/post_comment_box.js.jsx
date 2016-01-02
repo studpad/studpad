@@ -10,7 +10,7 @@ const PostCommentBox = React.createClass({
     likes: React.PropTypes.number.isRequired
   },
   componentDidMount: function() {
-    var node = this.refs.ceditable.getDOMNode();
+    var node = this.refs.ceditable;
     $(node).emojiarea({
       buttonLabel: '&#9786;',
       buttonPosition: 'before',
@@ -18,7 +18,7 @@ const PostCommentBox = React.createClass({
     $(node).next().next().on('keydown', this.handleKeyDown)
     $(node).next().next().attr("placeholder", "Введите комментарий и нажмите Enter");
 
-    var delicious_tooltip = this.refs.delicious_tooltip.getDOMNode();
+    var delicious_tooltip = this.refs.delicious_tooltip;
     $(delicious_tooltip).tooltip();
 
   },
@@ -27,7 +27,7 @@ const PostCommentBox = React.createClass({
     var ENTER = 13;
     if( e.keyCode == ENTER ) {
       e.preventDefault();
-      var node = this.refs.ceditable.getDOMNode();
+      var node = this.refs.ceditable;
       if (!node.value.trim()) return;
       if (currentUser)
         this.props.createComment(node.value);

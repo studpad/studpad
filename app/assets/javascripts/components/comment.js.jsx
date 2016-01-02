@@ -7,7 +7,7 @@ var Comment = React.createClass({
   ////$(node).emojiarea({wysiwyg: true})
   componentDidMount: function() {
     if (this.refs.ceditable) {
-      var node = this.refs.ceditable.getDOMNode();
+      var node = this.refs.ceditable;
       $(node).emojiarea({
         button: false,
         wysiwyg: false

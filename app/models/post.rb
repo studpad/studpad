@@ -2,14 +2,17 @@ class Post < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
 
-  has_many :photos
-  has_many :comments, as: :commentable, inverse_of: :commentable
+  has_many :photos, dependent: :destroy
+  has_many :comments, as: :commentable, inverse_of: :commentable, dependent: :destroy
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :text_elements, -> { order(:position) }, dependent: :destroy
-  enum post_type: [
-    'filegroup', 'link', 'text', 'quotation', 'photo', 'video'
-  ]
+
+  enum post_type: {
+    filegroup: 0, link: 1, text: 2,
+    quotation: 3, photo: 4, video: 5
+  }
+
   serialize :linkdata
 
   def self.listed(group, user=nil)

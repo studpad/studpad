@@ -218,6 +218,25 @@ const PostModalForm = React.createClass({
       post: post
     });
   },
+  appendLinkImage(src){
+    var post = this.state.post;
+    if(!post.linkdata.loadedimages)
+      post.linkdata.loadedimages = [];
+    if (post.linkdata.loadedimages.length < 9){
+      post.linkdata.loadedimages.push(src);
+      this.setState({
+        post: post
+      });
+    }
+  },
+  chooseLinkImage(src){
+    post = this.state.post;
+    post.linkdata.image_url = src;
+    CI('Choosed', src, this.state.post);
+    this.setState({
+      post: post
+    });
+  },
   onChangeLink: function(event) {
     url = event.target.value;
     CL(url);
@@ -229,6 +248,20 @@ const PostModalForm = React.createClass({
       success: function(data) {
         var desc = data ? data : {};
         var post = this.state.post;
+        var self = this;
+        //CL(data.images);
+        $.each(data.images, function(i, src){
+          var img = new Image();
+          img.onload = function(){
+            CL(src);
+            if (this.height > 100 && this.width > 100)
+              self.appendLinkImage(this.src);
+          };
+          if (src.indexOf('http') > -1 || src.indexOf('//') > -1)
+            img.src = src;
+          else
+            img.src = 'http://'+ data.domain + src;
+        });
         post.linkdata = desc;
         this.setState({
           post: post
@@ -254,6 +287,7 @@ const PostModalForm = React.createClass({
           changeVideo={this.changeVideo}
           setFocus={this.focusTextElement}
           onChangeTitle={this.changeTitle}
+          chooseLinkImage={this.chooseLinkImage}
           removeAttachment={this.removeAttachment}
           removeTextElement={this.removeTextElement}
           changeElementText={this.changeElementText}

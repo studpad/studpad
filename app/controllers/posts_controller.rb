@@ -116,7 +116,7 @@ class PostsController < ApplicationController
         :title, :post_type, :group_id,
         :youtube_id, :attachment_ids,
         photo_ids: [],
-        linkdata: [:title, :domain, :description, :url])
+        linkdata: [:title, :domain, :description, :url, :image_url])
     end
 
     def find_post

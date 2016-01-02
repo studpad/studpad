@@ -36,6 +36,9 @@ const PostModalContent = React.createClass({
       }
     });
   },
+  chooseLinkImage(src){
+    this.props.chooseLinkImage(src);
+  },
   componentDidMount: function() {
     if (this.props.post.type == PostTypes.quotation || this.props.post.type == PostTypes.text) {
       var node = this.refs.title.getDOMNode();
@@ -88,10 +91,31 @@ const PostModalContent = React.createClass({
         );
         break;
       case PostTypes.link:
-        var style = {
-          background: 'url(https://pp.vk.me/c631724/v631724779/7a4a/TV4AioKqfdI.jpg) no-repeat',
-          backgroundSize: 'cover'
-        };
+        if (this.props.post.linkdata.loadedimages){
+          var self = this;
+          var images = this.props.post.linkdata.loadedimages.map(function(src, i){
+            return (
+              <div
+                key={i}
+                onClick={self.chooseLinkImage.bind(self, src)}
+                style={{
+                  background: 'url('+src+') no-repeat',
+                  backgroundSize: 'cover'
+                }}>
+              </div>
+            );
+          });
+        }
+        var link_images, loaded_image;
+        if (this.props.post.linkdata.image_url) {
+          loaded_image = (
+            <div className="usual-post-photo action-create-element-post">
+              <img src={this.props.post.linkdata.image_url} />
+            </div>
+          );
+        } else  {
+          link_images = images;
+        }
         var link_title, link_domain, link_description;
         if (this.props.post.linkdata.title) {
           link_title = (
@@ -129,22 +153,12 @@ const PostModalContent = React.createClass({
                 <a hrefName = ''><div className = 'post-type-link post-type-link-create extra-background'>
                   <div className='post-type-link-img'>
                     <div className='choose-img'>
-                      <div style={style}>
+                      {link_images}
+                      <div className='clearboth'>
                       </div>
-                      <div style={style}>
-                      </div>
-                      <div style={style}>
-                      </div>
-                      <div style={style}>
-                      </div>
-                      <div style={style}>
-                      </div>
+                      {loaded_image}
                     </div>
-                    <div className='clearboth'>
-                    </div>
-                    <div className="usual-post-photo action-create-element-post">
-                      <img src="https://pp.vk.me/c633930/v633930953/1eb8/2TN92ueteeQ.jpg" />
-                    </div>
+
                   </div>
                   {link_title}
                   {link_description}

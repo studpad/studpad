@@ -17,13 +17,15 @@ class AjaxController < ApplicationController
         url: url.to_s,
         domain: url.host,
         title: page.css('head title').try(:text),
+        images: page.css('img').map(){|i| i.attributes['src'].try(:value)}.compact.uniq,
         description: page.css('head meta[name=description]')
         .first.try(:attributes).try(:[], 'content').try(:value)
       }
     end
-    #pp data
+    pp data
     render json: data
   rescue Exception => e
+    #pp e
     render nothing: true, status: :no_content
   end
 end
