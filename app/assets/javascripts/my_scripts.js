@@ -29,6 +29,10 @@ function main(){
     $('.usual-post-text-expand-span').click(function(){
       alert('sf');
     });
+
+    var width_wrap_elements = $('.wrap-element-profile-followers').width();
+    $('.wrap-element-profile-followers').css('margin-left', (-1)*width_wrap_elements/2);
+
     //users form end
 
     $('textarea').autoResize({

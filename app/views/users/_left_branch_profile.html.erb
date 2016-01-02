@@ -1,6 +1,13 @@
-<div class = 'profile-avatar_img' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover; background-color: white;'>
+<div class='card-sp'>
+  <div class = 'profile-avatar_img border-t-radius' style = 'background: url(<%= @user.avatar %>) no-repeat; background-size: cover; background-color: white;'>
+  </div>
+  <div class = 'profile-info'>
+    <div class = 'profile-info_name'><%= @user.name %></div>
+    <div class = 'profile-info_school'><%= @user.school %></div>
+  </div>
 </div>
-<div class = 'bar-profile card-sp'>
+
+<!--<div class = 'bar-profile card-sp'>
   <%= link_to user_path(@user) do %>
     <div>
         <span class="badge pull-right"><%= @user.posts.count %></span>
@@ -13,4 +20,4 @@
         <img src='/images/delicious_active.png' /> Самое вкусное
     </div>
   <% end %>
-</div>
+</div>-->
