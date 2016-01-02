@@ -18,6 +18,7 @@
 //= require react_bootstrap
 //= require react-dropzone
 //= require npm_packages
+//= require wookmark.js
 //= require modernizr.custom
 //= require emotions
 //= require components

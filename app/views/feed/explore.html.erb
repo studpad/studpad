@@ -1,8 +1,94 @@
 <div id="grid-gallery" class="grid-gallery">
+  <div id='demo'>
+  <%= react_component 'Gallery', elements: [
+    "https://pp.vk.me/c628528/v628528106/2f6ce/f8mOp2u0pHQ.jpg",
+    "https://41.media.tumblr.com/a44efb75a37b7300dbaaf97464008217/tumblr_nysxghZ3VT1rcjq6vo1_500.png",
+    "https://pp.vk.me/c628528/v628528106/2f6ce/f8mOp2u0pHQ.jpg",
+    "https://41.media.tumblr.com/a44efb75a37b7300dbaaf97464008217/tumblr_nysxghZ3VT1rcjq6vo1_500.png",
+
+    ] %>
+  </div>
+ <!--  <div id='help' class="item">
+    <figure>
+      <div class="autor-explore border-radius-top">
+          <div class="avatar" style="background: url(
+          https://pp.vk.me/c622925/v622925106/2f6f6/Q4Ds1TD42kM.jpg
+          ) no-repeat; background-size: cover;">
+          </div>
+          <div class="info">
+            <div class='name'>
+              <a href="">added</a>
+            </div>
+            <div class='follow'>
+              ADD
+            </div>
+          </div>
+      </div>
+      <img src="https://pp.vk.me/c628528/v628528106/2f6ce/f8mOp2u0pHQ.jpg"/>
+    </figure>
+  </div> -->
+
   <section class="grid-wrap">
-    <ul class="grid">
-      <li class="grid-sizer"></li><!-- for Masonry column width -->
-      <li>
+   <!--  <div id="example1" class='grid'>
+      <div class="item">
+        <figure>
+          <div class="autor-explore border-radius-top">
+              <div class="avatar" style="background: url(
+              https://pp.vk.me/c622925/v622925106/2f6f6/Q4Ds1TD42kM.jpg
+              ) no-repeat; background-size: cover;">
+              </div>
+              <div class="info">
+                <div class='name'>
+                  <a href="/users/2">1Никитина Елена Сергеевна</a>
+                </div>
+                <div class='follow'>
+                  Читать
+                </div>
+              </div>
+          </div>
+          <img src="https://pp.vk.me/c628528/v628528106/2f6ce/f8mOp2u0pHQ.jpg"/>
+        </figure>
+      </div>
+      <div class="item">
+        <figure>
+          <div class="autor-explore border-radius-top">
+              <div class="avatar" style="background: url(
+              https://pp.vk.me/c622925/v622925106/2f6f6/Q4Ds1TD42kM.jpg
+              ) no-repeat; background-size: cover;">
+              </div>
+              <div class="info">
+                <div class='name'>
+                  <a href="/users/2">2Никитина Елена Сергеевна</a>
+                </div>
+                <div class='follow'>
+                  Читать
+                </div>
+              </div>
+          </div>
+          <img src="https://41.media.tumblr.com/a44efb75a37b7300dbaaf97464008217/tumblr_nysxghZ3VT1rcjq6vo1_500.png"/>
+        </figure>
+      </div>
+      <div class="item">
+        <figure>
+          <div class="autor-explore border-radius-top">
+              <div class="avatar" style="background: url(
+              https://pp.vk.me/c622925/v622925106/2f6f6/Q4Ds1TD42kM.jpg
+              ) no-repeat; background-size: cover;">
+              </div>
+              <div class="info">
+                <div class='name'>
+                  <a href="/users/2">Никитина Елена Сергеевна</a>
+                </div>
+                <div class='follow'>
+                  Читать
+                </div>
+              </div>
+          </div>
+          <img src="https://41.media.tumblr.com/a44efb75a37b7300dbaaf97464008217/tumblr_nysxghZ3VT1rcjq6vo1_500.png"/>
+
+        </figure>
+      </div>
+      <div class="item">
         <figure>
           <div class="autor-explore border-radius-top">
               <div class="avatar" style="background: url(
@@ -19,37 +105,32 @@
               </div>
           </div>
           <img src="https://pp.vk.me/c628528/v628528106/2f6ce/f8mOp2u0pHQ.jpg"/>
-          <figcaption class='content-board border-b-radius'>
-            <p class='link'><img src="/images/link.png"> <a>studpad.ru</a></p>
-            
-            <p class='text'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
-            <p class='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
-            
-            <footer>
-              <div class='delicious-like'>
-                <div class='show-post'>
-                  Просмотреть <span>• 3 файла</span>
+        </figure>
+      </div>
+      <div class="item">
+        <figure>
+          <div class="autor-explore border-radius-top">
+              <div class="avatar" style="background: url(
+              https://pp.vk.me/c622925/v622925106/2f6f6/Q4Ds1TD42kM.jpg
+              ) no-repeat; background-size: cover;">
+              </div>
+              <div class="info">
+                <div class='name'>
+                  <a href="/users/2">Никитина Елена Сергеевна</a>
                 </div>
-                <div>
-                  <span>
-                    <img ref='delicious_tooltip' title='Сохранить себе' data-toggle="tooltip" data-placement="top" src='images/delicious.png' />
-                    <span>
-                      5
-                    </span>
-                  </span>
-                  <span>
-                    <img ref='delicious_tooltip' title='Понравилось' data-toggle="tooltip" data-placement="top" src='images/like.png' />
-                    <span>
-                      5
-                    </span>
-                  </span>
+                <div class='follow'>
+                  Читать
                 </div>
               </div>
-            </footer>
-            <div class='clearboth'>
-            </div>
-          </figcaption>
+          </div>
+          <img src="https://41.media.tumblr.com/a44efb75a37b7300dbaaf97464008217/tumblr_nysxghZ3VT1rcjq6vo1_500.png"/>
         </figure>
+      </div>
+    </div> -->
+    <!-- <ul class="grid">
+      <li class="grid-sizer">
+      <li>
+
       </li>
       <li>
         <figure>
@@ -73,7 +154,7 @@
             <h3 class='title'>А почему бы не бухнуть?</h3>
             <p class='text'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
             <p class='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
-            
+
             <footer>
               <div class='delicious-like'>
                 <div>
@@ -122,7 +203,7 @@
             <h3 class='title'>А почему бы не бухнуть?</h3>
             <p class='text'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
             <p class='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
-            
+
             <footer>
               <div class='delicious-like'>
                 <div>
@@ -171,7 +252,7 @@
             <h3 class='title'>А почему бы не бухнуть?</h3>
             <p class='text'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
             <p class='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
-            
+
             <footer>
               <div class='delicious-like'>
                 <div>
@@ -220,7 +301,7 @@
             <h3 class='title'>А почему бы не бухнуть?</h3>
             <p class='text'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
             <p class='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
-            
+
             <footer>
               <div class='delicious-like'>
                 <div>
@@ -269,7 +350,7 @@
             <h3 class='title'>А почему бы не бухнуть?</h3>
             <p class='text'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
             <p class='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
-            
+
             <footer>
               <div class='delicious-like'>
                 <div>
@@ -318,7 +399,7 @@
             <h3 class='title'>А почему бы не бухнуть?</h3>
             <p class='text'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
             <p class='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
-            
+
             <footer>
               <div class='delicious-like'>
                 <div>
@@ -345,7 +426,7 @@
           </figcaption>
         </figure>
       </li>
-    </ul>
+    </ul> -->
   </section><!-- // grid-wrap -->
   <!--<section class="slideshow">
     <ul>
@@ -368,5 +449,5 @@
 </div><!-- // grid-gallery -->
 <script src="js/cbpGridGallery.js"></script>
 <script>
-  new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+  //new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 </script>
