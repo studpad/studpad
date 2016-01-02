@@ -34,7 +34,7 @@ var Gallery = React.createClass({
                 <div className='name'>
                   <a href="/users/2">Никитина Елена Сергеевна</a>
                 </div>
-                <div className='follow'>
+      ``          <div className='follow'>
                   Читать
                 </div>
               </div>

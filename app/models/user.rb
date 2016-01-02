@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  self.inheritance_column = false
+
   include DestroyedAt
   authenticates_with_sorcery!
   acts_as_voter
@@ -13,9 +15,6 @@ class User < ActiveRecord::Base
   has_many :feedbacks
   has_one  :basket
 
-  belongs_to :teacher_category
-  belongs_to :teacher_specialization
-
   validates :password,
     length:       {message: 'Не менее 5 символов', minimum: 5},
     presence:     {message: 'Не может быть пустым'},
@@ -27,14 +26,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def teacher?
-    is_a? Teacher
-  end
-
-  def student?
-    is_a? Student
-  end
-
   def get_basket
     if basket
       basket
@@ -43,29 +34,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def description
-    if teacher?
-      if self.teacher_category_id == 3
-        teacher_specialization.try(:name)
-      else
-        teacher_category.try(:name)
-      end
-    else
-      'Ученик'
-    end
-  end
-
   def recommended_users
-    if teacher?
-      if self.teacher_category_id == 3
-        User.where(teacher_category_id: teacher_category_id)
-        .where(teacher_specialization_id: teacher_specialization_id)
-      else
-        User.where(teacher_category_id: teacher_category_id)
-      end
-    else
-      User.none
-    end
+    User.none
   end
 
   def self.recommended_for(user)
@@ -80,6 +50,7 @@ class User < ActiveRecord::Base
   private
     def remove_whitespaces
       self.email = email.to_s.squish
+      self.type = 'teacher'
     end
 
 end

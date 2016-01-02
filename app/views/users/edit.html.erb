@@ -26,20 +26,6 @@
               <div class = 'edit-profile edit-profile-school'>
                 <%= f.text_field :school, class: 'form-control input-sp input-edit-profile-school', placeholder: 'Ваше учебное заведение' %>
               </div>
-              <% if @user.teacher? %>
-                <div class = 'edit-choose-category-specialization'>
-                  <p>Выберите категорию</p>
-                  <%= f.select :teacher_category_id,
-                    TeacherCategory.all.collect { |p| [ p.name, p.id ] },
-                    {}, {class: 'form-control', id: 'teacher-category-edit'} %>
-                </div>
-                <div id='teacher-specialization-edit' class = 'edit-choose-category-specialization'>
-                  <p>Выберите специализацию</p>
-                  <%= f.select :teacher_specialization_id,
-                    TeacherSpecialization.all.collect { |p| [ p.name, p.id ] },
-                    {}, {class: 'form-control'} %>
-                </div>
-              <% end %>
               <div class = 'change-password'>
                 <div class = 'action-angle-only-font'>
                   <div class = 'btn-group'>
@@ -67,8 +53,7 @@
     </div>
   </div>
 </div>
-<%#= render "form_create_class" %>
-<%#= render "form_create_community" %>
+
 <%= render "change_avatar" %>
 <%= render "change_password" %>
 <%= render "remove_profile" %>

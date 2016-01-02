@@ -302,7 +302,6 @@ const PostModalAuthor = React.createClass({
   //BEGIN***************************************************DECLARE
   propTypes: {
     author: React.PropTypes.shape({
-      type: React.PropTypes.string.isRequired,
       name: React.PropTypes.string.isRequired,
       avatar: React.PropTypes.string.isRequired
     })
