@@ -88,6 +88,10 @@ const PostModalContent = React.createClass({
         );
         break;
       case PostTypes.link:
+        var style = {
+          background: 'url(https://pp.vk.me/c631724/v631724779/7a4a/TV4AioKqfdI.jpg) no-repeat',
+          backgroundSize: 'cover'
+        };
         var link_title, link_domain, link_description;
         if (this.props.post.linkdata.title) {
           link_title = (
@@ -123,6 +127,25 @@ const PostModalContent = React.createClass({
             </div>
             <div className = 'post-type'>
                 <a hrefName = ''><div className = 'post-type-link post-type-link-create extra-background'>
+                  <div className='post-type-link-img'>
+                    <div className='choose-img'>
+                      <div style={style}>
+                      </div>
+                      <div style={style}>
+                      </div>
+                      <div style={style}>
+                      </div>
+                      <div style={style}>
+                      </div>
+                      <div style={style}>
+                      </div>
+                    </div>
+                    <div className='clearboth'>
+                    </div>
+                    <div className="usual-post-photo action-create-element-post">
+                      <img src="https://pp.vk.me/c633930/v633930953/1eb8/2TN92ueteeQ.jpg" />
+                    </div>
+                  </div>
                   {link_title}
                   {link_description}
                   {link_domain}

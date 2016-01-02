@@ -37,8 +37,8 @@
  padding: 0px;
  width: 100%;
  background-color: white;
- border-top-left-radius: 3px;
- border-top-right-radius: 3px;
+ border-top-left-radius: 2px;
+ border-top-right-radius: 2px;
 }
 .profile-info{
 	padding: 10px;
@@ -236,6 +236,8 @@
 }
 .profile-setting{
 	padding-right: 7px !important;
+	position: relative;
+	top: 4px;
 }
 .p_profile-setting:before{
 	content: "\f00a";
@@ -256,8 +258,9 @@
 	margin-top: 14px;
 }
 .element-profile-read{
-	float: right;
+	float: left;
 	height: 47px;
+	z-index: 100;
 }
 .element-profile-followers{
 	text-align: center;
@@ -285,8 +288,7 @@
 	}
 }
 .wrap-element-profile-followers{
-	position: relative;
-	left: 50%;
+	float: left;
 }
 .profile-preview-object-info{
 	float: left;

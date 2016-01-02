@@ -1,24 +1,11 @@
 <div class = 'profile-followers'>
-  <div class = 'action-angle'>
-    <% if @user == current_user %>
-    <div class = 'btn-group'>
-      <span class = 'sign-dots-menu-big profile-setting' data-toggle="dropdown">•••</span>
-      <ul class="dropdown-menu blue-background-dropdown-menu" role="menu">
-        <li>
-          <%= link_to 'Мои настройки', profile_edit_path %>
-          <%= link_to 'Выход', logout_path, data: { no_turbolink: true } %>
-        </li>
-      </ul>
-    </div>
-    <% end %>
-  </div>
   <div class = 'wrap-element-profile-followers'>
     <div class = 'element-profile-followers'>
-      <p><img src='/images/publication.png' /> Публикации</p>
+      <p>Публикации</p>
       15
     </div>
     <div class = 'element-profile-followers'>
-      <p><img src="/images/like_active.png"> Нравится</p>
+      <p>Нравится</p>
       12
     </div>
     <% if @user.followers_count != 0 %>
@@ -45,23 +32,5 @@
         </div>
       <% end %>
     <% end %>
-    <div class = 'element-profile-read'>
-      <% if current_user && @user != current_user %>
-        <% if current_user.following?(@user) %>
-          <%= link_to 'Читаю', unfollow_user_path(@user),
-          method: :post,
-          class: 'btn btn-primary btn-st btn-follow btn-follow-on',
-          data: { toggle: 'tooltip', placement: 'bottom' } %>
-        <% else %>
-          <%= link_to 'Читать', follow_user_path(@user),
-          method: :post,
-          class: 'btn btn-primary btn-st',
-          data: { toggle: 'tooltip', placement: 'bottom' } %>
-        <% end %>
-      <!-- <button class = 'btn btn-primary btn-st'>Читать</button> -->
-      <% end %>
-    </div>
-    <div class = 'clearboth'>
-    </div>
   </div>
 </div>

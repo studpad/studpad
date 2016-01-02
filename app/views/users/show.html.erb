@@ -16,17 +16,22 @@
         posts_url: posts_user_path(@user), show_panel: (current_user == @user) ) %>
   </div>
   <div class = 'right-branch'>
-    <div class = 'btn-group'>
-      <div class = 'share-microblog card-sp' data-toggle="dropdown">
-        <img src = '/images/megaphone.png' width='30'>
-        <p>Рассказать о микроблоге</p>
-      </div>
-      <ul class="dropdown-menu dropdown-menu-share" role="menu">
-        <li id='vk_share_button'>
-
-        </li>
-      </ul>
-    </div>
+        <div class = 'element-profile-read'>
+          <% if current_user && @user != current_user %>
+            <% if current_user.following?(@user) %>
+              <%= link_to 'Читаю', unfollow_user_path(@user),
+              method: :post,
+              class: 'btn btn-primary btn-st btn-follow btn-follow-on',
+              data: { toggle: 'tooltip', placement: 'bottom' } %>
+            <% else %>
+              <%= link_to 'Читать', follow_user_path(@user),
+              method: :post,
+              class: 'btn btn-primary btn-st',
+              data: { toggle: 'tooltip', placement: 'bottom' } %>
+            <% end %>
+          <!-- <button class = 'btn btn-primary btn-st'>Читать</button> -->
+          <% end %>
+        </div>
   </div>
 </div>
 <script type="text/javascript">
