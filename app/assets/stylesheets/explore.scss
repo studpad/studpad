@@ -22,11 +22,15 @@
 .grid-gallery figure {
 	margin: 0;
 }
-
 .grid-gallery figure img {
 	width: 100%;
 }
-
+.grid-gallery figure figcaption img {
+	width: 12px;
+}
+.grid-gallery figure footer img {
+	width: 16px;
+}
 .grid-gallery figcaption h3 {
 	margin: 0;
 	padding-top: 6px;
@@ -55,14 +59,14 @@
 .grid-wrap {
 	width: 90%;
 	margin: 0 auto;
-	padding: 0 1em 1.875em;
+	/*padding: 0 1em 1.875em;*/
 }
 
 .grid {
 	margin: 0 auto;
 }
 
-.grid li {
+.grid-gallery figure {
 	width: 25%;
 	float: left;
 	&:hover .delicious-like > div:first-child{
@@ -71,7 +75,7 @@
 	/*cursor: pointer;*/
 }
 
-.grid figure {
+.grid-gallery figure {
 	padding: 5px;
 	-webkit-transition: opacity 0.2s;
 	transition: opacity 0.2s;
@@ -82,7 +86,7 @@
 	opacity: 0.8;
 }*/
 
-.grid figcaption {
+.grid-gallery figcaption {
 	background: white;
 	.link{
 		font-size: 12px;
@@ -103,7 +107,7 @@
 		padding-top: 10px;
 	}
 }
-.grid footer{
+.grid-gallery footer{
 	border-top: 1px solid #DAE1E8;
 	min-height: 43px;
  	.delicious-like{
@@ -364,25 +368,25 @@ span.nav-close:before {
 }
 
 @media screen and (max-width: 1118px) {
-	.grid li {
+	.grid-gallery figure {
 		width: 33.3%;
 	}
 }
 
 @media screen and (max-width: 846px) {
-	.grid li {
+	.grid-gallery figure {
 		width: 50%;
 	}
 }
 
 @media screen and (max-width: 573px) {
-	.grid li {
+	.grid-gallery figure {
 		width: 100%;
 	}
 }
 
 @media screen and (max-width: 24em) {
-	.grid li {
+	.grid-gallery figure {
 		width: 100%;
 	}
 }
