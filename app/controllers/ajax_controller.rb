@@ -25,7 +25,7 @@ class AjaxController < ApplicationController
     pp data
     render json: data
   rescue Exception => e
-    #pp e
+    pp e
     render nothing: true, status: :no_content
   end
 end

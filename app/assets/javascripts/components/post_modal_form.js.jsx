@@ -246,11 +246,12 @@ const PostModalForm = React.createClass({
       data: {url: url},
       cache: false,
       success: function(data) {
-        var desc = data ? data : {};
+        var desc = data ? data : {images: []};
+        //data.images ||= [];
         var post = this.state.post;
         var self = this;
         //CL(data.images);
-        $.each(data.images, function(i, src){
+        $.each(desc.images, function(i, src){
           var img = new Image();
           img.onload = function(){
             CL(src);
