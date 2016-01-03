@@ -56,54 +56,7 @@ var Gallery = React.createClass({
   },
   render: function () {
     var childElements = this.state.posts.map(function(post, i){
-       return (
-    <figure key={i}>
-      <div className="autor-explore border-radius-top">
-        <div className="avatar" style={{background: 'url('+post.author.avatar+') no-repeat', backgroundSize: 'cover'}}>
-        </div>
-        <div className="info">
-        <div className='name'>
-          <a href={post.author.url}>{post.author.name}</a>
-        </div>
-        <div className='follow'>
-          Читать
-        </div>
-        </div>
-      </div>
-      <h3>{post.type}</h3>
-
-      <figcaption className='content-board border-b-radius'>
-      <p className='link'><img src="/images/link.png"/> <a>studpad.ru</a></p>
-      <h3 className='title'>А почему бы не бухнуть?</h3>
-      <p className='text'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
-      <p className='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
-
-      <footer>
-        <div className='delicious-like'>
-        <div>
-          Просмотреть
-        </div>
-        <div>
-          <span>
-          <img ref='delicious_tooltip' title='Сохранить себе' data-toggle="tooltip" data-placement="top" src='images/delicious.png' />
-          <span>
-            5
-          </span>
-          </span>
-          <span>
-          <img ref='delicious_tooltip' title='Сохранить себе' data-toggle="tooltip" data-placement="top" src='images/like.png' />
-          <span>
-            5
-          </span>
-          </span>
-        </div>
-        </div>
-      </footer>
-      <div className='clearboth'>
-      </div>
-      </figcaption>
-    </figure>
-    );
+      return (<ExplorePost key={i} post={post}/>);
     });
 
     return (

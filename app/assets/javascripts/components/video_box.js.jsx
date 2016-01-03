@@ -16,7 +16,7 @@ var VideoBox = React.createClass({
   componentDidMount: function() {
     var ref = this.refs.input;
     if (ref){
-      $(ref.getDOMNode()).focus();
+      $(ref).focus();
     }
   },
   handleClick: function(){
