@@ -100,7 +100,7 @@
     color: #516574;
 }
 .post-content{
-	padding: 0 15px;
+	padding: 0;
 }
 .usual-post-contant{
 	/*margin-top: 20px;*/
@@ -114,10 +114,6 @@
 .create-usual-post-divider{
 	margin-bottom: 20px;
 }
-.usual-post-photo{
-	margin-left: -15px;
-	margin-right: -15px;
-}
 .usual-post-photo > img{
 	width: 100%;
 	margin-bottom: 20px;
@@ -128,9 +124,10 @@
 }
 .usual-post-text{
 	font-size: 13px;
-	margin-bottom: 20px;
-	margin-top: 8px;
+	margin-bottom: 15px;
+	margin-top: 5px;
 	white-space: pre-line;
+	padding: 0 15px;
 }
 .usual-post-text-create{
 	font-size: 13px;
@@ -167,16 +164,14 @@
 .post-type-link{
 	/*background-color: #F2F4F5;
 	border-radius: 3px;
-	cursor: pointer !important;
-	padding: 15px;*/
+	cursor: pointer !important;*/
+	padding-bottom: 15px;
 	.post-type-link-img{
 		.choose-img{
-			height: 312px;
-			margin: 0px -17px 0px -16px;
 			div{
 				float: left;
 				height: 156px;
-				width: 168px;
+    		width: 167px;
 				margin-left: 3px;
 				margin-right: 3px;
 				margin-bottom: 6px;
@@ -184,9 +179,8 @@
 		}
 	}
 }
-.post-type-link-create{
-	margin-left: 15px;
-	margin-right: 15px;
+.post-type-link-adress{
+	padding: 0px 15px 15px 15px;
 }
 .post-type-link-title{
 	font-size: 28px;
@@ -497,7 +491,7 @@
 .wrap-post-comments{
 	/*background-color: #F5F5F5;*/
 	border-radius: 3px;
-	padding: 10px;
+	padding: 10px 15px;
 	
 }
 .show-all-comments{
@@ -680,6 +674,10 @@
   background-color: #F9F9F9;
   margin-left: -16px;
   margin-right: -16px;
+}
+.extend-element-post{
+	margin-left: -16px;
+	margin-right: -16px;
 }
 .write-link-to-photo-slim{
 	cursor: text;

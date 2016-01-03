@@ -27,14 +27,21 @@ const PostContentView = React.createClass({
           <div className='post-type'>
             <a href = {this.props.post.linkdata.url} target='blank'>
               <div className = 'post-type-link extra-background'>
-                <header className = 'post-type-link-title'>
-                  {this.props.post.linkdata.title}
-                </header>
-                <div className = 'post-type-link-description'>
-                  {this.props.post.linkdata.description}
+                <div className='post-type-link-img'>
+                  <div className="usual-post-photo action-create-element-post">
+                    <img src='https://pp.vk.me/c7008/v7008421/14a56/ETgcrFr7OCg.jpg' />
+                  </div>
                 </div>
-                <div className = 'post-type-link-link'>
-                  <span className = 'decor-type-link-link'>{this.props.post.linkdata.domain}</span>
+                <div className='post-type-link-adress'>
+                  <header className = 'post-type-link-title'>
+                    {this.props.post.linkdata.title}
+                  </header>
+                  <div className = 'post-type-link-description'>
+                    {this.props.post.linkdata.description}
+                  </div>
+                  <div className = 'post-type-link-link'>
+                    <span className = 'decor-type-link-link'>{this.props.post.linkdata.domain}</span>
+                  </div>
                 </div>
               </div>
             </a>
