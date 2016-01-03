@@ -135,6 +135,16 @@
 	margin-top: 10px;
 	white-space: pre-line;
 }
+.post-tags-create{
+	font-size: 13px;
+	margin-top: 6px;
+	.tags-sp{
+		font-weight: 200;
+    font-size: 13px;
+    color: #969DA2;
+    cursor: text;
+	}
+}
 /*.usual-post-text-text{
 	max-height: 506px;
   overflow-y: hidden;
