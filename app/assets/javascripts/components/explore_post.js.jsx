@@ -1,4 +1,7 @@
 const ExplorePost = React.createClass({
+  onLikeClick(){
+    this.props.like_post(this.props.post.id);
+  },
   render(){
     post = this.props.post;
     var image, link_rendered;
@@ -24,6 +27,34 @@ const ExplorePost = React.createClass({
         );
         break;
     }
+    var rendered_likes;
+    if (post.current_like) {
+      rendered_likes = (
+        <span onClick={this.onLikeClick}>
+          <img
+            title='Сохранить себе'
+            data-toggle="tooltip"
+            data-placement="top"
+            src='images/like_active.png' />
+          <span>
+            {post.likes || ''}
+          </span>
+        </span>
+      );
+    } else {
+      rendered_likes = (
+        <span onClick={this.onLikeClick}>
+          <img
+            title='Сохранить себе'
+            data-toggle="tooltip"
+            data-placement="top"
+            src='images/like.png' />
+          <span>
+            {post.likes || ''}
+          </span>
+        </span>
+      );
+    }
     var text = $.grep(post.text_elements, function(e){return e.type == ElementTypes.text});
     text = text[0].text;
     return(
@@ -36,7 +67,7 @@ const ExplorePost = React.createClass({
             <a href={post.author.url}>{post.author.name}</a>
           </div>
           <div className='follow'>
-            Читать {post.type}
+            Читать
           </div>
           </div>
         </div>
@@ -50,22 +81,11 @@ const ExplorePost = React.createClass({
 
         <footer>
           <div className='delicious-like'>
+            <div>
+              Просмотреть
+            </div>
           <div>
-            Просмотреть
-          </div>
-          <div>
-            <span>
-            <img ref='delicious_tooltip' title='Сохранить себе' data-toggle="tooltip" data-placement="top" src='images/delicious.png' />
-            <span>
-              5
-            </span>
-            </span>
-            <span>
-            <img ref='delicious_tooltip' title='Сохранить себе' data-toggle="tooltip" data-placement="top" src='images/like.png' />
-            <span>
-              5
-            </span>
-            </span>
+          {rendered_likes}
           </div>
           </div>
         </footer>

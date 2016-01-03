@@ -54,9 +54,42 @@ var Gallery = React.createClass({
     $(window).unbind('scroll');
     //clearInterval(intervalID)
   },
+  like_post(id){
+    var posts = this.state.posts;
+    var likedPost = $.grep(posts, function(e){ return e.id == id; });
+    likedPost = likedPost[0];
+    posts = posts.map(function(p){
+      if (p.id == id){
+        if (p.current_like){
+          p.likes -= 1;
+          p.current_like = false;
+          p.current_like_just = false;
+        } else {
+          p.likes += 1;
+          p.current_like = true
+          p.current_like_just = true;
+        }
+      }
+      return p;
+    })
+    this.setState({posts: posts});
+    $.ajax({
+      url: likedPost.like_path,
+      type: 'PUT',
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
   render: function () {
+    var self = this;
     var childElements = this.state.posts.map(function(post, i){
-      return (<ExplorePost key={i} post={post}/>);
+      return (
+        <ExplorePost
+          like_post={self.like_post}
+          key={i}
+          post={post}/>
+      );
     });
 
     return (
