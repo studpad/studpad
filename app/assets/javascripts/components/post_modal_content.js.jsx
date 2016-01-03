@@ -66,7 +66,6 @@ const PostModalContent = React.createClass({
     switch (this.props.post.type) {
       case PostTypes.text:
         main_part = (
-        <div className='row'>
           <div className='form-new-post usual-post-contant'>
             <div className='form-wrap-new-post-type'>
               <input
@@ -78,7 +77,6 @@ const PostModalContent = React.createClass({
                 placeholder = 'Введите здесь заголовок'/>
             </div>
           </div>
-        </div>
         );
         break;
       case PostTypes.photo:
@@ -143,7 +141,6 @@ const PostModalContent = React.createClass({
         }
 
         main_part = (
-        <div className='row'>
           <div className = 'form-new-post'>
             <div className = 'form-wrap-new-post-type'>
               <div className = 'extra-background'>
@@ -169,7 +166,6 @@ const PostModalContent = React.createClass({
                 </div></a>
             </div>
           </div>
-        </div>
         );
         break;
       case PostTypes.file:
@@ -198,7 +194,6 @@ const PostModalContent = React.createClass({
         break;
       case PostTypes.quotation:
         main_part = (
-        <div className='row'>
           <div className='form-new-post usual-post-contant'>
             <div className='form-wrap-new-post-type'>
               <textarea
@@ -211,7 +206,6 @@ const PostModalContent = React.createClass({
               </textarea>
             </div>
           </div>
-        </div>
         );
         break;
       default:
