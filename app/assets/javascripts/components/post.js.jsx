@@ -68,7 +68,9 @@ const Post = React.createClass({
             post={this.props.post}/>
           <PostTextView
             text_elements={this.props.post.text_elements}/>
-          <p className='tags-sp'>{tags}</p>
+          <div className='wrap-post-tags-sp'>
+            <p className='tags-sp'>{tags}</p>
+          </div>
           <PostCommentBox
             likeClick={this.likeClick}
             basketClick={this.basketClick}

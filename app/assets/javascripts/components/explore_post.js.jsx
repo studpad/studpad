@@ -77,10 +77,12 @@ const ExplorePost = React.createClass({
         {image}
 
         <figcaption className='content-board border-b-radius'>
-        {link_rendered}
-        <h3 className='title'>{post.linkdata.description}</h3>
-        <p className='text' dangerouslySetInnerHTML={{__html: text}}></p>
-        <p className='tags-sp'>{tags}</p>
+        <div className='main-contain'>
+          {link_rendered}
+          <h3 className='title'>{post.linkdata.description}</h3>
+          <p className='text' dangerouslySetInnerHTML={{__html: text}}></p>
+          <p className='tags-sp'>{tags}</p>
+        </div>
 
         <footer>
           <div className='delicious-like'>

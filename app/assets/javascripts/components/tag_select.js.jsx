@@ -1,7 +1,7 @@
 const TagSelect = React.createClass({
   componentDidMount() {
     $(this.refs.input).select2({
-      placeholder: "Наберите тэг",
+      placeholder: "#Теги",
       delay: 1000,
       ajax: {
         url: "/tags.json",
