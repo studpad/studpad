@@ -224,6 +224,7 @@ const PostModalContent = React.createClass({
             addDivider={this.props.addDivider}
             text_elements={this.props.post.text_elements}
             typePost={this.props.post.type}/>
+          <TagSelect setTags={this.props.setTags} values={this.props.post.tags}/>
         </div>
       </div>
     );

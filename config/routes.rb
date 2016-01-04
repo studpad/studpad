@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments
+  resources :tags
   resources :photos
   resources :users, except: :edit do
     get :followers, on: :member

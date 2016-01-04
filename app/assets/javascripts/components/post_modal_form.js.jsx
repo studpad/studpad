@@ -88,6 +88,14 @@ const PostModalForm = React.createClass({
   },
   //END*****************************************************ACTIONS
   //BEGIN***************************************************HELPERS
+  setTags(values){
+    post = this.state.post;
+    post.tags= values;
+    this.setState({
+      post: post
+    });
+    CL(values);
+  },
   hide: function() {
     this.setState({
       visible: false
@@ -297,6 +305,7 @@ const PostModalForm = React.createClass({
           addAttachment={this.addAttachment}
           addImage={this.addImage}
           addPhoto={this.addPhoto}
+          setTags={this.setTags}
           removePhoto={this.removePhoto}
           addDivider={this.addDivider}
           post={this.state.post}/>
