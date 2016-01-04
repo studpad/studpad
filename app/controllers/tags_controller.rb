@@ -1,5 +1,7 @@
 class TagsController < ApplicationController
   def index
-    render json: Tag.pluck(:name)
+    data = Tag.where('name ILIKE ?', "%#{params[:term]}%").pluck(:name).map(){|e| {id: e, text: e}}
+    pp data
+    render json: data
   end
 end

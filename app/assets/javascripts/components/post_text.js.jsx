@@ -140,7 +140,6 @@ var PostTextTextarea = React.createClass({
             cssClass='text-new-post'
             html={this.props.text}/>
         </div>
-        <TagSelect />
       </div>
     );
   }
