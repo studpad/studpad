@@ -140,11 +140,7 @@ var PostTextTextarea = React.createClass({
             cssClass='text-new-post'
             html={this.props.text}/>
         </div>
-        <div className = 'post-tags-create'>
-          <div className = 'tags-sp'>
-            #теги
-          </div>
-        </div>
+        <TagSelect />
       </div>
     );
   }

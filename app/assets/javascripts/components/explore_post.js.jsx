@@ -57,6 +57,7 @@ const ExplorePost = React.createClass({
     }
     var text = $.grep(post.text_elements, function(e){return e.type == ElementTypes.text});
     text = text[0].text;
+    var text = sanitizeHtml(text, {allowedTags: ['div', 'br']});
     return(
       <figure>
         <div className="autor-explore border-radius-top">
@@ -67,7 +68,7 @@ const ExplorePost = React.createClass({
             <a href={post.author.url}>{post.author.name}</a>
           </div>
           <div className='follow'>
-            Читать
+            <a href={post.author.url+'/follow'} data-method='post'>Читать</a>
           </div>
           </div>
         </div>
@@ -76,13 +77,15 @@ const ExplorePost = React.createClass({
         <figcaption className='content-board border-b-radius'>
         {link_rendered}
         <h3 className='title'>{post.linkdata.description}</h3>
-        <p className='text'>{text}</p>
+        <p className='text' dangerouslySetInnerHTML={{__html: text}}></p>
         <p className='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
 
         <footer>
           <div className='delicious-like'>
             <div>
+              <a href={post.url}>
               Просмотреть
+              </a>
             </div>
           <div>
           {rendered_likes}

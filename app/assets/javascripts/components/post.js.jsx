@@ -116,7 +116,6 @@ const PostTextElementView = React.createClass({
     switch (this.props.element.type) {
       case ElementTypes.text:
         var text = sanitizeHtml(this.props.element.text, {allowedTags: ['div', 'br']});
-        //CW('sanitzed', text);
         return (
           <div className = 'usual-post-text action-create-element-post'>
             <div
