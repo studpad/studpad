@@ -118,7 +118,6 @@
         <%= link_to notices_user_path(current_user) do %>
             <div>
                 <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/bell.png' />
-
             </div>
             <div class = 'amount-menu-icon amount-of-notices'>
               <% notifications_count =  current_user.notifications.where(viewed: false).count %>

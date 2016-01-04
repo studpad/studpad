@@ -124,6 +124,25 @@
   }
 }
 
+.amount-menu-icon{
+  float: left;
+  position: relative;
+  width: 18px;
+  border-radius: 2px;
+  font-size: 10px;
+  background-color: #3680be;
+  color: white;
+  text-align: center;
+  /*border: 1px solid white;*/
+}
+.amount-of-notices{
+  /*background-color: #1FB6B5;*/
+  background-color: rgba(54, 128, 190, 0.8);
+  top: -10px;
+  left: 94px;
+}
+
+
 @media screen and (max-width: 735px) {
   .hat-studpad{
     .contant-wrap{
@@ -147,5 +166,9 @@
         }
       }
     }
+  }
+  .amount-of-notices{
+    top: 14px;
+    left: -26px;
   }
 }
