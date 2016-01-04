@@ -18,7 +18,6 @@
 //= require react_bootstrap
 //= require react-dropzone
 //= require npm_packages
-//= require wookmark.js
 //= require modernizr.custom
 //= require emotions
 //= require components
@@ -28,6 +27,7 @@
 //= require dropzone
 //= require my_scripts
 //= require selectize
+//= require select2.min
 //= require autoresize.jquery.min
 //= require avatar
 //= require change_password
