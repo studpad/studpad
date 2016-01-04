@@ -10,7 +10,7 @@ var VideoBox = React.createClass({
   },
   getInitialState: function() {
     return {
-      show_input: true
+      show_input: !this.props.youtube_id
     };
   },
   componentDidMount: function() {
