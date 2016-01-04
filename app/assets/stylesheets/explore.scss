@@ -60,6 +60,13 @@
 	width: 90%;
 	margin: 0 auto;
 	/*padding: 0 1em 1.875em;*/
+	figure{
+		iframe{
+			width: 100% !important;
+			height: 100% !important;
+			margin-bottom: -5px;
+		}
+	}
 }
 
 .grid {
@@ -94,6 +101,10 @@
 		padding-top: 10px;
 		img{
 			width: 12px;
+			margin-right: 5px;
+		}
+		a{
+			font-weight: 400;
 		}
 	}
 	p, footer, h3{
