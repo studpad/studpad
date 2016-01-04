@@ -83,6 +83,7 @@ const PostBox = React.createClass({
     CI('Send post data to server', postData);
     post = {
       text: postData.text,
+      tags: postData.tags,
       youtube_id: postData.youtube_id,
       group_id: this.props.group_id,
       title: postData.title,

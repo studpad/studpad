@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create post_params
+    @post.bind_tags(params[:post][:tags])
     @post.attachment_ids = params[:post][:attachment_ids]
     params[:post][:text_elements].each do |position, element|
       case element['type']
@@ -67,6 +68,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update_attributes post_params
+    @post.bind_tags(params[:post][:tags])
     @post.attachment_ids = params[:post][:attachment_ids]
     element_ids = params[:post][:text_elements].values.map{|e| e[:id]}.compact
     @post.text_element_ids = element_ids

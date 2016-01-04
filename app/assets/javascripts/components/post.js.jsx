@@ -51,6 +51,9 @@ const Post = React.createClass({
   },
   //END*****************************************************ACTIONS
   render: function() {
+    var tags = this.props.post.tags.map(function(name, i){
+      return <span key={i}>#{name}</span>
+    });
     return (
       <div className='post card-sp'>
         <PostAuthorView
@@ -65,6 +68,7 @@ const Post = React.createClass({
             post={this.props.post}/>
           <PostTextView
             text_elements={this.props.post.text_elements}/>
+          <p className='tags-sp'>{tags}</p>
           <PostCommentBox
             likeClick={this.likeClick}
             basketClick={this.basketClick}

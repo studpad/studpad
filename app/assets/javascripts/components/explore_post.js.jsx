@@ -58,6 +58,8 @@ const ExplorePost = React.createClass({
     var text = $.grep(post.text_elements, function(e){return e.type == ElementTypes.text});
     text = text[0].text;
     var text = sanitizeHtml(text, {allowedTags: ['div', 'br']});
+
+    var tags = post.tags.map(function(name, i){return <span key={i}>#{name}</span>})
     return(
       <figure>
         <div className="autor-explore border-radius-top">
@@ -78,7 +80,7 @@ const ExplorePost = React.createClass({
         {link_rendered}
         <h3 className='title'>{post.linkdata.description}</h3>
         <p className='text' dangerouslySetInnerHTML={{__html: text}}></p>
-        <p className='tags-sp'><span>#studpad</span> <span>#йога</span> <span>#друг</span></p>
+        <p className='tags-sp'>{tags}</p>
 
         <footer>
           <div className='delicious-like'>

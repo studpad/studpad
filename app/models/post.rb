@@ -28,6 +28,18 @@ class Post < ActiveRecord::Base
     User.unscoped { super }
   end
 
+  def bind_tags(tag_names)
+    tags_found = Tag.where(name: tag_names)
+    tags_not_found = tag_names - tags_found.map(&:name)
+    ids = tags_found.map(&:id)
+
+    tags_not_found.each do |t_name|
+      ids << Tag.find_or_create_by(name: t_name).id
+    end
+
+    self.tag_ids = ids
+  end
+
   def self.for_user(user)
     if user
       where(user_id: [user.id] + user.all_follows.map(&:followable_id)).order(created_at: :desc)
