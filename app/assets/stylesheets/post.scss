@@ -699,7 +699,6 @@
 	height: 34px;
 	background-color: #F5F5F5;
 	padding: 0 15px;
-	margin: 0 -15px;
 	input{
 		width: 93%;
 	}
@@ -737,6 +736,10 @@
 	.post-container{
 		margin-top: 0px;
 		border-top: 1px solid #DAE1E8;
+		.post:first-child{
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+		}
 	}
 }
 .one-post{

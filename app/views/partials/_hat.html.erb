@@ -72,9 +72,9 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to basket_user_path(current_user) do %>
+                <%= link_to favourite_user_path(current_user) do %>
                   <span class="badge pull-right">
-                    <%= current_user.get_basket.posts.count %>
+                    <%= current_user.get_voted(Post).count %>
                   </span>
                   <img src='/images/like_active.png' />
                   Нравится

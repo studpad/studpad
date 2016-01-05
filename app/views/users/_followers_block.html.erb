@@ -1,15 +1,17 @@
 <div class = 'profile-followers'>
   <div class = 'wrap-element-profile-followers'>
-    <div class = 'element-profile-followers'>
-      <p>Публикации</p>
-      15
-    </div>
-    <div class = 'element-profile-followers'>
-      <%= link_to favourite_user_path(@user) do %>
-      <p>Нравится</p>
-      12
-      <% end %>
-    </div>
+    <%= link_to user_path(@user) do %>
+      <div class = 'element-profile-followers'>
+          <p>Публикации</p>
+          <%= @user.posts.count %>
+      </div>
+    <% end %>
+    <%= link_to favourite_user_path(@user) do %>
+      <div class = 'element-profile-followers'>
+          <p>Нравится</p>
+          <%= @user.get_voted(Post).count %>
+      </div>
+    <% end %>
     <% if @user.followers_count != 0 %>
       <%= link_to followers_user_path(@user) do %>
         <div class = 'element-profile-followers'>
