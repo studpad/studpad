@@ -4,11 +4,9 @@
   </div>
   <div class = 'block-objects tags-feed'>
     <p class="tags-sp">
-      <span>#Анджелина Джоли</span></br>
-      <span>#Сказки на ночь</span></br>
-      <span>#Едем на геледвагене</span></br>
-      <span>#НовыйГод</span></br>
-      <span>#Awesome Ties</span>
+      <% Tag.where(active: true).each do |t|%>
+        <%= link_to "##{t.name}", tag_name_path(t.name) %></br>
+      <% end %>
     </p>
   </div>
 </div>

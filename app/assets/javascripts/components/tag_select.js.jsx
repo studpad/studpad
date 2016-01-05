@@ -3,6 +3,7 @@ const TagSelect = React.createClass({
     $(this.refs.input).select2({
       placeholder: "#Теги",
       delay: 1000,
+      language: 'ru',
       ajax: {
         url: "/tags.json",
         cache: "true",

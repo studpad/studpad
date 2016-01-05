@@ -11,4 +11,8 @@ module ApplicationHelper
   def category_name_path(name)
     "/explore?category_name=#{name}"
   end
+
+  def tag_name_path(name)
+    "/explore?tag_name=#{name}"
+  end
 end

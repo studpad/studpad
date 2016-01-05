@@ -12,7 +12,11 @@ const ExplorePost = React.createClass({
         link_rendered = (
           <p className='link'>
             <img src="/images/link.png"/>
-            <a href={post.linkdata.url}>{post.linkdata.domain}</a>
+            <a
+              target='blank'
+              href={post.linkdata.url}>
+              {post.linkdata.domain}
+            </a>
           </p>
         );
         break;

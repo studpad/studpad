@@ -2,8 +2,7 @@
   <div class = 'block-title'>
     <a>Рекомендуем</a>
   </div>
-  <% last_users = User.includes(:posts).where(posts: {created_at: 36.hours.ago..Time.now}) %>
-  <% last_users.each do |u| %>
+  <% User.recommended_for(current_user).each do |u| %>
   <div class = 'block-objects'>
       <div class = 'preview-object'>
           <div class = "preview-object-avatar-mini" style="background: url(
@@ -14,10 +13,9 @@
             <div class = 'object-text'>
               <div class = 'object-maintext'><%= link_to u.name, user_path(u) %></div>
               <div class = 'object-subtext'>
-                <%= link_to 'Читать', follow_user_path(u),
-                  method: :post,
-                  class: 'btn btn-default btn-st-sm',
-                  data: { :toggle => 'tooltip', :placement => 'bottom' } %>
+                <%= link_to_if current_user, 'Читать', follow_user_path(u),
+                  method: :post, class: 'btn btn-default btn-st-sm',
+                  data: { toggle: 'tooltip', placement: 'bottom' } %>
               </div>
             </div>
           </div>
