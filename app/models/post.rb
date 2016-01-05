@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
+  belongs_to :category
 
   has_many :photos, dependent: :destroy
   has_many :comments, as: :commentable, inverse_of: :commentable, dependent: :destroy
@@ -29,6 +30,7 @@ class Post < ActiveRecord::Base
   end
 
   def bind_tags(tag_names)
+    tag_names ||= []
     tags_found = Tag.where(name: tag_names)
     tags_not_found = tag_names - tags_found.map(&:name)
     ids = tags_found.map(&:id)

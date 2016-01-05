@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments
+  resources :categories
   resources :tags
   resources :photos
   resources :users, except: :edit do
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     get :basket, on: :member
     get :basket_posts, on: :member
     member do
+      get :favourite
       post :follow
       post :unfollow
       get :posts
