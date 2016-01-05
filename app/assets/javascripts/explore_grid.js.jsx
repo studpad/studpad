@@ -54,7 +54,7 @@ var Gallery = React.createClass({
     $(window).unbind('scroll');
     //clearInterval(intervalID)
   },
-  like_post(id){
+  like_post: function(id){
     var posts = this.state.posts;
     var likedPost = $.grep(posts, function(e){ return e.id == id; });
     likedPost = likedPost[0];
