@@ -6,7 +6,7 @@ class FeedController < ApplicationController
 
   def explore
     @tag = Tag.find_by_name(params[:tag_name])
-    @tag_name = params[:tag_name] ? ('#' + params[:tag_name]) : ''
+    @tag_name = params[:tag_name] ? ('#' + params[:tag_name]) : '#популярное'
     @posts_path = @tag ? tag_path(@tag) : posts_path
   end
 end

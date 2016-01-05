@@ -59,7 +59,7 @@ const ExplorePost = React.createClass({
     text = text[0].text;
     var text = sanitizeHtml(text, {allowedTags: ['div', 'br']});
 
-    var tags = post.tags.map(function(name, i){return <span key={i}>#{name}</span>})
+    var tags = post.tags.map(function(name, i){return <a key={i} href={'/explore?tag_name=' + name}>{'#'+name}</a>})
     return(
       <figure>
         <div className="autor-explore border-radius-top">

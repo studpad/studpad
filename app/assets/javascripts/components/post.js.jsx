@@ -52,7 +52,7 @@ const Post = React.createClass({
   //END*****************************************************ACTIONS
   render: function() {
     var tags = this.props.post.tags.map(function(name, i){
-      return <span key={i}>#{name}</span>
+      return <a key={i} href={'/explore?tag_name=' + name}>{'#'+name}</a>
     });
     return (
       <div className='post card-sp'>
