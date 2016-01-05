@@ -76,14 +76,6 @@ const PostCommentBox = React.createClass({
             <div className='wrap-like-post-footer'>
               <div>
                 <span
-                  onClick={this.props.basketClick}
-                  className='post-box'>
-                  <img ref='delicious_tooltip' title='Сохранить себе' data-toggle="tooltip" data-placement="top" src={basket_image_path} />
-                  <span>
-                    {baskets_count}
-                  </span>
-                </span>
-                <span
                   className={classname}
                   onClick={this.props.likeClick}>
                   <img

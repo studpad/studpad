@@ -197,6 +197,7 @@
 }
 .post-type-link-adress{
 	padding: 0px 15px 15px 15px;
+	font-weight: 400;
 }
 .post-type-link-title{
 	font-size: 28px;
@@ -451,11 +452,11 @@
 		float: left;
 	}
 	.wrap-write-comment-post-footer{
-		width: 77%;
+		width: 88%;
 	}
 	.wrap-like-post-footer{
-		width: 23%;
 		padding-left: 3px;
+		float: right;
 		div{
 			float: left;
 			span{
@@ -469,7 +470,7 @@
 	font-size: 10px;
 }
 .unit-post-comments .preview-object-info-mini{
-	width: 85%;
+	width: 81.5%;
 }
 .unit-post-comments .status-user-line{
 	color: #AAABAC;
@@ -741,6 +742,12 @@
 .one-post{
 	.post-container{
 		margin-top: 0px;
+	}
+	iframe{
+		height: 363px !important;
+	}
+	.unit-post-comments .preview-object-info-mini{
+		width: 82.8%;
 	}
 }
 .select2-container--default.select2-container--focus .select2-selection--multiple{
