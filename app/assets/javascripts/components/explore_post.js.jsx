@@ -56,10 +56,17 @@ const ExplorePost = React.createClass({
       );
     }
     var text = $.grep(post.text_elements, function(e){return e.type == ElementTypes.text});
-    text = text[0].text;
+    text = text[0] ? text[0].text : '';
     var text = sanitizeHtml(text, {allowedTags: ['div', 'br']});
 
     var tags = post.tags.map(function(name, i){return <a key={i} href={'/explore?tag_name=' + name}>{'#'+name}</a>})
+    // if (window.currentUser && post.author.url != window.currentUser.url)
+    //   var follower = (
+    //     <div className='follow'>
+    //       <a href={post.author.url+'/follow'} data-method='post'>Читать</a>
+    //     </div>
+    //   );
+
     return(
       <figure>
         <div className="autor-explore border-radius-top">
@@ -68,9 +75,6 @@ const ExplorePost = React.createClass({
           <div className="info">
           <div className='name'>
             <a href={post.author.url}>{post.author.name}</a>
-          </div>
-          <div className='follow'>
-            <a href={post.author.url+'/follow'} data-method='post'>Читать</a>
           </div>
           </div>
         </div>

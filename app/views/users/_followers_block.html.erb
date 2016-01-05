@@ -5,8 +5,10 @@
       15
     </div>
     <div class = 'element-profile-followers'>
+      <%= link_to favourite_user_path(@user) do %>
       <p>Нравится</p>
       12
+      <% end %>
     </div>
     <% if @user.followers_count != 0 %>
       <%= link_to followers_user_path(@user) do %>

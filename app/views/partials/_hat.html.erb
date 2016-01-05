@@ -15,8 +15,12 @@
         <div class="input-group-btn">
           <button type="button" class="btn btn-default dropdown-toggle dont-hide" data-toggle="dropdown"><span class='choose-category'></span></button>
           <div class="dropdown-menu main-categories" role="menu">
+            <% a, b = Category.all.to_a.partition.with_index{ |c, i| i.odd? } %>
             <div class='pole'>
-              <p>Популярное</p>
+              <% b.each do |c| %>
+                <%= link_to c.name, category_name_path(c.name) %>
+              <% end %>
+              <!-- <p>Популярное</p>
               <p>Новое</p>
               <p>Фото</p>
               <p>GIF</p>
@@ -27,10 +31,13 @@
               <p>Путешествия</p>
               <p>Обучение</p>
               <p>Дети</p>
-              <p>Красота и прически</p>
+              <p>Красота и прически</p> -->
             </div>
             <div class='pole'>
-              <p>Животные</p>
+              <% a.each do |c| %>
+                <%= link_to c.name, category_name_path(c.name) %>
+              <% end %>
+              <!-- <p>Животные</p>
               <p>История</p>
               <p>Здоровье и фитнес</p>
               <p>Еда и напитки</p>
@@ -41,7 +48,7 @@
               <p>Подарки</p>
               <p>Татуировки</p>
               <p>SWAG</p>
-              <p>Юмор</p>
+              <p>Юмор</p> -->
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 ActiveAdmin.register Post do
   includes :user
-  actions :index, :show, :destroy
+  actions :index, :show, :destroy, :edit, :update
   menu label: 'Публикации'
   filter :id
   filter :post_type
@@ -8,13 +8,18 @@ ActiveAdmin.register Post do
   sidebar 'Напоминание' do
     'Создавать и редактировать посты можно только из пользовательского интерфейса.'
   end
-  index do
+  permit_params :category_id
+  form do |f|
+    f.input :category
 
+    f.submit
+  end
+
+  index do
     id_column
     column :post_type
     column :user
     column :created_at
-    #column :admin
     actions
   end
 end

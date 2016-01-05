@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104101512) do
+ActiveRecord::Schema.define(version: 20160105110730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 20160104101512) do
   end
 
   add_index "baskets", ["user_id"], name: "index_baskets_on_user_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "text"
@@ -123,6 +129,7 @@ ActiveRecord::Schema.define(version: 20160104101512) do
     t.string   "linkdata",     default: "--- {}\n"
     t.string   "youtube_id"
     t.text     "user_add_ids", default: [],                      array: true
+    t.integer  "category_id"
   end
 
   add_index "posts", ["group_id"], name: "index_posts_on_group_id", using: :btree

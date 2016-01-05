@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :require_login,
     only: [:new, :create, :show, :basket_posts, :posts]
 
-  before_action :find_user, except: [:new, :create, :profile, :edit_profile]
+  before_action :find_user,
+    except: [:new, :create, :profile, :edit_profile]
 
   def new
     @user = User.new
@@ -97,6 +98,17 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to root_path
   end
+
+  def favourite
+    respond_to do |f|
+      f.json do
+        @posts = @user.get_voted(Post).limit(params[:count])
+        render 'posts/index'
+      end
+      f.html {}
+    end
+  end
+
 
   private
     def find_user
