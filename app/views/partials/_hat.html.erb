@@ -1,0 +1,140 @@
+<section class = 'hat-studpad'>
+  <div class='contant-wrap'>
+    <div class='logo'>
+      <h1>
+        <% if current_user %>
+          <%= link_to "Studpad", root_path, class: 'hat-logo-studpa-a'%>
+        <% else %>
+          <%= link_to "Studpad", main_path, class: 'hat-logo-studpa-a'%>
+        <% end %>
+      </h1>
+    </div>
+    <div class='search'>
+      <div class="input-group">
+        <input id='hat-search' type="text" class="form-control">
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle dont-hide" data-toggle="dropdown"><span class='choose-category'></span></button>
+          <div class="dropdown-menu main-categories" role="menu">
+            <% a, b = Category.all.to_a.partition.with_index{ |c, i| i.odd? } %>
+            <div class='pole'>
+              <% b.each do |c| %>
+                <%= link_to c.name, category_name_path(c.name) %>
+              <% end %>
+              <!-- <p>Популярное</p>
+              <p>Новое</p>
+              <p>Фото</p>
+              <p>GIF</p>
+              <p>Цитаты</p>
+              <p>Видео</p>
+              <p>Женская мода</p>
+              <p>Мужская мода</p>
+              <p>Путешествия</p>
+              <p>Обучение</p>
+              <p>Дети</p>
+              <p>Красота и прически</p> -->
+            </div>
+            <div class='pole'>
+              <% a.each do |c| %>
+                <%= link_to c.name, category_name_path(c.name) %>
+              <% end %>
+              <!-- <p>Животные</p>
+              <p>История</p>
+              <p>Здоровье и фитнес</p>
+              <p>Еда и напитки</p>
+              <p>Сделай сам</p>
+              <p>Кино, музыка, книги</p>
+              <p>Уютный дом</p>
+              <p>Спорт</p>
+              <p>Подарки</p>
+              <p>Татуировки</p>
+              <p>SWAG</p>
+              <p>Юмор</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='profile'>
+      <div class='menu-wrap'>
+
+        <% if current_user %>
+          <div>
+            <img data-toggle="dropdown" class = 'profile-icon'
+              src = '<%= current_user.avatar.thumb %>' />
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li>
+                <%= link_to user_path(current_user) do %>
+                  <span class="badge pull-right">
+                    <%= current_user.posts.count %>
+                  </span>
+                  <img src="/images/publication.png">
+                  Мой микроблог
+                <% end %>
+              </li>
+              <li>
+                <%= link_to favourite_user_path(current_user) do %>
+                  <span class="badge pull-right">
+                    <%= current_user.get_voted(Post).count %>
+                  </span>
+                  <img src='/images/like_active.png' />
+                  Нравится
+                <% end %>
+              </li>
+              <li>
+                <%= link_to following_user_path(current_user) do %>
+                  <img src='/empty.png' /> Я читаю
+                <% end %>
+              </li>
+              <li>
+                <%= link_to followers_user_path(current_user) do %>
+                  <img src='/images/followers.png' /> Меня читают
+                <% end %>
+              </li>
+              <li role="presentation" class="divider"></li>
+              <li>
+                <%= link_to profile_edit_path do %>
+                  Настройки
+                <% end %>
+              </li>
+              <li>
+                <%= link_to logout_path do %>
+                  Выход
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+        <% if current_user %>
+          <%= link_to root_path do %>
+            <div>
+              <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/home7.png' />
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to main_path do %>
+            <div>
+              <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/home7.png' />
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to explore_path do %>
+          <div class = 'is-hidden-if-sm-screen'>
+              <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/compass.png' />
+          </div>
+        <% end %>
+        <%= link_to notices_user_path(current_user) do %>
+            <div>
+                <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/bell.png' />
+            </div>
+            <div class = 'amount-menu-icon amount-of-notices'>
+              <% notifications_count =  current_user.notifications.where(viewed: false).count %>
+              <%= notifications_count unless notifications_count.zero? %>
+            </div>
+        <% end if current_user %>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class='post-categories'>
+</section>

@@ -33,6 +33,7 @@ gem 'react-bootstrap-rails'
 gem 'destroyed_at'
 gem 'migration_data'
 gem 'browserify-rails'
+gem 'slim-rails'
 #gem 'carrierwave-imageoptimizer'
 
 group :development, :test do

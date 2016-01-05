@@ -3,18 +3,20 @@ var ContentEditableDiv = React.createClass({
     return nextProps.html !== this.getDOMNode().innerHTML;
   },
   componentDidMount: function() {
-    var node = this.refs.textdiv.getDOMNode();
-    if (this.props.focus)
-      $(node).focus();
+    // var node = this.refs.textdiv.getDOMNode();
+    // if (this.props.focus)
+    //   $(node).focus();
   },
   componentDidUpdate: function() {
-    CI('contentEditable div updated', this.props.focus);
-    var node = this.refs.textdiv.getDOMNode();
-    if (this.props.focus)
-      $(node).focus();
+    // CI('contentEditable div updated', this.props.focus);
+    // var node = this.refs.textdiv.getDOMNode();
+    // if (this.props.focus)
+    //   $(node).focus();
   },
   emitChange: function(){
-    var html = this.refs.textdiv.getDOMNode().innerHTML;
+    //CI("hheee", this.refs.textdiv)
+    if(this.refs.textdiv)
+      var html = this.refs.textdiv.innerHTML;
     // CW('ceditbale ',html);
     // html = sanitizeHtml(html);
     // CW('ceditbale ',html);

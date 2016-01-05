@@ -1,6 +1,5 @@
 json.array! @posts do |p|
   json.author do
-    json.type p.user.description
     json.name p.user.name
     json.url user_path(p.user)
     json.avatar p.user.avatar.thumb.to_s
@@ -16,6 +15,7 @@ json.array! @posts do |p|
   json.can_edit policy(p).update?
   json.can_remove policy(p).destroy?
   json.attachment_ids = p.attachment_ids
+  json.tags p.tags.map(&:name)
 
   json.likes p.votes_for.size
   json.like_path like_post_path(p)
@@ -58,7 +58,6 @@ json.array! @posts do |p|
       json.author do
         json.name c.user.name
         json.url user_path(c.user)
-        json.type c.user.description
         json.avatar c.user.avatar.thumb.to_s
       end
       json.time l(c.created_at)

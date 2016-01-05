@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   skip_before_action :require_login,
     only: [:new, :create, :show, :basket_posts, :posts]
 
-  before_action :find_user, except: [:new, :create, :profile, :edit_profile]
+  before_action :find_user,
+    except: [:new, :create, :profile, :edit_profile]
 
   def new
     @user = User.new
-    @button_name = 'Зарегестрироваться'
   end
 
   def create
@@ -40,13 +40,11 @@ class UsersController < ApplicationController
       flash[:success] = 'Данные успешно изменены'
       redirect_to user_path
     else
-      @button_name = 'Сохранить'
       render 'edit'
     end
   end
 
   def posts
-    #Post.where(user_id: [@user.id] + @user.all_follows.map(&:followable_id))
     @posts = @user.posts.order(created_at: :desc).limit(params[:count])
     render 'posts/index', formats: :json
   end
@@ -101,23 +99,24 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def favourite
+    respond_to do |f|
+      f.json do
+        @posts = @user.get_voted(Post).order(created_at: :desc).limit(params[:count])
+        render 'posts/index'
+      end
+      f.html {}
+    end
+  end
+
+
   private
     def find_user
       @user = User.find(params[:id])
     end
 
-    def ava_params
-      params.require(:user).permit(:fieldname_crop_x, :fieldname_crop_y,
-      :fieldname_crop_w, :fieldname_crop_h, :avatar)
-    end
-
     def user_params
-      name = :user
-      name = :teacher if params[:teacher]
-      name = :student if params[:student]
-
-      params.require(name).permit(:name, :email, :type,
-        :teacher_category_id, :teacher_specialization_id,
+      params.require(:user).permit(:name, :email,
         :school, :password, :password_confirmation, :terms_of_service)
     end
 end

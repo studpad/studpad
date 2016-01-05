@@ -31,23 +31,21 @@
 .profile-avatar_img{
  height: 220px;
  width: 220px;
- border-radius: 3px;
- -webkit-border-radius: 3px;
- -moz-border-radius: 3px;
- -o-border-radius: 3px;
  margin-top: 0px;
- border: 4px solid white;
 }
 .panel-user{
  padding: 0px;
  width: 100%;
  background-color: white;
- border-top-left-radius: 3px;
- border-top-right-radius: 3px;
+ border-top-left-radius: 2px;
+ border-top-right-radius: 2px;
 }
 .profile-info{
+	padding: 10px;
+}
+.profile-info-follow{
 	border-bottom: 1px solid #DAE1E8;
-	padding: 15px;
+	padding: 1px 15px;
 }
 .profile-info_name{
   font-size: 14px;
@@ -236,6 +234,11 @@
 .reg-licence{
 	margin-bottom: 15px;
 }
+.profile-setting{
+	padding-right: 7px !important;
+	position: relative;
+	top: 4px;
+}
 .p_profile-setting:before{
 	content: "\f00a";
 	font-family: FontAwesome;
@@ -256,17 +259,17 @@
 }
 .element-profile-read{
 	float: left;
-	width: 22%;
 	height: 47px;
+	z-index: 100;
 }
 .element-profile-followers{
+	text-align: center;
 	float: left;
-	width: 19%;
+	width: 88.1875px;
 	height: 47px;
 	color: #3680be;
 	font-size: 16px;
 	font-weight: bold;
-  text-align: left;
   cursor: pointer;
   transition: all .15s linear;
   &:hover{
@@ -277,7 +280,15 @@
 		font-size: 12px;
   	color: #516574;
   	font-weight: normal;
+  	img{
+  		height: 12px;
+  		position: relative;
+  		top: -1px;
+  	}
 	}
+}
+.wrap-element-profile-followers{
+	float: left;
 }
 .profile-preview-object-info{
 	float: left;
@@ -394,19 +405,6 @@
 		background-color: white;
 	}
 }
-.amount-menu-icon{
-  float: left;
-  position: relative;
-  top: 0px;
-  left: -18px;
-  width: 18px;
-  border-radius: 2px;
-	font-size: 10px;
-	background-color: #3680be;
-	border: 1px solid white;
-	color: white;
-}
-.amount-of-notices{
-	/*background-color: #1FB6B5;*/
-	background-color: #3680be;
+.crt4-modal-background{
+	backfround-color: white;
 }

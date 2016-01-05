@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create post_params
+    @post.bind_tags(params[:post][:tags])
     @post.attachment_ids = params[:post][:attachment_ids]
     params[:post][:text_elements].each do |position, element|
       case element['type']
@@ -67,6 +68,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update_attributes post_params
+    @post.bind_tags(params[:post][:tags])
     @post.attachment_ids = params[:post][:attachment_ids]
     element_ids = params[:post][:text_elements].values.map{|e| e[:id]}.compact
     @post.text_element_ids = element_ids
@@ -105,7 +107,6 @@ class PostsController < ApplicationController
   end
 
   def index
-    #byebug
     @posts = Post.for_user(current_user).limit(params[:count])
     render :index, formats: :json
   end
@@ -116,7 +117,7 @@ class PostsController < ApplicationController
         :title, :post_type, :group_id,
         :youtube_id, :attachment_ids,
         photo_ids: [],
-        linkdata: [:title, :domain, :description, :url])
+        linkdata: [:title, :domain, :description, :url, :image_url])
     end
 
     def find_post

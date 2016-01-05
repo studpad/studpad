@@ -7,28 +7,6 @@
     </p>
 
     <%= simple_form_for(@user, url: users_path, html: { class: 'form-vertical' }) do |f| %>
-      <div class = 'row'>
-        <div class="wrap-radio align-c col-xs-4">
-          <%= f.radio_button :type, "Teacher", class: 'input-radio-sp', required: true %>
-          <label for = 'user_type_teacher'>Преподаватель</label>
-        </div>
-        <div class="wrap-radio align-c col-xs-4">
-          <%= f.radio_button :type, "Student", class: 'input-radio-sp', required: true %>
-          <label for = 'user_type_student'>Ученик</label>
-        </div>
-      </div>
-      <div class = 'row'>
-        <div class = 'col-xs-12'>
-          <div id='teacher_category' class = 'choose-category-specialization'>
-            <p>Выберите категорию</p>
-            <%= f.association :teacher_category, label: false %>
-          </div>
-          <div id='teacher_specialization' class = 'choose-category-specialization'>
-            <p>Выберите специализацию</p>
-            <%= f.association :teacher_specialization, label: false %>
-          </div>
-        </div>
-      </div>
       <%= f.input :name, label: false, input_html: { class: 'input-sp', placeholder: 'ФИО' } %>
       <%= f.input :email, label: false, input_html: { class: 'input-sp',  placeholder: 'Электронный адрес' } %>
       <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>

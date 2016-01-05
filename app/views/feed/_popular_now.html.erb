@@ -1,0 +1,12 @@
+<div class = 'card-sp'>
+  <div class = 'block-title'>
+    <a>Актуальное</a>
+  </div>
+  <div class = 'block-objects tags-feed'>
+    <p class="tags-sp">
+      <% Tag.where(active: true).each do |t|%>
+        <%= link_to "##{t.name}", tag_name_path(t.name) %></br>
+      <% end %>
+    </p>
+  </div>
+</div>

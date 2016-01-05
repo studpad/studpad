@@ -5,10 +5,10 @@ const PostManagementPanel = React.createClass({
   },
   //END*****************************************************DECLARE
   //BEGIN***************************************************ACTIONS
-  onClickText: function() {
+  /*onClickText: function() {
     this.props.newPost(PostTypes.text);
     CI('PostManagementPanel::onClickText');
-  },
+  },*/
   onClickPhoto: function() {
     this.props.newPost(PostTypes.photo);
     CI('PostManagementPanel::onClickPhoto');
@@ -17,14 +17,14 @@ const PostManagementPanel = React.createClass({
     this.props.newPost(PostTypes.link);
     CI('PostManagementPanel::onClickLink');
   },
-  onClickFile: function() {
+  /*onClickFile: function() {
     this.props.newPost(PostTypes.file);
     CI('PostManagementPanel::onClickFile');
-  },
-  onClickQuotation: function() {
+  },*/
+  /*onClickQuotation: function() {
     this.props.newPost(PostTypes.quotation);
     CI('PostManagementPanel::onClickQuotation');
-  },
+  },*/
   onClickVideo: function() {
     this.props.newPost(PostTypes.video);
     CI('PostManagementPanel::onClickVideo');
@@ -36,41 +36,23 @@ const PostManagementPanel = React.createClass({
     return (
       <div className='new-post-buttons card-sp'>
         <div className='new-post-wrap'>
-          <div className='new-post-label' onClick={this.onClickText}>
-            <div className='icon-post-text icon-post'>
-              <img src = '/images/text.png'/>
-            </div>
-            <span className='new-post-label-name'>Текст</span>
-          </div>
           <div className='new-post-label' onClick={this.onClickPhoto}>
             <div className='icon-post-photo icon-post'>
               <img src = '/images/photo.png'/>
             </div>
             <span className='new-post-label-name'>Фото</span>
           </div>
-          <div className='new-post-label' onClick={this.onClickFile}>
-            <div className='icon-post-material icon-post'>
-              <img src = '/images/attache.png' />
+          <div className='new-post-label' onClick={this.onClickVideo}>
+            <div className='icon-post-cite icon-post'>
+              <img src = '/images/video.png' />
             </div>
-            <span className='new-post-label-name'>Файл</span>
+            <span className='new-post-label-name'>Видео</span>
           </div>
           <div className='new-post-label' onClick={this.onClickLink}>
             <div className='icon-post-link icon-post'>
               <img src = '/images/link.png' />
             </div>
             <span className='new-post-label-name'>Ссылка</span>
-          </div>
-          <div className='new-post-label' onClick={this.onClickQuotation}>
-            <div className='icon-post-cite icon-post'>
-              <img src = '/images/quote.png' />
-            </div>
-            <span className='new-post-label-name'>Цитата</span>
-          </div>
-          <div className='new-post-label' onClick={this.onClickVideo}>
-            <div className='icon-post-cite icon-post'>
-              <img src = '/images/video.png' />
-            </div>
-            <span className='new-post-label-name'>Видео</span>
           </div>
         </div>
         <div className='clearboth'>

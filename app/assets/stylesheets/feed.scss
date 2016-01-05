@@ -155,3 +155,18 @@
   border-left: solid 1.6em transparent;
   border-right: solid 1.6em transparent;
 }
+.tags-feed{
+  .tags-sp{
+    margin: 12px 5px !important;
+    font-weight: 200;
+    font-size: 13px;
+    cursor: pointer;
+    span{
+      margin-right: 3px;
+      cursor: pointer;
+      &:hover{
+        color: #3680BE;
+      }
+    }
+  }
+}

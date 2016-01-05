@@ -1,0 +1,23 @@
+<div class ='container' id = 'main-container'>
+  <div class = 'left-branch'>
+    <%= render '/partials/profile' %>
+    <%= render 'left_branch_profile' %>
+  </div>
+
+  <div class = 'main-wall'>
+    <div class = 'panel-user'>
+      <div class = 'profile-info-follow'>
+        <%= render partial: 'followers_block' %>
+      </div>
+    </div>
+    <div class="title-background">
+      <div class="title-page">
+        Понравилось
+      </div>
+    </div>
+    <div class = 'glued-first-post'>
+    <%= react_component("PostBox",
+        posts_url: favourite_user_path(@user), show_panel: false ) %>
+    </div>
+  </div>
+</div>

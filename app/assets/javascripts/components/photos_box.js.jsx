@@ -111,7 +111,6 @@ var PhotosBox = React.createClass({
     }
     if (photos.length == 0 && !this.state.show_input) {
       var top_button_group = (
-        <div className='row'>
           <div className='form-new-post usual-post-contant'>
             <div className='form-wrap-new-post-type'>
               <div className='split-cells-choose-photo'>
@@ -132,7 +131,6 @@ var PhotosBox = React.createClass({
               </div>
             </div>
           </div>
-        </div>
       );
     }
 

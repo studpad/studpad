@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220180612) do
+ActiveRecord::Schema.define(version: 20160105193613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 20151220180612) do
   end
 
   add_index "baskets", ["user_id"], name: "index_baskets_on_user_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "text"
@@ -123,10 +129,21 @@ ActiveRecord::Schema.define(version: 20151220180612) do
     t.string   "linkdata",     default: "--- {}\n"
     t.string   "youtube_id"
     t.text     "user_add_ids", default: [],                      array: true
+    t.integer  "category_id"
   end
 
   add_index "posts", ["group_id"], name: "index_posts_on_group_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "posts_tags", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts_tags", ["post_id"], name: "index_posts_tags_on_post_id", using: :btree
+  add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name",       null: false
@@ -143,16 +160,11 @@ ActiveRecord::Schema.define(version: 20151220180612) do
   add_index "subjects_teachers", ["subject_id"], name: "index_subjects_teachers_on_subject_id", using: :btree
   add_index "subjects_teachers", ["teacher_id"], name: "index_subjects_teachers_on_teacher_id", using: :btree
 
-  create_table "teacher_categories", force: :cascade do |t|
+  create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "teacher_specializations", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "active",     default: false
   end
 
   create_table "text_elements", force: :cascade do |t|

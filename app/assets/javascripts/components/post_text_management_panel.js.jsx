@@ -45,26 +45,19 @@ const PostTextManagmentPanel = React.createClass({
   render: function() {
     if(this.state.visibility_tips){
       var tips = (<div className='tipt-post-add-element'>
-          <div className='glossary-post-element glossary-post-element-photo'>
-            Картинка или фотография украсят публикацию и сделают её заметнее.
-          </div>
-          <div className='glossary-post-element glossary-post-element-devider'>
-            Горизонтальная черта поможет Вам разделить главные мысли.
-          </div>
         </div>)
     }
     return (
       <div>
-        <div className='post-add-text-element'>
-          <DropzonePure ref='drop' onDrop={this.onDrop}/>
-          <div className='post-add-text-element-label' onClick={this.onClickImage}>
-            <span className='add-element-label-photo hide-tipt-post-add-element'></span>
+        <div>
+          <div className='post-add-text-element'>
+            <DropzonePure ref='drop' onDrop={this.onDrop}/>
+            <div className='post-add-text-element-label' onClick={this.onClickImage}>
+              <span className='add-element-label-photo hide-tipt-post-add-element'></span>
+            </div>
           </div>
-          <div className='post-add-text-element-label' onClick={this.onClickDivider}>
-            <span className='add-element-label-divider hide-tipt-post-add-element'></span>
-          </div>
+          {tips}
         </div>
-        {tips}
       </div>
     );
   }

@@ -10,8 +10,14 @@
 } /* Made with http://icomoon.io/app */
 
 /* General style */
-.grid-gallery{
+.title-explore{
+	text-align: center;
+	color: white;
+	font-size: 30px;
 	margin-top: 60px;
+}
+.grid-gallery{
+	margin-top: 20px;
 }
 .grid-gallery ul {
 	list-style: none;
@@ -22,16 +28,20 @@
 .grid-gallery figure {
 	margin: 0;
 }
-
 .grid-gallery figure img {
 	width: 100%;
 }
-
+.grid-gallery figure figcaption img {
+	width: 12px;
+}
+.grid-gallery figure footer img {
+	width: 16px;
+}
 .grid-gallery figcaption h3 {
 	margin: 0;
 	padding-top: 6px;
 	padding-bottom: 0px;
-	font-size: 17px;
+	font-size: 16px;
 }
 
 .grid-gallery figcaption p {
@@ -42,8 +52,13 @@
 	.tags-sp{
 		margin: 12px 5px !important;
 		font-weight: 200;
-		span{
+		a{
+			color: #969DA2;
 			margin-right: 3px;
+			cursor: pointer;
+			&:hover{
+				color: #757A7D;
+			}
 		}
 	}
 }
@@ -51,20 +66,30 @@
 .grid-wrap {
 	width: 90%;
 	margin: 0 auto;
-	padding: 0 1em 1.875em;
+	/*padding: 0 1em 1.875em;*/
+	figure{
+		iframe{
+			width: 100% !important;
+			height: 100% !important;
+			margin-bottom: -5px;
+		}
+	}
 }
 
 .grid {
 	margin: 0 auto;
 }
 
-.grid li {
+.grid-gallery figure {
 	width: 25%;
 	float: left;
+	&:hover .delicious-like > div:first-child{
+ 		display: block;
+ 	}
 	/*cursor: pointer;*/
 }
 
-.grid figure {
+.grid-gallery figure {
 	padding: 5px;
 	-webkit-transition: opacity 0.2s;
 	transition: opacity 0.2s;
@@ -75,7 +100,7 @@
 	opacity: 0.8;
 }*/
 
-.grid figcaption {
+.grid-gallery figcaption {
 	background: white;
 	.link{
 		font-size: 12px;
@@ -83,9 +108,13 @@
 		padding-top: 10px;
 		img{
 			width: 12px;
+			margin-right: 5px;
+		}
+		a{
+			font-weight: 400;
 		}
 	}
-	p, footer, h3{
+	footer, .main-contain{
 		padding-left: 10px;
 		padding-right: 10px;
 	}
@@ -96,16 +125,28 @@
 		padding-top: 10px;
 	}
 }
-.grid footer{
+.grid-gallery footer{
 	border-top: 1px solid #DAE1E8;
 	min-height: 43px;
-	div{
-		float: left;
-	}
  	.delicious-like{
- 		width: 30%;
- 		div{
+ 		font-weight: 400;
+ 		div:first-child{
+			float: left;
+			color: #23527c;
+			font-size: 12px;
+			cursor: pointer;
+			display: none;
+			&:hover{
+				color: #3680be;
+			}
+			span{
+				font-size: 11px;
+				color: #969DA2;
+			}
+		}
+ 		div:last-child{
 			float: right;
+			display: block;
 			span{
 				font-size: 11px;
 				margin-left: 3px;
@@ -114,12 +155,14 @@
 				span{
 					position: relative;
 					top: 1px;
+					color: #516574;
 				}
 			}
 		}
  		img{
  			width: 16px;
  			float: left;
+ 			cursor: pointer;
  		}
  	}
 }
@@ -344,38 +387,39 @@ span.nav-close:before {
 }
 
 @media screen and (max-width: 1118px) {
-	.grid li {
+	.grid-gallery figure {
 		width: 33.3%;
 	}
 }
 
 @media screen and (max-width: 846px) {
-	.grid li {
+	.grid-gallery figure {
 		width: 50%;
 	}
 }
 
 @media screen and (max-width: 573px) {
-	.grid li {
+	.grid-gallery figure {
 		width: 100%;
 	}
 }
 
 @media screen and (max-width: 24em) {
-	.grid li {
+	.grid-gallery figure {
 		width: 100%;
 	}
 }
 
 .autor-explore{
-	min-height: 30px;
-	width: 70%;
-	div{
+	background-color: white;
+	padding: 10px;
+	height: 52px;
+	.avatar, .info{
 		float: left;
 	}
 	.avatar{
-		width: 20px;
-	  height: 20px;
+		width: 32px;
+	  height: 32px;
 	  border-radius: 2px;
 	  -webkit-border-radius: 2px;
 	}
@@ -384,8 +428,18 @@ span.nav-close:before {
 		bottom: 3px;
 		float: left;
 		margin-left: 5px;
-		font-size: 11px;
-		font-weight: 400;
-		width: 120px;
+		font-size: 12px;
+		.name{
+			font-weight: 500;
+		}
+		.follow{
+			font-weight: 400;
+			color: #3680be;
+			font-size: 12px;
+			cursor: pointer;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
 	}
 }

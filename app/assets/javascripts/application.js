@@ -24,9 +24,11 @@
 //= require bootstrap-sprockets
 //= require jquery.Jcrop.min
 //= require jquery.form
+//= require jquery.autocomplete
 //= require dropzone
 //= require my_scripts
 //= require selectize
+//= require select2.min
 //= require autoresize.jquery.min
 //= require avatar
 //= require change_password
