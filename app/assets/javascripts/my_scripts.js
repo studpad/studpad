@@ -1,31 +1,23 @@
 function main(){
-    //users form begin
-    $('#teacher_category').hide();
-    $('#teacher_specialization').hide();
-    $('#user_type_teacher').click(function(){
-      $('#teacher_category').show();
-    });
-    $('#user_type_student').click(function(){
-      $('#teacher_category').hide();
-      $('#teacher_specialization').hide();
-    });
-    $('#teacher_category').change(function(e){
-      if (e.target.value == 3)
-        $('#teacher_specialization').show();
-    });
-
-
-    if ($('#teacher-category-edit').val() != 3)
-      $('#teacher-specialization-edit').hide();
-
-    $('#teacher-category-edit').change(function(e){
-      if (e.target.value == 3)
-        $('#teacher-specialization-edit').show();
-      else
-        $('#teacher-specialization-edit').hide();
+    $('#hat-search').autocomplete({
+      serviceUrl: '/tags',
+      paramName: 'term',
+      deferRequestBy: 200,
+      dataType: 'JSON',
+      transformResult: function(data){
+        CL(data);
+        var result = data.map(function(p){
+          return {value: p.name, data: p.id};
+        });
+        CL(result);
+        return {suggestions: result};
+      },
+      onSelect: function(s){
+        window.location = '/tags/' + s.data;
+      }
     });
 
-    
+
     $('.usual-post-text-expand-span').click(function(){
       alert('sf');
     });
