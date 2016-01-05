@@ -1,10 +1,11 @@
 <div class='title-explore'>
-   #популярное
+  <%= @tag_name %>
 </div>
 <div id="grid-gallery" class="grid-gallery">
   <div id='demo'>
-  <%= react_component 'Gallery',
-    posts_url: posts_path %>
+  <% unless  !@tag && params[:tag_name] %>
+    <%= react_component 'Gallery', posts_url: @posts_path %>
+  <% end %>
   </div>
 </div>
 

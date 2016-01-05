@@ -107,7 +107,6 @@ class PostsController < ApplicationController
   end
 
   def index
-    #byebug
     @posts = Post.for_user(current_user).limit(params[:count])
     render :index, formats: :json
   end

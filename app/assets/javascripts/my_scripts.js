@@ -13,7 +13,13 @@ function main(){
         return {suggestions: result};
       },
       onSelect: function(s){
-        window.location = '/tags/' + s.data;
+        window.location = '/explore?tag_name=' + s.value;
+      }
+    }).on('keydown', function(e){
+      var ENTER = 13;
+      if( e.keyCode == ENTER ) {
+        e.preventDefault();
+        window.location = '/explore?tag_name=' + e.target.value;
       }
     });
 

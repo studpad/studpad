@@ -35,7 +35,7 @@ const ExplorePost = React.createClass({
             title='Сохранить себе'
             data-toggle="tooltip"
             data-placement="top"
-            src='images/like_active.png' />
+            src='/images/like_active.png' />
           <span>
             {post.likes || ''}
           </span>
@@ -48,7 +48,7 @@ const ExplorePost = React.createClass({
             title='Сохранить себе'
             data-toggle="tooltip"
             data-placement="top"
-            src='images/like.png' />
+            src='/images/like.png' />
           <span>
             {post.likes || ''}
           </span>

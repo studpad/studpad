@@ -7,8 +7,12 @@ const TagSelect = React.createClass({
         url: "/tags.json",
         cache: "true",
         processResults: function (data) {
+          result = data.map(function(t){
+            return {text: t.name, id: t.name};
+          });
+          CL(result);
           return {
-            results: data
+            results: result
           };
         }
       },

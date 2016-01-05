@@ -4,7 +4,10 @@ class TagsController < ApplicationController
       .select(:id, :name).map(&:attributes)
     render json: data
   end
+
   def show
     @tag = Tag.find(params[:id])
+    @posts = Post.joins(:tags).where(posts_tags:{tag: @tag}).limit(params[:count])
+    render 'posts/index', formats: :json
   end
 end
