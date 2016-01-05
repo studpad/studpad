@@ -30,7 +30,7 @@ function main(){
 
     var width_wrap_elements = $('.wrap-element-profile-followers').width();
     var half_width = (490 - width_wrap_elements)/2;
-    $('.wrap-element-profile-followers').css('margin-left', half_width).css('margin-right', half_width);
+    $('.wrap-element-profile-followers').css('margin-left', half_width-2).css('margin-right', half_width-2);
 
     //users form end
 
