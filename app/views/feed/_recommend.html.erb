@@ -10,10 +10,10 @@
           <div class = 'person-follow'>
             <div class = 'person-follow-stat'>
               <%= link_to user_path(u) do %>
-              <div class = 'person-follow-photo' style = 'background: url(
-                  <%= u.avatar %>
-                ) no-repeat; background-size: cover;'>
-              </div>
+                <div class = 'person-follow-photo'
+                  style = 'background: url(<%= u.avatar %>)
+                    no-repeat; background-size: cover;'>
+                </div>
               <% end %>
               <div class = 'person-follow-name'>
                 <%= link_to user_path(u) do %>
