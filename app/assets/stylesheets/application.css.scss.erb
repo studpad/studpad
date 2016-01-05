@@ -28,6 +28,7 @@
 *= require notification
 *= require material
 *= require post
+*= require select2.min
 *= require feed
 *= require follow
 *= require emotions
@@ -37,7 +38,14 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "http://webfonts.ru/import/osans.css";
+
+
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
 
 /*body{
       color: #383838;
@@ -53,6 +61,7 @@
     }*/
     body{
       color: #383838;
+      font-weight: 300;
       cursor: default;
       font-family: "Helvetica Neue","HelveticaNeue",Helvetica,"PT Sans";
 
@@ -192,6 +201,11 @@
       &:hover{
         background-color: #2E77B3;
       }
+    }
+    .btn-st-sm{
+      padding: 1px 7px;
+      font-size: 11px;
+      border-radius: 2px;
     }
     .btn-st-inert{
       background-color: #fff;
@@ -559,7 +573,7 @@
     .close-news{
       text-align: right;
     }
-    
+
     .glyphicon:hover{
       color: #3680be;
       cursor: pointer;
@@ -1952,6 +1966,9 @@ input[type=radio] {
   margin-left: -556px;*/
   width: 220px;
   min-height: 1px;
+  .card-sp{
+    margin-bottom: 10px;
+  }
 }
 .right-branch{
   width: 100px;
@@ -2061,8 +2078,7 @@ input[type=radio] {
 }
 .extra-background{
     background-color: #F9F9F9;
-    border-radius: 3px;
-    padding: 15px 0;
+    border-radius: 2px;
 }
 button.action-angle,  button.remove-angle, img.remove-angle{
     padding: 0;
@@ -2170,9 +2186,15 @@ button.action-angle,  button.remove-angle, img.remove-angle{
 }
 .administration-data{
   font-size: 11px;
-  color: #507596;
+  color: white;
   margin-top: 15px;
   text-align: left;
+  a{
+    color: white;
+    &:hover{
+      color: #3680be;
+    }
+  }
 }
 .title-that-left{
   font-size: 18px;
@@ -2182,8 +2204,6 @@ button.action-angle,  button.remove-angle, img.remove-angle{
 }
 iframe{
   height: 292px;
-  width: 520px;
-  margin-left: -15px;
   border: none;
 }
 .modal-content-white{
@@ -2200,4 +2220,21 @@ iframe{
 }
 .dont-hide-menu{
   display: block !important;
+}
+
+
+.image-element-class{
+  width: 200px;
+  img {
+    width: 100%
+  }
+}
+.container-fluid{
+  padding: 0;
+}
+.tags-sp span{
+  cursor: pointer;
+  &:hover{
+    color: #757A7D;
+  }
 }

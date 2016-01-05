@@ -36,6 +36,9 @@ const PostModalContent = React.createClass({
       }
     });
   },
+  chooseLinkImage(src){
+    this.props.chooseLinkImage(src);
+  },
   componentDidMount: function() {
     if (this.props.post.type == PostTypes.quotation || this.props.post.type == PostTypes.text) {
       var node = this.refs.title.getDOMNode();
@@ -63,7 +66,6 @@ const PostModalContent = React.createClass({
     switch (this.props.post.type) {
       case PostTypes.text:
         main_part = (
-        <div className='row'>
           <div className='form-new-post usual-post-contant'>
             <div className='form-wrap-new-post-type'>
               <input
@@ -75,7 +77,6 @@ const PostModalContent = React.createClass({
                 placeholder = 'Введите здесь заголовок'/>
             </div>
           </div>
-        </div>
         );
         break;
       case PostTypes.photo:
@@ -88,6 +89,37 @@ const PostModalContent = React.createClass({
         );
         break;
       case PostTypes.link:
+        if (this.props.post.linkdata.loadedimages){
+          var self = this;
+          var images = this.props.post.linkdata.loadedimages.map(function(src, i){
+            return (
+              <div
+                key={i}
+                onClick={self.chooseLinkImage.bind(self, src)}
+                style={{
+                  background: 'url('+src+') no-repeat',
+                  backgroundSize: 'cover'
+                }}>
+              </div>
+            );
+          });
+        }
+        var link_images, loaded_image;
+        if (this.props.post.linkdata.image_url) {
+          loaded_image = (
+            <div className="usual-post-photo action-create-element-post">
+              <img src={this.props.post.linkdata.image_url} />
+            </div>
+          );
+        } else  {
+          if(images && images.length){
+            link_images = ([
+                (<div className='choose-img'>{images}</div>),
+                (<div className='clearboth'></div>)
+              ]
+            )
+          }
+        }
         var link_title, link_domain, link_description;
         if (this.props.post.linkdata.title) {
           link_title = (
@@ -109,7 +141,6 @@ const PostModalContent = React.createClass({
         }
 
         main_part = (
-        <div className='row'>
           <div className = 'form-new-post'>
             <div className = 'form-wrap-new-post-type'>
               <div className = 'extra-background'>
@@ -122,14 +153,19 @@ const PostModalContent = React.createClass({
               </div>
             </div>
             <div className = 'post-type'>
-                <a hrefName = ''><div className = 'post-type-link post-type-link-create extra-background'>
-                  {link_title}
-                  {link_description}
-                  {link_domain}
+                <a hrefName = ''><div className = 'post-type-link extra-background'>
+                  <div className='post-type-link-img'>
+                    {link_images}
+                    {loaded_image}
+                  </div>
+                  <div className='post-type-link-adress'>
+                    {link_title}
+                    {link_description}
+                    {link_domain}
+                  </div>
                 </div></a>
             </div>
           </div>
-        </div>
         );
         break;
       case PostTypes.file:
@@ -158,7 +194,6 @@ const PostModalContent = React.createClass({
         break;
       case PostTypes.quotation:
         main_part = (
-        <div className='row'>
           <div className='form-new-post usual-post-contant'>
             <div className='form-wrap-new-post-type'>
               <textarea
@@ -171,7 +206,6 @@ const PostModalContent = React.createClass({
               </textarea>
             </div>
           </div>
-        </div>
         );
         break;
       default:
@@ -190,6 +224,9 @@ const PostModalContent = React.createClass({
             addDivider={this.props.addDivider}
             text_elements={this.props.post.text_elements}
             typePost={this.props.post.type}/>
+          <TagSelect
+            setTags={this.props.setTags}
+            values={this.props.post.tags}/>
         </div>
       </div>
     );

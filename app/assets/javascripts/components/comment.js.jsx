@@ -7,7 +7,7 @@ var Comment = React.createClass({
   ////$(node).emojiarea({wysiwyg: true})
   componentDidMount: function() {
     if (this.refs.ceditable) {
-      var node = this.refs.ceditable.getDOMNode();
+      var node = this.refs.ceditable;
       $(node).emojiarea({
         button: false,
         wysiwyg: false
@@ -88,7 +88,6 @@ var Comment = React.createClass({
         <div className='object-text'>
           <div className='object-maintext'>
             <a href={this.props.comment.author.url}>{this.props.comment.author.name}</a>
-            <span className='status-user-line'><span> • </span> <span>{this.props.comment.author.type}</span></span>
             <span className="post-autor-data"><span > • </span>
               <span>
               {this.props.comment.time}
@@ -105,7 +104,7 @@ var Comment = React.createClass({
     return (
       <div className='unit-post-comments'>
         <div className='preview-object'>
-          <div className='preview-object-avatar-mini' style={style}>
+          <div className='preview-object-avatar-comment' style={style}>
           </div>
           <div className='preview-object-info-mini'>
             {main_part}

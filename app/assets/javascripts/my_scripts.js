@@ -1,34 +1,37 @@
 function main(){
-    //users form begin
-    $('#teacher_category').hide();
-    $('#teacher_specialization').hide();
-    $('#user_type_teacher').click(function(){
-      $('#teacher_category').show();
-    });
-    $('#user_type_student').click(function(){
-      $('#teacher_category').hide();
-      $('#teacher_specialization').hide();
-    });
-    $('#teacher_category').change(function(e){
-      if (e.target.value == 3)
-        $('#teacher_specialization').show();
-    });
-
-
-    if ($('#teacher-category-edit').val() != 3)
-      $('#teacher-specialization-edit').hide();
-
-    $('#teacher-category-edit').change(function(e){
-      if (e.target.value == 3)
-        $('#teacher-specialization-edit').show();
-      else
-        $('#teacher-specialization-edit').hide();
+    $('#hat-search').autocomplete({
+      serviceUrl: '/tags',
+      paramName: 'term',
+      deferRequestBy: 200,
+      dataType: 'JSON',
+      transformResult: function(data){
+        CL(data);
+        var result = data.map(function(p){
+          return {value: p.name, data: p.id};
+        });
+        CL(result);
+        return {suggestions: result};
+      },
+      onSelect: function(s){
+        window.location = '/explore?tag_name=' + s.value;
+      }
+    }).on('keydown', function(e){
+      var ENTER = 13;
+      if( e.keyCode == ENTER ) {
+        e.preventDefault();
+        window.location = '/explore?tag_name=' + e.target.value;
+      }
     });
 
-    
+
     $('.usual-post-text-expand-span').click(function(){
       alert('sf');
     });
+
+    var width_wrap_elements = $('.wrap-element-profile-followers').width();
+    var half_width = (490 - width_wrap_elements)/2;
+    $('.wrap-element-profile-followers').css('margin-left', half_width).css('margin-right', half_width);
+
     //users form end
 
     $('textarea').autoResize({
@@ -49,7 +52,7 @@ function main(){
       $(this).children('.title-element-of-squares-menu').css('opacity', '0.5');
     });*/
 
-    $('.right-functional').css('margin-left', '80%');
+    /*$('.right-functional').css('margin-left', '80%');
     $('.textarea-form-control-comment').css('height', '30px');
 
     $(".choice-class").select2({
@@ -58,7 +61,8 @@ function main(){
     $(".choice-theme-material").select2({
       maximumSelectionLength: 1,
       placeholder: "Предмет"
-    });
+    });*/
+
 
     $(".choice-theme-material").next().children().children().addClass('my-setting-select2-selection');
 

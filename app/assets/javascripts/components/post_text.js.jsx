@@ -130,7 +130,7 @@ var PostTextTextarea = React.createClass({
     if (this.props.position != 0)
       var remove_button = <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
     return (
-      <div>
+      <div className = 'padding-usual-post-text-create'>
         <div className = 'usual-post-text-create action-create-element-post'>
           {remove_button}
           <ContentEditableDiv

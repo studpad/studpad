@@ -51,6 +51,9 @@ const Post = React.createClass({
   },
   //END*****************************************************ACTIONS
   render: function() {
+    var tags = this.props.post.tags.map(function(name, i){
+      return <a key={i} href={'/explore?tag_name=' + name}>{'#'+name}</a>
+    });
     return (
       <div className='post card-sp'>
         <PostAuthorView
@@ -65,6 +68,9 @@ const Post = React.createClass({
             post={this.props.post}/>
           <PostTextView
             text_elements={this.props.post.text_elements}/>
+          <div className='wrap-post-tags-sp'>
+            <p className='tags-sp'>{tags}</p>
+          </div>
           <PostCommentBox
             likeClick={this.likeClick}
             basketClick={this.basketClick}
@@ -116,7 +122,6 @@ const PostTextElementView = React.createClass({
     switch (this.props.element.type) {
       case ElementTypes.text:
         var text = sanitizeHtml(this.props.element.text, {allowedTags: ['div', 'br']});
-        //CW('sanitzed', text);
         return (
           <div className = 'usual-post-text action-create-element-post'>
             <div

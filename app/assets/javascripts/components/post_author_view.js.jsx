@@ -35,9 +35,6 @@ const PostAuthorView = React.createClass({
             <div className='post-autor-name'>
               {this.props.author.name} <span className='post-autor-data'>• {this.props.time}</span>
             </div>
-            <div className = 'post-autor-type'>
-              {this.props.author.type}
-            </div>
           </div>
         </a>
         <div className = 'action-angle post-action'>

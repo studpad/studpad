@@ -10,13 +10,13 @@ var VideoBox = React.createClass({
   },
   getInitialState: function() {
     return {
-      show_input: true
+      show_input: !this.props.youtube_id
     };
   },
   componentDidMount: function() {
     var ref = this.refs.input;
     if (ref){
-      $(ref.getDOMNode()).focus();
+      $(ref).focus();
     }
   },
   handleClick: function(){
