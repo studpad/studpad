@@ -41,7 +41,7 @@ var Gallery = React.createClass({
       var scroll_part = $(window).scrollTop()/$(document).height();
       if (scroll_part > 0.8 && !this.state.limit_detected && !this.state.wait_posts ){
         this.setState({
-          posts_count: this.state.posts_count + 16,
+          posts_count: this.state.posts_count + 20,
           wait_posts: true
         });
         this.loadPostsFromServer();
