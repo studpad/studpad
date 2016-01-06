@@ -15,4 +15,47 @@ class FeedController < ApplicationController
       @posts_path = @tag ? tag_path(@tag) : posts_path
     end
   end
+
+  def fresh
+    respond_to do |f|
+      f.json do
+        @posts = Post.order(created_at: :desc).limit(params[:count])
+        render 'posts/index'
+      end
+      f.html {}
+    end
+  end
+
+  def fotos
+    respond_to do |f|
+      f.json do
+        @posts = Post.where(post_type: Post.post_types[:photo])
+          .order(created_at: :desc).limit(params[:count])
+        render 'posts/index'
+      end
+      f.html {}
+    end
+  end
+
+  def video
+    respond_to do |f|
+      f.json do
+        @posts = Post.where(post_type: Post.post_types[:video])
+          .order(created_at: :desc).limit(params[:count])
+        render 'posts/index'
+      end
+      f.html {}
+    end
+  end
+
+  def recommend
+    respond_to do |f|
+      f.json do
+        @posts = Post.recommend
+          .order(created_at: :desc).limit(params[:count])
+        render 'posts/index'
+      end
+      f.html {}
+    end
+  end
 end

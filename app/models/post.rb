@@ -15,6 +15,8 @@ class Post < ActiveRecord::Base
     quotation: 3, photo: 4, video: 5
   }
 
+  scope :recommended, -> { where(recommended: true)}
+
   serialize :linkdata
 
   def self.listed(group, user=nil)

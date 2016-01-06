@@ -17,7 +17,7 @@ json.array! @posts do |p|
   json.attachment_ids = p.attachment_ids
   json.tags p.tags.map(&:name)
 
-  json.likes p.votes_for.size
+  json.likes p.cached_votes_total
   json.like_path like_post_path(p)
   json.current_like (current_user ? current_user.voted_for?(p) : false)
 

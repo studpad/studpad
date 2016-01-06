@@ -20,11 +20,12 @@
               <% b.each do |c| %>
                 <%= link_to c.name, category_name_path(c.name) %>
               <% end %>
+
               <p>Популярное</p>
               <p>Новое</p>
-              <p>Наш выбор</p>
-              <p>Фото</p>
-              <p>Видео</p>
+              <p><%= link_to 'Наш выбор', recommend_path %></p>
+              <p><%= link_to 'Фото', fotos_path %></p>
+              <p><%= link_to 'Видео', video_path %></p>
               <!--<p>Женская мода</p>
               <p>Мужская мода</p>
               <p>Путешествия</p>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105193613) do
+ActiveRecord::Schema.define(version: 20160106132357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,17 +121,20 @@ ActiveRecord::Schema.define(version: 20160105193613) do
   create_table "posts", force: :cascade do |t|
     t.string   "text"
     t.string   "title"
-    t.integer  "post_type",                         null: false
+    t.integer  "post_type",                               null: false
     t.integer  "user_id"
     t.integer  "group_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "linkdata",     default: "--- {}\n"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "linkdata",           default: "--- {}\n"
     t.string   "youtube_id"
-    t.text     "user_add_ids", default: [],                      array: true
+    t.text     "user_add_ids",       default: [],                      array: true
     t.integer  "category_id"
+    t.integer  "cached_votes_total", default: 0
+    t.boolean  "recommended",        default: false
   end
 
+  add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total", using: :btree
   add_index "posts", ["group_id"], name: "index_posts_on_group_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
