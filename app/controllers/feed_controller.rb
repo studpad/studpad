@@ -26,7 +26,7 @@ class FeedController < ApplicationController
     end
   end
 
-  def fotos
+  def photos
     respond_to do |f|
       f.json do
         @posts = Post.where(post_type: Post.post_types[:photo])
@@ -37,7 +37,7 @@ class FeedController < ApplicationController
     end
   end
 
-  def video
+  def videos
     respond_to do |f|
       f.json do
         @posts = Post.where(post_type: Post.post_types[:video])

@@ -9,10 +9,11 @@ Rails.application.routes.draw do
 
   get 'profile/edit' => 'users#edit_profile'
 
-  get 'fotos' => 'feed#fotos'
-  get 'video' => 'feed#video'
+  get 'photos' => 'feed#photos'
+  get 'videos' => 'feed#videos'
   get 'recommend' => 'feed#recommend'
   get 'popular' => 'feed#popular'
+  get 'fresh' => 'feed#fresh'
 
   resources :posts do
     member do
