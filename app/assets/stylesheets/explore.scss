@@ -54,8 +54,9 @@
 		font-weight: 200;
 		a{
 			color: #969DA2;
-			margin-right: 3px;
+			margin-right: 5px;
 			cursor: pointer;
+			display: inline-block;
 			&:hover{
 				color: #757A7D;
 			}
