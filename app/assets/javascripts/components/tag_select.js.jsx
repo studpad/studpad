@@ -1,26 +1,15 @@
 const TagSelect = React.createClass({
   componentDidMount() {
-    $(this.refs.input).select2({
+    $(this.refs.input).selectize({
+      delimiter: ',',
+      persist: false,
       placeholder: "#Теги",
-      delay: 1000,
-      language: 'ru',
-      ajax: {
-        url: "/tags.json",
-        cache: "true",
-        processResults: function (data) {
-          result = data.map(function(t){
-            return {text: t.name, id: t.name};
-          });
-          CL(result);
+      create: function(input) {
           return {
-            results: result
-          };
-        }
-      },
-      minimumInputLength: 3,
-      allowClear: true,
-      tags: true,
-      multiple: true
+              value: input,
+              text: input
+          }
+      }
     }).on("change", function (e) {
       this.props.setTags($(e.target).val());
     }.bind(this))

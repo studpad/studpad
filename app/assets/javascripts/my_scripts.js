@@ -24,6 +24,31 @@ function main(){
     });
 
 
+    /*$('.select-huekt').select2({
+      placeholder: "#Теги",
+      delay: 10000,
+      language: 'ru',
+      tags: true,
+      tokenSeparators: [','],
+      ajax: {
+        url: "/tags.json",
+        cache: "true",
+        processResults: function (data) {
+          result = data.map(function(t){
+            return {text: t.name, id: t.name};
+          });
+          CL(result);
+          return {
+            results: result
+          };
+        }
+      },
+      minimumInputLength: 3,
+      allowClear: true,
+      minimumResultsForSearch: -1,
+      width: 300
+    });*/
+
     $('.usual-post-text-expand-span').click(function(){
       alert('sf');
     });
