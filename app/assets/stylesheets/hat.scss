@@ -172,3 +172,17 @@
     left: -26px;
   }
 }
+
+.autocomplete-suggestions strong{
+  color: #23527c !important;
+}
+.autocomplete-suggestions{
+  padding: 5px 5px !important;
+  border: 1px solid #CCC !important;
+  border-radius: 2px !important;
+  cursor: pointer !important;
+}
+.autocomplete-suggestion{
+  border-radius: 2px !important;
+  padding: 2px 5px !important;
+}
