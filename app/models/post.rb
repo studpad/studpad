@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   has_many :text_elements, -> { order(:position) }, dependent: :destroy
   has_and_belongs_to_many :tags
+  has_and_belongs_to_many :categories
 
   enum post_type: {
     filegroup: 0, link: 1, text: 2,
