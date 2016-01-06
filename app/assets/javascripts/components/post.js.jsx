@@ -54,8 +54,11 @@ const Post = React.createClass({
     var tags = this.props.post.tags.map(function(name, i){
       return <a key={i} href={'/explore?tag_name=' + name}>{'#'+name}</a>
     });
+    if (window.currentUser && window.currentUser.admin)
+      var post_id = this.props.post.id;
     return (
       <div className='post card-sp'>
+        {post_id}
         <PostAuthorView
           author={this.props.post.author}
           time={this.props.post.time}

@@ -1,6 +1,7 @@
 <!-- #Current User Store unsensetive data -->
   <%= javascript_tag do %>
     window.currentUser = {};
+    window.currentUser.admin = <%= j current_user.admin?.to_s %>;
     window.currentUser.name = '<%= j current_user.name %>';
     window.currentUser.avatar = '<%= j current_user.avatar.thumb.to_s %>';
     window.currentUser.url = '<%= j user_path(current_user) %>';

@@ -70,10 +70,12 @@ const ExplorePost = React.createClass({
     //       <a href={post.author.url+'/follow'} data-method='post'>Читать</a>
     //     </div>
     //   );
-
+    if (window.currentUser && window.currentUser.admin)
+      var post_id = this.props.post.id;
     return(
       <figure>
         <div className="autor-explore border-radius-top">
+          {post_id}
           <div className="avatar" style={{background: 'url('+post.author.avatar+') no-repeat', backgroundSize: 'cover'}}>
           </div>
           <div className="info">
