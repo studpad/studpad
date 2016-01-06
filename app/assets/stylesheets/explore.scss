@@ -39,8 +39,8 @@
 }
 .grid-gallery figcaption h3 {
 	margin: 0;
-	padding-top: 6px;
-	padding-bottom: 0px;
+	padding-top: 7px;
+	padding-bottom: 10px;
 	font-size: 16px;
 }
 
@@ -50,7 +50,7 @@
 }
 .grid-gallery figcaption {
 	.tags-sp{
-		margin: 12px 5px !important;
+		padding: 5px 5px 10px 5px !important;
 		font-weight: 200;
 		a{
 			color: #969DA2;
@@ -121,8 +121,12 @@
 	footer{
 		padding-bottom: 10px;
 	}
-	.text, footer{
+	footer{
 		padding-top: 10px;
+	}
+	.text{
+		padding-top: 7px;
+		padding-bottom: 7px;
 	}
 }
 .grid-gallery footer{

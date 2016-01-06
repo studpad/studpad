@@ -72,6 +72,12 @@ const ExplorePost = React.createClass({
     //   );
     if (window.currentUser && window.currentUser.admin)
       var post_id = this.props.post.id;
+    if(post.linkdata.description) 
+      var title_link = <h3 className='title'>{post.linkdata.description}</h3>
+    if(tags.length) 
+      var tags_rendered = <p className='tags-sp'>{tags}</p>
+    if(text)
+      var text_rendered = <p className='text' dangerouslySetInnerHTML={{__html: text}}></p>
     return(
       <figure>
         <div className="autor-explore border-radius-top">
@@ -92,9 +98,9 @@ const ExplorePost = React.createClass({
         <figcaption className='content-board border-b-radius'>
         <div className='main-contain'>
           {link_rendered}
-          <h3 className='title'>{post.linkdata.description}</h3>
-          <p className='text' dangerouslySetInnerHTML={{__html: text}}></p>
-          <p className='tags-sp'>{tags}</p>
+          {title_link}
+          {text_rendered}
+          {tags_rendered}
         </div>
 
         <footer>
