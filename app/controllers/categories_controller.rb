@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def show
-    @posts = Post.where(category_id: params[:id]).limit(params[:count])
+    @posts = Category.find(params[:id]).posts.order(created_at: :desc).limit(params[:count])
     render 'posts/index', formats: :json
   end
 end
