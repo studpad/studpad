@@ -2,16 +2,20 @@ ActiveAdmin.register Post do
   includes :user
   actions :index, :show, :destroy, :edit, :update
   menu label: 'Публикации'
+
   filter :id
   filter :post_type
   filter :user
+
   sidebar 'Напоминание' do
     'Создавать и редактировать посты можно только из пользовательского интерфейса.'
   end
-  permit_params :category_id
+
+  permit_params :category_id, :recommended
+
   form do |f|
     f.input :category
-
+    f.input :recommended
     f.submit
   end
 

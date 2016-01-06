@@ -21,8 +21,7 @@
                 <%= link_to c.name, category_name_path(c.name) %>
               <% end %>
 
-              <p>Популярное</p>
-              <p>Новое</p>
+              <p><%= link_to 'Популярное', popular_path %></p>
               <p><%= link_to 'Наш выбор', recommend_path %></p>
               <p><%= link_to 'Фото', fotos_path %></p>
               <p><%= link_to 'Видео', video_path %></p>
@@ -117,7 +116,7 @@
             </div>
           <% end %>
         <% end %>
-        <%= link_to explore_path do %>
+        <%= link_to popular_path do %>
           <div class = 'is-hidden-if-sm-screen'>
               <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/compass.png' />
           </div>

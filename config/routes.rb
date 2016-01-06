@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'fotos' => 'feed#fotos'
   get 'video' => 'feed#video'
   get 'recommend' => 'feed#recommend'
+  get 'popular' => 'feed#popular'
 
   resources :posts do
     member do

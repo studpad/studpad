@@ -51,8 +51,20 @@ class FeedController < ApplicationController
   def recommend
     respond_to do |f|
       f.json do
-        @posts = Post.recommend
+        @posts = Post.recommended
           .order(created_at: :desc).limit(params[:count])
+        render 'posts/index'
+      end
+      f.html {}
+    end
+  end
+
+  def popular
+    respond_to do |f|
+      f.json do
+        @posts = Post.order(cached_votes_total: :desc)
+          .where('created_at >= ?', 2.weeks.ago)
+          .limit(params[:count])
         render 'posts/index'
       end
       f.html {}
