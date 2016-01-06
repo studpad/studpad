@@ -5,6 +5,7 @@ json.array! @posts do |p|
     json.avatar p.user.avatar.thumb.to_s
   end
   json.id p.id
+  json.recommended p.recommended
   json.url post_path(p)
   json.text p.text
   json.youtube_id p.youtube_id
@@ -16,6 +17,9 @@ json.array! @posts do |p|
   json.can_remove policy(p).destroy?
   json.attachment_ids = p.attachment_ids
   json.tags p.tags.map(&:name)
+  json.categories do
+    json.array! p.categories.map(&:id)
+  end
 
   json.likes p.cached_votes_total
   json.like_path like_post_path(p)

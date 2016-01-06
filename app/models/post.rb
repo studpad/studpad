@@ -52,4 +52,18 @@ class Post < ActiveRecord::Base
       all.order(created_at: :desc)
     end
   end
+
+  #for admin edit
+  def link_description
+    linkdata[:description]
+  end
+  def link_description=(v)
+    linkdata[:description] = v
+  end
+  def link_title
+    linkdata[:title]
+  end
+  def link_title=(v)
+    linkdata[:title] = v
+  end
 end

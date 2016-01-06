@@ -14,6 +14,9 @@ class PostPolicy < Struct.new(:user, :post)
   def destroy?
     is_owner? || is_admin?
   end
+  def change_categories?
+    is_admin?
+  end
 
   def like?
     true

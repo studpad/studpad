@@ -11,11 +11,13 @@ ActiveAdmin.register Post do
     'Создавать и редактировать посты можно только из пользовательского интерфейса.'
   end
 
-  permit_params :recommended, category_ids: []
+  permit_params :recommended, :link_description, :link_title, category_ids: []
 
   form do |f|
     f.input :categories
     f.input :recommended
+    f.input :link_description
+    f.input :link_title
     f.submit
   end
 

@@ -70,8 +70,15 @@ const ExplorePost = React.createClass({
     //       <a href={post.author.url+'/follow'} data-method='post'>Читать</a>
     //     </div>
     //   );
-    if (window.currentUser && window.currentUser.admin)
+    if (window.currentUser && window.currentUser.admin){
+      var admin_block = (
+        <CategorySelect
+          recommended={post.recommended}
+          url={post.url}
+          values={post.categories}/>
+      );
       var post_id = this.props.post.id;
+    }
     if(post.linkdata.description) 
       var title_link = <h3 className='title'>{post.linkdata.description}</h3>
     if(tags.length) 
@@ -102,7 +109,7 @@ const ExplorePost = React.createClass({
           {text_rendered}
           {tags_rendered}
         </div>
-
+        {admin_block}
         <footer>
           <div className='delicious-like'>
             <div>
