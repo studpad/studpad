@@ -13,9 +13,9 @@
             <div class = 'object-text'>
               <div class = 'object-maintext'><%= link_to u.name, user_path(u) %></div>
               <div class = 'object-subtext'>
-                <%= link_to_if current_user, 'Читать', follow_user_path(u),
+                <%= link_to 'Читать', follow_user_path(u),
                   method: :post, class: 'btn btn-default btn-st-sm',
-                  data: { toggle: 'tooltip', placement: 'bottom' } %>
+                  data: { toggle: 'tooltip', placement: 'bottom' } if current_user%>
               </div>
             </div>
           </div>

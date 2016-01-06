@@ -9,7 +9,6 @@ function main(){
         var result = data.map(function(p){
           return {value: p.name, data: p.id};
         });
-        CL(result);
         return {suggestions: result};
       },
       onSelect: function(s){
