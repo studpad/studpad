@@ -27,6 +27,12 @@ class PostsController < ApplicationController
     render nothing: true
   end
 
+  def change_categories
+    @post.category_ids = params[:category_ids]
+    @post.update_attribute :recommended, params[:recommended]
+    render nothing: true
+  end
+
   def show
     respond_to do |format|
       format.html { }

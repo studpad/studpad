@@ -70,8 +70,16 @@ const ExplorePost = React.createClass({
     //       <a href={post.author.url+'/follow'} data-method='post'>Читать</a>
     //     </div>
     //   );
-    if (window.currentUser && window.currentUser.admin)
+    if (window.currentUser && window.currentUser.admin){
+      var admin_block = (
+        <CategorySelect
+          recommended={post.recommended}
+          url={post.url}
+          values={post.categories}/>
+      );
       var post_id = this.props.post.id;
+    }
+
     return(
       <figure>
         <div className="autor-explore border-radius-top">
@@ -96,7 +104,7 @@ const ExplorePost = React.createClass({
           <p className='text' dangerouslySetInnerHTML={{__html: text}}></p>
           <p className='tags-sp'>{tags}</p>
         </div>
-
+        {admin_block}
         <footer>
           <div className='delicious-like'>
             <div>

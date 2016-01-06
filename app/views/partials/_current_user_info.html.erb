@@ -5,4 +5,11 @@
     window.currentUser.name = '<%= j current_user.name %>';
     window.currentUser.avatar = '<%= j current_user.avatar.thumb.to_s %>';
     window.currentUser.url = '<%= j user_path(current_user) %>';
+    window.categories = [
+      <% Category.all.each do |c| %>
+        { value: <%= c.id %>,
+          text: '<%= j c.name %>',
+        },
+      <% end %>
+    ]
   <% end if current_user %>

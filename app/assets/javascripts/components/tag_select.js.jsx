@@ -42,7 +42,7 @@ const TagSelect = React.createClass({
     var selected = this.props.values || [];
     var rendered_options = $.map(selected, function (name, index) {
       return (<option key={index} value={name}>{name}</option>);
-    })
+    });
     return (
       <div className = 'post-tags-create clearboth'>
         <select
