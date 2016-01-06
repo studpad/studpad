@@ -79,9 +79,12 @@ const ExplorePost = React.createClass({
           <div className="avatar" style={{background: 'url('+post.author.avatar+') no-repeat', backgroundSize: 'cover'}}>
           </div>
           <div className="info">
-          <div className='name'>
-            <a href={post.author.url}>{post.author.name}</a>
-          </div>
+            <div className='name'>
+              <a href={post.author.url}>{post.author.name}</a>
+            </div>
+            <div className='date'>
+              <span>{post.time}</span>
+            </div>
           </div>
         </div>
         {image}
