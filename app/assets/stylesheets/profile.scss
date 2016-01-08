@@ -64,6 +64,14 @@
 .profile-info_school{
  margin-top: 4px;
  font-size: 13px;
+ margin-bottom: 6px;
+}
+.profile-info_vk, .profile-info_insta{
+	margin-top: 1px;
+	margin-bottom: 1px;
+	img{
+		width: 16px;
+	}
 }
 .profile-info_start{
  margin-top: 15px;
@@ -407,4 +415,18 @@
 }
 .crt4-modal-background{
 	background-color: white !important;
+}
+.edit-profile{
+	span{
+		font-size: 15px;
+	}
+}
+.input-edit-insta_id, .input-edit-vk_id{
+	display: inline !important;
+}
+.input-edit-insta_id{
+	width: 60% !important;
+}
+.input-edit-vk_id{
+	width: 78.7% !important;
 }
