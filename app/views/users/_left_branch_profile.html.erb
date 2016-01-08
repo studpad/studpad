@@ -17,7 +17,7 @@
   <div class = 'profile-info'>
     <div class = 'profile-info_name'><%= @user.name %></div>
     <% if @user.school.present? %>
-      <%= link_to "//"+@user.school, target: :blank do %>
+      <%= link_to @user.site_url, target: :blank do %>
         <div class = 'profile-info_school'>
           <%= @user.school %>
         </div>

@@ -47,6 +47,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def site_url
+    if self.school.to_s.starts_with? 'http'
+      self.school
+    else
+      "//" + self.school.to_s
+    end
+  end
+
   private
     def remove_whitespaces
       self.email = email.to_s.squish
