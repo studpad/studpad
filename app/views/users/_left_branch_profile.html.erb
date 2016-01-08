@@ -17,26 +17,34 @@
   <div class = 'profile-info'>
     <div class = 'profile-info_name'><%= @user.name %></div>
     <div class = 'profile-info_school'><%= @user.school %></div>
-    <div class = 'profile-info_vk'>
-      <img src= '/images/vk.png' /> swagPhoto
-    </div>
-    <div class = 'profile-info_insta'>
-      <img src= '/images/insta.png' /> OdinDvaTri
-    </div>
+    <% if @user.vk_id.present? %>
+      <div class = 'profile-info_vk'>
+        <%= link_to "https://vk.com/#{@user.vk_id}", target: :blank do %>
+          <img src= '/images/vk.png' /> <%= @user.vk_id %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if @user.instagram_id.present? %>
+      <div class = 'profile-info_insta'>
+        <%= link_to "https://www.instagram.com/#{@user.instagram_id}", target: :blank do %>
+          <img src= '/images/insta.png' /> <%= @user.instagram_id %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 
 <!--<div class = 'bar-profile card-sp'>
-  <%= link_to user_path(@user) do %>
+  <%#= link_to user_path(@user) do %>
     <div>
-        <span class="badge pull-right"><%= @user.posts.count %></span>
+        <span class="badge pull-right"><%#= @user.posts.count %></span>
         <img src='/images/publication.png' /> Публикации
     </div>
-  <% end %>
-  <%= link_to basket_user_path(@user) do %>
+  <%# end %>
+  <%#= link_to basket_user_path(@user) do %>
     <div>
-        <span class="badge pull-right"><%= @user.get_basket.posts.count %></span>
+        <span class="badge pull-right"><%#= @user.get_basket.posts.count %></span>
         <img src='/images/delicious_active.png' /> Самое вкусное
     </div>
-  <% end %>
+  <%# end %>
 </div>-->
