@@ -16,7 +16,13 @@
   </div>
   <div class = 'profile-info'>
     <div class = 'profile-info_name'><%= @user.name %></div>
-    <div class = 'profile-info_school'><%= @user.school %></div>
+    <% if @user.school.present? %>
+      <%= link_to "//"+@user.school, target: :blank do %>
+        <div class = 'profile-info_school'>
+          <%= @user.school %>
+        </div>
+      <% end %>
+    <% end %>
     <% if @user.vk_id.present? %>
       <div class = 'profile-info_vk'>
         <%= link_to "https://vk.com/#{@user.vk_id}", target: :blank do %>
