@@ -29,6 +29,11 @@
                   placeholder: 'Сайт' %>
               </div>
               <div class = 'edit-profile edit-profile-school'>
+                <%= f.text_area :description,
+                  class: 'form-control input-sp input-edit-profile-school',
+                  placeholder: 'О себе' %>
+              </div>
+              <div class = 'edit-profile edit-profile-school'>
                 <span>vk.com/</span>
                 <%= f.text_field :vk_id,
                   class: 'form-control input-sp input-edit-vk_id',
@@ -40,7 +45,7 @@
                   class: 'form-control input-sp input-edit-insta_id',
                   placeholder: 'id' %>
               </div>
-              
+
 
               <div class = 'change-password'>
                 <div class = 'action-angle-only-font'>

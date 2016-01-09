@@ -41,7 +41,6 @@ class PostsController < ApplicationController
         render 'posts/index'
       }
     end
-
   end
 
   def destroy
