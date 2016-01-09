@@ -23,15 +23,15 @@
               <div class = 'edit-profile edit-profile-name'>
                 <%= f.text_field :name, class: 'form-control input-sp input-edit-profile-name', placeholder: 'Ваше имя' %>
               </div>
+              <div class = 'edit-profile edit-profile-about'>
+                <%= f.text_area :description,
+                  class: 'form-control input-sp input-edit-profile-about',
+                  placeholder: 'О себе' %>
+              </div>
               <div class = 'edit-profile edit-profile-school'>
                 <%= f.text_field :school,
                   class: 'form-control input-sp input-edit-profile-school',
                   placeholder: 'Сайт' %>
-              </div>
-              <div class = 'edit-profile edit-profile-school'>
-                <%= f.text_area :description,
-                  class: 'form-control input-sp input-edit-profile-school',
-                  placeholder: 'О себе' %>
               </div>
               <div class = 'edit-profile edit-profile-school'>
                 <span>vk.com/</span>
