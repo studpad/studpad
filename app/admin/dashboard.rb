@@ -19,7 +19,7 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Пользователи" do
-          h1 User.count
+          h1 "#{User.count}/#{User.unscoped.count}"
         end
       end
 

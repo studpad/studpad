@@ -120,9 +120,9 @@
             </div>
           <% end %>
         <% end %>
-        <%= link_to popular_path do %>
+        <%= link_to fresh_path do %>
           <div class = 'is-hidden-if-sm-screen'>
-              <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/compass.png' />
+              <img title='Новое' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/compass.png' />
           </div>
         <% end %>
         <%= link_to notices_user_path(current_user) do %>

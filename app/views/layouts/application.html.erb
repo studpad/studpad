@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Studpad | Медиаблоги</title>
   <%= render "partials/meta" %>
-  <%= render "partials/metrika" %>
+  <%= render "partials/metrika" unless current_user.try(:admin?) %>
 
   <script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
 
