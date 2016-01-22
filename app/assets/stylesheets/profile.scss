@@ -65,10 +65,12 @@
  margin-top: 4px;
  font-size: 13px;
  margin-bottom: 6px;
+ overflow-x: hidden;
 }
 .profile-info_vk, .profile-info_insta{
 	margin-top: 1px;
 	margin-bottom: 1px;
+	overflow-x: hidden;
 	img{
 		width: 16px;
 	}
