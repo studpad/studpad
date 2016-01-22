@@ -15,7 +15,7 @@
         <div class="input-group-btn">
           <button type="button" class="btn btn-default dropdown-toggle dont-hide" data-toggle="dropdown"><span class='choose-category'></span></button>
           <div class="dropdown-menu main-categories" role="menu">
-            <% b, a = Category.all.to_a.partition.with_index{ |c, i| i < 7 } %>
+            <% b, a = Category.all.to_a.partition.with_index{ |c, i| i < 8 } %>
             <div class='pole'>
               <p><%= link_to 'Популярное', popular_path %></p>
               <p><%= link_to 'Новое', fresh_path %></p>
