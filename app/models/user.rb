@@ -15,12 +15,14 @@ class User < ActiveRecord::Base
   has_many :feedbacks
   has_one  :basket
 
+  scope :recommended, -> {where(recommended: true)}
+
   validates :password,
     length:       {message: 'Не менее 5 символов', minimum: 5},
     presence:     {message: 'Не может быть пустым'},
     confirmation: {message: 'Пароли не совпадают'},
     on:           :create
-  validates :email, uniqueness: { message: 'Такой email уже занят'}, presence: true
+  validates :email, uniqueness: {message: 'Такой email уже занят'}, presence: true
   validates :name, presence: true
   validates :terms_of_service, acceptance: true, on: :create
 
@@ -40,10 +42,10 @@ class User < ActiveRecord::Base
 
   def self.recommended_for(user)
     if user
-      where.not(id: [user.id] + user.all_follows.map(&:followable_id)).
-        joins(:posts).group('users.id').order('RANDOM()').limit(3)
+      where.not(id: [user.id] + user.all_follows.map(&:followable_id))
+        .recommended.order('RANDOM()').limit(3)
     else
-      all.limit(3)
+      recommended.limit(3)
     end
   end
 

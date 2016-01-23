@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :name, :admin
+  permit_params :name, :admin, :recommended
   menu label: 'Пользователи'
   filter :id
   filter :name
@@ -14,6 +14,7 @@ ActiveAdmin.register User do
     column :email
     column :created_at
     column :admin
+    column :recommended
     actions
   end
 
@@ -26,6 +27,7 @@ ActiveAdmin.register User do
       row :created_at
       row :updated_at
       row :school
+      row :recommended
       row :admin
     end
     active_admin_comments
@@ -33,9 +35,9 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs 'Редактирование пользователя' do
-      #f.input :email, as: :email
       f.input :name
       f.input :admin
+      f.input :recommended, label: "Показывать как рекомендованного"
     end
     f.actions
   end
