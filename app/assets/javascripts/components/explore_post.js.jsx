@@ -21,7 +21,7 @@ const ExplorePost = React.createClass({
         );
         break;
       case PostTypes.photo:
-        image = <img src={post.photos[0].url}/>
+        image = <img src={post.photos[0] && post.photos[0].url}/>
         break;
       case PostTypes.video:
         image = (
@@ -79,9 +79,9 @@ const ExplorePost = React.createClass({
       );
       var post_id = this.props.post.id;
     }
-    if(post.linkdata.description) 
+    if(post.linkdata.description)
       var title_link = <h3 className='title'>{post.linkdata.description}</h3>
-    if(tags.length) 
+    if(tags.length)
       var tags_rendered = <p className='tags-sp'>{tags}</p>
     if(text)
       var text_rendered = <p className='text' dangerouslySetInnerHTML={{__html: text}}></p>

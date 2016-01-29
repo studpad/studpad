@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   skip_before_action :require_login
   def index
-    data = Tag.where('name ILIKE ?', "%#{params[:term]}%").limit(10)
+    data = Tag.where('name ILIKE ?', "#{params[:term]}%").limit(10)
       .select(:id, :name).map(&:attributes)
     render json: data
   end

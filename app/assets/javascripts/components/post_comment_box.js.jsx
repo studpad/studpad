@@ -64,14 +64,19 @@ const PostCommentBox = React.createClass({
       like_image_path = '/images/like.png';
       classname = 'post-like';
     }
+
+    if (window.currentUser)
+    var comment_form =  (
+      <textarea
+        ref='ceditable'
+        onChange={this.handleChange} />
+    );
     return (
       <div>
         <div className='wrap-post-comments'>
           <div className='post-footer'>
             <div className='wrap-write-comment-post-footer'>
-              <textarea
-                ref='ceditable'
-                onChange={this.handleChange} />
+              {comment_form}
             </div>
             <div className='wrap-like-post-footer'>
               <div>
