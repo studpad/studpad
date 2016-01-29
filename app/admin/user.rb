@@ -37,7 +37,7 @@ ActiveAdmin.register User do
     f.inputs 'Редактирование пользователя' do
       f.input :name
       f.input :admin
-      f.input :recommended
+      f.input :recommended, label: "Показывать как рекомендованного"
     end
     f.actions
   end

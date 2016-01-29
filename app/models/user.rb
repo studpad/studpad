@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     presence:     {message: 'Не может быть пустым'},
     confirmation: {message: 'Пароли не совпадают'},
     on:           :create
-  validates :email, uniqueness: { message: 'Такой email уже занят'}, presence: true
+  validates :email, uniqueness: {message: 'Такой email уже занят'}, presence: true
   validates :name, presence: true
   validates :terms_of_service, acceptance: true, on: :create
 
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   def self.recommended_for(user)
     if user
       where.not(id: [user.id] + user.all_follows.map(&:followable_id))
-        recommended.order('RANDOM()').limit(3)
+        .recommended.order('RANDOM()').limit(3)
     else
       recommended.limit(3)
     end
