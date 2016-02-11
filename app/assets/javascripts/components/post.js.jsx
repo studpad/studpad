@@ -61,6 +61,7 @@ const Post = React.createClass({
         {post_id}
         <PostAuthorView
           author={this.props.post.author}
+          city_name={this.props.post.city_name}
           time={this.props.post.time}
           can_edit={this.props.post.can_edit}
           can_remove={this.props.post.can_remove}

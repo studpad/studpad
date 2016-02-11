@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   resources :sessions
   namespace :ajax do
     get 'page_description'
+    get 'get_cities'
   end
 
   get 'logout' => 'sessions#destroy'
