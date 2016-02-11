@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
   belongs_to :category
+  belongs_to :city
 
   has_many :photos, dependent: :destroy
   has_many :comments, as: :commentable, inverse_of: :commentable, dependent: :destroy
@@ -30,6 +31,10 @@ class Post < ActiveRecord::Base
 
   def user
     User.unscoped { super }
+  end
+
+  def city_id= (id)
+    self[:city_id] = City.load_external_data(id)
   end
 
   def bind_tags(tag_names)

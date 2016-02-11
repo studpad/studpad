@@ -218,6 +218,14 @@ const PostModalForm = React.createClass({
       post: post
     });
   },
+  changeCity: function(e){
+    var post = this.state.post;
+    post.city_id = e.target.value;
+    CL(post)
+    this.setState({
+      post: post
+    });
+  },
   changeVideo: function(youtube_id){
     var post = this.state.post;
     CE(youtube_id)
@@ -291,6 +299,7 @@ const PostModalForm = React.createClass({
       <div className='modal-content modal-content-new-post my-setting-modal-content'>
         <PostModalAuthor
           author={this.state.post.author}/>
+        <CitySelect onChange={this.changeCity} city_name={this.state.post.city_name}/>
         <PostModalContent
           ref='formContent'
           changeVideo={this.changeVideo}

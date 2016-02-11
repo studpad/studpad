@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123074834) do
+ActiveRecord::Schema.define(version: 20160210194120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,11 @@ ActiveRecord::Schema.define(version: 20160123074834) do
 
   add_index "categories_posts", ["category_id"], name: "index_categories_posts_on_category_id", using: :btree
   add_index "categories_posts", ["post_id"], name: "index_categories_posts_on_post_id", using: :btree
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "region"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "text"
@@ -140,6 +145,7 @@ ActiveRecord::Schema.define(version: 20160123074834) do
     t.integer  "category_id"
     t.integer  "cached_votes_total", default: 0
     t.boolean  "recommended",        default: false
+    t.integer  "city_id"
   end
 
   add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total", using: :btree
