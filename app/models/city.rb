@@ -1,4 +1,6 @@
 class City < ActiveRecord::Base
+  has_many :posts
+  has_many :users
 
   def self.load_external_data(city_id)
     c = find_by_id city_id

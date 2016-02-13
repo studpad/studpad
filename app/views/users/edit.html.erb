@@ -45,7 +45,14 @@
                   class: 'form-control input-sp input-edit-insta_id',
                   placeholder: 'id' %>
               </div>
-
+              <div class = 'edit-profile edit-profile-school'>
+                <span>Город</span>
+                <%= f.select :city_id, City.where(id: @user.city_id).pluck(:name, :id),
+                  { include_blank: true }, {} %>
+                <%#= f.select :instagram_id,
+                  class: 'form-control input-sp input-edit-insta_id',
+                  placeholder: 'id' %>
+              </div>
 
               <div class = 'change-password'>
                 <div class = 'action-angle-only-font'>

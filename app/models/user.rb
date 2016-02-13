@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :feedbacks
   has_one  :basket
+  belongs_to :city
 
   scope :recommended, -> {where(recommended: true)}
 
@@ -55,6 +56,10 @@ class User < ActiveRecord::Base
     else
       "//" + self.school.to_s
     end
+  end
+
+  def city_id= (id)
+    self[:city_id] = City.load_external_data(id)
   end
 
   private

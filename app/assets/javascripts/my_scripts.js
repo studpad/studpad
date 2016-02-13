@@ -22,6 +22,26 @@ function main(){
       }
     });
 
+    $('#user_city_id').selectize({
+      placeholder: "Город",
+      load: function(query, callback) {
+        CL('selectize', query, callback);
+        if (query.length < 3) return callback();
+        $.ajax({
+          url: '/ajax/get_cities?term=' + encodeURIComponent(query),
+          type: 'GET',
+          error: function() {
+            callback();
+          },
+          success: function(data) {
+            var result = data.map(function(e){return {value: e.id, text: e.name}});
+            CL(result);
+            callback(result);
+          }
+        });
+      }
+    })
+
 
     /*$('.select-huekt').select2({
       placeholder: "#Теги",
