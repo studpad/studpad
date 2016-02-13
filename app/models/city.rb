@@ -15,7 +15,7 @@ class City < ActiveRecord::Base
       data = ActiveSupport::JSON.decode(response.body)
       c = City.new(id: city_id,
         name: data['response'].first['title'] )
-      c.create!
+      c.save
       c
     end
   end
