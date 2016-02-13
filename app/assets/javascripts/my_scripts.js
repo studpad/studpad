@@ -23,7 +23,7 @@ function main(){
     });
 
     $('#user_city_id').selectize({
-      placeholder: "Город",
+      placeholder: "Укажите город",
       load: function(query, callback) {
         CL('selectize', query, callback);
         if (query.length < 3) return callback();

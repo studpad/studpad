@@ -1,4 +1,7 @@
 class AjaxController < ApplicationController
+  skip_before_action :require_login,
+    only: :get_cities
+
   def page_description
     url_string = params.require(:url)
     url = URI.parse(url_string)
