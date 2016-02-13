@@ -793,8 +793,6 @@
 }
 
 
-
-
 .selectize-input{
 	border: none !important;
 	box-shadow: none !important;
@@ -811,5 +809,14 @@
 }*/
 .selectize-dropdown{
 	border: 1px solid #ECECEC;
+}
+.wrap-select-city .selectize-input{
+	text-align: right;
+	width: 300px;
+	margin-top: 10px;
+	font-weight: normal !important;
+}
+.wrap-select-city .selectize-control.single .selectize-input:after{
+	display: none !important;
 }
     

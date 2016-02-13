@@ -1,7 +1,7 @@
 const CitySelect = React.createClass({
   componentDidMount() {
     $(this.refs.input).selectize({
-      placeholder: "Город",
+      placeholder: "Укажите город",
       load: function(query, callback) {
         CL('selectize', query, callback);
         if (query.length < 3) return callback();
@@ -33,7 +33,7 @@ const CitySelect = React.createClass({
     // });
     var name = this.props.city_name
     return (
-      <div className = 'post-tags-create clearboth'>
+      <div className = 'post-tags-create wrap-select-city clearboth'>
         <select
           ref='input'
           defaultValue={name}

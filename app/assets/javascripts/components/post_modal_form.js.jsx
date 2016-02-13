@@ -298,8 +298,10 @@ const PostModalForm = React.createClass({
       show={this.state.visible}>
       <div className='modal-content modal-content-new-post my-setting-modal-content'>
         <PostModalAuthor
-          author={this.state.post.author}/>
-        <CitySelect onChange={this.changeCity} city_name={this.state.post.city_name}/>
+          author={this.state.post.author}
+          onChange={this.changeCity}
+          city_name={this.state.post.city_name}
+          />
         <PostModalContent
           ref='formContent'
           changeVideo={this.changeVideo}
@@ -374,6 +376,9 @@ const PostModalAuthor = React.createClass({
           <div className = 'post-autor-type'>
             {this.props.author.type}
           </div>
+        </div>
+        <div className = 'action-angle'>
+          <CitySelect onChange={this.props.onChange} city_name={this.props.city_name}/>
         </div>
       </div>
     );
