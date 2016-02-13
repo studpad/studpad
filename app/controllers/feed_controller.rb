@@ -19,7 +19,9 @@ class FeedController < ApplicationController
   def fresh
     respond_to do |f|
       f.json do
+
         @posts = Post.order(created_at: :desc).limit(params[:count])
+        @posts = @posts.where(city_id: params[:city_id]) if params[:city_id]
         render 'posts/index'
       end
       f.html {}
