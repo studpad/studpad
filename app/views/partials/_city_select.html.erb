@@ -1,0 +1,6 @@
+<div class='city-explore'>
+  <%= select_tag "city_id",
+    [],
+    id: 'fresh_city_id',
+    placeholder: @city.try(:name) || 'Город'%>
+</div>

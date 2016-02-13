@@ -24,6 +24,7 @@
 //= require bootstrap-sprockets
 //= require jquery.Jcrop.min
 //= require jquery.form
+//= require jquery.query-object
 //= require jquery.autocomplete
 //= require dropzone
 //= require my_scripts

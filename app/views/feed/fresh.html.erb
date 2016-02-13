@@ -1,25 +1,9 @@
 <div class='title-explore'>
   Новое
 </div>
-<%
-  city_params = ""
-
-%>
-<% if params[:city_id] %>
-  <%
-  City.load_external_data(params[:city_id])
-  city_params = "?city_id=#{params[:city_id]}"
-  %>
-  <div class='city-explore'>
-    <%= City.find(params[:city_id]).name %>
-  </div>
-
-<% end %>
-  <div class='city-explore'>
-    <%= select_tag "city_id", [], id: 'fresh_city_id', style: "widht: 30%;"%>
-  </div>
+<%= render 'partials/city_select' %>
 <div id="grid-gallery" class="grid-gallery">
   <div id='demo'>
-    <%= react_component 'Gallery', posts_url: fresh_path + city_params %>
+    <%= react_component 'Gallery', posts_url: fresh_path + city_params(params[:city_id]) %>
   </div>
 </div>

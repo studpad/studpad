@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
   end
 
   def city_id= (id)
-    self[:city_id] = City.load_external_data(id)
+    self[:city_id] = City.load_external_data(id).id
   end
 
   private

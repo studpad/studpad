@@ -15,4 +15,14 @@ module ApplicationHelper
   def tag_name_path(name)
     "/explore?tag_name=#{name}"
   end
+
+  def city_params(city_id)
+    if city_id
+      "?city_id=#{city_id}"
+    else
+      ""
+    end
+  end
+
+
 end

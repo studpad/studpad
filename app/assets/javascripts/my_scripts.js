@@ -43,7 +43,6 @@ function main(){
     })
 
     $('#fresh_city_id').selectize({
-      placeholder: "Город",
       load: function(query, callback) {
         CL('selectize', query, callback);
         if (query.length < 3) return callback();
@@ -63,7 +62,9 @@ function main(){
     }).on("change", function (e) {
       //CL($(e.target).val());
       //this.props.onChange(e);
-      window.location = "/fresh?city_id=" + e.target.value
+      var q = queryString.parse(location.search);
+      q.city_id = e.target.value;
+      window.location.search = queryString.stringify(q);
     })
 
 
