@@ -23,6 +23,10 @@
               <div class = 'edit-profile edit-profile-name'>
                 <%= f.text_field :name, class: 'form-control input-sp input-edit-profile-name', placeholder: 'Ваше имя' %>
               </div>
+              <div class = 'edit-profile edit-profile-city'>
+                <%= f.select :city_id, City.where(id: @user.city_id).pluck(:name, :id),
+                  { include_blank: true }, {} %>
+              </div>
               <div class = 'edit-profile edit-profile-about'>
                 <%= f.text_area :description,
                   class: 'form-control input-sp input-edit-profile-about',
@@ -42,14 +46,6 @@
               <div class = 'edit-profile edit-profile-school'>
                 <span>instagram.com/</span>
                 <%= f.text_field :instagram_id,
-                  class: 'form-control input-sp input-edit-insta_id',
-                  placeholder: 'id' %>
-              </div>
-              <div class = 'edit-profile edit-profile-school'>
-                <span>Город</span>
-                <%= f.select :city_id, City.where(id: @user.city_id).pluck(:name, :id),
-                  { include_blank: true }, {} %>
-                <%#= f.select :instagram_id,
                   class: 'form-control input-sp input-edit-insta_id',
                   placeholder: 'id' %>
               </div>

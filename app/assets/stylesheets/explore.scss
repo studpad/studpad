@@ -40,6 +40,9 @@
 .city-explore .selectize-control.single .selectize-input:after{
 	display: none !important;
 }
+.city-explore .selectize-control.single .selectize-input, .selectize-control.single .selectize-input input{
+	cursor: text;
+}
 .grid-gallery{
 	margin-top: 20px;
 }
