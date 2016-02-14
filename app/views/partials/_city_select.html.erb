@@ -1,6 +1,8 @@
 <div class='city-explore'>
+  <p><button class = 'btn btn-st-sm btn-explore'>Все публикации</button>
+  <button class = 'btn btn-st-sm btn-explore'>Мой город</button></p>
   <%= select_tag "city_id",
     [],
     id: 'fresh_city_id',
-    placeholder: @city.try(:name) || 'Укажите город'%>
+    placeholder: @city.try(:name) || 'или укажите город'%>
 </div>

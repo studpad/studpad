@@ -34,7 +34,7 @@ class Post < ActiveRecord::Base
   end
 
   def city_id= (id)
-    self[:city_id] = City.load_external_data(id).id
+    self[:city_id] = id.present? ? City.load_external_data(id).id : nil
   end
 
   def bind_tags(tag_names)
