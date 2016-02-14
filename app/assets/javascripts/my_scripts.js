@@ -66,7 +66,17 @@ function main(){
       q.city_id = e.target.value;
       window.location.search = queryString.stringify(q);
     })
+    $('#all_publications').click(function(){
+      var q = queryString.parse(location.search);
+      q.city_id = undefined;
+      window.location.search = queryString.stringify(q);
+    });
 
+    $('#my_city').click(function(){
+      var q = queryString.parse(location.search);
+      q.city_id = window.currentUser.city_id;
+      window.location.search = queryString.stringify(q);
+    });
 
     /*$('.select-huekt').select2({
       placeholder: "#Теги",

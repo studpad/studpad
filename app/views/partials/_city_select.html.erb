@@ -1,6 +1,23 @@
 <div class='city-explore'>
-  <p><button class = 'btn btn-st-sm btn-explore'>Все публикации</button>
-  <button class = 'btn btn-st-sm btn-explore'>Мой город</button></p>
+  <p>
+    <% unless @city %>
+      <button id='all_publications'
+      class = 'btn btn-st-sm btn-explore btn-explore-active'>
+      Все публикации</button>
+    <% else %>
+      <button id='all_publications'
+      class = 'btn btn-st-sm btn-explore'>
+      Все публикации</button>
+    <% end %>
+
+    <% if current_user && current_user.city_id %>
+      <% if current_user.city_id == @city.try(:id)  %>
+        <button id='my_city' class = 'btn btn-st-sm btn-explore btn-explore-active'>Мой город</button>
+      <% else %>
+        <button id='my_city' class = 'btn btn-st-sm btn-explore'>Мой город</button>
+      <% end %>
+    <% end %>
+    </p>
   <%= select_tag "city_id",
     [],
     id: 'fresh_city_id',
