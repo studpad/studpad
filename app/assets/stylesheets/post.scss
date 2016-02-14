@@ -345,14 +345,29 @@
 .tipt-post-add-element{
 	width: 200px;
   position: relative;
-  left: -275px;
-  top: -72px;
+  left: 338px;
+  top: -36px;
   font-size: 11px;
-  height: 0px;
   opacity: 1;
+  text-shadow: none !important;
+  font-weight: normal !important;
   transition-duration: .3s;
   transition-timing-function: linear;
   transition-delay: 0;
+  background-color: white;
+  padding: 5px 7px;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
+  color: #9B9B9B;
+}
+.tipt-post-add-element:before{
+	content: '';
+  position: absolute;
+  top: 19px;
+  left: -9px;
+  border-right: solid 0.9em white;
+  border-top: solid 0.4em transparent;
+  border-bottom: solid 0.4em transparent;
 }
 .glossary-post-element{
 	background-color: rgb(255, 255, 255);
@@ -396,7 +411,17 @@
 .all-remove-angle{
 	position: relative;
 	top: 22px;
-  left: 29px;
+  left: 347px;
+  text-shadow: none !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+  width: 30px;
+}
+.text-all-remove-angle{
+	position: relative;
+	top: -6px;
+  left: 30px;
   text-shadow: none !important;
   padding-left: 5px !important;
   padding-right: 5px !important;
@@ -416,7 +441,17 @@
 .photo-remove-angle{
   position: relative;
   top: 28px;
-  left: 14px;
+  left: 347px;
+  text-shadow: none !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+  width: 30px;
+}
+.text-photo-remove-angle{
+  position: relative;
+  top: 28px;
+  left: 16px;
   text-shadow: none !important;
   padding-left: 5px !important;
   padding-right: 5px !important;
@@ -426,7 +461,7 @@
 .video-remove-angle{
   position: relative;
   top: 28px;
-  left: 16px;
+  left: 347px;
   text-shadow: none !important;
   padding-left: 5px !important;
   padding-right: 5px !important;

@@ -128,7 +128,7 @@ var PostTextTextarea = React.createClass({
     else if(this.props.typePost == PostTypes.video) textPlaceholder = 'Если хотите, можете добавить описание видеоролика';
     else if(this.props.typePost == PostTypes.photo) textPlaceholder = 'Если хотите, можете добавить описание';*/
     if (this.props.position != 0)
-      var remove_button = <img onClick={this.handleRemoveElementPost} className='remove-angle all-remove-angle' src = '/images/close.png' />
+      var remove_button = <img onClick={this.handleRemoveElementPost} className='remove-angle text-all-remove-angle' src = '/images/close.png' />
     return (
       <div className = 'padding-usual-post-text-create'>
         <div className = 'usual-post-text-create action-create-element-post'>
@@ -160,7 +160,7 @@ var PostTextImage = React.createClass({
   render: function() {
     return (
       <div className = 'usual-post-photo action-create-element-post'>
-        <img onClick={this.handleRemoveElementPost} className='remove-angle photo-remove-angle' src = '/images/close.png' />
+        <img onClick={this.handleRemoveElementPost} className='remove-angle text-photo-remove-angle' src = '/images/close.png' />
         <img src = {this.props.url} />
       </div>
     );

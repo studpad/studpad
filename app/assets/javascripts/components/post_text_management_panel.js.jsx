@@ -43,10 +43,6 @@ const PostTextManagmentPanel = React.createClass({
     });
   },
   render: function() {
-    if(this.state.visibility_tips){
-      var tips = (<div className='tipt-post-add-element'>
-        </div>)
-    }
     return (
       <div>
         <div>
@@ -56,7 +52,6 @@ const PostTextManagmentPanel = React.createClass({
               <span className='add-element-label-photo hide-tipt-post-add-element'></span>
             </div>
           </div>
-          {tips}
         </div>
       </div>
     );

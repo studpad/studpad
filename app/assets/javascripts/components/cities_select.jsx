@@ -33,16 +33,19 @@ const CitySelect = React.createClass({
     // });
     var name = this.props.city_name
     return (
-      <div className = 'post-tags-create wrap-select-city clearboth'>
-        <select
-          ref='input'
-          defaultValue={name}
-          style={{width: '100%', visibility:'hidden'}} >
-          <option value={name}>{name}</option>
-        </select>
-        <div className = 'tags-sp'>
+        <div className = 'post-tags-create wrap-select-city clearboth'>
+          <select
+            ref='input'
+            defaultValue={name}
+            style={{width: '100%', visibility:'hidden'}} >
+            <option value={name}>{name}</option>
+          </select>
+          <div className = 'tipt-post-add-element'>
+            Не забудьте указать город! Это поможет привлечь целевую аудиторию из Вашего города.
+          </div>
+          <div className = 'tags-sp'>
+          </div>
         </div>
-      </div>
     );
   }
 });
