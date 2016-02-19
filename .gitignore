@@ -10,6 +10,7 @@
 database.yml
 mailer.yml
 secrets.yml.erb
+secrets.yml
 database.yml.erb
 
 # Ignore all logfiles and tempfiles.

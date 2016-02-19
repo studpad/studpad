@@ -34,9 +34,12 @@ gem 'destroyed_at'
 gem 'migration_data'
 gem 'browserify-rails'
 gem 'slim-rails'
+gem 'omniauth'
+gem 'omniauth-vkontakte'
 #gem 'carrierwave-imageoptimizer'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
