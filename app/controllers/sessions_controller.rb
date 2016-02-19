@@ -27,7 +27,6 @@ class SessionsController < ApplicationController
     email = result['info']['email']
     avatar_url = result['info']['image']
     tmp_password = SecureRandom.hex 4
-
     u = User.find_or_create_by!(email: email) do |user|
 
       tmp_file = Tempfile.new(['avatar', '.jpg'])
@@ -38,7 +37,7 @@ class SessionsController < ApplicationController
       end
       tmp_file.close
       user.avatar = tmp_file
-
+      user.vk_ic = "id#{result.uid}"
       user.name = name
       user.password = tmp_password
       user.password_confirmation = tmp_password
