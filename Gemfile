@@ -36,6 +36,7 @@ gem 'browserify-rails'
 gem 'slim-rails'
 gem 'omniauth'
 gem 'omniauth-vkontakte'
+gem 'vkontakte_api', '~> 1.4'
 #gem 'carrierwave-imageoptimizer'
 
 group :development, :test do

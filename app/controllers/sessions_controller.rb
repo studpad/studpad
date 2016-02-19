@@ -26,25 +26,29 @@ class SessionsController < ApplicationController
     name = result['info']['name']
     email = result['info']['email']
     avatar_url = result['info']['image']
-    tmp_password = SecureRandom.hex 4
+
     u = User.find_or_create_by!(email: email) do |user|
 
       tmp_file = Tempfile.new(['avatar', '.jpg'])
       tmp_file.binmode
-
       open(avatar_url) do |url_file|
         tmp_file.write(url_file.read)
       end
       tmp_file.close
       user.avatar = tmp_file
-      user.vk_ic = "id#{result.uid}"
+
+      vk = VkontakteApi::Client.new
+      user.instagram_id = vk.users.get(uid: result.uid, fields: [:connections]).first['instagram']
+
+      user.vk_id = "id#{result.uid}"
       user.name = name
+
+      tmp_password = SecureRandom.hex 4
       user.password = tmp_password
       user.password_confirmation = tmp_password
     end
     auto_login(u)
     redirect_to root_path
-    #render text: name + email
   end
 
   private
