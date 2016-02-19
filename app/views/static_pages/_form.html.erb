@@ -11,12 +11,21 @@
         <%= f.password_field :password, class: 'form-control input-skiny font-helvetica input-main-page',   placeholder: 'Пароль'%>
       </div>
       <div class = 'wrap-input-signUp'>
-        <%= f.button 'Войти', class: 'btn btn-primary btn-st welcom-main-page' %>
-         •
-        <%= link_to "Регистрация", new_user_path, class: 'link-to-reg btn btn-st btn-st-contrast'%>
-        <%= link_to "Войти через Вк", 'auth/vkontakte', class: 'link-to-reg btn btn-st btn-st-contrast'%>
-        </br>
-        <div class = 'preview-studpad'><a href='/fresh'><span class="glyphicon glyphicon-fire"></span> Обзор Studpad</a></div>
+        <div>
+          <%= f.button 'Войти', class: 'btn btn-primary btn-st welcom-main-page' %>
+           •
+          <%= link_to "Регистрация", new_user_path, class: 'link-to-reg btn btn-st btn-st-contrast'%>
+          или
+          <%= link_to 'auth/vkontakte', class: 'link-to-reg-vk btn btn-st btn-st-contrast' do%>
+            <img src='/images/vk_link_reg1.png'/> Войти через ВК
+          <% end %>
+        </div>
+        <div class = 'preview-studpad'>
+          <a href='/fresh'>
+            <span class="glyphicon glyphicon-fire"></span> 
+            Обзор Studpad
+          </a>
+        </div>
       </div>
       <% end %>
     </div>

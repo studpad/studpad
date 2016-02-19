@@ -24,8 +24,13 @@ class SessionsController < ApplicationController
   def create_external
     result = request.env['omniauth.auth']
     name = result['info']['name']
-    email = result['info']['email']
+    #email = result['info']['email']
+    email = 'fsdfsdfsd@mail.ru'
     avatar_url = result['info']['image']
+<<<<<<< 17c86d6812fe2ee00e0159effb9262d3000653ea
+=======
+    tmp_password = SecureRandom.hex 4
+>>>>>>> стиль кнопки вк
 
     u = User.find_or_create_by!(email: email) do |user|
 
@@ -37,6 +42,7 @@ class SessionsController < ApplicationController
       tmp_file.close
       user.avatar = tmp_file
 
+<<<<<<< 17c86d6812fe2ee00e0159effb9262d3000653ea
       vk = VkontakteApi::Client.new
       user.instagram_id = vk.users.get(uid: result.uid, fields: [:connections]).first['instagram']
 
@@ -44,6 +50,10 @@ class SessionsController < ApplicationController
       user.name = name
 
       tmp_password = SecureRandom.hex 4
+=======
+      user.name = name
+      user.vk_id = "id#{result.uid}"
+>>>>>>> стиль кнопки вк
       user.password = tmp_password
       user.password_confirmation = tmp_password
     end
