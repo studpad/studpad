@@ -28,7 +28,7 @@
 //= require jquery.autocomplete
 //= require dropzone
 //= require my_scripts
-//= require selectize
+//= require selectize_fixed
 //= require select2.min
 //= require autoresize.jquery.min
 //= require avatar

@@ -1,7 +1,8 @@
 const TagSelect = React.createClass({
   componentDidMount() {
     $(this.refs.input).selectize({
-      delimiter: '#',
+      splitOn: /#/,
+      delimiters_array: [',', "#"],
       persist: false,
       placeholder: "#Теги",
       create: function(input) {
