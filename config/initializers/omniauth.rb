@@ -4,7 +4,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     Rails.application.secrets.vk_auth_key,
     Rails.application.secrets.vk_auth_token,
   {
-    :scope => 'email,connections',
+    :scope => 'email',
     :display => 'popup',
     :lang => 'ru',
     :image_size => 'original'
