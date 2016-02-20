@@ -42,6 +42,10 @@ function main(){
       }
     })
 
+    // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    //  $('.main-categories a').hover(function(e) { window.location = $(e.target).attr('href')});
+    // }
+
     $('#fresh_city_id').selectize({
       load: function(query, callback) {
         CL('selectize', query, callback);

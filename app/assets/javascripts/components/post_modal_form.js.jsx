@@ -295,6 +295,7 @@ const PostModalForm = React.createClass({
     <ReactBootstrap.Modal
       dialogClassName='modal-dialog-new-post my-setting-modal-dialog'
       onHide={this.hide}
+      backdrop='static'
       show={this.state.visible}>
       <div className='modal-content modal-content-new-post my-setting-modal-content'>
         <PostModalAuthor
