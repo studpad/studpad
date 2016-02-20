@@ -23,6 +23,8 @@ const PostModalForm = React.createClass({
       post: {
         type: postType,
         author: window.currentUser,
+        city_id: window.currentUser.city_id,
+        city_name: window.currentUser.city_name,
         title: '',
         youtube_id: '',
         linkdata: {},
