@@ -74,6 +74,7 @@ const ExplorePost = React.createClass({
       var admin_block = (
         <CategorySelect
           recommended={post.recommended}
+          visible={post.visible}
           url={post.url}
           values={post.categories}/>
       );

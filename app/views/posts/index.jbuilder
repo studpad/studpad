@@ -5,6 +5,7 @@ json.array! @posts do |p|
     json.avatar p.user.avatar.thumb.to_s
   end
   json.id p.id
+  json.visible p.visible
   json.recommended p.recommended
   json.url post_path(p)
   json.text p.text

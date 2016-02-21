@@ -11,13 +11,14 @@ var CategorySelect = React.createClass({
     return false;
   },
   saveClick(){
-    alert(this.refs.recommend.checked);
+    //alert(this.refs.recommend.checked);
     $.ajax({
       url: this.props.url + '/change_categories',
       //dataType: 'json',
 
       type: 'PUT',
       data: {
+        visible: this.refs.recommend.checked,
         recommended: this.refs.recommend.checked,
         category_ids: $(this.refs.input).val()
       },
@@ -37,6 +38,8 @@ var CategorySelect = React.createClass({
         <button onClick={this.saveClick}>Сохранить</button>
         <label>Рекомендованное</label>
         <input ref='recommend' defaultChecked={this.props.recommended} type="checkbox"/>
+        <label>Показывать в новом</label>
+        <input ref='visible' defaultChecked={this.props.visible} type="checkbox"/>
         <select
           ref='input'
           multiple

@@ -29,7 +29,8 @@ class PostsController < ApplicationController
 
   def change_categories
     @post.category_ids = params[:category_ids]
-    @post.update_attribute :recommended, params[:recommended]
+    puts @post.update_attributes recommended: params[:recommended],
+      visible: params[:visible]
     render nothing: true
   end
 
