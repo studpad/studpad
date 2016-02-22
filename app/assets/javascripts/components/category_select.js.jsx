@@ -4,24 +4,25 @@ var CategorySelect = React.createClass({
       options: window.categories,
       items: this.props.values
     })
-    $(this.refs.input).val(['1'])
-    CL();
+    //$(this.refs.input).val(['1'])
   },
   shouldComponentUpdate(nextProps, nextState) {
     return false;
   },
   saveClick(){
+    var data =  {
+      visible: this.refs.visible.checked,
+      recommended: this.refs.recommend.checked,
+      category_ids: $(this.refs.input).val()
+    }
+    //cl
+    console.log(data);
     //alert(this.refs.recommend.checked);
     $.ajax({
       url: this.props.url + '/change_categories',
       //dataType: 'json',
-
+      data: data,
       type: 'PUT',
-      data: {
-        visible: this.refs.recommend.checked,
-        recommended: this.refs.recommend.checked,
-        category_ids: $(this.refs.input).val()
-      },
       success: function(data) {
         //alert($(this.refs.recommend).val());
       }

@@ -6,10 +6,10 @@ const TagSelect = React.createClass({
       persist: false,
       placeholder: "#Теги",
       create: function(input) {
-          return {
-              value: input,
-              text: input
-          }
+        return {
+          value: input,
+          text: input
+        }
       },
       render: {
         option_create: function(data, escape) {
