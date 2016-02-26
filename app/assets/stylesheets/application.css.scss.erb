@@ -194,12 +194,13 @@
       display: inline-block;
     }
     .btn-st{
-      background-color: #3680be;
+      background-color: #317598;
       outline: none !important;
       border-radius: 2px;
-      border-color: #2F74AE;
+      border-color: #296C8E;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), inset 0 0 1px rgba(255, 255, 255, 0.5);
       &:hover{
-        background-color: #2E77B3;
+        background-color: #1E688E;
       }
     }
     .btn-explore{
@@ -2253,5 +2254,46 @@ iframe{
   cursor: pointer;
   &:hover{
     color: #757A7D;
+  }
+}
+.join-to-us-under-hat{
+  background-color: rgba(255, 255, 255, 0.92);
+  margin-top: 48px;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  div{
+    margin-bottom: 10px;
+  }
+  a{
+    display: inline-block;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    padding: .7em 1.5em;
+    border: 1px solid #175879;
+    border-radius: 5px;
+    outline: none;
+    background: #2E7294 linear-gradient(#2E7295, #3C83A7 80%);
+    box-shadow: 0 6px #297398, 0 3px 15px rgba(0, 0, 0, 0.4), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 3px rgba(255, 255, 255, 0.5);
+    transition: .2s;
+    &:hover{
+      background: #2D7092 linear-gradient(#1B5B7B, #237198 80%);
+      color: white !important;
+    }
+  } 
+  a:active {
+    background: #2D7092 linear-gradient(#1B5B7B, #237198 80%);
+    color: white !important;
+    box-shadow:
+     0 2px rgb(86,38,6),
+     0 1px 6px rgba(0,0,0,.4),
+     inset 0 1px rgba(255,255,255,.3),
+     inset 0 0 3px rgba(255,255,255,.5);
+    -webkit-transform: translate(0, 4px);
+    transform: translate(0, 4px);
   }
 }
