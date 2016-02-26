@@ -41,8 +41,9 @@
     .profile{
       width: 30%;
       .menu-wrap{
-        width: 180px;
-        float: right;
+        width: 100%;
+        float: left;
+        margin-left: 80px;
       }
       div{
         float: left;
@@ -142,6 +143,20 @@
   left: 94px;
 }
 
+.entire-on-hat{
+  button, a{
+    font-size: 11px !important;
+    padding: 3px 6px;
+    img{
+      width: 18px;
+    }
+  }
+  .link-to-reg-vk{
+      margin-left: 0px;
+      background: #2c70b4 !important;
+      border: 1px solid #2c70b4 !important;
+    }
+}
 
 @media screen and (max-width: 735px) {
   .hat-studpad{
@@ -155,6 +170,7 @@
       .profile{
         width: 50%;
         .menu-wrap{
+          margin-left: 50px;
           .is-hidden-if-sm-screen{
             display: none;
           }

@@ -113,12 +113,21 @@
               <img title='Главная' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/home7.png' />
             </div>
           <% end %>
-        <% end %>
-        <%= link_to fresh_path do %>
-          <div class = 'is-hidden-if-sm-screen'>
-              <img title='Новое' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/compass.png' />
+          <%= link_to fresh_path do %>
+            <div class = 'is-hidden-if-sm-screen'>
+                <img title='Новое' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/compass.png' />
+            </div>
+          <% end %>
+        <% else %>
+          <div class = 'entire-on-hat'>
+            <%= link_to "Вход", new_session_path, class: 'btn btn-primary btn-st welcom-main-page'%>
+             •
+            <%= link_to 'auth/vkontakte', class: 'link-to-reg-vk btn btn-st btn-st-contrast' do%>
+              <img src='/images/vk_link_reg1.png'/> Войти через ВК
+            <% end %>
           </div>
         <% end %>
+
         <%= link_to notices_user_path(current_user) do %>
             <div>
                 <img title='Уведомления' data-toggle='tooltip' data-placement='bottom' class='menu-icon' src = '/images/bell.png' />
