@@ -1,3 +1,9 @@
+<% if !current_user %>
+	<div class = 'join-to-us-under-hat'>
+		<div>Это сервис медиаблогов. Делитесь тем, что Вас вдохновляет, и читайте то, что Вам интересно!</div>
+		<%= link_to "Создать медиаблог", new_user_path, class: 'btn btn-st'%>
+	</div>
+<% end %>
 <div class='title-explore'>
   Видео
 </div>
