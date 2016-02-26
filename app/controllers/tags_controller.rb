@@ -10,7 +10,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
-    @posts = Post.joins(:tags).where(posts_tags:{tag: @tag}).limit(params[:count])
+    @posts = Post.joins(:tags).where(posts_tags:{tag: @tag}).order(created_at: :desc).limit(params[:count])
     @posts = @posts.where(city_id: params[:city_id]) if params[:city_id]
     render 'posts/index', formats: :json
   end
