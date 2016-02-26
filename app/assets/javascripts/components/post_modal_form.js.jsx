@@ -257,39 +257,44 @@ const PostModalForm = React.createClass({
   },
   onChangeLink: function(event) {
     url = event.target.value;
-    CL(url);
-    $.ajax({
-      url: '/ajax/page_description',
-      dataType: 'JSON',
-      data: {url: url},
-      cache: false,
-      success: function(data) {
-        var desc = data ? data : {images: []};
-        //data.images ||= [];
-        var post = this.state.post;
-        var self = this;
-        //CL(data.images);
-        $.each(desc.images, function(i, src){
-          var img = new Image();
-          img.onload = function(){
-            CL(src);
-            if (this.height > 100 && this.width > 100)
-              self.appendLinkImage(this.src);
-          };
-          if (src.indexOf('http') > -1 || src.indexOf('//') > -1)
-            img.src = src;
-          else
-            img.src = 'http://'+ data.domain + src;
-        });
-        post.linkdata = desc;
-        this.setState({
-          post: post
-        });
-      }.bind(this),
-      error: function(xhr, status, err) {
-        CE("PostModalForm::onChangeLink", xhr, status, err);
-      }
-    });
+    console.log(url);
+    if (this.state.timeout_id)
+      clearTimeout(this.state.timeout_id);
+    var self = this;
+    var timeout_id = setTimeout(function(){
+      $.ajax({
+        url: '/ajax/page_description',
+        dataType: 'JSON',
+        data: {url: url},
+        cache: false,
+        success: function(data) {
+          var desc = data ? data : {images: []};
+          //data.images ||= [];
+          var post = self.state.post;
+          //CL(data.images);
+          $.each(desc.images, function(i, src){
+            var img = new Image();
+            img.onload = function(){
+              CL(src);
+              if (this.height > 100 && this.width > 100)
+                self.appendLinkImage(this.src);
+            };
+            if (src.indexOf('http') > -1 || src.indexOf('//') > -1)
+              img.src = src;
+            else
+              img.src = 'http://'+ data.domain + src;
+          });
+          post.linkdata = desc;
+          self.setState({
+            post: post
+          });
+        },
+        error: function(xhr, status, err) {
+          CE("PostModalForm::onChangeLink", xhr, status, err);
+        }
+      });
+    }, 1000);
+    this.setState({timeout_id: timeout_id});
   },
   //END*****************************************************HELPERS
   render: function() {
