@@ -1,0 +1,52 @@
+<div class="modal fade" id = "modal-follow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-follow-recommend">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Читайте тех, кто Вам по душе!</h4>
+      </div>
+      <div class="modal-body">
+        <div id="mywrapper">
+          Мы отобрали для Вас самых интересных блогеров. Выберите для себя 5 наиболее понравившихся и начните читать их прямо сейчас!
+        </div>
+        <div class="usual-list border-b-radius">
+          <div class = 'followers'>
+
+            <% @user.all_following.each do |u|%>
+              <div class="follower-user-button">
+                <div class='follower-user'>
+                  <div class="preview-object">
+                      <div class="preview-object-avatar" style="background: url(
+                      <%= u.avatar.thumb %>
+                      ) no-repeat; background-size: cover;">
+                      </div>
+                      <div class="preview-object-info">
+                        <div class="object-text">
+                          <div class="object-maintext">
+                            <%= link_to u.name, user_path(u)%>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="clearboth">
+                  </div>
+                </div>
+                <div class = 'follower-button'>
+                  <%= link_to 'Не читать', unfollow_user_path(u),
+                      method: :post,
+                      class: 'btn btn-primary btn-st btn-reject-follow',
+                      data: { toggle: 'tooltip', placement: 'bottom' } if current_user == @user %>
+                </div>
+              </div>
+              <div class="clearboth">
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="send-avatar" type="submit" class="btn btn-primary btn-st">Готово!</button>
+      </div>
+    </div>
+  </div>
+</div>
