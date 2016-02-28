@@ -105,8 +105,6 @@ const FollowBox = React.createClass({
         </div>
         <div className="modal-body">
           <div id="mywrapper">
-            {(this.state.users == this.props.users).toString()}
-            //{JSON.stringify(this.props.users)}
             Мы отобрали для Вас самых интересных блогеров. Выберите для себя 5 наиболее понравившихся и начните читать их прямо сейчас!
           </div>
           <div className="usual-list border-b-radius">

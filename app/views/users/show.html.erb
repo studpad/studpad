@@ -7,8 +7,9 @@
   <div class = 'main-wall'>
     <div class = 'panel-user'>
       <div class = 'profile-info-follow'>
-        <% if @user.follow_count == 0 %>
-          <% users_data = User.limit(5).map do |u| {id: u.id, avatar: u.avatar.to_s, name: u.name} end %>
+        <%= render partial: 'followers_block' %>
+        <% if @user.follow_count == 0 && current_user == @user%>
+          <% users_data = User.recommended_for(current_user).limit(10).map do |u| {id: u.id, avatar: u.avatar.to_s, name: u.name} end %>
           <%= react_component("FollowBox",
             path: follow_several_user_path(@user),
             users: users_data) %>
