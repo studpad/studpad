@@ -7,10 +7,15 @@
   <div class = 'main-wall'>
     <div class = 'panel-user'>
       <div class = 'profile-info-follow'>
-
-        <%= render partial: 'followers_block' %>
+        <% if @user.follow_count == 0 %>
+          <% users_data = User.limit(5).map do |u| {id: u.id, avatar: u.avatar.to_s, name: u.name} end %>
+          <%= react_component("FollowBox",
+            path: follow_several_user_path(@user),
+            users: users_data) %>
+        <% end %>
       </div>
     </div>
+
     <%= react_component("PostBox",
         posts_url: posts_user_path(@user), show_panel: (current_user == @user) ) %>
   </div>

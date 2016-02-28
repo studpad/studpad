@@ -13,10 +13,10 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       auto_login @user
-      @user.recommended_users.each do |u|
-        @user.follow(u)
-        u.follow(@user)
-      end
+      # @user.recommended_users.each do |u|
+      #   @user.follow(u)
+      #   u.follow(@user)
+      # end
       flash[:success] = 'Успешная регистрация'
       #UserMailer.welcome(@user).deliver_later
 
@@ -69,6 +69,14 @@ class UsersController < ApplicationController
       user: @user,
       who: current_user).destroy_all
     redirect_to :back
+  end
+
+  def follow_several
+    #byebug
+    User.where(id: params[:user_ids]).limit(5).each do |u|
+      @user.follow(u)
+    end
+    render nothing: true
   end
 
   def create_ava

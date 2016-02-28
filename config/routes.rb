@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     member do
       get :favourite
       post :follow
+      post :follow_several
       post :unfollow
       get :posts
       post 'crop'
