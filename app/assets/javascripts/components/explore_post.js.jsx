@@ -36,7 +36,7 @@ const ExplorePost = React.createClass({
       rendered_likes = (
         <span onClick={this.onLikeClick}>
           <img
-            title='Сохранить себе'
+            title='Лайк'
             data-toggle="tooltip"
             data-placement="top"
             src='/images/like_active.png' />
@@ -49,7 +49,7 @@ const ExplorePost = React.createClass({
       rendered_likes = (
         <span onClick={this.onLikeClick}>
           <img
-            title='Сохранить себе'
+            title='Лайк'
             data-toggle="tooltip"
             data-placement="top"
             src='/images/like.png' />
@@ -113,14 +113,28 @@ const ExplorePost = React.createClass({
         {admin_block}
         <footer>
           <div className='delicious-like'>
-            <div>
+            <div className='show-post'>
               <a href={post.url}>
               Просмотреть
               </a>
             </div>
-          <div>
-          {rendered_likes}
-          </div>
+            <div className='action-of-post'>
+              <div>
+                <span>
+                  <img
+                    title='Комментарий'
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    src='/images/comment2.png' />
+                  <span>
+                    12
+                  </span>
+                </span>
+              </div>
+              <div>
+                {rendered_likes}
+              </div>
+            </div>
           </div>
         </footer>
         <div className='clearboth'>
