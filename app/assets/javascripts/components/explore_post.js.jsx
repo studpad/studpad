@@ -21,7 +21,12 @@ const ExplorePost = React.createClass({
         );
         break;
       case PostTypes.photo:
-        image = <img src={post.photos[0] && post.photos[0].url}/>
+        image = (
+          <div>
+            <img src={post.photos[0] && post.photos[0].url}/>
+            <span className="explore-num-photo">3</span>
+          </div>
+        );
         break;
       case PostTypes.video:
         image = (
@@ -52,7 +57,7 @@ const ExplorePost = React.createClass({
             title='Лайк'
             data-toggle="tooltip"
             data-placement="top"
-            src='/images/like.png' />
+            src='/images/like_grey.png' />
           <span>
             {post.likes || ''}
           </span>
@@ -125,7 +130,7 @@ const ExplorePost = React.createClass({
                     title='Комментарий'
                     data-toggle="tooltip"
                     data-placement="top"
-                    src='/images/comment2.png' />
+                    src='/images/comment3.png' />
                   <span>
                     12
                   </span>
