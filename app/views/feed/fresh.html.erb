@@ -5,7 +5,7 @@
 	</div>
 <% end %>
 <div class='title-explore'>
-  Новое <button data-toggle="modal" data-target="#modal-show-post">открыть</button>
+  Новое
 </div>
 <%= render 'partials/city_select' %>
 <div id="grid-gallery" class="grid-gallery">
@@ -13,4 +13,5 @@
     <%= react_component 'Gallery', posts_url: fresh_path + city_params(params[:city_id]) %>
   </div>
 </div>
-<%= render "show_post" %>
+<!-- <button data-toggle="modal" data-target="#modal-show-post">открыть</button> -->
+<%#= render "show_post" %>

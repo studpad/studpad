@@ -93,14 +93,16 @@ var Gallery = React.createClass({
     });
 
     return (
-      <Masonry
-        className={'grid-wrap'}
-        elementType={'div'}
-        options={masonryOptions}
-        disableImagesLoaded={false}
-      >
-        {childElements}
-      </Masonry>
+      <div>
+        <Masonry
+          className={'grid-wrap'}
+          elementType={'div'}
+          options={masonryOptions}
+          disableImagesLoaded={false}
+        >
+          {childElements}
+        </Masonry>
+      </div>
     );
   }
 });
