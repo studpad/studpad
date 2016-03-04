@@ -35,6 +35,51 @@ var Gallery = React.createClass({
       }.bind(this)
     });
   },
+  removeComment: function(post_id, comment_id){
+    CI('PostBox::removeComment', post_id, comment_id);
+    var delete_url;
+    var newPosts = this.state.posts.map(function (n) {
+      if (n.id == post_id){
+        n.comments = n.comments.filter(function(c){
+          if (c.id == comment_id)
+            delete_url = c.url;
+          return c.id != comment_id;
+        });
+      }
+      return n;
+    });
+    this.setState({posts: newPosts});
+    $.ajax({
+      url: delete_url,
+      type: 'DELETE'
+    });
+  },
+  updateComment: function(post_id, comment_id, text){
+    CI('PostBox::removeComment', post_id, comment_id, text);
+    var comment_url;
+    var newPosts = this.state.posts.map(function (n) {
+      if (n.id == post_id){
+        n.comments = n.comments.map(function(c){
+          if (c.id == comment_id){
+            comment_url = c.url;
+            c.text = text;
+          }
+          return c;
+        });
+      }
+      return n;
+    });
+    this.setState({posts: newPosts});
+    $.ajax({
+      url: comment_url,
+      type: 'PATCH',
+      data: {
+        comment : {
+          text: text
+        }
+      },
+    });
+  },
   componentDidMount: function() {
     this.loadPostsFromServer();
     $(window).scroll(function() {
@@ -53,6 +98,13 @@ var Gallery = React.createClass({
   componentWillUnmount: function(){
     $(window).unbind('scroll');
     //clearInterval(intervalID)
+  },
+  showClick(id){
+    console.log('showClick', id);
+    var posts = this.state.posts;
+    var currentPost = $.grep(posts, function(e){ return e.id == id; });
+    currentPost = currentPost[0];
+    this.setState({current_post: currentPost});
   },
   like_post: function(id){
     var posts = this.state.posts;
@@ -81,11 +133,46 @@ var Gallery = React.createClass({
       }.bind(this)
     });
   },
+  hide: function(){
+    this.setState({current_post: undefined})
+  },
+  createComment: function(post_id, text){
+    CI('PostBox::createComment', post_id, text);
+    var newPosts = this.state.posts.map(function (n) {
+      if (n.id == post_id){
+        n.comments.unshift({
+          id: Date.now(),
+          text: text,
+          author: currentUser
+        })
+      }
+      return n;
+    });
+    this.setState({posts: newPosts});
+    $.ajax({
+      url: '/comments',
+      type: 'POST',
+      data: {
+        comment: {
+          text: text,
+          commentable_id: post_id,
+          commentable_type: 'Post'
+        }
+      },
+      success: function(data) {
+        this.loadPostsFromServer();
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
   render: function () {
     var self = this;
     var childElements = this.state.posts.map(function(post, i){
       return (
         <ExplorePost
+          showClick={self.showClick}
           like_post={self.like_post}
           key={i}
           post={post}/>
@@ -94,6 +181,14 @@ var Gallery = React.createClass({
 
     return (
       <div>
+        <ShowExplorePost
+          createComment={this.createComment}
+          updateComment={this.updateComment}
+          removeComment={this.removeComment}
+          dialogClassName='modal-dialog-new-post my-setting-modal-dialog'
+          post={this.state.current_post}
+          onHide={this.hide}
+        />
         <Masonry
           className={'grid-wrap'}
           elementType={'div'}

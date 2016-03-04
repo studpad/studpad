@@ -300,7 +300,6 @@ const PostModalForm = React.createClass({
   render: function() {
     return (
     <ReactBootstrap.Modal
-      dialogClassName='modal-dialog-new-post my-setting-modal-dialog'
       onHide={this.hide}
       backdrop='static'
       show={this.state.visible}>

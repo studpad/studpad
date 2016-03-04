@@ -2,6 +2,10 @@ const ExplorePost = React.createClass({
   onLikeClick(){
     this.props.like_post(this.props.post.id);
   },
+  onShowClick(){
+    //console.log('showClick')
+    this.props.showClick(this.props.post.id);
+  },
   render(){
     post = this.props.post;
     var image, link_rendered;
@@ -27,7 +31,7 @@ const ExplorePost = React.createClass({
         image = (
           <div>
             <img src={post.photos[0] && post.photos[0].url}/>
-            <span className="explore-num-photo">{images_count+photo_count}</span>
+            <span className="explore-num-photo">{images_count + photo_count}</span>
           </div>
         );
         break;
@@ -122,7 +126,7 @@ const ExplorePost = React.createClass({
         <footer>
           <div className='delicious-like'>
             <div className='show-post'>
-              <a href={post.url}>
+              <a onClick={this.onShowClick}>
               Просмотреть
               </a>
             </div>
@@ -135,7 +139,7 @@ const ExplorePost = React.createClass({
                     data-placement="top"
                     src='/images/comment3.png' />
                   <span>
-                    12
+                    {post.comments.length || ''}
                   </span>
                 </span>
               </div>
