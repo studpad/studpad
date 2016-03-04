@@ -3,7 +3,7 @@ var ShowExplorePost = React.createClass({
     this.props.removeComment(this.props.post.id, comment_id);
   },
   likeClick(){
-    console.log('do nothing');
+    this.props.likePost(this.props.post.id);
   },
   createComment(text){
     this.props.createComment(this.props.post.id, text);
@@ -19,7 +19,26 @@ var ShowExplorePost = React.createClass({
     var tags = this.props.post.tags.map(function(name, i){
       return <a key={i} href={'/explore?tag_name=' + name}>{'#'+name}</a>
     });
-    var main_content;
+    if (tags.length > 0)
+      var tags_block = (
+        <div className='modal-tags'>
+          <h4>Теги</h4>
+          <p className="tags-sp">
+            {tags}
+          </p>
+        </div>
+      );
+    var classname, classname_img;
+    var like_image_path;
+    if (this.props.post.current_like){
+      like_image_path = '/images/like_active.png';
+      classname = 'post-like post-like-active';
+      if (this.props.post.current_like_just)
+        classname_img += ' post-like-active-animate';
+    } else {
+      like_image_path = '/images/like.png';
+      classname = 'post-like';
+    }
     //main_content =
     return (
       <ReactBootstrap.Modal
@@ -48,6 +67,7 @@ var ShowExplorePost = React.createClass({
                 text_elements={post.text_elements}/>
 
               <PostCommentBox
+                hide_like={true}
                 likeClick={this.likeClick}
                 basketClick={this.basketClick}
                 createComment={this.createComment}
@@ -64,20 +84,15 @@ var ShowExplorePost = React.createClass({
             <div className='modal-atributes'>
               <div className='likes-and-views'>
                 <ul>
-                  <li className='likes'>
-                    <img src='/images/like_grey.png' /> <span>{post.likes || ''}</span>
+                  <li className='likes' onClick={this.likeClick}>
+                    <img src={like_image_path} className={classname_img}/> <span>{post.likes || ''}</span>
                   </li>
                   {/*<li className='views'>
                                       <img src='/images/views.png' /> <span>74563</span>
                                     </li>*/}
                 </ul>
               </div>
-              <div className='modal-tags'>
-                <h4>Теги</h4>
-                <p className="tags-sp">
-                  {tags}
-                </p>
-              </div>
+              {tags_block}
             </div>
           </div>
           <div className="modal-footer">

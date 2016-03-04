@@ -28,10 +28,13 @@ const ExplorePost = React.createClass({
         var photo_count = post.photos.length;
         var images_count = $.grep(post.text_elements, function(e){return e.type == ElementTypes.image});
         images_count = images_count.length;
+        var all_images_count;
+        if (images_count + photo_count >= 1)
+          all_images_count = <span className="explore-num-photo">{images_count + photo_count}</span>
         image = (
           <div>
             <img src={post.photos[0] && post.photos[0].url}/>
-            <span className="explore-num-photo">{images_count + photo_count}</span>
+            {all_images_count}
           </div>
         );
         break;

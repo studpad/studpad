@@ -101,10 +101,7 @@ var Gallery = React.createClass({
   },
   showClick(id){
     console.log('showClick', id);
-    var posts = this.state.posts;
-    var currentPost = $.grep(posts, function(e){ return e.id == id; });
-    currentPost = currentPost[0];
-    this.setState({current_post: currentPost});
+    this.setState({current_post_id: id});
   },
   like_post: function(id){
     var posts = this.state.posts;
@@ -178,15 +175,20 @@ var Gallery = React.createClass({
           post={post}/>
       );
     });
-
+    var current_post_id = this.state.current_post_id;
+    if (current_post_id){
+      var currentPost = $.grep(this.state.posts, function(e){ return e.id == current_post_id; });
+      currentPost = currentPost[0];
+    }
     return (
       <div>
         <ShowExplorePost
+          likePost={this.like_post}
           createComment={this.createComment}
           updateComment={this.updateComment}
           removeComment={this.removeComment}
           dialogClassName='modal-dialog-new-post my-setting-modal-dialog'
-          post={this.state.current_post}
+          post={currentPost}
           onHide={this.hide}
         />
         <Masonry

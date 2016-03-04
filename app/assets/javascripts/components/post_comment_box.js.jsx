@@ -71,6 +71,23 @@ const PostCommentBox = React.createClass({
         ref='ceditable'
         onChange={this.handleChange} />
     );
+    if (!this.props.hide_like)
+      var like_box = (
+        <div className='wrap-like-post-footer'>
+          <div>
+            <span
+              className={classname}
+              onClick={this.props.likeClick}>
+              <img
+                src={like_image_path}
+                className={classname_img}/>
+              <span>
+                {likes_count}
+              </span>
+            </span>
+          </div>
+        </div>
+      );
     return (
       <div>
         <div className='wrap-post-comments'>
@@ -78,20 +95,7 @@ const PostCommentBox = React.createClass({
             <div className='wrap-write-comment-post-footer'>
               {comment_form}
             </div>
-            <div className='wrap-like-post-footer'>
-              <div>
-                <span
-                  className={classname}
-                  onClick={this.props.likeClick}>
-                  <img
-                    src={like_image_path}
-                    className={classname_img}/>
-                  <span>
-                    {likes_count}
-                  </span>
-                </span>
-              </div>
-            </div>
+            {like_box}
           </div>
           <div className='clearboth'>
           </div>
