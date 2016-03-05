@@ -531,7 +531,7 @@ span.nav-close:before {
 .modal-dialog-show-post{
 	width: 65% !important;
 	max-width: 980px;
-	min-width: 564px;
+	min-width: 606px;
 	.modal-post-content{
 		img, iframe{
 			border-radius: 3px;
@@ -539,6 +539,11 @@ span.nav-close:before {
 	    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 	    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 		}
+		.text-unit-post-comments{
+    	img{
+    		box-shadow: none !important;
+    	}
+    }
 	}
 	.likes{
 			img{

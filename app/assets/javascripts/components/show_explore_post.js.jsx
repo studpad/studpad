@@ -36,7 +36,7 @@ var ShowExplorePost = React.createClass({
       if (this.props.post.current_like_just)
         classname_img += ' post-like-active-animate';
     } else {
-      like_image_path = '/images/like.png';
+      like_image_path = '/images/like_grey.png';
       classname = 'post-like';
     }
     //main_content =

@@ -533,11 +533,21 @@
 .text-unit-post-comments{
   padding: 10px;
   margin-top: 3px;
-  background-color: #EAEFF3;
   border-radius: 2px;
-  border: 1px solid #BDC5D0;
   color: #383838;
   white-space: pre-line;
+  border: none !important;
+  border-bottom: none! important;
+	overflow: auto;
+	outline: none;
+	margin-top: 0px !important;
+	font-size: 13px !important;
+	background-color: white;
+	padding: 0px !important;
+	img{
+		width: 22px;
+		
+	}
 }
 .post-comments{
 	margin-top: 15px;
@@ -600,8 +610,8 @@
 .emoji-wysiwyg-editor img{
 	margin-left: 2px !important;
 	margin-right: 2px !important;
-	width: 28px !important;
-	height: 28px !important;
+	width: 22px !important;
+	height: 22px !important;
 }
 .emoji-button{
 	font-weight: 500;
@@ -855,5 +865,15 @@
 }
 .wrap-select-city .selectize-control.single .selectize-input:after{
 	display: none !important;
+}
+.give-feedback-comment{
+	font-size: 11px;
+	margin-top: 3px;
+	span{
+		cursor: pointer;
+		&:hover{
+			color: #3680be;
+		}
+	}
 }
     

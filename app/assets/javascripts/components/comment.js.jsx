@@ -95,8 +95,9 @@ var Comment = React.createClass({
             </span>
             {menu}
           </div>
-          <div className='text-unit-post-comments emoji-wysiwyg-editor' ref='ceditable'
+          <div className='text-unit-post-comments' ref='ceditable'
           dangerouslySetInnerHTML={{__html: final_text}}/>
+          <div className='give-feedback-comment'><span>Ответить</span></div>
         </div>
       );
     }
@@ -165,7 +166,7 @@ createIcon = function(emoji) {
   if (path.length && path.charAt(path.length - 1) !== '/') {
     path += '/';
   }
-  return '<img src="' + path + filename + '">';
+  return '<img class="img-emoji" src="' + path + filename + '">';
 };
 
   // <div className="unit-post-comments">
