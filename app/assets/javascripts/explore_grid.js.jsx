@@ -99,7 +99,7 @@ var Gallery = React.createClass({
     $(window).unbind('scroll');
     //clearInterval(intervalID)
   },
-  showClick(id){
+  showClick: function(id){
     console.log('showClick', id);
     this.setState({current_post_id: id});
   },
