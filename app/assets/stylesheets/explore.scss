@@ -160,6 +160,8 @@
 	footer, .main-contain{
 		padding-left: 10px;
 		padding-right: 10px;
+		max-height: 180px;
+		overflow-y: hidden; 
 	}
 	footer{
 		padding-bottom: 10px;
@@ -527,9 +529,26 @@ span.nav-close:before {
 
 
 .modal-dialog-show-post{
-	width: 68% !important;
+	width: 65% !important;
 	max-width: 980px;
 	min-width: 564px;
+	.modal-post-content{
+		img, iframe{
+			border-radius: 3px;
+	  	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+		}
+	}
+	.usual-post-text{
+		padding: 0px !important; 
+	}
+	.wrap-post-comments{
+		padding: 10px 0px !important;
+		.wrap-write-comment-post-footer{
+			width: 100%;
+		}
+	}
 	.modal-content{
 		padding: 40px 95px;
 		border: none !important;
@@ -608,7 +627,7 @@ span.nav-close:before {
 	}
 }
 .modal-atributes{
-	width: 38%;
+	width: 35%;
 	float: left;
 	padding-left: 30px;
 	ul{

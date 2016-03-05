@@ -546,6 +546,9 @@
 	margin-top: 4px;
 	cursor: pointer;
 }
+.emoji-menu{
+	z-index: 9999 !important;
+}
 .emotion{
 	margin: 0 4px;
 	width: 32px;
