@@ -160,8 +160,8 @@
 	footer, .main-contain{
 		padding-left: 10px;
 		padding-right: 10px;
-		max-height: 180px;
-		overflow-y: hidden; 
+		/*max-height: 180px;
+		overflow-y: hidden;*/
 	}
 	footer{
 		padding-bottom: 10px;
@@ -540,6 +540,11 @@ span.nav-close:before {
 	    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 		}
 	}
+	.likes{
+			img{
+				cursor: pointer;
+			}
+		}
 	.usual-post-text{
 		padding: 0px !important; 
 	}
