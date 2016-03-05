@@ -11,9 +11,9 @@ const PostAuthorView = React.createClass({
   //END*****************************************************DECLARE
   render: function() {
     if (this.props.can_edit)
-      var edit_button = <li><a onClick={this.props.editClick}>Редактировать</a></li>;
+      var edit_button = <li><a href="javascript:void(0);" onClick={this.props.editClick}>Редактировать</a></li>;
     if (this.props.can_remove)
-      var remove_button = <li><a onClick={this.props.removeClick}>Удалить</a></li>;
+      var remove_button = <li><a href="javascript:void(0);" onClick={this.props.removeClick}>Удалить</a></li>;
     var manage_block = (
       <div className = 'btn-group'>
         <span className = 'sign-dots-menu' data-toggle="dropdown">•••</span>
