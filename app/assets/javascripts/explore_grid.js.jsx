@@ -131,7 +131,7 @@ var Gallery = React.createClass({
     });
   },
   hide: function(){
-    this.setState({current_post: undefined})
+    this.setState({current_post_id: undefined})
   },
   createComment: function(post_id, text){
     CI('PostBox::createComment', post_id, text);

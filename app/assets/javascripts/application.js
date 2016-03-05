@@ -38,9 +38,7 @@
 //= require statistics
 //= require explore
 //= require imagesloaded.pkgd.min
-//= require masonry.pkgd.min
 //= require classie
-//= require cbpGridGallery
 
 
 Dropzone.autoDiscover = false;

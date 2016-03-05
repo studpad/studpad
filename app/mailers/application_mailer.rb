@@ -4,7 +4,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def default_url_options
     if Rails.env.production?
-      { :host => "www.studpad.ru" }
+      { :host => "studpad.ru" }
     else
       { :host => "localhost:3000" }
     end

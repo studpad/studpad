@@ -43,7 +43,7 @@ var ShowExplorePost = React.createClass({
     return (
       <ReactBootstrap.Modal
         dialogClassName='modal-dialog modal-dialog-show-post'
-        show={true}
+        show={Boolean(this.props.post)}
         onHide={this.props.onHide}>
           <div className="modal-header">
             <div className='post-autor'>
@@ -54,7 +54,7 @@ var ShowExplorePost = React.createClass({
                 </div>
                 <div className='post-autor-info'>
                   <h4 className="modal-title" id="myModalLabel">{author.name}</h4>
-                  <div>{post.city_name}, {post.time}</div>
+                  <div>{post.city_name} {post.time}</div>
                 </div>
               </a>
             </div>
