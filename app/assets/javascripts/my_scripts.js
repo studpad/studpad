@@ -178,11 +178,11 @@ function main(){
   $('.dont-hide').click(function(){
     $('.main-categories').addClass('dont-hide-menu');
   });
-  /*$(document).click( function(event){
+  $(document).click( function(event){
     if($(event.target).closest(".main-categories").length) return;
     $(".main-categories").removeClass("dont-hide-menu");
     event.stopPropagation();
-  });*/
+  });
 
   /*$(".fancybox-thumb").fancybox({
     parent: 'body',
