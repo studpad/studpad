@@ -511,7 +511,10 @@
 		}
 	}
 }
-.unit-post-comments .post-autor-data{
+.unit-post-comments{
+	margin-top: 3px;
+}
+ .post-autor-data{
 	font-size: 10px;
 }
 .unit-post-comments .preview-object-info-mini{
@@ -525,6 +528,7 @@
 .unit-post-comments .sign-dots-menu{
 	float: right;
 	font-size: 14px;
+	margin-right: 13px;
 }
 .unit-post-comments .dropdown-menu{
 	top: 17px;
@@ -546,7 +550,7 @@
 	padding: 0px !important;
 	img{
 		width: 22px;
-		
+
 	}
 }
 .post-comments{

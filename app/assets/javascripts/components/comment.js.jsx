@@ -97,7 +97,6 @@ var Comment = React.createClass({
           </div>
           <div className='text-unit-post-comments' ref='ceditable'
           dangerouslySetInnerHTML={{__html: final_text}}/>
-          <div className='give-feedback-comment'><span>Ответить</span></div>
         </div>
       );
     }
