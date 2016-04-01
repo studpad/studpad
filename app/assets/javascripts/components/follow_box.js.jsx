@@ -41,7 +41,7 @@ const FollowBox = React.createClass({
     var checked_count = $.grep(this.state.users, function(user){
         return user.checked;
       }).length;
-    disabled = false;
+    disabled = checked_count < 1;
     var users_list = this.state.users.map(function(user){
       var button, disabled;
       if (user.checked) {
