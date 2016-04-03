@@ -129,6 +129,7 @@ var PhotosBox = React.createClass({
                   Добавить фото из Интернета
                 </div>
               </div>
+              <div className='clearboth'></div>
             </div>
           </div>
       );
