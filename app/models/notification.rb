@@ -4,6 +4,10 @@ class Notification < ActiveRecord::Base
   belongs_to :who, class_name: 'User'
   enum mode: { like: 0, follow: 1, basket: 2, comment: 3 }
 
+  def user
+    User.unscoped { super }
+  end
+
   def image_path
     case mode
     when 'like'    then '/images/like_active.png'

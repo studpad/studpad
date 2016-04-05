@@ -11,7 +11,6 @@
     <div class="usual-list border-b-radius">
       <div class = 'followers'>
         <% @user.notifications.order(created_at: :desc).limit(30).each do |n| %>
-        <% if n.user_id && n.who_id %>
           <div class = 'follower'>
             <div class='follower-user-button'>
               <div class='follower-user'>
@@ -57,7 +56,6 @@
             <div class="clearboth">
             </div>
           </div>
-        <% end %>
         <% end %>
         <% @user.notifications.where(viewed: false).update_all(viewed: true) %>
         <!-- <div class = 'follower'>
