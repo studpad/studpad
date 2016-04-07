@@ -16,43 +16,33 @@
           <button type="button" class="btn btn-default dropdown-toggle dont-hide" data-toggle="dropdown"><span class='choose-category'></span></button>
           <div class="dropdown-menu main-categories" role="menu">
             <% b, a = Category.all.to_a.partition.with_index{ |c, i| i < 8 } %>
-            <div class='pole'>
-              <p><%= link_to 'Популярное', popular_path %></p>
-              <p><%= link_to 'Новое', fresh_path %></p>
-              <p><%= link_to 'Наш выбор', recommend_path %></p>
-              <p><%= link_to 'Фото', photos_path %></p>
-              <p><%= link_to 'Видео', videos_path %></p>
-              <% b.each do |c| %>
-                <p>
-                <%= link_to c.name, category_name_path(c.name) %>
-                </p>
-              <% end %>
-              <!--<p>Женская мода</p>
-              <p>Мужская мода</p>
-              <p>Путешествия</p>
-              <p>Обучение</p>
-              <p>Дети</p>
-              <p>Красота и прически</p> -->
-            </div>
-            <div class='pole'>
-              <% a.each do |c| %>
-                <p>
-                <%= link_to c.name, category_name_path(c.name) %>
-                </p>
-              <% end %>
-              <!-- <p>Животные</p>
-              <p>История</p>
-              <p>Здоровье и фитнес</p>
-              <p>Еда и напитки</p>
-              <p>Сделай сам</p>
-              <p>Кино, музыка, книги</p>
-              <p>Уютный дом</p>
-              <p>Спорт</p>
-              <p>Подарки</p>
-              <p>Татуировки</p>
-              <p>SWAG</p>
-              <p>Юмор</p> -->
-            </div>
+              <div class='pole'>
+                <p><%= link_to 'Популярное', popular_path %></p>
+                <p><%= link_to 'Новое', fresh_path %></p>
+                <p><%= link_to 'Наш выбор', recommend_path %></p>
+                <p><%= link_to 'Фото', photos_path %></p>
+                <p><%= link_to 'Видео', videos_path %></p>
+                <% b.each do |c| %>
+                  <p>
+                    <%= link_to c.name, category_name_path(c.name) %>
+                  </p>
+                <% end %>
+              </div>
+              <% d, f = a.partition.with_index{ |c, i| i < (a.length)/2 } %>
+              <div class='pole'>
+                <% d.each do |c| %>
+                  <p>
+                    <%= link_to c.name, category_name_path(c.name) %>
+                  </p>
+                <% end %>
+              </div>
+              <div class='pole'>
+                <% f.each do |c| %>
+                  <p>
+                    <%= link_to c.name, category_name_path(c.name) %>
+                  </p>
+                <% end %>
+              </div>
           </div>
         </div>
       </div>
