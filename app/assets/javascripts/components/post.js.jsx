@@ -103,7 +103,7 @@ const PostTextView = React.createClass({
   //END*****************************************************DECLARE
   render: function() {
     var rendered_elements = this.props.text_elements.map(function(e, i){
-      return <PostTextElementView key={i} element={e} />
+      return <PostTextElementView key={i} element={e}/>
     })
     return (
       <div className='usual-post-contant'>
@@ -121,15 +121,21 @@ const PostTextElementView = React.createClass({
       type: React.PropTypes.string.isRequired
     })
   },
+  componentDidMount: function(){
+    if ( $('.usual-post-text-post-id-' + this.props.element.id).height() < 201){
+      $('.usual-post-text-post-id-' + this.props.element.id).css('font-size', '18px');
+    }
+  },
   //END*****************************************************DECLARE
   render: function() {
     switch (this.props.element.type) {
       case ElementTypes.text:
         var text = sanitizeHtml(this.props.element.text, {allowedTags: ['div', 'br']});
+        var class_text = 'usual-post-text-text usual-post-text-post-id-' + this.props.element.id
         return (
           <div className = 'usual-post-text action-create-element-post'>
             <div
-              className = 'usual-post-text-text'
+              className = {class_text}
               dangerouslySetInnerHTML={{__html: text}}/>
           </div>
         );
